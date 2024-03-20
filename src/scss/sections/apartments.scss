@@ -1,0 +1,226 @@
+.apartment-item {
+  position: relative;
+  --icon-size: 18px;
+  --pad-neg: -19px;
+  padding: 19px;
+  border: 1px solid cl(blck, 0.1);
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  overflow: hidden;
+
+  @media (max-width: $md) {
+    --icon-size: 14px;
+    --pad-neg: -15px;
+    position: relative;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    @media (max-width: $md) {
+      flex-direction: column-reverse;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__statuses {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @media (max-width: $md) {
+      gap: 4px;
+    }
+  }
+
+  &__address {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: cl(blck, 0.5);
+    margin-bottom: 18px;
+
+    svg {
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+
+    @media (max-width: $md) {
+      font-size: 12px;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+  }
+
+  &__main {
+    --height: 352px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+    gap: 18px;
+    min-height: var(--height);
+
+    @media (max-width: $md) {
+      margin-bottom: 20px;
+      --height: 250px;
+    }
+  }
+
+  &__floor {
+    display: inline-block;
+    position: absolute;
+    bottom: 410px;
+    left: 0;
+    padding: 10px 0 0 18px;
+    border-top: 1px solid cl(blck, 0.1);
+    color: cl(blck, 0.5);
+    font-size: 24px;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    @media (max-width: $md) {
+      padding: 3px 19px 0 0;
+      font-size: 12px;
+      position: absolute;
+      inset: 60px 0 auto auto;
+    }
+  }
+
+  &__title {
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--color-primary);
+    line-height: 1;
+
+    sup {
+      font-size: 20px;
+    }
+
+    @media (max-width: $md) {
+      font-size: 28px;
+
+      sup {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    inset: auto auto 0 0;
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--color-whte);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+
+    @media (max-width: $md) {
+      --size: 70px;
+      border-radius: 6px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__img {
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: stretch;
+    margin: auto var(--pad-neg) var(--pad-neg);
+    border-top: 1px solid cl(blck, 0.1);
+
+    @media (max-width: $md) {
+      flex-wrap: wrap;
+    }
+
+    &-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+
+      @media (max-width: $md) {
+        width: 50%;
+        min-height: 56px;
+        font-size: 14px;
+      }
+
+      &--light {
+        opacity: 0.5;
+      }
+
+      + .apartment-item__details-item {
+        border-left: 1px solid cl(blck, 0.1);
+      }
+    }
+  }
+
+  &__fav {
+    margin: 0 0 0 auto;
+    color: var(--color-primary);
+
+    @media (max-width: $md) {
+      border-top: 1px solid cl(blck, 0.1);
+    }
+  }
+
+  &__add {
+    background-color: var(--color-primary);
+    color: var(--color-whte);
+  }
+
+  &__fav,
+  &__add {
+    width: 100px;
+    height: 88px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid cl(blck, 0.1);
+    flex-shrink: 0;
+
+    @media (max-width: $md) {
+      width: 50%;
+      height: 56px;
+      border-left: 0;
+    }
+  }
+}
+
+.apartments {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    @media(max-width: $sm) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"Главная" })
+
+<body data-gsap>
+  <div class="wrapper" >
+    @@include('html/_header.htm',{})
+    <main class="page">
+      @@include('html/main-page/_hero.htm',{})
+      <div class="content">
+        @@include('html/main-page/_projects.htm',{})
+        @@include('html/main-page/_advantages.htm',{})
+        @@include('html/main-page/_stocks.htm',{})
+        @@include('html/main-page/_types.htm',{})
+        @@include('html/main-page/_services.htm',{})
+        @@include('html/main-page/_programs.htm',{})
+        @@include('html/main-page/_s-about.htm',{})
+        @@include('html/main-page/_history.htm',{})
+      </div>
+    </main>
+    @@include('html/_footer.htm',{})
+    @@include('html/_filters.htm',{})
+    @@include('html/_popup.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+//Кнопка
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 40px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: var(--color-whte);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%; /* 21.6px */
+  letter-spacing: -0.36px;
+  transition: .25s;
+  cursor: pointer;
+
+  svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    fill: var(--color-whte);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: $md) {
+    padding: 13px 23px;
+    font-size: 14px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--color-primary-dark);
+      transition: .25s;
+    }
+  }
+
+  &--circle {
+    width: 60px;
+    height: 60px;
+    min-height: 60px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--s {
+    padding: 11px 19px;
+    font-size: 14px;
+
+    @media(max-width: $sm) {
+      font-size: 12px;
+    }
+  }
+
+  &--icon {
+    padding-right: 27px;
+
+    @media (max-width: $md)  {
+      padding-right: 18px;
+    }
+  }
+
+  &--white {
+    background-color: var(--color-whte);
+    color: var(--color-blck);
+
+    svg {
+      fill: var(--color-blck);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--color-whte);
+        color: var(--color-primary);
+
+        svg {
+          fill: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid cl(blck, 0.1);
+    color: var(--color-blck);
+
+   
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--color-blck);
+        color: var(--color-whte);
+      }
+    }
+  }
+
+  &--greylight {
+    background-color: var(--color-grey-light);
+    border-color: var(--color-grey-light);
+    color: var(--color-blck);
+
+    svg {
+      fill: var(--color-blck);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-whte);
+
+        svg {
+          fill: var(--color-whte);
+        }
+      }
+    }
+  }
+}
+
+// Круглая кнопка
+
+.btn-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid cl(whte, 0.4);
+  border-radius: 50%;
+  outline: none;
+
+  @media (max-width: $sm) {
+    width: 45px;
+    height: 45px;
+  }
+}

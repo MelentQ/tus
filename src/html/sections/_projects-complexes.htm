@@ -1,0 +1,385 @@
+<section class="breadcrumbs">
+  <div class="breadcrumbs__container">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Главная</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Наши проекты</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="projects section">
+  <div class="projects__container">
+    <div class="projects__head">
+      <h1 class="projects__title section__title h2">Наши проекты</h1>
+      <form action="#" class="projects__filters">
+        <div class="projects__filters-top">
+          <div class="filter-item">
+            <div class="filter-item__label">
+              Готовый вариант
+            </div>
+            <div class="filter-item__select">
+              <select name="filter-variant" id="filter-variant" class="filter-select">
+                <option value="">Выбрать</option>
+                <option value="1">Вариант 1</option>
+                <option value="2">Вариант 2</option>
+                <option value="3">Вариант 3</option>
+                <option value="4">Вариант 4</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-item">
+            <div class="filter-item__label">
+              Город
+            </div>
+            <div class="filter-item__select">
+              <select name="filter-city" id="filter-city" class="filter-select">
+                <option value="">Выбрать</option>
+                <option value="1">Вариант 1</option>
+                <option value="2">Вариант 2</option>
+                <option value="3">Вариант 3</option>
+                <option value="4">Вариант 4</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-item">
+            <div class="filter-item__label">
+              Количество комнат
+            </div>
+            <div class="filter-item__radio">
+              <label for="filter-rooms-studio" class="filter-item__radio-btn">
+                <input type="checkbox" name="filter-rooms" id="filter-rooms-studio">
+                <span>Студия</span>
+              </label>
+              <label for="filter-rooms-1" class="filter-item__radio-btn">
+                <input type="checkbox" name="filter-rooms" id="filter-rooms-1">
+                <span>1</span>
+              </label>
+              <label for="filter-rooms-2" class="filter-item__radio-btn">
+                <input type="checkbox" name="filter-rooms" id="filter-rooms-2">
+                <span>2</span>
+              </label>
+              <label for="filter-rooms-3" class="filter-item__radio-btn">
+                <input type="checkbox" name="filter-rooms" id="filter-rooms-3">
+                <span>3</span>
+              </label>
+              <label for="filter-rooms-4" class="filter-item__radio-btn">
+                <input type="checkbox" name="filter-rooms" id="filter-rooms-4">
+                <span>4</span>
+              </label>
+            </div>
+          </div>
+          <div class="filter-item">
+            <div class="filter-item__label">
+              Стоимость
+            </div>
+            <div class="filter-item__range">
+              <div class="filter-item__inputs">
+                <input type="number" class="filter-item__input filter-item__input--left js-range-input-min"
+                  placeholder="от">
+                <input type="number" class="filter-item__input filter-item__input--right js-range-input-max"
+                  placeholder="до">
+              </div>
+              <div class="range-slider" data-min="0" data-max="100"></div>
+            </div>
+          </div>
+          <div class="filter-item">
+            <div class="filter-item__label">
+              Площадь
+            </div>
+            <div class="filter-item__range">
+              <div class="filter-item__inputs">
+                <input type="number" class="filter-item__input filter-item__input--left js-range-input-min"
+                  placeholder="от">
+                <input type="number" class="filter-item__input filter-item__input--right js-range-input-max"
+                  placeholder="до">
+              </div>
+              <div class="range-slider" data-min="0" data-max="10000"></div>
+            </div>
+          </div>
+          <a href="#" class="filter-item-result">63 объекта</a>
+        </div>
+        <div class="projects__filters-controls">
+          <button type="button" class="projects__filters-all" data-filter="open">Все фильтры</button>
+          <button type="reset" class="projects__filters-reset">
+            Сбросить фильтры
+            <svg width="24" height="24">
+              <use xlink:href="../img/icons/icons.svg#cross"></use>
+            </svg>
+          </button>
+          <div class="projects__switcher">
+            <button type="button" class="projects__switcher-btn reset-btn is-active">
+              <svg width="18" height="18">
+                <use xlink:href="../img/icons/icons.svg#coubs"></use>
+              </svg>
+            </button>
+            <button type="button" class="projects__switcher-btn reset-btn">
+              <svg width="18" height="18">
+                <use xlink:href="../img/icons/icons.svg#pin"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="projects__list">
+      <div class="projects-item">
+        <div class="projects-item__preview">
+          <div class="projects-item__img">
+            <img src="../img/projects/project-01.jpg" alt="">
+          </div>
+          <div class="projects-item__developer">
+            <img src="../img/projects/project-developer-01.svg" alt="">
+          </div>
+        </div>
+        <div class="projects-item__info">
+          <div class="projects-item__main">
+            <div class="projects-item__top">
+              <address class="projects-item__address">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#pin"></use>
+                </svg>
+                г. Белгород, ул. Щорса, д. 37в
+              </address>
+              <div class="projects-item__status">
+                <div class="common-status" style="--color-status: #FFC61A;"></div>
+                Старт продаж
+              </div>
+            </div>
+            <a href="#" class="projects-item__name h4">ЖК Привилегия</a>
+            <div class="projects-item__details">
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#bus"></use>
+                </svg>
+                м. Аметьево
+              </div>
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#people"></use>
+                </svg>
+                3 мин.
+              </div>
+            </div>
+            <div class="projects-item__desc">
+              «Привилегия» - это новый строящийся жилой комплекс на улице
+              Щорса, в двух шагах от «Белгород Арены», в шаговой
+              доступности от школ и детских садов, поликлиник и больницы,
+              парков и скверов. В 5 минутах езды до самого центра.
+              Уникальная архитектура фасадов подчеркивает стиль и динамику
+              современного дома, входы в подъезд, холлы и коридоры
+              оформлены как в лучших резиденциях.
+            </div>
+          </div>
+          <div class="projects-item__panel">
+            <div class="projects-item__panel-info">от 10,4 млн. ₽</div>
+            <div class="projects-item__panel-info">180 квартир</div>
+            <div class="projects-item__panel-info">3 кв. 2024 г.</div>
+            <button type="button" class="projects-item__panel-fav">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#fav"></use>
+              </svg>
+            </button>
+            <a href="#" class="projects-item__panel-add">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="projects-item ">
+        <div class="projects-item__preview">
+          <div class="projects-item__img">
+            <img src="../img/projects/project-02.jpg" alt="">
+          </div>
+          <div class="projects-item__developer">
+            <img src="../img/projects/project-developer-02.svg" alt="">
+          </div>
+        </div>
+        <div class="projects-item__info">
+          <div class="projects-item__main">
+            <div class="projects-item__top">
+              <address class="projects-item__address">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#pin"></use>
+                </svg>
+                г. Белгород, ул. Попова, д. 14
+              </address>
+              <div class="projects-item__status">
+                <div class="common-status" style="--color-status: #32CE18;"></div>
+                Идут продажи
+              </div>
+            </div>
+            <a href="#" class="projects-item__name h4">ЖК Центр Парк</a>
+            <div class="projects-item__details">
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#bus"></use>
+                </svg>
+                м. Горки
+              </div>
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#people"></use>
+                </svg>
+                11 мин.
+              </div>
+            </div>
+            <div class="projects-item__desc">
+              Дом является частью ЖК «Центр Парк». ЖК возводится в центре Белгорода
+              в границах Белгородского пр-та, улиц Попова и Островского, Центрального
+              парка им. Ленина. В распоряжении жителей детские и спортивные площадки,
+              новый детский сад на территории, наземные и подземные паркинги, прекрасная
+              транспортная доступность.
+            </div>
+          </div>
+          <div class="projects-item__panel">
+            <div class="projects-item__panel-info">от 10,4 млн. ₽</div>
+            <div class="projects-item__panel-info">180 квартир</div>
+            <div class="projects-item__panel-info">3 кв. 2024 г.</div>
+            <button type="button" class="projects-item__panel-fav">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#fav"></use>
+              </svg>
+            </button>
+            <a href="#" class="projects-item__panel-add">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="projects-item ">
+        <div class="projects-item__preview">
+          <div class="projects-item__img">
+            <img src="../img/projects/project-02.jpg" alt="">
+          </div>
+          <div class="projects-item__developer">
+            <img src="../img/projects/project-developer-02.svg" alt="">
+          </div>
+        </div>
+        <div class="projects-item__info">
+          <div class="projects-item__main">
+            <div class="projects-item__top">
+              <address class="projects-item__address">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#pin"></use>
+                </svg>
+                г. Строитель мкр. Сретенский
+              </address>
+              <div class="projects-item__status">
+                <div class="common-status" style="--color-status: #32CE18;"></div>
+                Идут продажи
+              </div>
+            </div>
+            <a href="#" class="projects-item__name h4">ЖК «Яковлева роща»</a>
+            <div class="projects-item__details">
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#bus"></use>
+                </svg>
+                Соборная площадь
+              </div>
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#people"></use>
+                </svg>
+                15 мин.
+              </div>
+            </div>
+            <div class="projects-item__desc">
+              Жилой комплекс «Яковлева роща» – это первый объект «Трансюжстрой»
+              в городе Строитель. Здесь 40 планировочных решений, которые подойдут
+              как для молодых людей, семейных пар с детьми, так и для людей почтённого
+              возраста. Дома переменной этажности — в 4 и 5 этажей.
+            </div>
+          </div>
+          <div class="projects-item__panel">
+            <div class="projects-item__panel-info">от 11 млн. ₽</div>
+            <div class="projects-item__panel-info">123 квартиры</div>
+            <div class="projects-item__panel-info">4 кв. 2025 г.</div>
+            <button type="button" class="projects-item__panel-fav is-favorite">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#fav"></use>
+              </svg>
+            </button>
+            <a href="#" class="projects-item__panel-add">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="projects-item ">
+        <div class="projects-item__preview">
+          <div class="projects-item__img">
+            <img src="../img/projects/project-02.jpg" alt="">
+          </div>
+          <div class="projects-item__developer">
+            <img src="../img/projects/project-developer-02.svg" alt="">
+          </div>
+        </div>
+        <div class="projects-item__info">
+          <div class="projects-item__main">
+            <div class="projects-item__top">
+              <address class="projects-item__address">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#pin"></use>
+                </svg>
+                г. Белгород, ул. Беловская, 12к2
+              </address>
+              <div class="projects-item__status">
+                <div class="common-status" style="--color-status: #FFC61A;"></div>
+                Старт продаж
+              </div>
+            </div>
+            <a href="#" class="projects-item__name h4">мкр. «Восточный»</a>
+            <div class="projects-item__details">
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#bus"></use>
+                </svg>
+                Соборная площадь
+              </div>
+              <div class="projects-item__detail">
+                <svg width="16" height="16">
+                  <use xlink:href="../img/icons/icons.svg#people"></use>
+                </svg>
+                15 мин.
+              </div>
+            </div>
+            <div class="projects-item__desc">
+              Микрорайон «Восточный» представляет собой застройку
+              индивидуальными и многоквартирными жилыми домами,
+              расположенными в восточной части города Белгорода.
+              Территории жилых домов полностью благоустроены.
+              Построены детские игровые и спортивные площадки,
+              оборудованы открытые автостоянки для персонального транспорта жильцов.
+            </div>
+          </div>
+          <div class="projects-item__panel">
+            <div class="projects-item__panel-info">от 6,1 млн. ₽</div>
+            <div class="projects-item__panel-info">10 домов</div>
+            <div class="projects-item__panel-info">1 кв. 2026 г.</div>
+            <button type="button" class="projects-item__panel-fav">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#fav"></use>
+              </svg>
+            </button>
+            <a href="#" class="projects-item__panel-add">
+              <svg width="20" height="20">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

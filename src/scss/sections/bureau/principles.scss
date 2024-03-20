@@ -1,0 +1,156 @@
+.principles {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: $sm) {
+      justify-content: flex-start;
+      overflow-x: auto;
+      width: calc(100% + 40px);
+      padding: 0 20px;
+      margin: 0 -20px;
+
+      
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 0 200px;
+
+    @media (max-width: $pc) {
+      padding: 0 100px;
+    }
+
+    @media (max-width: $md) {
+      padding: 0 20px;
+    }
+
+    &-detail {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      gap: 40px;
+
+      @media (max-width: $pc) {
+        gap: 24px;
+      }
+
+      @media (max-width: $md) {
+        gap: 20px;
+      }
+
+      &:nth-of-type(1) {
+        bottom: 30px;
+        left: 0;
+      }
+
+      &:nth-of-type(2) {
+        top: 44%;
+        left: -50px;
+
+        @media(max-width: $md) {
+          flex-direction: row;
+          left: 50px;
+
+          .principles__item-detail-text {
+            text-align: left;
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        top: 10%;
+        left: 20%;
+      }
+
+      &:nth-of-type(4) {
+        top: 10%;
+        right: -40px;
+
+        @media(max-width: $md) {
+          flex-direction: row-reverse;
+          right: 50px;
+
+          .principles__item-detail-text {
+            text-align: right;
+          }
+        }
+      }
+
+      &:nth-of-type(5) {
+        bottom: 37%;
+        right: 5%;
+      }
+
+      &:nth-of-type(6) {
+        bottom: 17%;
+        right: 20%;
+      }
+
+      &--left {
+        flex-direction: row-reverse;
+
+        .principles__item-detail-text {
+          text-align: right;
+        }
+      }
+
+      &--right {
+        flex-direction: row;
+      }
+
+      &-circle {
+        --size: 80px;
+        width: var(--size);
+        height: var(--size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-grey-light);
+        box-shadow: 0px 4px 15.100000381469727px 0px #0000001c;
+        border-radius: 50%;
+
+        svg {
+          display: block;
+          color: var(--color-primary);
+        }
+
+        @media (max-width: $md) {
+          --size: 40px;
+
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+
+      &-text {
+        font-size: 32px;
+        font-weight: 700;
+
+        @media (max-width: $pc) {
+          font-size: 24px;
+        }
+
+        @media (max-width: $md) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-img {
+      @media (max-width: $md) {
+        img {
+          width: 582px;
+          height: 496px;
+        }
+      }
+    }
+  }
+}

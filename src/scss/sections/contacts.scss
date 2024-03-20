@@ -1,0 +1,103 @@
+.contacts {
+  &__tabs-controls {
+    margin-bottom: 40px;
+
+    @media (max-width: $md)  {
+      margin-bottom: 28px;
+      overflow-y: auto;
+      width: calc(100% + 40px);
+      margin: 0 -20px 28px;
+      padding: 0 20px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__tabs-content {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media(max-width: $sm) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+}
+
+.contacts-card {
+  padding: 31px;
+  background-color: var(--color-whte);
+  border: 1px solid cl(blck, 0.1);
+  border-radius: 16px;
+
+  @media(max-width: $lg)  {
+    padding: 20px;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    @media(max-width: $lg)  {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 500;
+
+    @media(max-width: $lg)  {
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    + .contacts-card__item {
+      margin-top: 15px;
+
+      @media(max-width: $lg)  {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__item-icon {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--color-grey-light);
+    border-radius: 50%;
+
+    @media(max-width: $lg) {
+      --size: 40px;
+
+      svg {
+        display: block;
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}

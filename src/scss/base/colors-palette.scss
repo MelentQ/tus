@@ -1,0 +1,33 @@
+// ===============
+// colors palette
+// ===============
+
+$colors: (
+  "whte": #fff,
+  "blck": #000,
+  "primary": #FF6100,
+  "primary-dark": #DD5602,
+  "secondary": #FFEFE5,
+  "green": #32CE18,
+  "red": #AB0000,
+  "yellow": #FFC61A,
+  "grey": #D9D9D9,
+  "grey-light": #F8F8F8,
+  "grey-lighter": #F4F4F4,
+  "grey-dark": #4B4B4A
+  
+);
+
+//========================================================================================================================================================
+
+:root {
+  @if $colors {
+    @each $key, $value in $colors {
+      --color-#{$key}: #{$value};
+      --color-#{$key}--rgb: #{hextorgb($value)};
+    }
+  }
+
+  --font-primary: #{$fontFamily};
+  
+}

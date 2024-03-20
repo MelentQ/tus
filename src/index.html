@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+@@include('html/_head.htm',{ "title":"HomePage" })
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <section class="index-page" style="padding-top: 200px">
+        <div class="index-page__container">
+          <h1 class="index-page__title _title">Страницы:</h1>
+          <ol style="list-style-position: inside">
+            <li style="margin-bottom: 10px">
+              <a href="home.html">Главная</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="contacts.html">Контакты</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="404.html">404</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="leaving-complexes.html">Жилые комплексы (разводящая)</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="flat.html">Страница квартиры</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="documents.html">Документы</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="documents-kazan.html">Документы (для Казани)</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="purchases.html">Закупки</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="team.html">Команда</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="bureau.html">Собственное бюро</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="apartments.html">Выбор квартиры</a>
+            </li>
+            <!-- <li style="margin-bottom: 10px">
+              <a href="apartments-house.html">Выбор квартиры (cхема этажа)</a>
+            </li> -->
+          </ol>
+          <h2 class="index-page__title _title">Модальные окна</h2>
+          <ol style="list-style-position: inside">
+            <li style="margin-bottom: 10px">
+              <a href="popup-city-check.html" data-popup="#modal-city-check">Попап Проверка города</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="popup-city-list.html" data-popup="#modal-city-list">Попап Выбор города</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="popup-callback.html" data-popup="#modal-callback">Попап с формой</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="popup-sucsess.html" data-popup="#modal-sucsess">Попап успешная отправка</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="popup-gallery.html" data-popup="#modal-gallery">Попап с галереей ЖК</a>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>
