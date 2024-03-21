@@ -4,7 +4,7 @@
 
 ```bash
 npm i
-### or
+# or
 npm i --legacy-peer-deps
 ```
 
@@ -53,7 +53,6 @@ npm run devbuild
 npm run sprite
 ```
 
-//------------------------------------------------------------------------------
 
 Основные файлы для работы с шаблоном:
 - js/app.js
@@ -76,7 +75,8 @@ npm run sprite
 
 
 ### Прочие проблемы и их решения:
-Ошибка "unable to resolve dependency tree"
+
+#### Ошибка "unable to resolve dependency tree"
 Решение:
 ```bash
 npm i --legacy-peer-deps
