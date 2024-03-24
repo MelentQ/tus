@@ -1,4 +1,6 @@
 .similar-item {
+  display: flex;
+  flex-direction: column;
   --icon-size: 18px;
   --pad-neg: -19px;
   padding: 19px;

@@ -276,7 +276,7 @@
     overflow: hidden;
 
     @media (max-width: $pc) {
-      max-width: 600px;
+      max-width: calc(100% - 585px);
     }
 
     @media (max-width: $lg) {
@@ -438,8 +438,8 @@
 
       svg {
         --size: 16px;
-        width: var(--16px);
-        height: var(--16px);
+        width: var(--size);
+        height: var(--size);
         color: var(--color-blck);
         transition: 0.25s;
       }
@@ -464,6 +464,8 @@
     }
 
     &-item {
+      text-align: center;
+      
       img {
         max-width: 100%;
       }

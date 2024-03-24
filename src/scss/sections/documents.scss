@@ -45,6 +45,21 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  cursor: pointer;
+
+  @media(any-hover: hover) {
+    &:hover {
+      .documents-item__file {
+        background-color: var(--color-primary);
+        color: var(--color-whte);
+        transition: .25s;
+  
+        svg {
+          color: var(--color-whte);
+        }
+      }
+    }
+  }
 
   @media(max-width: $sm) {
     min-height: 173px;
@@ -97,18 +112,6 @@
     border-radius: 100px;
     padding: 10px 20px;
     background-color: var(--color-grey-light);
-
-    @media(any-hover: hover) {
-      &:hover {
-        background-color: var(--color-primary);
-        color: var(--color-whte);
-        transition: .25s;
-
-        svg {
-          color: var(--color-whte);
-        }
-      }
-    }
 
     svg {
       display: block;

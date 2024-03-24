@@ -610,6 +610,7 @@ export function menuClose() {
 export function filterInit() {
   let filterOpenBtn = document.querySelector('[data-filter="open"]');
   let filterCloseBtn = document.querySelector('[data-filter="close"]');
+  let filterOverlay = document.querySelector('[data-filter="overlay"]');
   let filter = document.querySelector('[data-filter="filters"]')
 
   function filterOpen() {
@@ -632,6 +633,12 @@ export function filterInit() {
   if(filterCloseBtn) {
     filterCloseBtn.addEventListener('click', function() {
       filterClose() 
+    })
+  }
+
+  if(filterOverlay) {
+    filterOverlay.addEventListener('click', function() {
+      filterClose()
     })
   }
 }

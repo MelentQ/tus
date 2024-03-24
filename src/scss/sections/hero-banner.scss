@@ -1,6 +1,6 @@
 .hero-banner {
   position: relative;
-  padding: 87px 0 160px; 
+  padding: 87px 0 162px; 
   color: var(--color-whte);
 
   @media(max-width: $sm) {
@@ -9,7 +9,7 @@
   }
 
   &--bottom {
-    margin-bottom: -80px;
+    margin-bottom: -62px;
   }
 
   &__img {

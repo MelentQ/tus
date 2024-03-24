@@ -109,9 +109,9 @@
   }
 
   &__logo {
-    width: 145px;
+    width: 115px;
     display: block;
-    margin-right: 40px;
+    margin-right: 48px;
 
     svg {
       color: var(--color-inv);
@@ -146,7 +146,7 @@
   &__nav-list {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 28px;
 
     @media (max-width: $xxl) {
       gap: 16px;

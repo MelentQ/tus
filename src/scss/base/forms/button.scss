@@ -102,8 +102,8 @@
 
     @media (any-hover: hover) {
       &:hover {
-        background-color: var(--color-blck);
-        color: var(--color-whte);
+        background-color: transparent;
+        color: var(--color-primary);
       }
     }
   }
@@ -119,11 +119,11 @@
 
     @media (any-hover: hover) {
       &:hover {
-        background-color: var(--color-primary);
-        color: var(--color-whte);
+        background-color: var(--color-grey-light);
+        color: var(--color-primary);
 
         svg {
-          fill: var(--color-whte);
+          fill: var(--color-primary);
         }
       }
     }

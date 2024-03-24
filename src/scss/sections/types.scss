@@ -1,14 +1,6 @@
 .types {
   padding: 40px 0;
 
-  &__title {
-    max-width: 470px;
-
-    @media(max-width: $md) {
-        max-width: 100%;
-    }
-  }
-
   &__content {
     display: flex;
     align-items: stretch;
@@ -133,6 +125,8 @@
       font-weight: 500;
       margin-bottom: 56px;
       pointer-events: none;
+      position: relative;
+      z-index: 1;
 
       @media (max-width: 1200px) {
         font-size: 12px;
@@ -144,6 +138,7 @@
       position: absolute;
       bottom: 0;
       right: -20px;
+      z-index: 0;
 
       @media (max-width: 1200px) {
         position: static;
@@ -161,6 +156,8 @@
     &-btn {
       width: 60px;
       height: 60px;
+      position: relative;
+      z-index: 1;
 
       @media (max-width: 1200px) {
         display: none !important;
@@ -249,7 +246,7 @@
       line-height: 1;
       margin-bottom: 32px;
     
-      font-weight: 500;
+      font-weight: 700;
 
       @media (max-width: 767px) {
         margin-bottom: 20px;

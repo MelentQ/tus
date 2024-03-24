@@ -45,21 +45,36 @@
 
     @media(max-width: $md) {
       position: static;
+      gap: 3px;
+      padding: 3px;
     }
 
     &-btn {
-      width: 54px;
-      height: 54px;
+      --size: 54px;
+      width: var(--size);
+      height: var(--size);
       display: flex;
       align-items: center;
       justify-content: center;
       color: cl(blck, .4);
       border-radius: 50%;
 
+
+      svg {
+        --size: 18px;
+        width: var(--size);
+        height: var(--size);
+      }
+
       @media(max-width: $md) {
+        --size: 38px;
         padding: 37px;
         gap: 4px;
         padding: 4px;
+
+        svg {
+          --size: 16px;
+        }
       }
 
       &.is-active {
@@ -91,7 +106,7 @@
       margin-bottom: 50px;
 
       @media(max-width: $md) {
-        display: none;
+        margin-bottom: 28px;
       }
     }
 
@@ -459,7 +474,11 @@
     width: 100px;
     flex-shrink: 0;
     color: var(--color-primary);
-    transition: background-color 0.25s;
+    transition: 0.25s;
+
+    svg {
+      transition: 0.25s;
+    }
 
     @media (max-width: $lg) {
       width: 50%;
@@ -470,14 +489,16 @@
     &.is-favorite {
       background-color: var(--color-secondary);
       color: var(--color-primary);
-      transition: background-color 0.25s;
+      transition: 0.25s;
     }
 
     @media (any-hover: hover) {
       &:hover {
-        background-color: var(--color-primary-dark);
-        color: var(--color-whte);
-        transition: background-color 0.25s;
+        
+        svg {
+          opacity: .7;
+          transition: opacity 0.25s;
+        }
       }
     }
   }

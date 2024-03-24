@@ -260,14 +260,14 @@ if (aboutSection) {
     aboutSize,
     { y: 50, opacity: 0 },
     {
-      duration: 3,
+      duration: 1.5,
       y: 0,
       opacity: 1,
       scrollTrigger: {
         trigger: aboutSection,
         scrub: 0.5,
         scrub: 1.5,
-        start: "200px center",
+        start: "-50px center",
         end: "+=400",
         ease: "power1.out",
       },
@@ -281,15 +281,15 @@ if (historySection) {
 
   gsap.fromTo(
     historyImg,
-    { scale: 1.2 },
+    { scale: 1.2, duration: 2.5 },
     {
-      duration: 1,
+      duration: 4,
       scale: 1,
       scrollTrigger: {
         trigger: historySection,
         scrub: 1.5,
-        start: "+=200 center",
-        end: "+=200 center",
+        start: "top center",
+        end: "+=500 center",
         ease: "power1.out",
       },
     }

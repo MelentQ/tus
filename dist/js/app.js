@@ -5104,7 +5104,7 @@
                             if (inputMax.value != "") priceEndValue = inputMax.value;
                             rangeItem.noUiSlider.set([ priceStartValue, priceEndValue ]);
                         }
-                        rangeItem.noUiSlider.on("update", (function(values, handle) {
+                        rangeItem.noUiSlider.on("change", (function(values, handle) {
                             inputs[handle].value = values[handle];
                         }));
                     }
@@ -5372,6 +5372,7 @@
             function filterInit() {
                 let filterOpenBtn = document.querySelector('[data-filter="open"]');
                 let filterCloseBtn = document.querySelector('[data-filter="close"]');
+                let filterOverlay = document.querySelector('[data-filter="overlay"]');
                 let filter = document.querySelector('[data-filter="filters"]');
                 function filterOpen() {
                     bodyLock();
@@ -5385,6 +5386,9 @@
                     filterOpen();
                 }));
                 if (filterCloseBtn) filterCloseBtn.addEventListener("click", (function() {
+                    filterClose();
+                }));
+                if (filterOverlay) filterOverlay.addEventListener("click", (function() {
                     filterClose();
                 }));
             }
@@ -5671,14 +5675,14 @@
                             y: 50,
                             opacity: 0
                         }, {
-                            duration: 3,
+                            duration: 1.5,
                             y: 0,
                             opacity: 1,
                             scrollTrigger: {
                                 trigger: aboutSection,
                                 scrub: .5,
                                 scrub: 1.5,
-                                start: "200px center",
+                                start: "-50px center",
                                 end: "+=400",
                                 ease: "power1.out"
                             }
@@ -5688,15 +5692,16 @@
                     if (historySection) {
                         let historyImg = historySection.querySelector(".history__main-img img");
                         gsap.fromTo(historyImg, {
-                            scale: 1.2
+                            scale: 1.2,
+                            duration: 2.5
                         }, {
-                            duration: 1,
+                            duration: 4,
                             scale: 1,
                             scrollTrigger: {
                                 trigger: historySection,
                                 scrub: 1.5,
-                                start: "+=200 center",
-                                end: "+=200 center",
+                                start: "top center",
+                                end: "+=500 center",
                                 ease: "power1.out"
                             }
                         });
@@ -10330,6 +10335,24 @@
                         }
                     }
                 });
+                if (document.querySelector(".js-gallery-slider")) new swiper_core_Swiper(".js-gallery-slider", {
+                    modules: [ A11y, Navigation, Pagination ],
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                    speed: 600,
+                    navigation: {
+                        prevEl: ".js-gallery-slider-prev",
+                        nextEl: ".js-gallery-slider-next"
+                    },
+                    pagination: {
+                        type: "fraction",
+                        formatFractionCurrent: num => num > 9 ? num : "0" + num,
+                        formatFractionTotal: num => num > 9 ? num : "0" + num,
+                        el: ".swiper-pagination"
+                    }
+                });
                 let historySliders = document.querySelectorAll(".js-history-slider");
                 if (historySliders.length) historySliders.forEach((slider => {
                     let mql = window.matchMedia("(max-width: 992px)");
@@ -10502,6 +10525,7 @@
                                 autoHeight: false
                             });
                             _files_forms_forms_js__WEBPACK_IMPORTED_MODULE_2__.hf();
+                            initSliders();
                             this.open();
                         }
                     });

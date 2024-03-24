@@ -197,6 +197,7 @@ body::after {
   &__slider {
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
   &__img {
@@ -223,12 +224,14 @@ body::after {
 
     .swiper-pagination {
       position: static !important;
-
-      &-bullet {
-        font-size: 34px;
-        font-weight: 500;
-        color: var(--color-whte);
-      }
+      width: auto;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--color-whte);
     }
+  }
+
+  &__controls {
+    flex-shrink: 0;
   }
 }

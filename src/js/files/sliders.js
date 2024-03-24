@@ -353,6 +353,32 @@ function initSliders() {
       },
     });
   }
+  if (document.querySelector(".js-gallery-slider")) {
+    // Указываем класс нужного слайдера
+    // Создаем слайдер
+    new Swiper(".js-gallery-slider", {
+      modules: [A11y, Navigation, Pagination], // A11y - обязательный модуль
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 16,
+      speed: 600,
+      navigation: {
+        prevEl: ".js-gallery-slider-prev",
+        nextEl: ".js-gallery-slider-next",
+      },
+      pagination: {
+        type: 'fraction',
+        formatFractionCurrent: (num) => {
+          return (num > 9) ? num : '0' + num;
+        },
+        formatFractionTotal:  (num) => {
+          return (num > 9) ? num : '0' + num;
+        },
+        el: '.swiper-pagination'
+      }
+    });
+  }
 
   let historySliders = document.querySelectorAll(".js-history-slider");
 

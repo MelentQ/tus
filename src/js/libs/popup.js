@@ -117,6 +117,7 @@ class Popup {
   }
   async getModal(link, selector) {
     console.log(link);
+
     api.load({
       url: link,
       format: "text",
@@ -133,6 +134,7 @@ class Popup {
         });
 
         flsForms.initInputMask();
+        initSliders();
 
         this.open();
       },

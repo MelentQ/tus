@@ -91,7 +91,7 @@ export function rangeInit() {
 					rangeItem.noUiSlider.set([priceStartValue, priceEndValue]);
 				}
 
-				rangeItem.noUiSlider.on('update', function (values, handle) {
+				rangeItem.noUiSlider.on('change', function (values, handle) {
 					inputs[handle].value = values[handle];
 				});
 			}

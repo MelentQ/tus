@@ -80,7 +80,14 @@
     margin-bottom: 24px;
 
     @media (max-width: $sm) {
-      margin-bottom: 12px;
+      margin-bottom: 18px;
+    }
+  }
+
+  &__subtitle {
+    @media (max-width: $sm) {
+      font-size: 12px;
+      font-weight: 500;
     }
   }
 

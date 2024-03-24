@@ -170,6 +170,11 @@ textarea.form-control {
     min-width: 75px;
     z-index: 3;
     border: 1px solid cl(blck, .1);
+    white-space: nowrap;
+
+    @media(max-width: $md) {
+      white-space: initial;
+    }
 
     &::before {
       position: absolute;
@@ -195,6 +200,7 @@ textarea.form-control {
   }
 
   a {
+    display: inline;
     opacity: 1;
     color: var(--color-blck);
   }
