@@ -38,6 +38,8 @@ flsFunctions.menuInit();
 
 flsFunctions.filterInit();
 
+;
+
 /*
 Модуль "Спойлеры"
 Сниппет (HTML): spollers

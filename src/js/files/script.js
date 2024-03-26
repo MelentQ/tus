@@ -1,5 +1,13 @@
 import { flsModules } from "./modules.js";
 
+import {
+  isMobile,
+  _slideUp,
+  _slideDown,
+  _slideToggle,
+  FLS,
+} from "./functions.js";
+
 export default async () => {
   const el = document.querySelector("[data-gsap]");
   if (!el) return;
@@ -360,3 +368,19 @@ window.addEventListener("resize", () => {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 });
+
+
+let complexesDropdown = document.querySelector('.js-dropdown');
+
+if(complexesDropdown) {
+  let complexesDropdownHead = document.querySelector('.js-dropdown-toggle');
+  let complexesDropdownList = document.querySelector('.js-dropdown-content');
+
+  _slideUp(complexesDropdownList);
+
+  complexesDropdownHead.addEventListener('click', function() {
+    
+    complexesDropdownHead.classList.toggle('is-active');
+    _slideToggle(complexesDropdownList);
+  })
+}

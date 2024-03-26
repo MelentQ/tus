@@ -1,0 +1,55 @@
+.choose-building {
+  position: relative;
+
+  &__buildings {
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+
+    @media (max-width: $sm) {
+      height: 520px;
+      overflow-x: auto;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      
+    } 
+  }
+
+  &__bg {
+
+
+    img {
+      width: 100%;
+    }
+
+    @media (max-width: $sm) {
+      min-width: 1092px;
+      height: 520px;
+      overflow-x: auto;
+      border-radius: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    } 
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 30px 80px 30px 30px;
+    width: 100%;
+    position: absolute;
+    inset: 0 0 auto 0;
+
+    @media (max-width: $sm) {
+      padding: 12px;
+      flex-direction: row-reverse;
+      gap: 8px;
+    }
+  }
+}

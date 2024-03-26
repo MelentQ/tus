@@ -1,0 +1,76 @@
+<section class="breadcrumbs">
+  <div class="breadcrumbs__container">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Главная</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Жилые комплексы</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Квартиры</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="apartments section">
+  <div class="apartments__container">
+    @@include('_apartments-head.htm',{})
+    <div class="choose-building">
+      <div class="choose-building__buildings">
+        <div class="choose-building__bg">
+          <img src="./img/apartments/complex.png" alt="">
+        </div>
+      </div>
+      <div class="choose-building__content">
+        <div class="complex-select js-dropdown">
+          <div class="complex-select__head js-dropdown-toggle">
+            <div class="complex-select__choosen">
+              <div class="complex-select__choosen-img">
+                <img src="./img/apartments/a-preview-01.png" alt="">
+              </div>
+              <div class="complex-select__choosen-name">ЖК Привилегия</div>
+            </div>
+            <svg width="14" height="14">
+              <use xlink:href="../img/icons/icons.svg#arrow"></use>
+            </svg>
+          </div>
+          <div class="complex-select__list js-dropdown-content">
+            <div class="complex-select__inner">
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-01.png" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Привилегия</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-02.png" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Центр Парк</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-03.png" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Яковлева Роща</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-04.png" alt="">
+                </div>
+                <div class="complex-select__item-name">мкр. Восточный</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-05.png" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК «Париж»</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
