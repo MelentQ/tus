@@ -116,6 +116,9 @@ function initSliders() {
       watchSlidesProgress: true,
       speed: 800,
       effect: "fade",
+      thumbs: {
+        swiper: ".js-hero-thumbs",
+      },
     });
 
     let heroThumbsProgress = document.querySelector(
@@ -126,6 +129,7 @@ function initSliders() {
       modules: [A11y, Navigation, Autoplay, Thumbs, Controller], // A11y - обязательный модуль
       observer: true,
       observeParents: true,
+      direction: "horizontal",
       loop: true,
       autoplay: {
         delay: 5000,
@@ -133,8 +137,8 @@ function initSliders() {
       },
       loop: true,
 
-      slidesPerView: 1.4,
-      spaceBetween: 16,
+      slidesPerView: 'auto',
+      spaceBetween: 0,
       speed: 800,
 
       navigation: {
@@ -143,18 +147,17 @@ function initSliders() {
       },
 
       breakpoints: {
-        spaceBetween: 30,
+        1024: {
+          direction: "vertical",
+        }
       },
 
       on: {
-        autoplayTimeLeft(s, time, progress) {
-          heroThumbsProgress.style.setProperty("--progress", 1 - progress);
-        },
+        // autoplayTimeLeft(s, time, progress) {
+        //   heroThumbsProgress.style.setProperty("--progress", 1 - progress);
+        // },
       },
 
-      thumbs: {
-        swiper: ".js-hero-slider",
-      },
     });
 
     // heroThumbs.controller.control = heroSlider;
@@ -376,6 +379,31 @@ function initSliders() {
           return (num > 9) ? num : '0' + num;
         },
         el: '.swiper-pagination'
+      }
+    });
+  }
+
+  if (document.querySelector(".js-similar-slider")) {
+    // Указываем класс нужного слайдера
+    // Создаем слайдер
+    new Swiper(".js-similar-slider", {
+      modules: [A11y], // A11y - обязательный модуль
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 8,
+      allowTouchMove: true,
+      speed: 600,
+      breakpoints: {
+        767: {
+          slidesPerView: 2,
+          allowTouchMove: true,
+        },
+        1024: {
+          slidesPerView: 'auto',
+          allowTouchMove: false,
+          spaceBetween: 0,
+        }
       }
     });
   }

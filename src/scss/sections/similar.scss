@@ -1,32 +1,19 @@
 .similar {
 
   &__list {
-    --pad-neg: -20px;
-    --pad: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-
-    @media(max-width: 1439px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media(max-width: $md) {
-      display: flex;
-      align-items: stretch;
-      gap: 8px;
-      overflow-x: auto;
-      width: calc(100% + calc(var(--pad) * 2));
-      padding: 0 var(--pad);
-      margin: 0 var(--pad-neg);
-
-      &::-webkit-scrollbar {
-        display: none;
+    .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+  
+      @media(max-width: 1439px) {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .apartment-item {
-        width: 335px;
-        flex-shrink: 0;
+      @media(max-width: $md) {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
       }
     }
   }

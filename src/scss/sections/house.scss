@@ -1,4 +1,6 @@
 .house {
+  position: static;
+
   &__main {
     position: relative;
     display: flex;
@@ -203,7 +205,7 @@
         font-size: 18px;
         font-weight: 500;
 
-        @media (max-width: $sm)  {
+        @media (max-width: $sm) {
           font-size: 14px;
         }
       }
@@ -217,7 +219,7 @@
           padding-top: 0;
         }
 
-        @media (max-width: $sm)  {
+        @media (max-width: $sm) {
           font-size: 10px;
           line-height: 1;
           text-align: center;
@@ -271,6 +273,161 @@
         @media (max-width: $md) {
           transform: rotate(0);
         }
+      }
+    }
+  }
+}
+
+.house-apartment {
+  cursor: pointer;
+}
+
+.house-complex {
+  cursor: pointer;
+
+  &__scheme {
+    opacity: 0;
+    transition: .25s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.apartment-info {
+  max-width: 260px;
+  width: 100%;
+  position: absolute;
+  color: cl(whte);
+  font-size: 14px;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 200px;
+  left: 50px;
+
+  @media (max-width: 1023px) {
+    position: fixed;
+    max-width: 100%;
+    width: 100%;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__card {
+    padding: 16px;
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
+    @media (max-width: $md) {
+      padding: 24px;
+      position: absolute;
+      bottom: 0;
+      border-radius: 16px 16px 0 0;
+      z-index: 99;
+    }
+  }
+
+  &__overlay {
+    display: none;
+
+    @media (max-width: $md) {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: cl(blck, 0.3);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__num {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 0.8;
+
+    @media (max-width: $md) {
+      font-size: 38px;
+    }
+
+    sup {
+      font-size: 14px;
+      opacity: 0.5;
+      position: relative;
+      top: -10px;
+    }
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: right;
+
+    span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid cl(whte, 0.4);
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__btn {
+    padding: 9px 18px;
+    align-self: flex-start;
+
+    @media (max-width: $sm) {
+      width: 100%;
+      background-color: cl(whte);
+      color: cl(blck);
+    }
+  }
+
+  &__close {
+    display: none;
+
+    @media (max-width: $md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: cl(whte);
+      border-radius: 50%;
+
+      svg {
+        color: var(--color-primary);
       }
     }
   }

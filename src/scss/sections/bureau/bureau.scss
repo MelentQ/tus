@@ -55,6 +55,7 @@
   &__img-main {
     position: relative;
     z-index: 2;
+    margin-left: 100px;
 
     @media(max-width: 560px) {
       width: 270px;

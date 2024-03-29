@@ -36,6 +36,7 @@
       .realized__card-details {
         max-height: 1000px;
         transition: max-height 0.1s ease-in;
+        margin: 30px 0;
       }
     }
 
@@ -83,13 +84,9 @@
     padding: 32px;
     background-color: var(--color-whte);
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 
     @media (max-width: $md) {
       padding: 20px;
-      gap: 18px;
       border-radius: 6px;
     }
   }
@@ -99,13 +96,6 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 32px;
-
-    &._spoller-active {
-      .realized__card-more {
-        background-color: var(--color-primary);
-        color: var(--color-whte);
-      }
-    }
 
     @media (max-width: $md) {
       gap: 20px;
@@ -135,7 +125,6 @@
   }
 
   &__card-details {
-    margin-top: 32px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.25s ease-in;
@@ -164,6 +153,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    margin-top: 22px;
 
     @media (max-width: $md) {
       font-size: 12px;

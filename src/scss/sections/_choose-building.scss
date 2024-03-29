@@ -2,6 +2,7 @@
   position: relative;
 
   &__buildings {
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
     display: block;
@@ -13,12 +14,24 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      
+    } 
+  }
+
+  &__scheme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @media (max-width: $sm) {
+      width: 1092px;
+      height: 648px;
     } 
   }
 
   &__bg {
-
 
     img {
       width: 100%;

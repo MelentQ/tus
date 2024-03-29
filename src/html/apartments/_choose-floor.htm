@@ -1,4 +1,3 @@
-
 <section class="breadcrumbs">
   <div class="breadcrumbs__container">
     <ul class="breadcrumbs__list">
@@ -14,14 +13,94 @@
     </ul>
   </div>
 </section>
-<div class="apartments section">
+<div class="apartments section projects">
   <div class="apartments__container">
     @@include('_apartments-head.htm',{})
     <div class="choose-floor">
-      <picture class="choose-floor__bg">
-        <source srcset="./img/apartments/building-sm.png" media="(max-width: 560px)">
-        <img src="./img/apartments/building.png" alt="">
-      </picture>
+      <div class="house-info house-info--stock js-house-info" data-floor-info="1">
+        <div class="house-info__overlay js-house-info-overlay"></div>
+        <div class="house-info__card">
+          <div class="house-info__top">
+            <div class="house-info__floor">
+              <div class="house-info__floor-num">11</div>
+              <div class="house-info__floor-desc">
+                этаж
+                <span>доступна 21 квартира</span>
+              </div>
+            </div>
+            <a href="#" class="house-info__add">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+            <button type="button" class="house-info__close js-house-info-close">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#cross"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="house-info__apartments">
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">1 комнатная</div>
+              <div class="house-info__apartment-num">2</div>
+              <div class="house-info__apartment-price">от 10 909 698 ₽</div>
+            </div>
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">2 комнатная</div>
+              <div class="house-info__apartment-num">11</div>
+              <div class="house-info__apartment-price">от 9 412 800 ₽</div>
+            </div>
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">3 комнатная</div>
+              <div class="house-info__apartment-num">3</div>
+              <div class="house-info__apartment-price">от от 11 260 350 ₽</div>
+            </div>
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">3 комнатная</div>
+              <div class="house-info__apartment-num">5</div>
+              <div class="house-info__apartment-price">от 18 824 559 ₽</div>
+            </div>
+          </div>
+          <div class="house-info__final">
+            <span>План сдачи квартир:</span>
+            3 квартал 2024 года
+          </div>
+          <a href="#" class="house-info__btn btn btn--white btn--wide">Выбрать квартиру</a>
+        </div>
+      </div>
+      <div class="house-info house-info--sold-out js-house-info" data-floor-info="2">
+        <div class="house-info__overlay js-house-info-overlay"></div>
+        <div class="house-info__card">
+          <div class="house-info__top">
+            <div class="house-info__floor">
+              <div class="house-info__floor-num">9</div>
+              <div class="house-info__floor-desc">
+                этаж
+              </div>
+            </div>
+            <button type="button" class="house-info__close js-house-info-close">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#cross"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="house-info__status status">Распродано</div>
+        </div>
+      </div>
+      <div class="choose-floor__building">
+        <svg class="choose-floor__scheme" width="1560" height="1348" viewBox="0 0 1560 1348" fill="none"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path class="house-floor js-house-floor" data-floor="1" data-floor-type="in-stock"
+            d="M566.5 602L409 666V729L566.5 675L841 693L957 671.5L1105.5 679V610.5L957 600L841 619L566.5 602Z"
+            fill="#FF6100" fill-opacity="0.2" stroke="#FF6100" stroke-width="2" />
+          <path class="house-floor house-floor--sold-out js-house-floor" data-floor="2" data-floor-type="sold-out"
+            d="M566.5 881L409 900.5V963.5L566.5 954L841 963.5L957 958H1105.5V881L957 879L846.5 884L566.5 881Z"
+            fill="#665551" fill-opacity="0.42" />
+        </svg>
+        <picture class="choose-floor__bg">
+          <img src="./img/apartments/building.png" alt="">
+        </picture>
+      </div>
       <div class="choose-floor__content">
         <div class="complex-select js-dropdown">
           <div class="complex-select__head js-dropdown-toggle">

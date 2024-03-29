@@ -29,8 +29,9 @@
 	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#C2AB81">
 	<meta name="msapplication-TileColor" content="#272727">
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-	<meta name="theme-color" content="#C2AB81">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240326000724">
+	<meta name="theme-color" content="#FFFFFF">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240328202117">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -174,6 +175,40 @@
 			<section class="house section">
 				<div class="house__container">
 					<div class="house__main">
+						<div class="apartment-info js-house-info" data-floor-info="1">
+							<div class="apartment-info__overlay js-house-info-overlay"></div>
+							<div class="apartment-info__card">
+								<div class="apartment-info__top">
+									<div class="apartment-info__num">
+										63 <sup>№</sup>
+									</div>
+									<div class="apartment-info__price">
+										13 106 415 ₽
+										<span>175 000 руб/м2</span>
+									</div>
+									<button type="button" class="apartment-info__close js-apartment-info-close">
+										<svg width="14" height="14">
+											<use xlink:href="../img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="apartment-info__details">
+									<div class="apartment-info__detail">
+										<span>Кол-во комнат</span>
+										2
+									</div>
+									<div class="apartment-info__detail">
+										<span>Площадь</span>
+										52,8 м²
+									</div>
+									<div class="apartment-info__detail">
+										<span>Отделка</span>
+										готовая
+									</div>
+								</div>
+								<a href="#" class="apartment-info__btn btn btn--transparent">Узнать подробнее</a>
+							</div>
+						</div>
 						<div class="house__floor">
 							<div class="house__floor-info">
 								<div class="house__floor-amount">Всего квартир: 8</div>
@@ -986,7 +1021,9 @@
 											<path d="M272.542 175.125H283.478C283.936 175.125 284.1 175.646 283.704 175.843L278.294 178.534C278.224 178.568 278.148 178.585 278.07 178.586C277.993 178.586 277.916 178.569 277.846 178.535L272.319 175.845C271.919 175.65 272.08 175.125 272.542 175.125Z" stroke="#362825" stroke-width="0.6" stroke-miterlimit="10" />
 											<path d="M262.015 180.427C262.015 180.625 261.956 180.818 261.846 180.982C261.736 181.146 261.58 181.274 261.397 181.35C261.214 181.426 261.012 181.445 260.818 181.407C260.624 181.368 260.445 181.273 260.305 181.133C260.165 180.994 260.07 180.816 260.031 180.622C259.992 180.428 260.012 180.227 260.088 180.045C260.164 179.862 260.292 179.706 260.457 179.597C260.622 179.487 260.815 179.428 261.013 179.428V178.013" stroke="#362825" stroke-width="0.6" stroke-miterlimit="10" />
 											<path d="M255.534 175.125H266.47C266.928 175.125 267.093 175.645 266.696 175.843L261.286 178.533C261.216 178.567 261.14 178.585 261.062 178.586C260.985 178.586 260.908 178.569 260.839 178.535L255.311 175.845C254.911 175.65 255.072 175.125 255.534 175.125Z" stroke="#362825" stroke-width="0.6" stroke-miterlimit="10" />
-											<path d="M15.0582 268.954L13.6465 554.835V557.186H205.163L202.34 413.305H262.1V315.034H202.34V268.954H15.0582Z" fill="#FF6100" fill-opacity="0.21" />
+											<g class="house-apartment js-house-floor" data-floor="1">
+												<path d="M15.0582 268.954L13.6465 554.835V557.186H205.163L202.34 413.305H262.1V315.034H202.34V268.954H15.0582Z" fill="#FF6100" fill-opacity="0.21" />
+											</g>
 											<path d="M249.395 9.4043V257.669H436.676V9.4043H249.395Z" fill="#FF6100" fill-opacity="0.21" />
 											<path d="M440.441 9.4043V257.669H627.723V9.4043H440.441Z" fill="#FFC61A" fill-opacity="0.28" />
 											<path d="M115.213 509.854V460.476L119.153 456.461L116.738 453.996L111.795 458.984V509.785L115.213 509.854ZM202.383 509.309V433.201H142.512L138.582 437.12L136.18 434.675L141.184 429.685H202.309V410.177H206.032V413.339H261.453V317.75H241.348V311.801H288.749V317.75H266.13V379.667H302.124V383.13H266.26V418.371H207.908V509.381L202.379 509.309H202.383Z" fill="#9B9B9B" />
@@ -1000,11 +1037,6 @@
 											<path d="M293.42 507.846H306.499V519.391H293.42V507.846ZM213.768 507.844V555.975H202.19V507.846L213.768 507.844ZM10.5859 507.886H52.8195V519.432H10.5859V507.886ZM115.638 507.885V556.017H104.06V507.885H115.638Z" fill="#898989" />
 											<path d="M98.6895 507.885H114.746V519.431H98.6895V507.885ZM127.605 0H154.403V15.1734H127.605V0ZM322.499 0H349.297V15.1734H322.499V0ZM510.474 0H537.273V15.1734H510.474V0ZM704.195 0H730.994V15.1734H704.195V0Z" fill="#898989" />
 										</g>
-										<defs>
-											<clipPath id="clip0_2501_39575">
-												<rect width="863" height="568" fill="white" />
-											</clipPath>
-										</defs>
 									</svg>
 								</div>
 							</div>
@@ -1368,7 +1400,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240326000724"></script>
+	<script src="js/app.min.js?_v=20240328202117"></script>
 </body>
 
 </html>

@@ -19,8 +19,5 @@
 <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2501_28482"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2501_28482" result="shape"/>
 </filter>
-<clipPath id="clip0_2501_28482">
-<rect width="79" height="79" fill="white"/>
-</clipPath>
 </defs>
 </svg>

@@ -4,6 +4,12 @@
   &__bg {
     border-radius: 20px;
     overflow: hidden;
+    display: block;
+
+    @media(max-width: $sm) {
+      height: 520px;
+    }
+
 
     img {
       width: 100%;
@@ -13,6 +19,31 @@
       @media (max-width: $sm) {
         border-radius: 10px;
       }
+
+      @media(max-width: 560px) {
+        width: 644px;
+        height: 538px;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+
+  &__building {
+    position: relative;
+  }
+
+  &__scheme {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    
+    @media(max-width: 560px) {
+      width: 644px;
+      height: 538px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
@@ -67,165 +98,280 @@
   }
 }
 
-.complex-select {
-  border: 1px solid cl(whte, 0.3);
-  border-radius: 16px;
-  overflow: hidden;
-  width: 348px;
+.house-floor {
+  cursor: pointer;
+  opacity: 0;
 
-  @media (max-width: $sm) {
-    border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  transition: 0.25s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.house-info {
+  max-width: 349px;
+  width: 100%;
+  position: absolute;
+  left: 38px;
+  color: cl(whte);
+  font-size: 14px;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+
+  @media (max-width: 1023px) {
+    position: fixed;
+    max-width: 100%;
     width: 100%;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
   }
 
-  &__head {
-    background-color: cl(whte, 0.2);
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &--complex {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: $md)  {
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+  
+  &--stock {
+    top: 50%;
+    left: 38px;
+    transform: translateY(-50%);
+
+    @media (max-width: $md)  {
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+
+  &--sold-out {
+    left: auto;
+    right: 38px;
+    bottom: 20%;
+    top: auto;
+
+    @media (max-width: $md) {
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .house-info__close {
+      svg {
+        color: var(--color-blck);
+      }
+    }
+    
+    .house-info__card {
+      background: linear-gradient(100.43deg, #362825 -1.14%, #665551 105.39%);
+    }
+  }
+
+  &--white {
+    color: cl(blck);
+    
+    .house-info__card {
+      background-color: cl(whte);
+    }
+
+    .house-info__floor {
+      color: var(--color-primary);
+
+      &-desc {
+        span {
+          color: cl(blck, .4);
+        }
+      }
+    }
+
+    .house-info__btn {
+      background-color: var(--color-primary);
+      color: var(--color-whte);
+    }
+
+    .house-info__close {
+      background-color: var(--color-grey-lighter);
+    }
+
+    .house-info__apartment {
+      border-bottom: 1px solid cl(blck, .2);
+    }
+
+    .house-info__add {
+      background-color: var(--color-grey-lighter);
+    }
+  }
+ 
+  &__card {
+    padding: 24px;
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    width: 100%;
+
+    @media (max-width: $md)  {
+      position: absolute;
+      bottom: 0;
+      border-radius: 16px 16px 0 0;
+      z-index: 99;
+    }
+  }
+
+  &__overlay {
+    display: none;
+
+    @media (max-width: $md)  {
+      display: block;
+      position: absolute;
+      bottom: 0; 
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: cl(blck, .3);
+    }
+  }
+
+  &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding: 23px 27px;
-    color: cl(whte);
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.25s;
+    margin-bottom: 50px;
 
-    @media (max-width: $sm) {
-      padding: 11px;
-      font-size: 14px;
+    @media (max-width: $md) {
+      margin-bottom: 44px;
     }
+  }
+
+  &__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: cl(whte);
+    border-radius: 50%;
 
     svg {
-      transform: rotate(90deg);
-      transition: 0.25s;
+      color: var(--color-blck);
     }
 
-    &.is-active {
+    @media(max-width: $md) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin-top: 44px;
+    display: none;
+    text-align: center;
+
+    @media(max-width: $md) {
+      display: block;
+    }
+  }
+
+  &__close {
+    display: none;
+
+    @media(max-width: $md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
       background-color: cl(whte);
-      color: var(--color-blck);
+      border-radius: 50%;
 
       svg {
-        transform: rotate(-90deg);
-      }
-
-      + .complex-select__list {
-        background-color: var(--color-whte);
+        color: var(--color-primary);
       }
     }
   }
 
-  &__choosen {
+  &__apartments {
+    margin-bottom: 50px;
+
+    @media (max-width: $md) {
+      margin-bottom: 44px;
+    }
+  }
+
+  &__floor {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 8px;
 
-    img {
-      --size: 32px;
-      width: var(--size);
-      height: var(--size);
+    &-num {
+      font-size: 100px;
+      font-size: 500;
+      line-height: 0.8;
 
-      @media (max-width: $sm) {
-        --size: 30px;
+      @media (max-width: $md) {
+        font-size: 80px;
+      }
+    }
+
+    &-desc {
+      span {
+        display: block;
+        opacity: 0.7;
+        margin-top: 8px;
       }
     }
   }
 
-  &__list {
-    padding: 0 8px 0 28px;
-    transition: 0.25s;
-
-    @media (max-width: $sm) {
-      padding: 8px 5px 0 12px;
-    }
+  &__status {
+    background-color: transparent;
   }
 
-  &__inner {
-    padding: 24px 18px 24px 0;
-    height: 219px;
-    overflow-y: auto;
-    position: relative;
-
-    @media (max-width: $sm) {
-      height: 188px;
-      padding: 20px 5px 20px 0;
-    }
-
-    &::before {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0px;
-      right: 18px;
-      width: calc(100% - 18px);
-      height: 1px;
-      border-top: 1px solid cl(blck, 0.1);
-
-      @media (max-width: $sm) {
-        width: calc(100% - 5px);
-        right: 5px;
-      }
-    }
-
-    &::-webkit-scrollbar {
-      width: 2px;
-
-      &-track {
-        width: 2px;
-      }
-
-      &-thumb {
-        background-color: cl(blck, 0.1);
-      }
-    }
-  }
-
-  &__item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+  &__apartment {
+    display: grid;
+    grid-template-columns: 1fr 10px 1fr;
+    font-size: 14px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid cl(whte, 0.4);
 
     &:not(:last-of-type) {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: $sm) {
-      font-size: 14px;
-
-      &:not(:last-of-type) {
-        margin-bottom: 12px;
-      }
-    }
-  }
-
-  &__item-img {
-    --size: 32px;
-    flex-shrink: 0;
-    width: var(--size);
-    height: var(--size);
-    border-radius: 2px;
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &-price {
+      text-align: right;
     }
 
-    @media (max-width: $sm) {
-      --size: 30px;
+    &-num {
+      opacity: 0.5;
     }
   }
 
-  &__item-name {
-    width: 100%;
-    font-size: 18px;
+  &__final {
     font-weight: 500;
+    font-size: 18px;
 
-    @media (max-width: $sm) {
+    span {
+      display: block;
+      margin-bottom: 8px;
       font-size: 14px;
+      opacity: 0.4;
     }
   }
 }

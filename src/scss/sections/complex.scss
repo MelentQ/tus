@@ -45,9 +45,9 @@
         border-radius: 16px;
         overflow: hidden;
 
-        &:nth-of-type(odd) {
-          transform: translateY(71px);
-        }
+        // &:nth-of-type(odd) {
+        //   transform: translateY(71px);
+        // }
 
         img {
           width: 100%;
@@ -65,25 +65,25 @@
         }
       }
 
-      // &.swiper-slide-active {
-      //   transform: translateY(0px);
-      //   transition: 0.25s;
+      &.swiper-slide-active {
+        transform: translateY(0px);
+        transition: 0.25s;
 
-      //   + .swiper-slide {
-      //     transform: translateY(71px);
-      //     transition: 0.25s;
+        + .swiper-slide {
+          transform: translateY(71px);
+          transition: 0.25s;
 
-      //     + .swiper-slide + .swiper-slide {
-      //       transform: translateY(71px);
-      //       transition: 0.25s;
-      //     }
-      //   }
-      // }
+          + .swiper-slide + .swiper-slide {
+            transform: translateY(71px);
+            transition: 0.25s;
+          }
+        }
+      }
 
-      // &.swiper-slide-prev {
-      //   transform: translateY(100px) !important;
-      //   transition: 0.25s;
-      // }
+      &.swiper-slide-prev {
+        transform: translateY(100px) !important;
+        transition: 0.25s;
+      }
     }
   }
 }

@@ -78,6 +78,58 @@ if (hero) {
     },
     ease: "none",
   });
+  gsap.fromTo('.hero-item__title-text',
+  {
+    opacity: 0,
+    autoAlpha: 0,
+    y: 200,
+  }, {
+    duration: 1,
+    opacity: 1,
+    autoAlpha: 1,
+    y: 0,
+  })
+  gsap.fromTo('.hero-item__btn', {
+    opacity: 0,
+    autoAlpha: 0,
+  }, {
+    opacity: 1,
+    autoAlpha: 1,
+  })
+  gsap.fromTo('.hero-item__more', {
+    opacity: 0,
+    autoAlpha: 0,
+  }, {
+    opacity: 1,
+    autoAlpha: 1,
+  })
+
+  gsap.fromTo('.hero-item__adress', {
+    opacity: 0,
+    autoAlpha: 0,
+  }, {
+    opacity: 1,
+    autoAlpha: 1,
+  })
+
+  gsap.fromTo('.hero-item__details-list', 
+  {
+    opacity: 0,
+    y: 100,
+  }, {
+    duration: 1.5,
+    opacity: 1,
+    y: 0,
+  })
+
+  gsap.fromTo('.hero-item__details-point-round', 
+  {
+    scale: 0,
+  }, {
+    duration: 1,
+    scale: 1,
+  })
+
   window.addEventListener("resize", () => {
     throttle(200, setMinHeight(hero));
   });
@@ -382,5 +434,89 @@ if(complexesDropdown) {
     
     complexesDropdownHead.classList.toggle('is-active');
     _slideToggle(complexesDropdownList);
+  })
+}
+
+let houseFloors = document.querySelectorAll('.js-house-floor');
+let mediaEvent;
+
+if(window.matchMedia) {
+  mediaEvent = window.matchMedia('(max-width: 1023px)').matches ? 'click' : 'mouseenter';
+}
+
+if(houseFloors) {
+  let houseInfo = document.querySelectorAll('.js-house-info')
+
+  houseFloors.forEach((item) => {
+    let dataFloor = item.dataset.floor;
+    let dataType = item.dataset.floorType;
+    let dataPosition = item.dataset.position;
+    console.log(item.offsetTop);
+    const svgElement = item.ownerSVGElement || pathElement; // родительский SVG элемент
+    const svgBox = svgElement.getBoundingClientRect();
+
+    console.log(svgElement)
+
+    let boundingBox = item.getBoundingClientRect();
+    
+    // координаты элемента path относительно родительского SVG
+    const topPositionWithinSVG = boundingBox.top - svgBox.top;
+    const leftPositionWithinSVG = boundingBox.left - svgBox.left;
+
+    console.log(topPositionWithinSVG, leftPositionWithinSVG)
+
+    item.addEventListener(mediaEvent, function() {
+      item.classList.add('is-active');
+      item.getBoundingClientRect();
+      let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
+      houseFloorInfo.classList.add('is-open');
+      
+      // if(window.matchMedia('(min-width: 1024px)').matches) {
+      //   houseFloorInfo.style.top = (topPositionWithinSVG - ( houseFloorInfo.offsetHeight / 2)) + 'px';
+
+      //   if(dataPosition === 'right') {
+      //     houseFloorInfo.style.right = (leftPositionWithinSVG + houseFloorInfo.offsetWidth / 3) + 'px';
+      //     houseFloorInfo.style.left = 'auto';
+      //   }
+
+      //   if(dataPosition === 'left') {
+      //     houseFloorInfo.style.left = (leftPositionWithinSVG + houseFloorInfo.offsetWidth / 3) + 'px';
+      //     houseFloorInfo.style.right = 'auto';
+      //   }
+
+      //   if(dataPosition === 'default') {
+      //     houseFloorInfo.style.top = 'auto';
+      //     houseFloorInfo.style.left = '50px';
+      //     houseFloorInfo.style.bottom = '200px'
+      //   }
+      // }
+    })
+
+    item.addEventListener('mouseleave', function() {
+      item.classList.remove('is-active');
+      let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
+      houseFloorInfo.classList.remove('is-open');
+    })
+  })
+
+  if(houseInfo) {
+    houseInfo.forEach((item) => {
+      // let closeBtn = item.querySelector('.js-house-info-close');
+      let overlay = item.querySelector('.js-house-info-overlay');
+  
+      overlay.addEventListener('click', function() {
+        item.classList.remove('is-open');
+      })
+    })
+  }
+}
+
+let dragHint = document.querySelectorAll('.js-drag-hint');
+
+if(dragHint) {
+  dragHint.forEach((item) => {
+    item.addEventListener('touchstart', () => {
+      item.classList.add('is-hidden')
+    })
   })
 }

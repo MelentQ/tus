@@ -234,7 +234,12 @@
 
   &__all {
     display: block;
-    margin-top: 16px;
     text-align: center;
+    grid-column: span 2;
+
+    @media (max-width: $lg) {
+      grid-column: initial;
+      grid-row: 2 / 3;
+    }
   }
 }

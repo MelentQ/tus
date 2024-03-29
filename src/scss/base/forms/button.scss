@@ -108,6 +108,21 @@
     }
   }
 
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid cl(whte, 0.1);
+    color: var(--color-whte);
+
+   
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: cl(whte);
+        color: var(--color-primary);
+      }
+    }
+  }
+
   &--greylight {
     background-color: var(--color-grey-light);
     border-color: var(--color-grey-light);

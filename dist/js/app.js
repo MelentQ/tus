@@ -5533,6 +5533,51 @@
                             },
                             ease: "none"
                         });
+                        gsap.fromTo(".hero-item__title-text", {
+                            opacity: 0,
+                            autoAlpha: 0,
+                            y: 200
+                        }, {
+                            duration: 1,
+                            opacity: 1,
+                            autoAlpha: 1,
+                            y: 0
+                        });
+                        gsap.fromTo(".hero-item__btn", {
+                            opacity: 0,
+                            autoAlpha: 0
+                        }, {
+                            opacity: 1,
+                            autoAlpha: 1
+                        });
+                        gsap.fromTo(".hero-item__more", {
+                            opacity: 0,
+                            autoAlpha: 0
+                        }, {
+                            opacity: 1,
+                            autoAlpha: 1
+                        });
+                        gsap.fromTo(".hero-item__adress", {
+                            opacity: 0,
+                            autoAlpha: 0
+                        }, {
+                            opacity: 1,
+                            autoAlpha: 1
+                        });
+                        gsap.fromTo(".hero-item__details-list", {
+                            opacity: 0,
+                            y: 100
+                        }, {
+                            duration: 1.5,
+                            opacity: 1,
+                            y: 0
+                        });
+                        gsap.fromTo(".hero-item__details-point-round", {
+                            scale: 0
+                        }, {
+                            duration: 1,
+                            scale: 1
+                        });
                         window.addEventListener("resize", (() => {
                             (0, _functions_js__WEBPACK_IMPORTED_MODULE_1__.P2)(200, setMinHeight(hero));
                         }));
@@ -5760,6 +5805,48 @@
                             (0, _functions_js__WEBPACK_IMPORTED_MODULE_1__._y)(complexesDropdownList);
                         }));
                     }
+                    let houseFloors = document.querySelectorAll(".js-house-floor");
+                    let mediaEvent;
+                    if (window.matchMedia) mediaEvent = window.matchMedia("(max-width: 1023px)").matches ? "click" : "mouseenter";
+                    if (houseFloors) {
+                        let houseInfo = document.querySelectorAll(".js-house-info");
+                        houseFloors.forEach((item => {
+                            let dataFloor = item.dataset.floor;
+                            item.dataset.floorType;
+                            item.dataset.position;
+                            console.log(item.offsetTop);
+                            const svgElement = item.ownerSVGElement || pathElement;
+                            const svgBox = svgElement.getBoundingClientRect();
+                            console.log(svgElement);
+                            let boundingBox = item.getBoundingClientRect();
+                            const topPositionWithinSVG = boundingBox.top - svgBox.top;
+                            const leftPositionWithinSVG = boundingBox.left - svgBox.left;
+                            console.log(topPositionWithinSVG, leftPositionWithinSVG);
+                            item.addEventListener(mediaEvent, (function() {
+                                item.classList.add("is-active");
+                                item.getBoundingClientRect();
+                                let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
+                                houseFloorInfo.classList.add("is-open");
+                            }));
+                            item.addEventListener("mouseleave", (function() {
+                                item.classList.remove("is-active");
+                                let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
+                                houseFloorInfo.classList.remove("is-open");
+                            }));
+                        }));
+                        if (houseInfo) houseInfo.forEach((item => {
+                            let overlay = item.querySelector(".js-house-info-overlay");
+                            overlay.addEventListener("click", (function() {
+                                item.classList.remove("is-open");
+                            }));
+                        }));
+                    }
+                    let dragHint = document.querySelectorAll(".js-drag-hint");
+                    if (dragHint) dragHint.forEach((item => {
+                        item.addEventListener("touchstart", (() => {
+                            item.classList.add("is-hidden");
+                        }));
+                    }));
                     __webpack_async_result__();
                 } catch (e) {
                     __webpack_async_result__(e);
@@ -10160,37 +10247,36 @@
                         allowTouchMove: false,
                         watchSlidesProgress: true,
                         speed: 800,
-                        effect: "fade"
+                        effect: "fade",
+                        thumbs: {
+                            swiper: ".js-hero-thumbs"
+                        }
                     });
-                    let heroThumbsProgress = document.querySelector(".hero__thumbs-next-circle");
+                    document.querySelector(".hero__thumbs-next-circle");
                     new swiper_core_Swiper(".js-hero-thumbs", {
                         modules: [ A11y, Navigation, Autoplay, Thumb, Controller ],
                         observer: true,
                         observeParents: true,
+                        direction: "horizontal",
                         loop: true,
                         autoplay: {
                             delay: 5e3,
                             disableOnInteraction: false
                         },
                         loop: true,
-                        slidesPerView: 1.4,
-                        spaceBetween: 16,
+                        slidesPerView: "auto",
+                        spaceBetween: 0,
                         speed: 800,
                         navigation: {
                             prevEl: ".js-hero-thumbs-prev",
                             nextEl: ".js-hero-thumbs-next"
                         },
                         breakpoints: {
-                            spaceBetween: 30
-                        },
-                        on: {
-                            autoplayTimeLeft(s, time, progress) {
-                                heroThumbsProgress.style.setProperty("--progress", 1 - progress);
+                            1024: {
+                                direction: "vertical"
                             }
                         },
-                        thumbs: {
-                            swiper: ".js-hero-slider"
-                        }
+                        on: {}
                     });
                 }
                 if (document.querySelector(".js-hero-bottom-slider")) new swiper_core_Swiper(".js-hero-bottom-slider", {
@@ -10361,6 +10447,26 @@
                         formatFractionCurrent: num => num > 9 ? num : "0" + num,
                         formatFractionTotal: num => num > 9 ? num : "0" + num,
                         el: ".swiper-pagination"
+                    }
+                });
+                if (document.querySelector(".js-similar-slider")) new swiper_core_Swiper(".js-similar-slider", {
+                    modules: [ A11y ],
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 1,
+                    spaceBetween: 8,
+                    allowTouchMove: true,
+                    speed: 600,
+                    breakpoints: {
+                        767: {
+                            slidesPerView: 2,
+                            allowTouchMove: true
+                        },
+                        1024: {
+                            slidesPerView: "auto",
+                            allowTouchMove: false,
+                            spaceBetween: 0
+                        }
                     }
                 });
                 let historySliders = document.querySelectorAll(".js-history-slider");
