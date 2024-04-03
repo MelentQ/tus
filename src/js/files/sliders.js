@@ -407,6 +407,27 @@ function initSliders() {
       }
     });
   }
+  if (document.querySelector(".js-case-gallery-slider")) {
+
+    new Swiper(".js-case-gallery-slider", {
+      modules: [A11y, Navigation], // A11y - обязательный модуль
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 8,
+      allowTouchMove: true,
+      speed: 600,
+      navigation: {
+        nextEl: '.js-case-gallery-next',
+        prevEl: '.js-case-gallery-prev',
+      },
+      breakpoints: {
+        1024: {
+          spaceBetween: 16,
+        }
+      }
+    });
+  }
 
   let historySliders = document.querySelectorAll(".js-history-slider");
 
@@ -496,7 +517,54 @@ function initSliders() {
       });
     });
   }
-}
+
+  let banksSlider = document.querySelector('.js-banks-slider');
+  if(banksSlider) {
+    new Swiper('.js-banks-slider', {
+      modules: [A11y, Navigation], // A11y - обязательный модуль
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      navigation: {
+        prevEl: '.js-banks-slider-prev',
+        nextEl: '.js-banks-slider-next',
+      },
+      breakpoints: {
+          768:  {
+              spaceBetween: 16,
+          }
+      }
+    })
+  }
+  let mortgageSlider = document.querySelector('.js-mortgage-slider');
+  if(mortgageSlider) {
+    new Swiper('.js-mortgage-slider', {
+      slidesPerView: 1,
+      spaceBetween: 8,
+      breakpoints: {
+          560: {
+              slidesPerView: 2,
+          },
+          1200:  {
+              spaceBetween: 16,
+              slidesPerView: 3,
+          }
+        }
+      })
+    }
+  }
+  let interestingSlider = document.querySelector('.js-interesting-slider');
+  if(interestingSlider) {
+    new Swiper('.js-interesting-slider', {
+      slidesPerView: 1,
+      spaceBetween: 8,
+      breakpoints: {
+          768:  {
+              slidesPerView: 2,
+              spaceBetween: 16,
+          }
+      }
+      })
+    }
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {
   let sliderScrollItems = document.querySelectorAll(".swiper_scroll");

@@ -12,7 +12,7 @@
 */
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-window["FLS"] = true;
+window["FLS"] = false;
 
 // Подключение основного файла стилей
 import "../scss/style.scss";
@@ -37,8 +37,6 @@ flsFunctions.menuInit();
 // import './libs/wNumb.min.js';
 
 flsFunctions.filterInit();
-
-;
 
 /*
 Модуль "Спойлеры"
@@ -110,7 +108,7 @@ flsForms.formSubmit();
 // flsForms.formRating();
 
 /* Модуль работы по select. */
-import './libs/select.js'
+import "./libs/select.js";
 
 /* Модуль работы с календарем */
 // import './files/forms/datepicker.js'

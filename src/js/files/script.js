@@ -6,21 +6,13 @@ import {
   _slideDown,
   _slideToggle,
   FLS,
+  addClasses,
+  removeClasses,
 } from "./functions.js";
 
-export default async () => {
-  const el = document.querySelector("[data-gsap]");
-  if (!el) return;
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
-};
-
-const { default: gsap } = await import(/* webpackChunkName: "gsap" */ "gsap");
-const { ScrollTrigger } = await import(
-  /* webpackChunkName: "gsap" */ "gsap/ScrollTrigger.js"
-);
-
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { throttle } from "./functions.js";
 
 if (document.querySelector('[data-role*="tabs"]')) {
@@ -78,57 +70,78 @@ if (hero) {
     },
     ease: "none",
   });
-  gsap.fromTo('.hero-item__title-text',
-  {
-    opacity: 0,
-    autoAlpha: 0,
-    y: 200,
-  }, {
-    duration: 1,
-    opacity: 1,
-    autoAlpha: 1,
-    y: 0,
-  })
-  gsap.fromTo('.hero-item__btn', {
-    opacity: 0,
-    autoAlpha: 0,
-  }, {
-    opacity: 1,
-    autoAlpha: 1,
-  })
-  gsap.fromTo('.hero-item__more', {
-    opacity: 0,
-    autoAlpha: 0,
-  }, {
-    opacity: 1,
-    autoAlpha: 1,
-  })
+  gsap.fromTo(
+    ".hero-item__title-text",
+    {
+      opacity: 0,
+      autoAlpha: 0,
+      y: 200,
+    },
+    {
+      duration: 1,
+      opacity: 1,
+      autoAlpha: 1,
+      y: 0,
+    }
+  );
+  gsap.fromTo(
+    ".hero-item__btn",
+    {
+      opacity: 0,
+      autoAlpha: 0,
+    },
+    {
+      opacity: 1,
+      autoAlpha: 1,
+    }
+  );
+  gsap.fromTo(
+    ".hero-item__more",
+    {
+      opacity: 0,
+      autoAlpha: 0,
+    },
+    {
+      opacity: 1,
+      autoAlpha: 1,
+    }
+  );
 
-  gsap.fromTo('.hero-item__adress', {
-    opacity: 0,
-    autoAlpha: 0,
-  }, {
-    opacity: 1,
-    autoAlpha: 1,
-  })
+  gsap.fromTo(
+    ".hero-item__adress",
+    {
+      opacity: 0,
+      autoAlpha: 0,
+    },
+    {
+      opacity: 1,
+      autoAlpha: 1,
+    }
+  );
 
-  gsap.fromTo('.hero-item__details-list', 
-  {
-    opacity: 0,
-    y: 100,
-  }, {
-    duration: 1.5,
-    opacity: 1,
-    y: 0,
-  })
+  gsap.fromTo(
+    ".hero-item__details-list",
+    {
+      opacity: 0,
+      y: 100,
+    },
+    {
+      duration: 1.5,
+      opacity: 1,
+      y: 0,
+    }
+  );
 
-  gsap.fromTo('.hero-item__details-point-round', 
-  {
-    scale: 0,
-  }, {
-    duration: 1,
-    scale: 1,
-  })
+  gsap.fromTo(
+    ".hero-item__details-point-round",
+    {
+      scale: 0,
+    },
+    {
+      duration: 1,
+      scale: 1,
+    }
+  );
 
   window.addEventListener("resize", () => {
     throttle(200, setMinHeight(hero));
@@ -173,19 +186,15 @@ if (imgGallery) {
   ScrollTrigger.addEventListener("refreshInit", refresh);
 }
 
-
-
 let containerGallery = document.querySelectorAll(".js-marque");
 
 if (containerGallery) {
-  
   containerGallery.forEach((item) => {
-    
     const upGallery = item.querySelector(".js-up-gallery");
     const downGallery = item.querySelector(".js-down-gallery");
-  
+
     let direction;
-  
+
     if (window.matchMedia("(max-width: 767px)").matches) {
       gsap.to(downGallery, {
         scrollTrigger: {
@@ -199,7 +208,7 @@ if (containerGallery) {
         x: () => -downGallery.scrollWidth,
         ease: "none",
       });
-  
+
       gsap.to(upGallery, {
         scrollTrigger: {
           scrub: 0.2,
@@ -225,7 +234,7 @@ if (containerGallery) {
         y: () => downGallery.scrollHeight,
         ease: "none",
       });
-  
+
       gsap.to(upGallery, {
         scrollTrigger: {
           scrub: 0.2,
@@ -239,7 +248,7 @@ if (containerGallery) {
         ease: "none",
       });
     }
-  })
+  });
 }
 
 let cardsWrapper = document.querySelectorAll(".cards");
@@ -357,53 +366,47 @@ if (historySection) {
 }
 
 let bureauSection = document.querySelector(".bureau");
-if(bureauSection) {
+if (bureauSection) {
   let bureauImgMain = bureauSection.querySelector(".bureau__img-main");
   let bureauImgSmall = bureauSection.querySelector(".bureau__img-small");
   let bureauText = bureauSection.querySelector(".bureau__desc");
 
-
-  gsap.from(bureauImgSmall,
-    {
-      scrollTrigger: {
-        scrub: 0.2,
-        trigger: bureauSection,
-        pin: false,
-        start: "top center",
-        end: "bottom bottom",
-        invalidateOnRefresh: true,
-      },
-      opacity: 0,
-      ease: "none",
-    }
-  )
-  gsap.to(bureauText,
-    {
-      scrollTrigger: {
-        scrub: 0.2,
-        trigger: bureauSection,
-        pin: false,
-        start: "top 100vh",
-        end: "bottom bottom",
-        invalidateOnRefresh: true,
-      },
-      y: 0,
-      ease: "none",
-    }
-  )
-  
+  gsap.from(bureauImgSmall, {
+    scrollTrigger: {
+      scrub: 0.2,
+      trigger: bureauSection,
+      pin: false,
+      start: "top center",
+      end: "bottom bottom",
+      invalidateOnRefresh: true,
+    },
+    opacity: 0,
+    ease: "none",
+  });
+  gsap.to(bureauText, {
+    scrollTrigger: {
+      scrub: 0.2,
+      trigger: bureauSection,
+      pin: false,
+      start: "top 100vh",
+      end: "bottom bottom",
+      invalidateOnRefresh: true,
+    },
+    y: 0,
+    ease: "none",
+  });
 }
 
 // Get the header
-var header = document.querySelector(".header");
+const header = document.querySelector(".header");
 
-var sticky = header.offsetTop;
+const sticky = header.offsetTop;
 
 function initStickyHeader() {
   if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
+    addClasses([header], "sticky");
   } else {
-    header.classList.remove("sticky");
+    removeClasses([header], "sticky");
   }
 }
 
@@ -421,102 +424,98 @@ window.addEventListener("resize", () => {
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 });
 
+let complexesDropdown = document.querySelector(".js-dropdown");
 
-let complexesDropdown = document.querySelector('.js-dropdown');
-
-if(complexesDropdown) {
-  let complexesDropdownHead = document.querySelector('.js-dropdown-toggle');
-  let complexesDropdownList = document.querySelector('.js-dropdown-content');
+if (complexesDropdown) {
+  let complexesDropdownHead = document.querySelector(".js-dropdown-toggle");
+  let complexesDropdownList = document.querySelector(".js-dropdown-content");
 
   _slideUp(complexesDropdownList);
 
-  complexesDropdownHead.addEventListener('click', function() {
-    
-    complexesDropdownHead.classList.toggle('is-active');
+  complexesDropdownHead.addEventListener("click", function () {
+    complexesDropdownHead.classList.toggle("is-active");
     _slideToggle(complexesDropdownList);
-  })
+  });
 }
 
-let houseFloors = document.querySelectorAll('.js-house-floor');
+let houseFloors = document.querySelectorAll(".js-house-floor");
 let mediaEvent;
 
-if(window.matchMedia) {
-  mediaEvent = window.matchMedia('(max-width: 1023px)').matches ? 'click' : 'mouseenter';
+if (window.matchMedia) {
+  mediaEvent = window.matchMedia("(max-width: 1023px)").matches
+    ? "click"
+    : "mouseenter";
 }
 
-if(houseFloors) {
-  let houseInfo = document.querySelectorAll('.js-house-info')
+if (houseFloors) {
+  const houseInfo = document.querySelectorAll(".js-house-info");
+  const hosePanels = document.querySelectorAll(".js-house-info");
+  hosePanels.forEach((element) => {
+    const openHandler = function () {
+      addClasses([this], "is-open");
+    };
+
+    const closeHandler = function () {
+      removeClasses([this], "is-open");
+    };
+
+    element.addEventListener(mediaEvent, openHandler);
+    element.addEventListener("mouseleave", closeHandler);
+  });
 
   houseFloors.forEach((item) => {
-    let dataFloor = item.dataset.floor;
-    let dataType = item.dataset.floorType;
-    let dataPosition = item.dataset.position;
+    const dataFloor = item.dataset.floor;
+    const dataType = item.dataset.floorType;
+    const dataPosition = item.dataset.position;
     console.log(item.offsetTop);
     const svgElement = item.ownerSVGElement || pathElement; // родительский SVG элемент
     const svgBox = svgElement.getBoundingClientRect();
 
-    console.log(svgElement)
+    console.log(svgElement);
 
-    let boundingBox = item.getBoundingClientRect();
-    
+    const boundingBox = item.getBoundingClientRect();
+
     // координаты элемента path относительно родительского SVG
     const topPositionWithinSVG = boundingBox.top - svgBox.top;
     const leftPositionWithinSVG = boundingBox.left - svgBox.left;
 
-    console.log(topPositionWithinSVG, leftPositionWithinSVG)
-
-    item.addEventListener(mediaEvent, function() {
-      item.classList.add('is-active');
+    item.addEventListener(mediaEvent, function () {
+      item.classList.add("is-active");
       item.getBoundingClientRect();
-      let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
-      houseFloorInfo.classList.add('is-open');
-      
-      // if(window.matchMedia('(min-width: 1024px)').matches) {
-      //   houseFloorInfo.style.top = (topPositionWithinSVG - ( houseFloorInfo.offsetHeight / 2)) + 'px';
+      let houseFloorInfo = document.querySelector(
+        `.js-house-info[data-floor-info="${dataFloor}"]`
+      );
+      addClasses([houseFloorInfo], "is-open");
+    });
 
-      //   if(dataPosition === 'right') {
-      //     houseFloorInfo.style.right = (leftPositionWithinSVG + houseFloorInfo.offsetWidth / 3) + 'px';
-      //     houseFloorInfo.style.left = 'auto';
-      //   }
+    item.addEventListener("mouseleave", function () {
+      let houseFloorInfo = document.querySelector(
+        `.js-house-info[data-floor-info="${dataFloor}"]`
+      );
 
-      //   if(dataPosition === 'left') {
-      //     houseFloorInfo.style.left = (leftPositionWithinSVG + houseFloorInfo.offsetWidth / 3) + 'px';
-      //     houseFloorInfo.style.right = 'auto';
-      //   }
+      removeClasses([houseFloorInfo], "is-open");
+      removeClasses([houseFloorInfo], "is-active");
+    });
+  });
 
-      //   if(dataPosition === 'default') {
-      //     houseFloorInfo.style.top = 'auto';
-      //     houseFloorInfo.style.left = '50px';
-      //     houseFloorInfo.style.bottom = '200px'
-      //   }
-      // }
-    })
-
-    item.addEventListener('mouseleave', function() {
-      item.classList.remove('is-active');
-      let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
-      houseFloorInfo.classList.remove('is-open');
-    })
-  })
-
-  if(houseInfo) {
+  if (houseInfo) {
     houseInfo.forEach((item) => {
       // let closeBtn = item.querySelector('.js-house-info-close');
-      let overlay = item.querySelector('.js-house-info-overlay');
-  
-      overlay.addEventListener('click', function() {
-        item.classList.remove('is-open');
-      })
-    })
+      let overlay = item.querySelector(".js-house-info-overlay");
+
+      overlay.addEventListener("click", function () {
+        item.classList.remove("is-open");
+      });
+    });
   }
 }
 
-let dragHint = document.querySelectorAll('.js-drag-hint');
+let dragHint = document.querySelectorAll(".js-drag-hint");
 
-if(dragHint) {
+if (dragHint) {
   dragHint.forEach((item) => {
-    item.addEventListener('touchstart', () => {
-      item.classList.add('is-hidden')
-    })
-  })
+    item.addEventListener("touchstart", () => {
+      item.classList.add("is-hidden");
+    });
+  });
 }
