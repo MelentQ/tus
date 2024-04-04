@@ -6097,9 +6097,10 @@ body::after {
   --pad-neg: -19px;
   padding: 19px;
   border: 1px solid rgba(var(--color-blck--rgb), 0.1);
-  background-color: #f7f7f7;
   border-radius: 20px;
   overflow: hidden;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .apartment-item__head {
@@ -8636,10 +8637,43 @@ body::after {
   overflow: hidden;
 }
 
+.case__gallery-item {
+  position: relative;
+  z-index: 1;
+}
+
 .case__gallery-item img {
   width: 100%;
   display: block;
   border-radius: 20px;
+}
+
+.case__gallery-item-play {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+  --size: 150px;
+  width: var(--size);
+  height: var(--size);
+  background-color: rgba(var(--color-whte--rgb), 0.2);
+  border: 1px solid rgba(var(--color-whte--rgb), 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .case__bottom {
@@ -8767,6 +8801,125 @@ body::after {
 }
 
 .interesting__item-date-desc {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-top: 10px;
+}
+
+.cases__title {
+  margin-bottom: 60px;
+}
+
+.cases__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cases__btn {
+  -ms-grid-column-span: 2;
+  grid-column: span 2;
+}
+
+.cases-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  min-height: 427px;
+}
+
+.cases-item__left {
+  max-width: 43%;
+  width: 100%;
+  position: relative;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+.cases-item__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 57%;
+  width: 100%;
+  padding: 40px;
+  border: 1px solid rgba(var(--color-blck--rgb), 0.1);
+  border-left-width: 0;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+}
+
+.cases-item__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cases-item__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cases-item__title {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.cases-item__desc {
+  font-size: 18px;
+  line-height: 1.2;
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cases-item__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto -40px 0;
+  padding: 20px 40px 0;
+  border-top: 1px solid rgba(var(--color-blck--rgb), 0.1);
+}
+
+.date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 17px;
+}
+
+.date__num {
+  font-size: 100px;
+  line-height: 0.8;
+  display: block;
+}
+
+.date__desc {
   font-size: 14px;
   line-height: 1.3;
   margin-top: 10px;
@@ -10695,6 +10848,10 @@ button.swiper-pagination-bullet {
   .interesting__item-desc {
     font-size: 12px;
   }
+
+  .cases-item__desc {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -11501,6 +11658,34 @@ button.swiper-pagination-bullet {
     -ms-grid-column-span: 1;
     grid-column: 2/3;
     padding-left: 16px;
+  }
+
+  .cases-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 446px;
+  }
+
+  .cases-item__left {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    height: 320px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+
+  .cases-item__right {
+    max-width: 100%;
+    border-radius: 0 0 20px 20px;
+    border-left-width: 1px;
+    border-top-width: 0px;
+    height: 100%;
+  }
+
+  .cases-item__desc {
+    margin-bottom: 32px;
   }
 }
 
@@ -13300,6 +13485,16 @@ button.swiper-pagination-bullet {
     border-radius: 10px;
   }
 
+  .case__gallery-item-play {
+    --size: 50px;
+  }
+
+  .case__gallery-item-play svg {
+    display: block;
+    width: 8px;
+    height: 8px;
+  }
+
   .case__bottom {
     display: none;
   }
@@ -13318,6 +13513,41 @@ button.swiper-pagination-bullet {
   .interesting__item-title {
     font-size: 20px;
     line-height: 1;
+  }
+
+  .cases__title {
+    margin-bottom: 40px;
+  }
+
+  .cases-item__left {
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .cases-item__right {
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .cases-item__title {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .cases-item__bottom {
+    margin: auto -20px 0;
+    padding: 20px 20px 0;
+  }
+
+  .cases-item__btn {
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+  }
+
+  .cases-item__btn svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -14727,6 +14957,25 @@ button.swiper-pagination-bullet {
     font-size: 12px;
     margin-top: 0;
   }
+
+  .cases__list {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .cases__btn {
+    grid-column: initial;
+  }
+
+  .date__num {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  .date__desc {
+    font-size: 12px;
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 47.99875em) and (-webkit-min-device-pixel-ratio: 0) {
@@ -14953,6 +15202,10 @@ button.swiper-pagination-bullet {
   .flat__slider-prev:hover svg,
   .flat__slider-next:hover svg {
     color: var(--color-whte);
+  }
+
+  .apartment-item:hover {
+    background-color: #f7f7f7;
   }
 
   .complexes__select-item:hover .complexes__select-item-btn {

@@ -4,9 +4,15 @@
   --pad-neg: -19px;
   padding: 19px;
   border: 1px solid cl(blck, 0.1);
-  background-color: #f7f7f7;
   border-radius: 20px;
   overflow: hidden;
+  transition: .25s;
+
+  @media(any-hover: hover) {
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
 
   @media (max-width: $md) {
     --icon-size: 14px;

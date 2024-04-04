@@ -418,8 +418,8 @@ function initSliders() {
       allowTouchMove: true,
       speed: 600,
       navigation: {
-        nextEl: '.js-case-gallery-next',
-        prevEl: '.js-case-gallery-prev',
+        nextEl: '.js-case-gallery-slider-next',
+        prevEl: '.js-case-gallery-slider-prev',
       },
       breakpoints: {
         1024: {
