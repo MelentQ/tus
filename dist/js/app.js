@@ -4250,16 +4250,13 @@
                     const selectItem = targetElement.closest(".select") ? targetElement.closest(".select") : document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag)).dataset.selectId}"]`);
                     const originalSelect = this.getSelectElement(selectItem).originalSelect;
                     if (targetType === "click") {
-                        if (!originalSelect.disabled) {
-                            this.selectsСlose();
-                            if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
-                                const targetTag = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag));
-                                const optionItem = document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetTag.dataset.selectId}"] .select__option[data-value="${targetTag.dataset.value}"]`);
-                                this.optionAction(selectItem, originalSelect, optionItem);
-                            } else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTitle))) this.selectAction(selectItem); else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption))) {
-                                const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
-                                this.optionAction(selectItem, originalSelect, optionItem);
-                            }
+                        if (!originalSelect.disabled) if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
+                            const targetTag = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag));
+                            const optionItem = document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetTag.dataset.selectId}"] .select__option[data-value="${targetTag.dataset.value}"]`);
+                            this.optionAction(selectItem, originalSelect, optionItem);
+                        } else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTitle))) this.selectAction(selectItem); else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption))) {
+                            const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
+                            this.optionAction(selectItem, originalSelect, optionItem);
                         }
                     } else if (targetType === "focusin" || targetType === "focusout") {
                         if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) targetType === "focusin" ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
