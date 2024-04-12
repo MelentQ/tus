@@ -1,4 +1,13 @@
 .about-honor {
+  padding-bottom: 150px;
+
+  @media(max-width: $xl) {
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: $md) {
+    padding-bottom: 60px;
+  }
 
   &__cards {
     display: grid;
@@ -41,13 +50,23 @@
     border: 1px solid cl(blck, .1);
     overflow: hidden;
     cursor: pointer;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media(max-width: $lg) {
+      height: 280px;
+    }
 
     @media(max-width: $md) {
       padding: 24px;
+      height: 240px;
     }
 
     @media(max-width: $sm) {
       padding: 16px;
+      height: 160px;
     }
 
     &:hover {
@@ -65,7 +84,6 @@
     &-num {
       font-size: 100px;
       line-height: .8;
-      margin-bottom: 132px;
       font-weight: 500;
       color: var(--color-primary);
       position: relative;
@@ -74,12 +92,10 @@
 
       @media(max-width: $md) {
         font-size: 80px;
-        margin-bottom: 100px;
       }
 
       @media(max-width: $sm) {
         font-size: 50px;
-        margin-bottom: 54px;
       }
     }
 

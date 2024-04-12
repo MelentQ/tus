@@ -534,11 +534,17 @@ function initSliders() {
     })
   }
 
-  let mortgageSlider = document.querySelector('.js-mortgage-slider');
+  let mortgageSlider= document.querySelector('.js-mortgage-slider');
   if(mortgageSlider) {
-    new Swiper('.js-mortgage-slider', {
+
+    const mortgageSwiper = new Swiper('.js-mortgage-slider', {
+      modules: [A11y, Navigation],
       slidesPerView: 1,
       spaceBetween: 8,
+      navigation: {
+        prevEl: '.js-mortgage-slider-prev',
+        nextEl: '.js-mortgage-slider-next',
+      },
       breakpoints: {
           560: {
               slidesPerView: 2,
@@ -604,9 +610,13 @@ function initSliders() {
   let aboutHistoryThumbs = document.querySelector('.js-about-history-thumbs');
   if(aboutHistoryThumbs) {
     new Swiper('.js-about-history-thumbs', {
-      modules: [A11y], // A11y - обязательный модуль
+      modules: [A11y, Navigation], // A11y - обязательный модуль
       slidesPerView: 'auto',
       spaceBetween: 24,
+      navigation: {
+        prevEl: '.js-about-history-thumbs-prev',
+        nextEl: '.js-about-history-thumbs-next',
+      }
     })
   }
   let aboutHistoryInfo = document.querySelector('.js-about-history-main');

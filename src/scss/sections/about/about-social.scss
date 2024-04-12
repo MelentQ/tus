@@ -1,4 +1,13 @@
 .about-social {
+  padding-bottom: 120px;
+
+  @media(max-width: $xl) {
+    padding-bottom: 80px;
+  }
+
+  @media(max-width: $md) {
+    padding-bottom: 60px;
+  }
 
   &__head {
     display: flex;

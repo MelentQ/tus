@@ -10859,19 +10859,26 @@
                 }
             });
             let mortgageSlider = document.querySelector(".js-mortgage-slider");
-            if (mortgageSlider) new swiper_core_Swiper(".js-mortgage-slider", {
-                slidesPerView: 1,
-                spaceBetween: 8,
-                breakpoints: {
-                    560: {
-                        slidesPerView: 2
+            if (mortgageSlider) {
+                new swiper_core_Swiper(".js-mortgage-slider", {
+                    modules: [ A11y, Navigation ],
+                    slidesPerView: 1,
+                    spaceBetween: 8,
+                    navigation: {
+                        prevEl: ".js-mortgage-slider-prev",
+                        nextEl: ".js-mortgage-slider-next"
                     },
-                    1200: {
-                        spaceBetween: 16,
-                        slidesPerView: 3
+                    breakpoints: {
+                        560: {
+                            slidesPerView: 2
+                        },
+                        1200: {
+                            spaceBetween: 16,
+                            slidesPerView: 3
+                        }
                     }
-                }
-            });
+                });
+            }
         }
         let teambuildSlider = document.querySelector(".js-teambuild-slider");
         if (teambuildSlider) new swiper_core_Swiper(".js-teambuild-slider", {
@@ -10911,9 +10918,13 @@
         });
         let aboutHistoryThumbs = document.querySelector(".js-about-history-thumbs");
         if (aboutHistoryThumbs) new swiper_core_Swiper(".js-about-history-thumbs", {
-            modules: [ A11y ],
+            modules: [ A11y, Navigation ],
             slidesPerView: "auto",
-            spaceBetween: 24
+            spaceBetween: 24,
+            navigation: {
+                prevEl: ".js-about-history-thumbs-prev",
+                nextEl: ".js-about-history-thumbs-next"
+            }
         });
         let aboutHistoryInfo = document.querySelector(".js-about-history-main");
         if (aboutHistoryInfo) {
@@ -16894,21 +16905,23 @@
                 item.classList.add("is-hidden");
             }));
         }));
-        const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
         const videoSection = document.querySelector(".js-video");
-        videoSection.querySelector("video");
-        videoSection.addEventListener("mousemove", (e => {
-            const gap = 70;
-            videoPlayCoursor.style.display = "flex";
-            videoPlayCoursor.style.left = e.clientX - gap + "px";
-            videoPlayCoursor.style.top = e.clientY - gap + "px";
-        }));
-        videoSection.addEventListener("mouseleave", (() => {
-            videoPlayCoursor.style.display = "none";
-        }));
-        videoSection.addEventListener("click", (function() {
-            if (videoPlayCoursor.classList.contains("is-active")) videoPlayCoursor.classList.remove("is-active"); else videoPlayCoursor.classList.add("is-active");
-        }));
+        if (videoSection) {
+            const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
+            videoSection.querySelector("video");
+            videoSection.addEventListener("mousemove", (e => {
+                const gap = 70;
+                videoPlayCoursor.style.display = "flex";
+                videoPlayCoursor.style.left = e.clientX - gap + "px";
+                videoPlayCoursor.style.top = e.clientY - gap + "px";
+            }));
+            videoSection.addEventListener("mouseleave", (() => {
+                videoPlayCoursor.style.display = "none";
+            }));
+            videoSection.addEventListener("click", (function() {
+                if (videoPlayCoursor.classList.contains("is-active")) videoPlayCoursor.classList.remove("is-active"); else videoPlayCoursor.classList.add("is-active");
+            }));
+        }
         window["FLS"] = false;
         isWebp();
         menuInit();

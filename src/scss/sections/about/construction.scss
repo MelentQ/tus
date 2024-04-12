@@ -1,4 +1,14 @@
 .construction {
+  position: static;
+  padding-bottom: 207px;
+
+  @media(max-width: $xl) {
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: $md) {
+    padding-bottom: 60px;
+  }
 
   &__container {
     display: flex;

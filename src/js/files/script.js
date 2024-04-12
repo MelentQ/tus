@@ -524,42 +524,32 @@ if (dragHint) {
 }
 
 
-// let videoPlayCoursor = document.querySelector('.js-videoplay-mouse');
-// let videoSection = document.querySelector('.js-video');
 
-// const moveCursor = (e)=> {
-//   const mouseY = e.clientY;
-//   const mouseX = e.clientX;
-   
-//   videoPlayCoursor.style.transform = `translate3d(${mouseX}px, -${mouseY}px, 0)`;
-
-// }
-
-// window.addEventListener('mousemove', moveCursor)
-
-const videoPlayCoursor = document.querySelector('.js-videoplay-mouse');
 const videoSection = document.querySelector('.js-video');
-const videoPlayer = videoSection.querySelector('video')
 
-videoSection.addEventListener('mousemove', (e) => {
+
+if(videoSection) {
+  const videoPlayCoursor = document.querySelector('.js-videoplay-mouse');
+  const videoPlayer = videoSection.querySelector('video');
+
+  videoSection.addEventListener('mousemove', (e) => {
     const gap = 70
     videoPlayCoursor.style.display = 'flex';
     videoPlayCoursor.style.left = (e.clientX -gap ) + 'px';
     videoPlayCoursor.style.top = (e.clientY - gap) + 'px';
-});
+  });
 
-videoSection.addEventListener('mouseleave', () => {
-    videoPlayCoursor.style.display = 'none';
-});
+  videoSection.addEventListener('mouseleave', () => {
+      videoPlayCoursor.style.display = 'none';
+  });
 
-videoSection.addEventListener('click', function() {
-  if(videoPlayCoursor.classList.contains('is-active')) {
-    videoPlayCoursor.classList.remove('is-active');
-    // videoPlayer.pause();
-  } else {
-    videoPlayCoursor.classList.add('is-active');
-    // videoPlayer.play();
-  }
-  
-  
-})
+  videoSection.addEventListener('click', function() {
+    if(videoPlayCoursor.classList.contains('is-active')) {
+      videoPlayCoursor.classList.remove('is-active');
+      // videoPlayer.pause();
+    } else {
+      videoPlayCoursor.classList.add('is-active');
+      // videoPlayer.play();
+    }  
+  })
+}

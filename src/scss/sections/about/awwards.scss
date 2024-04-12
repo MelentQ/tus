@@ -1,10 +1,24 @@
 .awwards {
+  position: static;
   z-index: 3;
+  padding-bottom: 220px;
+
+  @media(max-width: $xl) {
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: $md) {
+    padding-bottom: 60px;
+  }
+
+  &__title {
+    margin-bottom: 64px;
+  }
 
   &__item {
     width: 100%;
     position: relative;
-    padding: 32px 0;
+    padding: 31px 0;
     border-top: 1px solid cl(blck, .1);
     border-bottom: 1px solid cl(blck, .1);
 
@@ -38,6 +52,7 @@
       pointer-events: none;
       transform: scale(0);
       transition: .25s;
+      z-index: 4;
 
       @media(max-width: $lg) {
         --size: 160px;
@@ -93,6 +108,7 @@
 
     &-company {
       font-size: 32px;
+      line-height: 1;
 
       @media(max-width: $lg) {
         font-size: 24px;
