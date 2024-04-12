@@ -10389,6 +10389,134 @@
                 })
             });
         }
+        function create_shadow_createShadow(suffix, slideEl, side) {
+            const shadowClass = `swiper-slide-shadow${side ? `-${side}` : ""}${suffix ? ` swiper-slide-shadow-${suffix}` : ""}`;
+            const shadowContainer = utils_getSlideTransformEl(slideEl);
+            let shadowEl = shadowContainer.querySelector(`.${shadowClass.split(" ").join(".")}`);
+            if (!shadowEl) {
+                shadowEl = utils_createElement("div", shadowClass.split(" "));
+                shadowContainer.append(shadowEl);
+            }
+            return shadowEl;
+        }
+        function EffectCreative(_ref) {
+            let {swiper, extendParams, on} = _ref;
+            extendParams({
+                creativeEffect: {
+                    limitProgress: 1,
+                    shadowPerProgress: false,
+                    progressMultiplier: 1,
+                    perspective: true,
+                    prev: {
+                        translate: [ 0, 0, 0 ],
+                        rotate: [ 0, 0, 0 ],
+                        opacity: 1,
+                        scale: 1
+                    },
+                    next: {
+                        translate: [ 0, 0, 0 ],
+                        rotate: [ 0, 0, 0 ],
+                        opacity: 1,
+                        scale: 1
+                    }
+                }
+            });
+            const getTranslateValue = value => {
+                if (typeof value === "string") return value;
+                return `${value}px`;
+            };
+            const setTranslate = () => {
+                const {slides, wrapperEl, slidesSizesGrid} = swiper;
+                const params = swiper.params.creativeEffect;
+                const {progressMultiplier: multiplier} = params;
+                const isCenteredSlides = swiper.params.centeredSlides;
+                if (isCenteredSlides) {
+                    const margin = slidesSizesGrid[0] / 2 - swiper.params.slidesOffsetBefore || 0;
+                    wrapperEl.style.transform = `translateX(calc(50% - ${margin}px))`;
+                }
+                for (let i = 0; i < slides.length; i += 1) {
+                    const slideEl = slides[i];
+                    const slideProgress = slideEl.progress;
+                    const progress = Math.min(Math.max(slideEl.progress, -params.limitProgress), params.limitProgress);
+                    let originalProgress = progress;
+                    if (!isCenteredSlides) originalProgress = Math.min(Math.max(slideEl.originalProgress, -params.limitProgress), params.limitProgress);
+                    const offset = slideEl.swiperSlideOffset;
+                    const t = [ swiper.params.cssMode ? -offset - swiper.translate : -offset, 0, 0 ];
+                    const r = [ 0, 0, 0 ];
+                    let custom = false;
+                    if (!swiper.isHorizontal()) {
+                        t[1] = t[0];
+                        t[0] = 0;
+                    }
+                    let data = {
+                        translate: [ 0, 0, 0 ],
+                        rotate: [ 0, 0, 0 ],
+                        scale: 1,
+                        opacity: 1
+                    };
+                    if (progress < 0) {
+                        data = params.next;
+                        custom = true;
+                    } else if (progress > 0) {
+                        data = params.prev;
+                        custom = true;
+                    }
+                    t.forEach(((value, index) => {
+                        t[index] = `calc(${value}px + (${getTranslateValue(data.translate[index])} * ${Math.abs(progress * multiplier)}))`;
+                    }));
+                    r.forEach(((value, index) => {
+                        let val = data.rotate[index] * Math.abs(progress * multiplier);
+                        if (swiper.browser && swiper.browser.isSafari && Math.abs(val) / 90 % 2 === 1) val += .001;
+                        r[index] = val;
+                    }));
+                    slideEl.style.zIndex = -Math.abs(Math.round(slideProgress)) + slides.length;
+                    const translateString = t.join(", ");
+                    const rotateString = `rotateX(${r[0]}deg) rotateY(${r[1]}deg) rotateZ(${r[2]}deg)`;
+                    const scaleString = originalProgress < 0 ? `scale(${1 + (1 - data.scale) * originalProgress * multiplier})` : `scale(${1 - (1 - data.scale) * originalProgress * multiplier})`;
+                    const opacityString = originalProgress < 0 ? 1 + (1 - data.opacity) * originalProgress * multiplier : 1 - (1 - data.opacity) * originalProgress * multiplier;
+                    const transform = `translate3d(${translateString}) ${rotateString} ${scaleString}`;
+                    if (custom && data.shadow || !custom) {
+                        let shadowEl = slideEl.querySelector(".swiper-slide-shadow");
+                        if (!shadowEl && data.shadow) shadowEl = create_shadow_createShadow("creative", slideEl);
+                        if (shadowEl) {
+                            const shadowOpacity = params.shadowPerProgress ? progress * (1 / params.limitProgress) : progress;
+                            shadowEl.style.opacity = Math.min(Math.max(Math.abs(shadowOpacity), 0), 1);
+                        }
+                    }
+                    const targetEl = effect_target_effectTarget(params, slideEl);
+                    targetEl.style.transform = transform;
+                    targetEl.style.opacity = opacityString;
+                    if (data.origin) targetEl.style.transformOrigin = data.origin;
+                }
+            };
+            const setTransition = duration => {
+                const transformElements = swiper.slides.map((slideEl => utils_getSlideTransformEl(slideEl)));
+                transformElements.forEach((el => {
+                    el.style.transitionDuration = `${duration}ms`;
+                    el.querySelectorAll(".swiper-slide-shadow").forEach((shadowEl => {
+                        shadowEl.style.transitionDuration = `${duration}ms`;
+                    }));
+                }));
+                effect_virtual_transition_end_effectVirtualTransitionEnd({
+                    swiper,
+                    duration,
+                    transformElements,
+                    allSlides: true
+                });
+            };
+            effect_init_effectInit({
+                effect: "creative",
+                swiper,
+                on,
+                setTranslate,
+                setTransition,
+                perspective: () => swiper.params.creativeEffect.perspective,
+                overwriteParams: () => ({
+                    watchSlidesProgress: true,
+                    virtualTranslate: !swiper.params.cssMode
+                })
+            });
+        }
         function sliders_initSliders() {
             if (document.querySelector(".js-hero-slider")) {
                 new swiper_core_Swiper(".js-hero-slider", {
@@ -10411,7 +10539,6 @@
                         swiper: ".js-hero-thumbs"
                     }
                 });
-                document.querySelector(".hero__thumbs-next-circle");
                 new swiper_core_Swiper(".js-hero-thumbs", {
                     modules: [ A11y, Navigation, Autoplay, Thumb, Controller ],
                     observer: true,
@@ -10746,13 +10873,174 @@
                 }
             });
         }
+        let teambuildSlider = document.querySelector(".js-teambuild-slider");
+        if (teambuildSlider) new swiper_core_Swiper(".js-teambuild-slider", {
+            slidesPerView: "auto",
+            spaceBetween: 8
+        });
+        let aboutDetailsSlider = document.querySelector(".js-about-details-slider");
+        if (aboutDetailsSlider) new swiper_core_Swiper(".js-about-details-slider", {
+            modules: [ A11y, Autoplay ],
+            slidesPerView: "auto",
+            speed: 4e3,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: true
+            },
+            loop: true,
+            allowTouchMove: false,
+            disableOnInteraction: true
+        });
+        let aboutTeamSlider = document.querySelector(".js-about-team-slider");
+        if (aboutTeamSlider) new swiper_core_Swiper(".js-about-team-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: "auto",
+            initialSlide: 2,
+            spaceBetween: 4,
+            disableOnInteraction: true,
+            navigation: {
+                prevEl: ".js-about-team-slider-prev",
+                nextEl: ".js-about-team-slider-next"
+            },
+            breakpoints: {
+                767: {
+                    initialSlide: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+        let aboutHistoryThumbs = document.querySelector(".js-about-history-thumbs");
+        if (aboutHistoryThumbs) new swiper_core_Swiper(".js-about-history-thumbs", {
+            modules: [ A11y ],
+            slidesPerView: "auto",
+            spaceBetween: 24
+        });
+        let aboutHistoryInfo = document.querySelector(".js-about-history-main");
+        if (aboutHistoryInfo) {
+            const aboutHistoryInfoSlider = new swiper_core_Swiper(".js-about-history-main", {
+                modules: [ A11y, Controller ],
+                slidesPerView: 1,
+                spaceBetween: 24
+            });
+            const aboutHistoryYearsSlider = new swiper_core_Swiper(".js-about-history-years", {
+                modules: [ A11y, Navigation, Thumb, Controller ],
+                slidesPerView: 1,
+                disableOnInteraction: true,
+                navigation: {
+                    prevEl: ".js-about-history-years-prev",
+                    nextEl: ".js-about-history-years-next"
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: "auto"
+                    }
+                },
+                thumbs: {
+                    swiper: ".js-about-history-thumbs"
+                }
+            });
+            aboutHistoryInfoSlider.controller.control = aboutHistoryYearsSlider;
+            aboutHistoryYearsSlider.controller.control = aboutHistoryInfoSlider;
+        }
         let interestingSlider = document.querySelector(".js-interesting-slider");
         if (interestingSlider) new swiper_core_Swiper(".js-interesting-slider", {
             slidesPerView: 1,
             spaceBetween: 8,
             breakpoints: {
-                768: {
+                1439: {
                     slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+        let aboutSlider = document.querySelector(".js-about-slider");
+        if (aboutSlider) new swiper_core_Swiper(".js-about-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1.5,
+            spaceBetween: 8,
+            initialSlide: 1,
+            centeredSlides: true,
+            navigation: {
+                prevEl: ".js-about-slider-prev",
+                nextEl: ".js-about-slider-next"
+            },
+            breakpoints: {
+                560: {
+                    slidesPerView: "auto"
+                },
+                992: {
+                    spaceBetween: 16,
+                    slidesPerView: 1.5,
+                    centeredSlides: false
+                }
+            }
+        });
+        let casesSlider = document.querySelector(".js-cases-slider");
+        if (casesSlider) new swiper_core_Swiper(".js-cases-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1,
+            spaceBetween: 8,
+            navigation: {
+                prevEl: ".js-cases-slider-prev",
+                nextEl: ".js-cases-slider-next"
+            },
+            breakpoints: {
+                560: {
+                    spaceBetween: 16,
+                    slidesPerView: 2
+                }
+            }
+        });
+        let constructionSlider = document.querySelector(".js-construction-slider");
+        if (constructionSlider) new swiper_core_Swiper(".js-construction-slider", {
+            modules: [ A11y, Navigation, EffectCreative ],
+            centeredSlides: true,
+            navigation: {
+                prevEl: ".js-construction-slider-prev",
+                nextEl: ".js-construction-slider-next"
+            },
+            effect: "creative",
+            grabCursor: true,
+            spaceBetween: 8,
+            creativeEffect: {
+                prev: {
+                    shadow: false,
+                    translate: [ "calc(-100% - 8px)", 0, 0 ]
+                },
+                next: {
+                    translate: [ "calc(100% + 8px)", 0, 0 ]
+                }
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 0,
+                    creativeEffect: {
+                        prev: {
+                            shadow: false,
+                            translate: [ "-7%", 0, 0 ]
+                        },
+                        next: {
+                            translate: [ "7%", 0, 0 ]
+                        }
+                    }
+                }
+            }
+        });
+        document.querySelector(".js-uk-slider");
+        if (casesSlider) new swiper_core_Swiper(".js-uk-slider", {
+            modules: [ A11y, Autoplay ],
+            slidesPerView: "auto",
+            spaceBetween: 8,
+            loop: true,
+            allowTouchMove: false,
+            disableOnInteraction: true,
+            speed: 4e3,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: true
+            },
+            breakpoints: {
+                767: {
                     spaceBetween: 16
                 }
             }
@@ -16233,6 +16521,8 @@
             }
         };
         ScrollTrigger_getGSAP() && ScrollTrigger_gsap.registerPlugin(ScrollTrigger_ScrollTrigger);
+        window.gsap = gsapWithCSS;
+        window.ScrollTrigger = ScrollTrigger_ScrollTrigger;
         if (document.querySelector('[data-role*="tabs"]')) {
             let tabsContainers = document.querySelectorAll('[data-role*="tabs"]');
             tabsContainers.forEach((wrapper => {
@@ -16603,6 +16893,21 @@
             item.addEventListener("touchstart", (() => {
                 item.classList.add("is-hidden");
             }));
+        }));
+        const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
+        const videoSection = document.querySelector(".js-video");
+        videoSection.querySelector("video");
+        videoSection.addEventListener("mousemove", (e => {
+            const gap = 70;
+            videoPlayCoursor.style.display = "flex";
+            videoPlayCoursor.style.left = e.clientX - gap + "px";
+            videoPlayCoursor.style.top = e.clientY - gap + "px";
+        }));
+        videoSection.addEventListener("mouseleave", (() => {
+            videoPlayCoursor.style.display = "none";
+        }));
+        videoSection.addEventListener("click", (function() {
+            if (videoPlayCoursor.classList.contains("is-active")) videoPlayCoursor.classList.remove("is-active"); else videoPlayCoursor.classList.add("is-active");
         }));
         window["FLS"] = false;
         isWebp();

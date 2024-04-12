@@ -12,6 +12,8 @@ import {
   Pagination,
   Mousewheel,
   Controller,
+  EffectCards,
+  EffectCreative,
 } from "swiper/modules";
 /*
 Navigation, Pagination, Autoplay, 
@@ -120,10 +122,6 @@ function initSliders() {
         swiper: ".js-hero-thumbs",
       },
     });
-
-    let heroThumbsProgress = document.querySelector(
-      ".hero__thumbs-next-circle"
-    );
 
     let heroThumbs = new Swiper(".js-hero-thumbs", {
       modules: [A11y, Navigation, Autoplay, Thumbs, Controller], // A11y - обязательный модуль
@@ -535,6 +533,7 @@ function initSliders() {
       }
     })
   }
+
   let mortgageSlider = document.querySelector('.js-mortgage-slider');
   if(mortgageSlider) {
     new Swiper('.js-mortgage-slider', {
@@ -552,17 +551,216 @@ function initSliders() {
       })
     }
   }
+
+  let teambuildSlider = document.querySelector('.js-teambuild-slider');
+  if(teambuildSlider) {
+    new Swiper('.js-teambuild-slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+    })
+  }
+
+  
+  let aboutDetailsSlider = document.querySelector('.js-about-details-slider');
+  if(aboutDetailsSlider) {
+    new Swiper('.js-about-details-slider', {
+      modules: [A11y, Autoplay], // A11y - обязательный модуль
+      slidesPerView: "auto",
+      speed: 4000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: true,
+      },
+
+      loop: true,
+      allowTouchMove: false,
+      disableOnInteraction: true,
+    })
+  }
+
+  let aboutTeamSlider = document.querySelector('.js-about-team-slider');
+  if(aboutTeamSlider) {
+    new Swiper('.js-about-team-slider', {
+      modules: [A11y, Navigation], // A11y - обязательный модуль
+      slidesPerView: 'auto',
+      initialSlide: 2,
+      // loop: true,
+      spaceBetween: 4,
+      disableOnInteraction: true,
+      navigation: {
+        prevEl: '.js-about-team-slider-prev',
+        nextEl: '.js-about-team-slider-next',
+      },
+
+      breakpoints: {
+        767: {
+          initialSlide: 2,
+          spaceBetween: 16,
+        }
+      }
+    })
+  }
+
+  let aboutHistoryThumbs = document.querySelector('.js-about-history-thumbs');
+  if(aboutHistoryThumbs) {
+    new Swiper('.js-about-history-thumbs', {
+      modules: [A11y], // A11y - обязательный модуль
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+    })
+  }
+  let aboutHistoryInfo = document.querySelector('.js-about-history-main');
+  if(aboutHistoryInfo) {
+    const aboutHistoryInfoSlider = new Swiper('.js-about-history-main', {
+      modules: [A11y, Controller], // A11y - обязательный модуль
+      slidesPerView: 1,
+      spaceBetween: 24,
+    })
+
+
+    const aboutHistoryYearsSlider = new Swiper('.js-about-history-years', {
+      modules: [A11y, Navigation, Thumbs, Controller], // A11y - обязательный модуль
+      slidesPerView: 1,
+      // loop: true,
+      disableOnInteraction: true,
+
+      navigation: {
+        prevEl: '.js-about-history-years-prev',
+        nextEl: '.js-about-history-years-next',
+      },
+
+      breakpoints: {
+
+        1024: {
+          slidesPerView: 'auto',
+        }
+      },
+      thumbs: {
+        swiper: ".js-about-history-thumbs",
+      },
+    })
+
+    aboutHistoryInfoSlider.controller.control = aboutHistoryYearsSlider;
+    aboutHistoryYearsSlider.controller.control = aboutHistoryInfoSlider;
+  }
+
   let interestingSlider = document.querySelector('.js-interesting-slider');
   if(interestingSlider) {
     new Swiper('.js-interesting-slider', {
       slidesPerView: 1,
       spaceBetween: 8,
       breakpoints: {
-          768:  {
+          1439:  {
               slidesPerView: 2,
               spaceBetween: 16,
           }
       }
+      })
+    }
+
+    let aboutSlider = document.querySelector('.js-about-slider');
+    if(aboutSlider) {
+      new Swiper('.js-about-slider', {
+        modules: [A11y, Navigation], // A11y - обязательный модуль
+        slidesPerView: 1.5,
+        spaceBetween: 8,
+        initialSlide: 1,
+        centeredSlides: true,
+        navigation: {
+          prevEl: '.js-about-slider-prev',
+          nextEl: '.js-about-slider-next',
+        },
+        breakpoints: {
+
+            560: {
+              slidesPerView: 'auto',
+            },
+            992:  {
+                spaceBetween: 16,
+                slidesPerView: 1.5,
+                centeredSlides: false,
+            }
+        }
+      })
+    }
+
+    let casesSlider = document.querySelector('.js-cases-slider');
+    if(casesSlider) {
+      new Swiper('.js-cases-slider', {
+        modules: [A11y, Navigation], // A11y - обязательный модуль
+        slidesPerView: 1,
+        spaceBetween: 8,
+        navigation: {
+          prevEl: '.js-cases-slider-prev',
+          nextEl: '.js-cases-slider-next',
+        },
+        breakpoints: {
+            560:  {
+                spaceBetween: 16,
+                slidesPerView: 2,
+            }
+        }
+      })
+    }
+  
+    let constructionSlider = document.querySelector('.js-construction-slider');
+    if(constructionSlider) {
+      new Swiper('.js-construction-slider', {
+        modules: [A11y, Navigation, EffectCreative], // A11y - обязательный модуль
+        centeredSlides: true,
+        navigation: {
+          prevEl: '.js-construction-slider-prev',
+          nextEl: '.js-construction-slider-next',
+        },
+        effect: 'creative',
+        grabCursor: true,
+        spaceBetween: 8,
+        creativeEffect: {
+          prev: {
+            shadow: false,
+            translate: ["calc(-100% - 8px)", 0, 0],
+          },
+          next: {
+            translate: ["calc(100% + 8px)", 0, 0],
+          },
+        },
+        breakpoints: {
+          768:  {
+            spaceBetween: 0,
+            creativeEffect: {
+              prev: {
+                shadow: false,
+                translate: ["-7%", 0, 0],
+              },
+              next: {
+                translate: ["7%", 0, 0],
+              },
+            }
+          }
+        }
+      })
+    }
+
+    let ukSlider = document.querySelector('.js-uk-slider');
+    if(casesSlider) {
+      new Swiper('.js-uk-slider', {
+        modules: [A11y, Autoplay], // A11y - обязательный модуль
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        loop: true,
+        allowTouchMove: false,
+        disableOnInteraction: true,
+        speed: 4000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: true,
+        },
+
+        breakpoints: {
+            767:  {
+                spaceBetween: 16,
+            }
+        }
       })
     }
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)

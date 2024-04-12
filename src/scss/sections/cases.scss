@@ -27,13 +27,15 @@
 }
 
 .cases-item {
-  display: flex;
-  align-items: stretch;
-  min-height: 427px;
-
-  @media (max-width: $lg) {
-    flex-direction: column;
-    min-height: 446px;
+  &.swiper-slide {
+    display: flex;
+    align-items: stretch;
+    min-height: 427px;
+  
+    @media (max-width: $lg) {
+      flex-direction: column;
+      min-height: 446px;
+    }
   }
 
   &__left {
@@ -175,6 +177,34 @@
     @media (max-width: $sm) {
       font-size: 12px;
       margin-top: 0;
+    }
+  }
+}
+
+
+.cases__slider {
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+}
+
+.cases-slider {
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media(max-width: $md) {
+      display: none;
     }
   }
 }

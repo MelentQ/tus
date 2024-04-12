@@ -1,0 +1,72 @@
+.about-video {
+  &__media {
+    position: relative;
+    cursor: none;
+    overflow: hidden;
+
+    video {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+
+      @media(max-width: $md) {
+        border-radius: 10px;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+
+      @media(max-width: $md) {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  &__play-btn {
+    display: none;
+
+    @media (max-width: $md) {
+      display: flex;
+    }
+  }
+
+  &__play-mouse {
+    position: fixed;
+    pointer-events: none;
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --size: 140px;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-whte);
+    border-radius: 50%;
+
+    .pause {
+      display: none;
+    }
+
+    &.is-active {
+      .play {
+        display: none;
+      }
+
+      .pause {
+        display: block;
+      }
+    }
+    
+
+    @media (max-width: $md) {
+      display: none !important;
+    }
+  }
+}

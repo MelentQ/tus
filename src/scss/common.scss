@@ -118,6 +118,35 @@
   }
 }
 
+.common-play-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  --size: 150px;
+  width: var(--size);
+  height: var(--size);
+  background-color: cl(whte, .2);
+  border: 1px solid cl(whte, .1);
+  backdrop-filter: blur(10px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  cursor: pointer;
+
+  @media(max-width: $md) {
+    --size: 50px;
+
+    svg {
+      display: block;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
 .slider-round-controls {
   --size: 140px;
   width: var(--size);

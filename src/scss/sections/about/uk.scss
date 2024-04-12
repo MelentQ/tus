@@ -1,0 +1,132 @@
+.uk {
+
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 148px;
+    margin-bottom: 60px;
+
+    @media(max-width: $xl) {
+      gap: 40px;
+    }
+
+    @media(max-width: $sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    max-width: 509px;
+
+    @media(max-width: $sm)  {
+      max-width: 305px;
+    }
+  }
+
+  &__info {
+    max-width: 600px;
+
+    @media(max-width: $sm)  {
+      max-width: 335px;
+    }
+  }
+
+  &__desc {
+    font-size: 24px;
+    color: var(--color-text);
+    margin-bottom: 40px;
+
+    @media(max-width: $md) {
+      font-size: 16px;
+    }
+
+    @media(max-width: $sm) {
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__slider {
+    .swiper-wrapper {
+      -webkit-transition-timing-function: linear !important;
+      transition-timing-function: linear !important;
+    }
+  }
+
+  &__item {
+
+    &.swiper-slide {
+      --size: 240px;
+      width: var(--size);
+      height: var(--size);
+      background-color: var(--color-whte);
+      border: 1px solid cl(blck, .1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+
+      @media(max-width: $md) {
+        --size: 200px;
+        padding: 16px;
+      }
+
+      @media(max-width: $sm) {
+        --size: 120px;
+      }
+
+      &:nth-of-type(odd) {
+        margin-top: 50px;
+
+        @media(max-width: $sm) {
+          margin-top: 24px;
+        }
+      }
+      
+      @media(any-hover: hover) {
+
+        &:hover {
+          background-color: var(--color-primary);
+
+          .uk__item-desc {
+            opacity: 1;
+          }
+
+          .uk__item-img {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    
+    &-desc {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 20px;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-whte);
+      opacity: 0;
+      transition: .25s;
+
+      @media(max-width: $md) {
+        font-size: 14px;
+      }
+    }
+
+    &-img {
+      opacity: 1;
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
+}
