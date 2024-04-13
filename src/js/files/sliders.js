@@ -14,6 +14,7 @@ import {
   Controller,
   EffectCards,
   EffectCreative,
+  EffectCoverflow
 } from "swiper/modules";
 /*
 Navigation, Pagination, Autoplay, 
@@ -642,7 +643,7 @@ function initSliders() {
       breakpoints: {
 
         1024: {
-          slidesPerView: 'auto',
+          slidesPerView: 1,
         }
       },
       thumbs: {
@@ -716,38 +717,54 @@ function initSliders() {
     let constructionSlider = document.querySelector('.js-construction-slider');
     if(constructionSlider) {
       new Swiper('.js-construction-slider', {
-        modules: [A11y, Navigation, EffectCreative], // A11y - обязательный модуль
+        modules: [A11y, Navigation, EffectCreative, EffectCoverflow], // A11y - обязательный модуль
         centeredSlides: true,
         navigation: {
           prevEl: '.js-construction-slider-prev',
           nextEl: '.js-construction-slider-next',
         },
-        effect: 'creative',
-        grabCursor: true,
+        // effect: 'creative',
+        // grabCursor: true,
+        // spaceBetween: 8,
+        // creativeEffect: {
+        //   prev: {
+        //     shadow: false,
+        //     translate: ["calc(-100% - 8px)", 0, 0],
+        //   },
+        //   next: {
+        //     translate: ["calc(100% + 8px)", 0, 0],
+        //   },
+        // },
+        effect: 'coverflow',
+        slideToClickedSlide: true,
         spaceBetween: 8,
-        creativeEffect: {
-          prev: {
-            shadow: false,
-            translate: ["calc(-100% - 8px)", 0, 0],
-          },
-          next: {
-            translate: ["calc(100% + 8px)", 0, 0],
-          },
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 0,
+          modifier: 0,
+          slideShadows: false
         },
         breakpoints: {
-          768:  {
-            spaceBetween: 0,
-            creativeEffect: {
-              prev: {
-                shadow: false,
-                translate: ["-7%", 0, 0],
-              },
-              next: {
-                translate: ["7%", 0, 0],
-              },
-            }
+          992:  {
+            effect: 'coverflow',
+
+            coverflowEffect: {
+              rotate: 0,
+              stretch: 80,
+              depth: 0,
+              modifier: 10,
+            },
+          },
+          1600: {
+            coverflowEffect: {
+              rotate: 0,
+              stretch: 102,
+              depth: 0,
+              modifier: 10,
+            },
           }
-        }
+        },
       })
     }
 

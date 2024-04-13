@@ -5,7 +5,7 @@
   inset: 0 0 auto 0;
   padding: 10px 0;
   border-bottom: 1px solid cl(whte, 0.5);
-  z-index: 9;
+  z-index: 100;
   transition: 0.25s;
 
   &.sticky {

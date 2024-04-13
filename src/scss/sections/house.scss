@@ -108,7 +108,19 @@
     margin-bottom: 122px;
     margin: 0 auto 122px;
     opacity: 0.3;
-    text-decoration: underline;
+    padding-bottom: 1px;
+    border-bottom: 1px solid currentColor;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    transition: .25s;
+
+    @media(any-hover: hover) {
+
+      &:hover {
+        opacity: 1;
+      }
+    }
 
     @media (max-width: $md) {
       display: none;
@@ -235,6 +247,21 @@
       justify-content: center;
       border: 1px solid cl(blck, 0.1);
       border-radius: 8px;
+      transition: .25s;
+
+      &.swiper-button-disabled {
+        opacity: .3;
+        pointer-events: none;
+      }
+
+      @media(any-hover: hover) {
+
+        &:hover {
+          background-color: var(--color-primary);
+          border-color: var(--color-primary);
+          color: var(--color-whte);
+        }
+      }
 
       @media (max-width: $md) {
         width: 30px;

@@ -1,7 +1,7 @@
 .about-history {
   padding-bottom: 150px;
 
-  @media(max-width: $xl) {
+  @media(max-width: $lg) {
     padding-bottom: 80px;
   }
 
@@ -91,31 +91,30 @@
 
   &__years {
     position: relative;
-    max-width: 903px;
+    // max-width: 903px;
     width: 100%;
 
-    margin-left: calc(100% - 903px);
+    // margin-left: calc(100% - 903px);
 
-    @media(max-width: 1439px)  {
-      margin-left: 0;
-      width: 100%;
-      max-width: 100%;
-    }
+    // @media(max-width: 1439px)  {
+    //   margin-left: 0;
+    //   width: 100%;
+    //   max-width: 100%;
+    // }
 
-    @media(max-width: $md)  {
-      margin-left: 0;
-      max-width: 100%;
-      margin-bottom: 40px;
-    }
+    // @media(max-width: $md)  {
+    //   margin-left: 0;
+    //   max-width: 100%;
+    //   margin-bottom: 40px;
+    // }
 
     &-item {
 
       &.swiper-slide {
         font-size: 100px;
-        letter-spacing: -9.5px;
+        letter-spacing: -1.5px;
         line-height: 1;
-        color: var(--color-primary);
-        opacity: .5;
+        color: #FFEFE5;
 
         @media(max-width: 1439px) {
           font-size: 64px;
@@ -128,16 +127,57 @@
         }
       }
 
+      &.swiper-slide-prev {
+        text-align: right;
+
+        span {
+          display: block;
+          margin-right: -190px;
+
+          @media(max-width: 1439px)  {
+            margin-right: -140px;
+          }
+
+          @media(max-width: $md) {
+            margin-right: 0;
+          }
+        }
+        // margin-right: -224px;
+      }
+
+      &.swiper-slide-next  {
+        span {
+          display: block;
+          margin-left: -140px;
+
+          @media(max-width: 1439px)  {
+            margin-left: -90px;
+          }
+
+          @media(max-width: $md) {
+            margin-left: 0;
+          }
+        }
+      }
+
       &.swiper-slide-active {
         font-size: 224px;
         opacity: 1;
+        color: var(--color-primary);
+        text-align: right;
+        padding-right: 28%;
+        letter-spacing: -9.5px;
 
         @media(max-width: 1439px) {
           font-size: 80px;
+          padding-right: 50%;
+          letter-spacing: -1.5px;
         }
 
         @media(max-width: $md)  {
           font-size: 50px;
+          padding-right: 0;
+          text-align: left;
         }
       }
     }
