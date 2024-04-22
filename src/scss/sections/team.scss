@@ -59,6 +59,7 @@
 
   &__content {
     display: none;
+    position: relative;
 
     &.is-open {
       display: block;
@@ -85,9 +86,11 @@
 
     &-title {
       position: absolute;
-      top: 532px;
+      top: 252px;
+      bottom: 300px;
       z-index: -1;
       font-size: 180px;
+      height: 0;
       text-align: center;
       color: #F4F4F4;
 

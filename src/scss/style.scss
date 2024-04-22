@@ -56,7 +56,7 @@ $xl: em(1439.98);
 $lg: em(1199.98);
 $md: em(991.98);
 $sm: em(767.98);
-$xs: em(479.98);
+$xs: em(559.98);
 $tablet: em(991.98); // Планшети
 $mobile: em(767.98); // Телефоны L
 $mobileSmall: em(479.98); // Телефоны S
@@ -224,3 +224,13 @@ body {
 @import "sections/about/construction";
 @import "sections/about/responsibility";
 @import "sections/about/history";
+
+// Офисы продаж
+
+@import "sections/offices.scss";
+@import "sections/rent/rent-hero.scss";
+@import "sections/rent/rent-gallery.scss";
+@import "sections/offices.scss";
+@import "sections/blog.scss";
+@import "sections/manage.scss";
+@import "sections/about.scss";

@@ -1,5 +1,14 @@
 import { flsModules } from "./modules.js";
 
+export const fslightbox = async () => {
+  const el = document.querySelector("[data-fslightbox]");
+  if (!el) return;
+  await import(/* webpackChunkName: "fslightbox" */ "fslightbox");
+  window.FsLightbox();
+};
+
+fslightbox();
+
 import {
   isMobile,
   _slideUp,
@@ -277,7 +286,6 @@ if (cardsWrapper) {
       cards.forEach((card, index) => {
         let opacityState;
         var scale = 1 - (cards.length - index) * 0.025;
-        console.log(index, cards.length);
         if (index === cards.length - 1) {
           opacityState = 1;
         } else {
@@ -400,6 +408,94 @@ if (bureauSection) {
   });
 }
 
+gsap.to('.team__list-title', {
+
+  y: () => document.querySelector('.team__list').offsetHeight / 1.7,
+  ease: 'none',
+  scrollTrigger: {
+      trigger: '.team__list',
+      start: 'top top', 
+      end: 'bottom center',
+      scrub: true, 
+  },
+});
+
+const revealLinesTitle = gsap.utils.toArray(".about__title");
+
+if(revealLinesTitle) {
+  revealLinesTitle.forEach((line, i) => {
+    // gsap.to(line, {}, {
+    //   x: () => document.querySelector('.about__wrapper').offsetWidth,
+    // }, {
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //       trigger: '.about__wrapper',
+    //       start: 'top top', 
+    //       end: 'bottom center',
+    //       scrub: true, 
+    //   },
+    // })
+    
+    const anim = gsap.to(
+      line,
+      {
+        x: () => -document.querySelector('.about__wrapper').offsetWidth,
+      }
+    );
+    ScrollTrigger.create({
+        trigger: '.about__wrapper',
+        animation: anim,
+        start: 'top bottom', 
+        end: 'bottom center',
+        scrub: true, 
+    });
+  })
+}
+
+
+
+const revealBoxes = gsap.utils.toArray("[data-reveal-box]");
+
+if(revealBoxes) {
+  revealBoxes.forEach((box, i) => {
+    const anim = gsap.fromTo(
+      box,
+      {
+        autoAlpha: 0,
+        y: 50,
+      },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.2 * i,
+      }
+    );
+    ScrollTrigger.create({
+      trigger: box,
+      animation: anim,
+      toggleActions: "play none none none",
+      once: true,
+    });
+  });
+}
+
+gsap.utils.toArray("[data-image-parallax]").forEach(function (container) {
+  let image = container.querySelector("img");
+
+  gsap.to(image, {
+    yPercent: 20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: container,
+      scrub: true,
+      start: 'top center',
+      pin: false,
+      invalidateOnRefresh: true,
+    },
+  });
+});
+
 // Get the header
 const header = document.querySelector(".header");
 
@@ -470,11 +566,8 @@ if (houseFloors) {
     const dataFloor = item.dataset.floor;
     const dataType = item.dataset.floorType;
     const dataPosition = item.dataset.position;
-    console.log(item.offsetTop);
     const svgElement = item.ownerSVGElement || pathElement; // родительский SVG элемент
     const svgBox = svgElement.getBoundingClientRect();
-
-    console.log(svgElement);
 
     const boundingBox = item.getBoundingClientRect();
 
@@ -546,10 +639,14 @@ if(videoSection) {
   videoSection.addEventListener('click', function() {
     if(videoPlayCoursor.classList.contains('is-active')) {
       videoPlayCoursor.classList.remove('is-active');
-      // videoPlayer.pause();
+      videoPlayer.pause();
+      this.classList.remove('is-playing')
+      this.classList.add('is-paused');
     } else {
       videoPlayCoursor.classList.add('is-active');
-      // videoPlayer.play();
+      videoPlayer.play();
+      this.classList.add('is-playing');
+      this.classList.remove('is-paused');
     }  
   })
 }

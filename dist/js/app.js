@@ -3254,6 +3254,158 @@
         __webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
         return module.exports;
     }
+    __webpack_require__.m = __webpack_modules__;
+    (() => {
+        var getProto = Object.getPrototypeOf ? obj => Object.getPrototypeOf(obj) : obj => obj.__proto__;
+        var leafPrototypes;
+        __webpack_require__.t = function(value, mode) {
+            if (mode & 1) value = this(value);
+            if (mode & 8) return value;
+            if (typeof value === "object" && value) {
+                if (mode & 4 && value.__esModule) return value;
+                if (mode & 16 && typeof value.then === "function") return value;
+            }
+            var ns = Object.create(null);
+            __webpack_require__.r(ns);
+            var def = {};
+            leafPrototypes = leafPrototypes || [ null, getProto({}), getProto([]), getProto(getProto) ];
+            for (var current = mode & 2 && value; typeof current == "object" && !~leafPrototypes.indexOf(current); current = getProto(current)) Object.getOwnPropertyNames(current).forEach((key => def[key] = () => value[key]));
+            def["default"] = () => value;
+            __webpack_require__.d(ns, def);
+            return ns;
+        };
+    })();
+    (() => {
+        __webpack_require__.d = (exports, definition) => {
+            for (var key in definition) if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) Object.defineProperty(exports, key, {
+                enumerable: true,
+                get: definition[key]
+            });
+        };
+    })();
+    (() => {
+        __webpack_require__.f = {};
+        __webpack_require__.e = chunkId => Promise.all(Object.keys(__webpack_require__.f).reduce(((promises, key) => {
+            __webpack_require__.f[key](chunkId, promises);
+            return promises;
+        }), []));
+    })();
+    (() => {
+        __webpack_require__.u = chunkId => chunkId + ".app.js";
+    })();
+    (() => {
+        __webpack_require__.miniCssF = chunkId => {};
+    })();
+    (() => {
+        __webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
+    })();
+    (() => {
+        var inProgress = {};
+        var dataWebpackPrefix = "fls-start:";
+        __webpack_require__.l = (url, done, key, chunkId) => {
+            if (inProgress[url]) {
+                inProgress[url].push(done);
+                return;
+            }
+            var script, needAttach;
+            if (key !== void 0) {
+                var scripts = document.getElementsByTagName("script");
+                for (var i = 0; i < scripts.length; i++) {
+                    var s = scripts[i];
+                    if (s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) {
+                        script = s;
+                        break;
+                    }
+                }
+            }
+            if (!script) {
+                needAttach = true;
+                script = document.createElement("script");
+                script.charset = "utf-8";
+                script.timeout = 120;
+                if (__webpack_require__.nc) script.setAttribute("nonce", __webpack_require__.nc);
+                script.setAttribute("data-webpack", dataWebpackPrefix + key);
+                script.src = url;
+            }
+            inProgress[url] = [ done ];
+            var onScriptComplete = (prev, event) => {
+                script.onerror = script.onload = null;
+                clearTimeout(timeout);
+                var doneFns = inProgress[url];
+                delete inProgress[url];
+                script.parentNode && script.parentNode.removeChild(script);
+                doneFns && doneFns.forEach((fn => fn(event)));
+                if (prev) return prev(event);
+            };
+            var timeout = setTimeout(onScriptComplete.bind(null, void 0, {
+                type: "timeout",
+                target: script
+            }), 12e4);
+            script.onerror = onScriptComplete.bind(null, script.onerror);
+            script.onload = onScriptComplete.bind(null, script.onload);
+            needAttach && document.head.appendChild(script);
+        };
+    })();
+    (() => {
+        __webpack_require__.r = exports => {
+            if (typeof Symbol !== "undefined" && Symbol.toStringTag) Object.defineProperty(exports, Symbol.toStringTag, {
+                value: "Module"
+            });
+            Object.defineProperty(exports, "__esModule", {
+                value: true
+            });
+        };
+    })();
+    (() => {
+        __webpack_require__.p=baseUrl
+    })();
+    (() => {
+        var installedChunks = {
+            179: 0
+        };
+        __webpack_require__.f.j = (chunkId, promises) => {
+            var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : void 0;
+            if (installedChunkData !== 0) if (installedChunkData) promises.push(installedChunkData[2]); else if (true) {
+                var promise = new Promise(((resolve, reject) => installedChunkData = installedChunks[chunkId] = [ resolve, reject ]));
+                promises.push(installedChunkData[2] = promise);
+                var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+                var error = new Error;
+                var loadingEnded = event => {
+                    if (__webpack_require__.o(installedChunks, chunkId)) {
+                        installedChunkData = installedChunks[chunkId];
+                        if (installedChunkData !== 0) installedChunks[chunkId] = void 0;
+                        if (installedChunkData) {
+                            var errorType = event && (event.type === "load" ? "missing" : event.type);
+                            var realSrc = event && event.target && event.target.src;
+                            error.message = "Loading chunk " + chunkId + " failed.\n(" + errorType + ": " + realSrc + ")";
+                            error.name = "ChunkLoadError";
+                            error.type = errorType;
+                            error.request = realSrc;
+                            installedChunkData[1](error);
+                        }
+                    }
+                };
+                __webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+            }
+        };
+        var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+            var [chunkIds, moreModules, runtime] = data;
+            var moduleId, chunkId, i = 0;
+            if (chunkIds.some((id => installedChunks[id] !== 0))) {
+                for (moduleId in moreModules) if (__webpack_require__.o(moreModules, moduleId)) __webpack_require__.m[moduleId] = moreModules[moduleId];
+                if (runtime) runtime(__webpack_require__);
+            }
+            if (parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+            for (;i < chunkIds.length; i++) {
+                chunkId = chunkIds[i];
+                if (__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) installedChunks[chunkId][0]();
+                installedChunks[chunkId] = 0;
+            }
+        };
+        var chunkLoadingGlobal = self["webpackChunkfls_start"] = self["webpackChunkfls_start"] || [];
+        chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+        chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+    })();
     (() => {
         "use strict";
         const flsModules = {};
@@ -3605,6 +3757,70 @@
                 }
             };
         };
+        !function(e) {
+            "function" == typeof define && define.amd ? define([], e) : "object" == typeof exports ? module.exports = e() : window.wNumb = e();
+        }((function() {
+            "use strict";
+            var o = [ "decimals", "thousand", "mark", "prefix", "suffix", "encoder", "decoder", "negativeBefore", "negative", "edit", "undo" ];
+            function w(e) {
+                return e.split("").reverse().join("");
+            }
+            function h(e, t) {
+                return e.substring(0, t.length) === t;
+            }
+            function f(e, t, n) {
+                if ((e[t] || e[n]) && e[t] === e[n]) throw new Error(t);
+            }
+            function x(e) {
+                return "number" == typeof e && isFinite(e);
+            }
+            function n(e, t, n, r, i, o, f, u, s, c, a, p) {
+                var d, l, h, g = p, v = "", m = "";
+                return o && (p = o(p)), !!x(p) && (!1 !== e && 0 === parseFloat(p.toFixed(e)) && (p = 0), 
+                p < 0 && (d = !0, p = Math.abs(p)), !1 !== e && (p = function(e, t) {
+                    return e = e.toString().split("e"), (+((e = (e = Math.round(+(e[0] + "e" + (e[1] ? +e[1] + t : t)))).toString().split("e"))[0] + "e" + (e[1] ? e[1] - t : -t))).toFixed(t);
+                }(p, e)), -1 !== (p = p.toString()).indexOf(".") ? (h = (l = p.split("."))[0], n && (v = n + l[1])) : h = p, 
+                t && (h = w((h = w(h).match(/.{1,3}/g)).join(w(t)))), d && u && (m += u), r && (m += r), 
+                d && s && (m += s), m += h, m += v, i && (m += i), c && (m = c(m, g)), m);
+            }
+            function r(e, t, n, r, i, o, f, u, s, c, a, p) {
+                var d, l = "";
+                return a && (p = a(p)), !(!p || "string" != typeof p) && (u && h(p, u) && (p = p.replace(u, ""), 
+                d = !0), r && h(p, r) && (p = p.replace(r, "")), s && h(p, s) && (p = p.replace(s, ""), 
+                d = !0), i && function(e, t) {
+                    return e.slice(-1 * t.length) === t;
+                }(p, i) && (p = p.slice(0, -1 * i.length)), t && (p = p.split(t).join("")), n && (p = p.replace(n, ".")), 
+                d && (l += "-"), "" !== (l = (l += p).replace(/[^0-9\.\-.]/g, "")) && (l = Number(l), 
+                f && (l = f(l)), !!x(l) && l));
+            }
+            function i(e, t, n) {
+                var r, i = [];
+                for (r = 0; r < o.length; r += 1) i.push(e[o[r]]);
+                return i.push(n), t.apply("", i);
+            }
+            return function e(t) {
+                if (!(this instanceof e)) return new e(t);
+                "object" == typeof t && (t = function(e) {
+                    var t, n, r, i = {};
+                    for (void 0 === e.suffix && (e.suffix = e.postfix), t = 0; t < o.length; t += 1) if (void 0 === (r = e[n = o[t]])) "negative" !== n || i.negativeBefore ? "mark" === n && "." !== i.thousand ? i[n] = "." : i[n] = !1 : i[n] = "-"; else if ("decimals" === n) {
+                        if (!(0 <= r && r < 8)) throw new Error(n);
+                        i[n] = r;
+                    } else if ("encoder" === n || "decoder" === n || "edit" === n || "undo" === n) {
+                        if ("function" != typeof r) throw new Error(n);
+                        i[n] = r;
+                    } else {
+                        if ("string" != typeof r) throw new Error(n);
+                        i[n] = r;
+                    }
+                    return f(i, "mark", "thousand"), f(i, "prefix", "negative"), f(i, "prefix", "negativeBefore"), 
+                    i;
+                }(t), this.to = function(e) {
+                    return i(t, n, e);
+                }, this.from = function(e) {
+                    return i(t, r, e);
+                });
+            };
+        }));
         const Method = {
             GET: "GET",
             POST: "POST",
@@ -3883,6 +4099,8 @@
                 }).mask(input);
             }));
         };
+        const numInputs = document.querySelectorAll(".js-input-num");
+        if (numInputs.length) numInputs();
         class Popup {
             constructor(options) {
                 let config = {
@@ -5999,32 +6217,29 @@
         function rangeInit() {
             let rangeBlocks = document.querySelectorAll(".filter-item__range");
             if (rangeBlocks) rangeBlocks.forEach((function(item) {
-                var formatForSlider = {
-                    from: function(formattedValue) {
-                        return Number(formattedValue);
-                    },
-                    to: function(numericValue) {
-                        return Math.round(numericValue);
-                    }
-                };
                 let rangeItem = item.querySelector(".range-slider");
-                let min = Number(rangeItem.dataset.min);
-                let max = Number(rangeItem.dataset.max);
+                let currentMin = parseInt(rangeItem.dataset.minCurrent);
+                let currentMax = parseInt(rangeItem.dataset.maxCurrent);
+                let min = parseInt(rangeItem.dataset.min);
+                let max = parseInt(rangeItem.dataset.max);
                 initialize(rangeItem, {
-                    start: [ min, max ],
+                    start: [ currentMin, currentMax ],
                     connect: true,
                     range: {
                         min,
                         max
                     },
-                    format: formatForSlider
+                    format: wNumb({
+                        decimals: 0,
+                        thousand: " "
+                    })
                 });
                 let inputMin = item.querySelector(".js-range-input-min");
                 let inputMax = item.querySelector(".js-range-input-max");
                 let inputs = [ inputMin, inputMax ];
                 if (inputMax) {
-                    inputMin.addEventListener("change", setPriceValues);
-                    inputMax.addEventListener("change", setPriceValues);
+                    inputMin.addEventListener("update", setPriceValues);
+                    inputMax.addEventListener("update", setPriceValues);
                     function setPriceValues() {
                         let priceStartValue;
                         let priceEndValue;
@@ -6032,7 +6247,7 @@
                         if (inputMax.value != "") priceEndValue = inputMax.value;
                         rangeItem.noUiSlider.set([ priceStartValue, priceEndValue ]);
                     }
-                    rangeItem.noUiSlider.on("change", (function(values, handle) {
+                    rangeItem.noUiSlider.on("update", (function(values, handle) {
                         inputs[handle].value = values[handle];
                     }));
                 }
@@ -11046,19 +11261,17 @@
         let aboutSlider = document.querySelector(".js-about-slider");
         if (aboutSlider) new swiper_core_Swiper(".js-about-slider", {
             modules: [ A11y, Navigation ],
-            slidesPerView: 1.5,
+            slidesPerView: 1.4,
             spaceBetween: 8,
             initialSlide: 1,
+            speed: 700,
             centeredSlides: true,
             navigation: {
                 prevEl: ".js-about-slider-prev",
                 nextEl: ".js-about-slider-next"
             },
             breakpoints: {
-                560: {
-                    slidesPerView: "auto"
-                },
-                992: {
+                768: {
                     spaceBetween: 16,
                     slidesPerView: 1.5,
                     centeredSlides: false
@@ -11089,33 +11302,13 @@
                 prevEl: ".js-construction-slider-prev",
                 nextEl: ".js-construction-slider-next"
             },
-            effect: "coverflow",
-            slideToClickedSlide: true,
+            slidesPerView: 1,
             spaceBetween: 8,
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 0,
-                modifier: 0,
-                slideShadows: false
-            },
             breakpoints: {
                 992: {
-                    effect: "coverflow",
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 80,
-                        depth: 0,
-                        modifier: 10
-                    }
-                },
-                1600: {
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 102,
-                        depth: 0,
-                        modifier: 10
-                    }
+                    slidesPerView: "auto",
+                    spaceBetween: 0,
+                    slideToClickedSlide: true
                 }
             }
         });
@@ -11135,6 +11328,46 @@
             breakpoints: {
                 767: {
                     spaceBetween: 16
+                }
+            }
+        });
+        const rentGallery = document.querySelector(".js-rent-gallery");
+        if (rentGallery) new swiper_core_Swiper(".js-rent-gallery", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1.5,
+            centeredSlides: true,
+            spaceBetween: 8,
+            disableOnInteraction: true,
+            initialSlide: 1,
+            loop: true,
+            navigation: {
+                prevEl: ".js-rent-gallery-prev",
+                nextEl: ".js-rent-gallery-next"
+            },
+            breakpoints: {
+                767: {
+                    spaceBetween: 16,
+                    slidesPerView: 2,
+                    centeredSlides: false
+                }
+            }
+        });
+        const blogSlider = document.querySelector(".js-blog-slider");
+        if (blogSlider) new swiper_core_Swiper(".js-blog-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1,
+            spaceBetween: 8,
+            navigation: {
+                prevEl: ".js-blog-slider-prev",
+                nextEl: ".js-blog-slider-next"
+            },
+            breakpoints: {
+                767: {
+                    spaceBetween: 16,
+                    slidesPerView: 2
+                },
+                992: {
+                    slidesPerView: 3
                 }
             }
         });
@@ -16614,6 +16847,13 @@
             }
         };
         ScrollTrigger_getGSAP() && ScrollTrigger_gsap.registerPlugin(ScrollTrigger_ScrollTrigger);
+        const fslightbox = async () => {
+            const el = document.querySelector("[data-fslightbox]");
+            if (!el) return;
+            await __webpack_require__.e(255).then(__webpack_require__.t.bind(__webpack_require__, 213, 19));
+            window.FsLightbox();
+        };
+        fslightbox();
         window.gsap = gsapWithCSS;
         window.ScrollTrigger = ScrollTrigger_ScrollTrigger;
         if (document.querySelector('[data-role*="tabs"]')) {
@@ -16810,7 +17050,6 @@
             cards.forEach(((card, index) => {
                 let opacityState;
                 var scale = 1 - (cards.length - index) * .025;
-                console.log(index, cards.length);
                 if (index === cards.length - 1) opacityState = 1; else opacityState = 0;
                 let scaleDown = gsapWithCSS.to(card, {
                     scale,
@@ -16911,6 +17150,61 @@
                 ease: "none"
             });
         }
+        gsapWithCSS.to(".team__list-title", {
+            y: () => document.querySelector(".team__list").offsetHeight / 1.7,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".team__list",
+                start: "top top",
+                end: "bottom center",
+                scrub: true
+            }
+        });
+        const revealLinesTitle = gsapWithCSS.utils.toArray(".about__title");
+        if (revealLinesTitle) revealLinesTitle.forEach(((line, i) => {
+            const anim = gsapWithCSS.to(line, {
+                x: () => -document.querySelector(".about__wrapper").offsetWidth
+            });
+            ScrollTrigger_ScrollTrigger.create({
+                trigger: ".about__wrapper",
+                animation: anim,
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true
+            });
+        }));
+        const revealBoxes = gsapWithCSS.utils.toArray("[data-reveal-box]");
+        if (revealBoxes) revealBoxes.forEach(((box, i) => {
+            const anim = gsapWithCSS.fromTo(box, {
+                autoAlpha: 0,
+                y: 50
+            }, {
+                duration: 1,
+                autoAlpha: 1,
+                y: 0,
+                delay: .2 * i
+            });
+            ScrollTrigger_ScrollTrigger.create({
+                trigger: box,
+                animation: anim,
+                toggleActions: "play none none none",
+                once: true
+            });
+        }));
+        gsapWithCSS.utils.toArray("[data-image-parallax]").forEach((function(container) {
+            let image = container.querySelector("img");
+            gsapWithCSS.to(image, {
+                yPercent: 20,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: container,
+                    scrub: true,
+                    start: "top center",
+                    pin: false,
+                    invalidateOnRefresh: true
+                }
+            });
+        }));
         const header = document.querySelector(".header");
         const sticky = header.offsetTop;
         function initStickyHeader() {
@@ -16955,10 +17249,8 @@
                 const dataFloor = item.dataset.floor;
                 item.dataset.floorType;
                 item.dataset.position;
-                console.log(item.offsetTop);
                 const svgElement = item.ownerSVGElement || pathElement;
                 const svgBox = svgElement.getBoundingClientRect();
-                console.log(svgElement);
                 const boundingBox = item.getBoundingClientRect();
                 boundingBox.top, svgBox.top;
                 boundingBox.left, svgBox.left;
@@ -16990,7 +17282,7 @@
         const videoSection = document.querySelector(".js-video");
         if (videoSection) {
             const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
-            videoSection.querySelector("video");
+            const videoPlayer = videoSection.querySelector("video");
             videoSection.addEventListener("mousemove", (e => {
                 const gap = 70;
                 videoPlayCoursor.style.display = "flex";
@@ -17001,7 +17293,17 @@
                 videoPlayCoursor.style.display = "none";
             }));
             videoSection.addEventListener("click", (function() {
-                if (videoPlayCoursor.classList.contains("is-active")) videoPlayCoursor.classList.remove("is-active"); else videoPlayCoursor.classList.add("is-active");
+                if (videoPlayCoursor.classList.contains("is-active")) {
+                    videoPlayCoursor.classList.remove("is-active");
+                    videoPlayer.pause();
+                    this.classList.remove("is-playing");
+                    this.classList.add("is-paused");
+                } else {
+                    videoPlayCoursor.classList.add("is-active");
+                    videoPlayer.play();
+                    this.classList.add("is-playing");
+                    this.classList.remove("is-paused");
+                }
             }));
         }
         window["FLS"] = false;

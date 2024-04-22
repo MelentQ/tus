@@ -9,6 +9,14 @@
     padding-bottom: 60px;
   }
 
+  &__title {
+
+    @media(max-width: $sm) {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
   &__top {
     display: flex;
     align-items: flex-start;
@@ -40,6 +48,11 @@
       &.swiper-button-disabled {
         display: none;
       }
+
+      
+      @media(max-width: $lg) {
+        display: none;
+      }
     }
 
     &-next {
@@ -47,6 +60,10 @@
       padding-top: 3px;
 
       &.swiper-button-disabled {
+        display: none;
+      }
+
+      @media(max-width: $lg) {
         display: none;
       }
     }
@@ -84,6 +101,11 @@
       z-index: 5;
 
       @media(max-width: 1439px) {
+        top: 20px;
+        right: calc(50% - 178px);
+      }
+
+      @media(max-width: $sm) {
         display: none;
       }
     }
@@ -91,22 +113,7 @@
 
   &__years {
     position: relative;
-    // max-width: 903px;
     width: 100%;
-
-    // margin-left: calc(100% - 903px);
-
-    // @media(max-width: 1439px)  {
-    //   margin-left: 0;
-    //   width: 100%;
-    //   max-width: 100%;
-    // }
-
-    // @media(max-width: $md)  {
-    //   margin-left: 0;
-    //   max-width: 100%;
-    //   margin-bottom: 40px;
-    // }
 
     &-item {
 
@@ -120,10 +127,9 @@
           font-size: 64px;
         }
 
-        @media(max-width: $md)  {
+        @media(max-width: $sm)  {
           font-size: 50px;
           width: 100%;
-          opacity: 0;
         }
       }
 
@@ -138,11 +144,11 @@
             margin-right: -140px;
           }
 
-          @media(max-width: $md) {
+          @media(max-width: $sm) {
             margin-right: 0;
+            opacity: 0;
           }
         }
-        // margin-right: -224px;
       }
 
       &.swiper-slide-next  {
@@ -154,15 +160,14 @@
             margin-left: -90px;
           }
 
-          @media(max-width: $md) {
-            margin-left: 0;
+          @media(max-width: $sm) {
+            margin-left: -64px;
           }
         }
       }
 
       &.swiper-slide-active {
         font-size: 224px;
-        opacity: 1;
         color: var(--color-primary);
         text-align: right;
         padding-right: 28%;
@@ -174,10 +179,11 @@
           letter-spacing: -1.5px;
         }
 
-        @media(max-width: $md)  {
+        @media(max-width: $sm)  {
           font-size: 50px;
           padding-right: 0;
           text-align: left;
+          opacity: 1;
         }
       }
     }

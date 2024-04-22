@@ -34,7 +34,7 @@ flsFunctions.menuInit();
 /* Учет плавающей панели на мобильных устройствах при 100vh */
 // flsFunctions.fullVHfix();
 /* Форматирование чисел */
-// import './libs/wNumb.min.js';
+import './libs/wNumb.min.js';
 
 flsFunctions.filterInit();
 

@@ -13,6 +13,11 @@
 
   &__title {
     margin-bottom: 64px;
+
+    @media(max-width: $sm) {
+      margin-bottom: 28px;
+      font-size: 32px;
+    }
   }
 
   &__item {

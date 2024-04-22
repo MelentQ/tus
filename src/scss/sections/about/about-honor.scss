@@ -40,6 +40,12 @@
         display: block;
       }
     }
+
+    &-text {
+      @media(max-width: $sm) {
+        font-size: 32px;
+      }
+    }
   }
 
   &__card {

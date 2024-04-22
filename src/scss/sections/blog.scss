@@ -1,0 +1,128 @@
+.blog {
+  overflow: hidden;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    @media(max-width: $md) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__all {
+    margin-top: 16px;
+
+    @media(max-width: $md) {
+      margin-top: 8px;
+    }
+
+    @media(max-width: $sm) {
+      display: none;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    @media(max-width: $sm) {
+      overflow: visible;
+    }
+  }
+}
+
+.blog-item {
+
+  &.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid cl(blck, .1);
+    height: auto;
+
+    @media(max-width: $md) {
+      padding: 20px;
+      min-height: initial;
+      border-radius: 10px;
+    }
+  }
+
+  &__type {
+    padding: 10px 20px;
+    background-color: var(--color-grey-light);
+    border-radius: 9999px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 40px;
+    align-self: flex-start;
+
+    @media(max-width: $md)  {
+      padding: 6px 12px;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+
+    @media (max-width: $md) {
+      font-size: 20px;
+      line-height: 1;
+    }
+  }
+
+  &__desc {
+    font-size: 18px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @media (max-width: $lg) {
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: $md) {
+      font-size: 12px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: auto -40px 0;
+    padding: 20px 40px 0;
+    border-top: 1px solid cl(blck, 0.1);
+
+    @media (max-width: $md) {
+      margin: auto -20px 0;
+      padding: 20px 20px 0;
+    }
+  }
+
+  &__btn {
+    @media (max-width: $md) {
+      width: 50px;
+      height: 50px;
+      min-height: 50px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

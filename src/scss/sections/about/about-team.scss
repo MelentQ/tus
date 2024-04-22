@@ -52,18 +52,15 @@
       padding-top: 50px;
     }
 
-    @media(max-width: 560px) {
+    @media(max-width: $xs) {
       width: 65%;
       margin-left: 35%;
     }
   }
 
   .swiper-slide {
-
-    // height: 465px;
-    // width: 378px;
     width: 378px;
-    transition: .25s;
+    transition: .55s;
 
     @media(max-width: $lg) {
       width: 280px;
@@ -77,11 +74,11 @@
     .about-team__slide {
 
       position: relative;
-  
       border-radius: 16px;
       height: 465px;
       width: 378px;
-      transition: .25s;
+      transition: .55s;
+      transform-origin: 100% 100%;
 
       @media(max-width: $lg) {
         width: 280px;
@@ -132,7 +129,7 @@
       bottom: 40px;
       height: calc(100% - 80px);
       opacity: 0;
-      transition: .25s;
+      transition: .55s;
 
       @media(max-width: $lg) {
         height: calc(100% - 40px);
@@ -183,18 +180,20 @@
     &-img {
       position: absolute;
       bottom: 0;
-      right: 40px;
-      transform: scale(1);
-      transition: .45s ease-in-out;
-      transform-origin: left bottom;
+      right: 0;
+      transform: scale(1) translateX(0px);
+      transition: .75s ease-in-out;
+      transform-origin: 100% 100%;
 
       @media(max-width: $lg) {
         max-width: 200px;
       }
 
-      @media(max-width: $sm) {}
+      @media(max-width: $sm) {
+        transform: scale(.8) translateX(-20px);
+      }
 
-      img {
+      img, picture {
         width: 100%;
         display: block;
       }
@@ -203,6 +202,7 @@
 
   .swiper-slide-active {
     width: 100%;
+    transition: .55s;
     
     .about-team__slide {
       width: 100%;
@@ -214,17 +214,25 @@
     }
 
     .about-team__slide-img {
-      transform: scale(1.2);
-      right: 100px;
+      transform: scale(1.2) translateX(-50px);
+      transition: transform .55s;
 
       @media(max-width: $lg) {
-        transform: scale(1.4);
+        transform: scale(1.4)  translateX(0px);
       }
 
       @media(max-width: $sm) {
-        right: 0px;
-        transform: scale(1);
+        right: 20px;
+        transform: scale(.9)  translateX(0px);
       }
+    }
+  }
+
+  &__all {
+    margin-top: 16px;
+
+    @media(max-width: $md) {
+      margin-top: 28px;
     }
   }
 }

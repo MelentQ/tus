@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240412231424">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240419202431">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -251,10 +251,10 @@
 									</div>
 									<div class="filter-item__range">
 										<div class="filter-item__inputs">
-											<input type="number" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
-											<input type="number" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
+											<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
+											<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
 										</div>
-										<div class="range-slider" data-min="0" data-max="100"></div>
+										<div class="range-slider" data-min="0" data-min-current="0" data-max-current="50" data-max="100"></div>
 									</div>
 								</div>
 								<div class="filter-item">
@@ -263,10 +263,10 @@
 									</div>
 									<div class="filter-item__range">
 										<div class="filter-item__inputs">
-											<input type="number" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
-											<input type="number" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
+											<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
+											<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
 										</div>
-										<div class="range-slider" data-min="0" data-max="10000"></div>
+										<div class="range-slider" data-min="0" data-min-current="500" data-max-current="9000" data-max="10000"></div>
 									</div>
 								</div>
 								<a href="#" class="filter-item-result btn">63 объекта</a>
@@ -996,7 +996,7 @@
 			</section>
 			<section class="programs section">
 				<div class="container">
-					<h2 class="programs__title section__title h3">Ипотечные программы</h2>
+					<h2 class="programs__title section__title h4">Ипотечные программы</h2>
 					<div class="programs__list cards">
 						<div class="programs-item card">
 							<div class="programs-item__img">
@@ -1474,10 +1474,10 @@
 								</div>
 								<div class="filter-item__select filter-item__range">
 									<div class="filter-item__inputs">
-										<input type="number" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
-										<input type="number" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
+										<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
+										<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
 									</div>
-									<div class="range-slider" data-min="0" data-max="10000"></div>
+									<div class="range-slider" data-min="0" data-min-current="500" data-max-current="9000" data-max="10000"></div>
 								</div>
 							</div>
 							<div class="filter-item">
@@ -1486,10 +1486,10 @@
 								</div>
 								<div class="filter-item__select filter-item__range">
 									<div class="filter-item__inputs">
-										<input type="number" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
-										<input type="number" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
+										<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
+										<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
 									</div>
-									<div class="range-slider" data-min="0" data-max="10000"></div>
+									<div class="range-slider" data-min="0" data-min-current="500" data-max-current="9000" data-max="10000"></div>
 								</div>
 							</div>
 							<div class="filter-item">
@@ -1514,10 +1514,10 @@
 								</div>
 								<div class="filter-item__select filter-item__range">
 									<div class="filter-item__inputs">
-										<input type="number" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
-										<input type="number" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
+										<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
+										<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
 									</div>
-									<div class="range-slider" data-min="0" data-max="10000"></div>
+									<div class="range-slider" data-min="0" data-min-current="500" data-max-current="9000" data-max="10000"></div>
 								</div>
 								<div class="filter-item__floors">
 									<label class="filter-item__checkbox" for="filter-floor-01">
@@ -1606,7 +1606,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240412231424"></script>
+	<script src="js/app.min.js?_v=20240419202431"></script>
 </body>
 
 </html>

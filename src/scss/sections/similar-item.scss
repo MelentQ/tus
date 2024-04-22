@@ -9,6 +9,11 @@
   border-radius: 20px;
   overflow: hidden;
 
+  &.swiper-slide {
+    display: flex;
+    flex-direction: column;
+  }
+
   @media (max-width: $md) {
     --icon-size: 14px;
     --pad-neg: -15px;

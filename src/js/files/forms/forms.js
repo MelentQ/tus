@@ -454,4 +454,19 @@ export const initInputMask = (context = document) => {
     );
   });
 };
+
+const numInputs = document.querySelectorAll('.js-input-num');
+export const initNumMask = () => {
+  numInputs.forEach((input) => {
+    Inputmask({ mask: "999 999 9999 9999 9999 9999 9999", showMaskOnHover: false }).mask(
+      input
+    );
+  })
+}
+
+
+if(numInputs.length) {
+  numInputs();
+}
+
 // initInputMask();

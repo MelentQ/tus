@@ -4,13 +4,32 @@
     cursor: none;
     overflow: hidden;
 
+    @media (max-width: $md)  {
+
+      &.is-playing {
+        .about-video__play-btn {
+          display: none;
+        }
+      }
+
+      &.is-paused {
+        .about-video__play-btn {
+          display: flex;
+        }
+      }
+    }
+
     video {
       display: block;
       width: 100%;
       border-radius: 16px;
+      max-height: 878px;
+      height: 100%;
+      object-fit: cover;
 
       @media(max-width: $md) {
         border-radius: 10px;
+        height: 220px;
       }
     }
 
@@ -21,6 +40,8 @@
 
       @media(max-width: $md) {
         border-radius: 10px;
+        height: 220px;
+        object-fit: cover;
       }
     }
   }

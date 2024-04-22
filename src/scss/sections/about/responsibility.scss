@@ -5,6 +5,10 @@
     max-width: 760px;
     width: 100%;
     letter-spacing: -0.5px;
+
+    @media(max-width: $sm)   {
+      font-size: 32px;
+    }
   }
 
   &__head {
@@ -46,12 +50,17 @@
 
       &:hover {
         .responsibility__item-desc {
-          max-height: 1000px;
+          grid-template-rows: 1fr;
+        }
+
+        .responsibility__item-text {
+          visibility: visible;
+          padding-top: 20px;
         }
 
         .responsibility__item-icon span::before {
           transform: rotate(0deg);
-          transition: .25s;
+          transition: .7s;
         }
       }
 
@@ -163,13 +172,10 @@
     }
 
     &-desc {
-      -webkit-transition: max-height 1s; 
-      -moz-transition: max-height 1s; 
-      -ms-transition: max-height 1s; 
-      -o-transition: max-height 1s; 
-      transition: max-height 1s;  
+      display: grid;
+      grid-template-rows: 0fr;
       overflow: hidden;
-      max-height: 0;
+      transition: grid-template-rows .7s;
 
       @media (max-width: 767px) {
         font-size: 12px;
@@ -177,7 +183,9 @@
     }
 
     &-text {
-      margin-top: 20px;
+      min-height: 0;
+      transition: .7s;
+      visibility: hidden;
     }
   }
 

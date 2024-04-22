@@ -94,6 +94,7 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "fslightbox": "^3.4.1",
     "gsap": "^3.12.5",
     "gulp-cheerio": "^1.0.0",
     "isotope-layout": "^3.0.6"

@@ -19,6 +19,13 @@
     }
   }
 
+  &__title {
+
+    @media(max-width: $sm) {
+      font-size: 32px;
+    }
+  }
+
   &__list {
     max-width: 1166px;
     width: 100%;

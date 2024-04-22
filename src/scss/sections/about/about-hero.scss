@@ -46,6 +46,10 @@
     background-color: cl(whte, .04);
     backdrop-filter: blur(10px);
 
+    .container {
+      padding: 0;
+    }
+
     .swiper-wrapper {
       -webkit-transition-timing-function: linear !important;
       transition-timing-function: linear !important;
@@ -75,6 +79,19 @@
       }
     }
 
+    &:first-of-type {
+      .about-hero__detail-content {
+        margin-left: -25px;
+
+        @media(max-width: $pc) {
+          margin-left: -20px;
+        }
+
+        @media(max-width: $lg) {
+          margin-left: 0;
+        }
+      }
+    }
     &-content {
       max-width: 180px;
       display: flex;
@@ -112,7 +129,7 @@
     height: 100vh;
     max-height: 940px;
 
-    img {
+    img, video {
       width: 100%;
       height: 100%;
       object-fit: cover;

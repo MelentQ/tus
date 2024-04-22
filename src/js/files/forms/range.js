@@ -59,17 +59,24 @@ export function rangeInit() {
 				}
 			};
 
-			let rangeItem = item.querySelector('.range-slider')
-			let min = Number(rangeItem.dataset.min);
-			let max = Number(rangeItem.dataset.max);
+			let rangeItem = item.querySelector('.range-slider');
+
+			let currentMin = parseInt(rangeItem.dataset.minCurrent);
+			let currentMax = parseInt(rangeItem.dataset.maxCurrent);
+			let min = parseInt(rangeItem.dataset.min);
+			let max = parseInt(rangeItem.dataset.max);
 			noUiSlider.create(rangeItem, {
-				start:  [min, max],
+				start: [currentMin, currentMax],
 				connect: true,
 				range: {
 					'min': min,
 					'max': max
 				},
-				format: formatForSlider,
+				// format: formatForSlider,
+				format: wNumb({
+					decimals: 0,
+					thousand: ' ',
+				})
 			});
 
 			let inputMin = item.querySelector('.js-range-input-min');
@@ -77,8 +84,8 @@ export function rangeInit() {
 			let inputs = [inputMin, inputMax];
 
 			if(inputMax) {
-				inputMin.addEventListener('change', setPriceValues);
-				inputMax.addEventListener('change', setPriceValues);
+				inputMin.addEventListener('update', setPriceValues);
+				inputMax.addEventListener('update', setPriceValues);
 				function setPriceValues() {
 					let priceStartValue;
 					let priceEndValue;
@@ -91,7 +98,7 @@ export function rangeInit() {
 					rangeItem.noUiSlider.set([priceStartValue, priceEndValue]);
 				}
 
-				rangeItem.noUiSlider.on('change', function (values, handle) {
+				rangeItem.noUiSlider.on('update', function (values, handle) {
 					inputs[handle].value = values[handle];
 				});
 			}

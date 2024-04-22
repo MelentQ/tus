@@ -27,6 +27,16 @@
 }
 
 .cases-item {
+
+  display: flex;
+  align-items: stretch;
+  min-height: 427px;
+
+  @media (max-width: $lg) {
+    flex-direction: column;
+    min-height: 446px;
+  }
+
   &.swiper-slide {
     display: flex;
     align-items: stretch;
@@ -185,6 +195,10 @@
 .cases__slider {
   overflow: hidden;
 
+  @media(max-width: $sm) {
+    overflow: visible;
+  }
+
   .swiper-wrapper {
     align-items: stretch;
   }
@@ -197,6 +211,16 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
+
+    @media(max-width: $sm) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__title {
+    @media(max-width: $sm) {
+      font-size: 32px;
+    }
   }
 
   &__nav {
@@ -206,6 +230,17 @@
 
     @media(max-width: $md) {
       display: none;
+    }
+  }
+
+  .cases-item {
+
+    &.swiper-slide {
+
+      @media(max-width: $lg) {
+        min-height: initial;
+        height: auto;
+      }
     }
   }
 }

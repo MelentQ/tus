@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240412231424">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240419202431">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -174,7 +174,8 @@
 		<main class="page">
 			<div class="about-hero">
 				<div class="about-hero__preview">
-					<picture><source srcset="./img/about/about-hero-img.webp" type="image/webp"><img src="./img/about/about-hero-img.png" alt=""></picture>
+					<!-- <picture><source srcset="./img/about/about-hero-img.webp" type="image/webp"><img src="./img/about/about-hero-img.png" alt=""></picture> -->
+					<video src="./files/video.mp4" class="about-hero__video" playsinline muted autoplay></video>
 				</div>
 				<div class="about-hero__intro">
 					<div class="about-hero__container">
@@ -192,60 +193,65 @@
 							История, миссия
 							и идеи компании Трансюжстрой
 						</h1>
-						<div class="about-hero__details js-about-details-slider">
-							<div class="swiper-wrapper">
-								<div class="about-hero__detail swiper-slide">
-									<div class="about-hero__detail-content">
-										<svg width="19" height="19">
-											<use xlink:href="../img/icons/icons.svg#house-burn"></use>
-										</svg>
-										<span>
-											Трансформируем города
-										</span>
-									</div>
-								</div>
-								<div class="about-hero__detail swiper-slide">
-									<div class="about-hero__detail-content">
-										<svg width="19" height="19">
-											<use xlink:href="../img/icons/icons.svg#peoples"></use>
-										</svg>
-										<span>
-											Строим дома для людей
-										</span>
-									</div>
-								</div>
-								<div class="about-hero__detail swiper-slide">
-									<div class="about-hero__detail-content">
-										<svg width="19" height="19">
-											<use xlink:href="../img/icons/icons.svg#factory"></use>
-										</svg>
-										<span>
-											Возводим предприятия
-										</span>
-									</div>
-								</div>
-								<div class="about-hero__detail swiper-slide">
-									<div class="about-hero__detail-content">
-										<svg width="19" height="19">
-											<use xlink:href="../img/icons/icons.svg#construction"></use>
-										</svg>
-										<span>
-											Реконструируем сооружения
-										</span>
-									</div>
-								</div>
-								<div class="about-hero__detail swiper-slide">
-									<div class="about-hero__detail-content">
-										<svg width="19" height="19">
-											<use xlink:href="../img/icons/icons.svg#smile"></use>
-										</svg>
-										<span>
-											Гордимся каждым проектом
-										</span>
+						<div class="about-hero__details">
+							<div class="container">
+								<div class="about-hero__details-slider js-about-details-slider">
+									<div class="swiper-wrapper">
+										<div class="about-hero__detail swiper-slide">
+											<div class="about-hero__detail-content">
+												<svg width="19" height="19">
+													<use xlink:href="../img/icons/icons.svg#house-burn"></use>
+												</svg>
+												<span>
+													Трансформируем города
+												</span>
+											</div>
+										</div>
+										<div class="about-hero__detail swiper-slide">
+											<div class="about-hero__detail-content">
+												<svg width="19" height="19">
+													<use xlink:href="../img/icons/icons.svg#peoples"></use>
+												</svg>
+												<span>
+													Строим дома для людей
+												</span>
+											</div>
+										</div>
+										<div class="about-hero__detail swiper-slide">
+											<div class="about-hero__detail-content">
+												<svg width="19" height="19">
+													<use xlink:href="../img/icons/icons.svg#factory"></use>
+												</svg>
+												<span>
+													Возводим предприятия
+												</span>
+											</div>
+										</div>
+										<div class="about-hero__detail swiper-slide">
+											<div class="about-hero__detail-content">
+												<svg width="19" height="19">
+													<use xlink:href="../img/icons/icons.svg#construction"></use>
+												</svg>
+												<span>
+													Реконструируем сооружения
+												</span>
+											</div>
+										</div>
+										<div class="about-hero__detail swiper-slide">
+											<div class="about-hero__detail-content">
+												<svg width="19" height="19">
+													<use xlink:href="../img/icons/icons.svg#smile"></use>
+												</svg>
+												<span>
+													Гордимся каждым проектом
+												</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 				<div class="about-hero__info">
@@ -296,7 +302,7 @@
 			</div>
 			<section class="about-history section">
 				<div class="about-history__container">
-					<h2 class="about-history__title section__title h3">
+					<h2 class="about-history__title section__title h4">
 						Наша история
 					</h2>
 					<div class="about-history__slider">
@@ -547,7 +553,7 @@
 			</div>
 			<div class="awwards section">
 				<div class="awwards__container">
-					<div class="awwards__title section__title h3">Награды</div>
+					<div class="awwards__title section__title h4">Награды</div>
 					<div class="awwards__list">
 						<div class="awwards__item">
 							<div class="awwards__item-logo">
@@ -675,7 +681,7 @@
 			<div class="cases-slider cases section">
 				<div class="cases-slider__container">
 					<div class="cases-slider__head">
-						<div class="cases-slider__title h3">Кейсы</div>
+						<div class="cases-slider__title h4">Кейсы</div>
 						<div class="cases-slider__nav">
 							<button class="common-slider common-slider-prev common-slider-prev--white js-cases-slider-prev">
 								<svg width="22" height="22">
@@ -996,6 +1002,7 @@
 							</div>
 						</div>
 					</div>
+					<a href="#" class="about-team__all btn btn--wide btn--outline">Вся команда</a>
 				</div>
 			</div>
 			<div class="teambuild section">
@@ -1063,10 +1070,12 @@
 			<div class="about-video section">
 				<div class="about-video__container">
 					<div class="about-video__media js-video">
+						<video src="./files/video.mp4" class="about-hero__video" poster="./img/about/about-video.png" playsinline>
+						</video>
 						<!-- <video src="./video/about-video.mp4" class="about-video__player">
         <source src="./video/about-video.mp4" type="video/mp4">
       </video> -->
-						<picture><source srcset="./img/about/about-video.webp" type="image/webp"><img src="./img/about/about-video.png" alt=""></picture>
+						<!-- <picture><source srcset="./img/about/about-video.webp" type="image/webp"><img src="./img/about/about-video.png" alt=""></picture> -->
 						<button type="button" class="about-video__play-btn common-play-btn">
 							<svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M16 12L-1.04907e-06 24L0 -6.99382e-07L16 12Z" fill="white" />
@@ -1120,7 +1129,7 @@
 				<div class="career__container">
 					<div class="career__inner">
 						<div class="career__info">
-							<h2 class="career__title h3">
+							<h2 class="career__title h4">
 								Собственное бюро <br>
 								проектирования
 							</h2>
@@ -1131,7 +1140,7 @@
 								эргономичным дизайном.
 							</div>
 							<a href="#" class="btn career__btn">
-								Посмотреть вакансии
+								Подробнее
 								<svg width="18" height="18">
 									<use xlink:href="../img/icons/icons.svg#plus"></use>
 								</svg>
@@ -1561,7 +1570,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240412231424"></script>
+	<script src="js/app.min.js?_v=20240419202431"></script>
 </body>
 
 </html>
