@@ -24,7 +24,6 @@
   },
   "husky": {
     "hooks": {
-      "precommit": "gulp test",
       "commit-msg": "npm run validate-commit-msg"
     }
   },

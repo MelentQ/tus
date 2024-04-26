@@ -27,21 +27,20 @@ import { images } from "./config/gulp-tasks/images.js";
 import { ftp } from "./config/gulp-tasks/ftp.js";
 import { zip } from "./config/gulp-tasks/zip.js";
 import { sprite } from "./config/gulp-tasks/sprite.js";
-import { gitignore } from "./config/gulp-tasks/gitignore.js";
 import { otfToTtf, ttfToWoff, fonstStyle } from "./config/gulp-tasks/fonts.js";
 import { glob } from "glob";
 
 // Последовательная обработка шрифтов
 const fonts = gulp.series(reset, otfToTtf, ttfToWoff, fonstStyle);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
-const devTasks = gulp.parallel(fonts, gitignore, images); // Добавляем images здесь
-
+const devTasks = gulp.parallel(fonts, images); // Добавляем images здесь
+export const imageTask = gulp.parallel(images);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
 const buildTasks = gulp.series(
   fonts,
   jsDev,
   js,
-  gulp.parallel(html, css, images, gitignore)
+  gulp.parallel(html, css, images)
 );
 export const imagesTask = gulp.parallel(images);
 

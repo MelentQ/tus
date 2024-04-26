@@ -1,5 +1,5 @@
 import fs from "fs";
-export const gitignore = () => {
+export const imageTaskgitignore = () => {
   if (!fs.existsSync(".gitignore")) {
     fs.writeFile("./.gitignore", "", cb);
     fs.appendFile("./.gitignore", "phpmailer/\r\n", cb);

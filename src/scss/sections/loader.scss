@@ -1,0 +1,142 @@
+.loader {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  inset: 0;
+  height: 100vh;
+  background-color: cl(primary);
+  color: cl(whte);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 25vh;
+  animation-name: progressWrap;
+  animation-delay: 4s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-play-state: forwards;
+  --loader-width: 236px;
+  --num-height: -200px;
+
+  @media(max-width: $sm) {
+    --loader-width: 109px;
+    --num-height: -100px;
+    padding: 20px;
+    padding-top: 40vh;
+  }
+
+  &__progress {
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-end;
+    margin: auto 0 0 0;
+    height: 200px;
+    overflow: hidden;
+    font-size: 200px;
+    line-height: 200px;
+    font-weight: 500;
+
+    @media(max-width: $sm) {
+      line-height: 100px;
+      height: 100px;
+      line-height: 100px;
+    }
+
+    @media(max-width: $sm) {
+      font-size: 100px;
+      line-height: 100px;
+    }
+
+    &-num {
+      animation: progressNums 4s linear forwards;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+
+    &-top {
+      margin-bottom: 16px;
+      width: 207px;
+
+      @media(max-width: $sm) {
+        width: 95px;
+        margin-bottom: 8px;
+      }
+    }
+
+    &-line {
+      width: var(--loader-width);
+      height: 1px;
+      background-color: cl(whte);
+      position: relative;
+      animation: progressLine 4s linear forwards;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 72px;
+        background-color: cl(whte);
+        right: 0;
+        top: -36px;
+      }
+    }
+
+    &-bottom {
+      margin-top: 12px;
+      width: 140px;
+
+      @media(max-width: $sm) {
+        margin-top: 6px;
+        width: 65px;
+      }
+    }
+  }
+}
+
+@keyframes progressLine {
+  from {
+    width: var(--loader-width);
+  } 
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes progressNums {
+  0% {
+    transform: translateY(0);
+  } 
+  10% {
+    transform: translateY(var(--num-height));
+  } 
+  30% {
+    transition: translateY(var(--num-height));
+  }
+  45% {
+    transform: translateY(var(--num-height));
+  }
+  60% {
+    transform: translateY(calc(var(--num-height) * 2));
+  }
+  75% {
+    transform: translateY(calc(var(--num-height) * 2));
+  }
+  100% {
+    transform: translateY(calc(var(--num-height) * 2));
+  } 
+}
+
+@keyframes progressWrap {
+  0% {
+    transform: translate(0);
+  } 
+  100% {
+    transform: translateY(-100%);
+  }
+}

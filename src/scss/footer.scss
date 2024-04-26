@@ -7,7 +7,7 @@
     padding-top: 83px;
     color: var(--color-whte);
     background:
-      url("./img/footer-bg.png") top 62px right 0 / contain no-repeat,
+      url("./img/footer-bg.webp") top 62px right 0 / contain no-repeat,
       linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
       linear-gradient(118.32deg, #1f1d1c 0.67%, #5a4a46 132.27%);
     border-radius: 40px 40px 0 0;
@@ -20,7 +20,7 @@
 
     @media (max-width: $sm) {
       background:
-        url("../img/footer-bg.png") top 180px left 20% / 1080px no-repeat,
+        url("../img/footer-bg.webp") top 180px left 20% / 1080px no-repeat,
         linear-gradient(100.43deg, #362825 -1.14%, #665551 105.39%);
       border-radius: 16px 16px 0 0;
     }
