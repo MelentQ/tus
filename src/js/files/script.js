@@ -532,8 +532,10 @@ if (complexesDropdown) {
   _slideUp(complexesDropdownList);
 
   complexesDropdownHead.addEventListener("click", function () {
+
     complexesDropdownHead.classList.toggle("is-active");
-    _slideToggle(complexesDropdownList);
+    _slideToggle(complexesDropdownList, 200);
+
   });
 }
 
@@ -541,9 +543,7 @@ let houseFloors = document.querySelectorAll(".js-house-floor");
 let mediaEvent;
 
 if (window.matchMedia) {
-  mediaEvent = window.matchMedia("(max-width: 1023px)").matches
-    ? "click"
-    : "mouseenter";
+  mediaEvent = 'click';
 }
 
 if (houseFloors) {
@@ -559,7 +559,7 @@ if (houseFloors) {
     };
 
     element.addEventListener(mediaEvent, openHandler);
-    element.addEventListener("mouseleave", closeHandler);
+    // element.addEventListener("mouseleave", closeHandler);
   });
 
   houseFloors.forEach((item) => {
@@ -568,7 +568,6 @@ if (houseFloors) {
     const dataPosition = item.dataset.position;
     const svgElement = item.ownerSVGElement || pathElement; // родительский SVG элемент
     const svgBox = svgElement.getBoundingClientRect();
-
     const boundingBox = item.getBoundingClientRect();
 
     // координаты элемента path относительно родительского SVG
@@ -584,14 +583,23 @@ if (houseFloors) {
       addClasses([houseFloorInfo], "is-open");
     });
 
-    item.addEventListener("mouseleave", function () {
-      let houseFloorInfo = document.querySelector(
-        `.js-house-info[data-floor-info="${dataFloor}"]`
-      );
+    document.addEventListener('click', function (event) {
+      if (!item.contains(event.target)) {
+        item.classList.remove("is-active");
+        let houseFloorInfo = document.querySelector(
+          `.js-house-info[data-floor-info="${dataFloor}"]`
+        );
+        removeClasses([houseFloorInfo], "is-open");
+      }
+    })
+    // item.addEventListener("mouseleave", function () {
+    //   let houseFloorInfo = document.querySelector(
+    //     `.js-house-info[data-floor-info="${dataFloor}"]`
+    //   );
 
-      removeClasses([houseFloorInfo], "is-open");
-      removeClasses([houseFloorInfo], "is-active");
-    });
+    //   removeClasses([houseFloorInfo], "is-open");
+    //   removeClasses([houseFloorInfo], "is-active");
+    // });
   });
 
   if (houseInfo) {

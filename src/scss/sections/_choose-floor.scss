@@ -115,6 +115,7 @@
       border-radius: 10px;
       border: 1px solid cl(whte, 0.2);
       background-color: cl(whte, 0.2);
+      backdrop-filter: blur(5px);
       margin: 0;
 
       svg {
@@ -127,16 +128,9 @@
 
 .house-floor {
   cursor: pointer;
-  opacity: 0;
-
-  cursor: pointer;
   position: relative;
   z-index: 3;
   transition: 0.25s;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .house-info {
