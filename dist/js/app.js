@@ -11371,6 +11371,42 @@
                 }
             }
         });
+        const residentsSlider = document.querySelector(".js-residents-slider");
+        if (residentsSlider) new swiper_core_Swiper(".js-residents-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1.3,
+            spaceBetween: 8,
+            breakpoints: {
+                560: {
+                    spaceBetween: 16,
+                    slidesPerView: 2
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                }
+            }
+        });
+        const contactsSlider = document.querySelector(".js-contacts-slider");
+        if (contactsSlider) new swiper_core_Swiper(".js-contacts-slider", {
+            modules: [ A11y, Navigation ],
+            slidesPerView: 1,
+            spaceBetween: 8,
+            navigation: {
+                prevEl: ".js-contacts-slider-prev",
+                nextEl: ".js-contacts-slider-next"
+            },
+            breakpoints: {
+                767: {
+                    spaceBetween: 16,
+                    slidesPerView: 2
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                }
+            }
+        });
         window.addEventListener("load", (function(e) {
             sliders_initSliders();
         }));
@@ -17157,6 +17193,16 @@
                 trigger: ".team__list",
                 start: "top top",
                 end: "bottom center",
+                scrub: true
+            }
+        });
+        if (matchMedia("(min-width: 992px)").matches) gsapWithCSS.to(".residents-info__img", {
+            ease: "none",
+            scale: 1.5,
+            scrollTrigger: {
+                trigger: ".residents-info",
+                start: "top top",
+                end: "center center",
                 scrub: true
             }
         });

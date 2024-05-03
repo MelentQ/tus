@@ -101,3 +101,87 @@
     }
   }
 }
+
+
+.contacts-slider {
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    max-width: 650px;
+    margin-bottom: 60px;
+
+    @media(max-width: $md) {
+      margin-bottom: 40px;
+    }
+
+    @media(max-width: $sm)  {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__nav {
+    @media(max-width: $md)  {
+      display: none;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    @media(max-width: $md) {
+      overflow: visible;
+    }
+  }
+
+  &__item {
+    &.swiper-slide {
+      padding: 39px;
+      border: 1px solid cl(blck, .1);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+
+      @media(max-width: $md) {
+        padding: 19px;
+      }
+    }
+
+    &-title {
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+
+      @media(max-width: $md) {
+        font-size: 24px;
+        margin-bottom: 28px;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 40px;
+
+      @media(max-width: $md) {
+        margin-bottom: 28px;
+        gap: 10px;
+      }
+    }
+
+    &-btn {
+      margin: auto 0 0 0;
+    }
+  }
+}

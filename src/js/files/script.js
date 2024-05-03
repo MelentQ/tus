@@ -420,22 +420,23 @@ gsap.to('.team__list-title', {
   },
 });
 
+if(matchMedia('(min-width: 992px)').matches) {
+  gsap.to('.residents-info__img', {
+    ease: 'none',
+    scale: 1.5,
+    scrollTrigger: {
+        trigger: '.residents-info',
+        start: 'top top', 
+        end: 'center center',
+        scrub: true, 
+    },
+  })
+}
+
 const revealLinesTitle = gsap.utils.toArray(".about__title");
 
 if(revealLinesTitle) {
-  revealLinesTitle.forEach((line, i) => {
-    // gsap.to(line, {}, {
-    //   x: () => document.querySelector('.about__wrapper').offsetWidth,
-    // }, {
-    //   ease: 'none',
-    //   scrollTrigger: {
-    //       trigger: '.about__wrapper',
-    //       start: 'top top', 
-    //       end: 'bottom center',
-    //       scrub: true, 
-    //   },
-    // })
-    
+  revealLinesTitle.forEach((line, i) => {    
     const anim = gsap.to(
       line,
       {

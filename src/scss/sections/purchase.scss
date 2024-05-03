@@ -44,57 +44,7 @@
   }
 
   &__document {
-    padding: 18px 22px 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid cl(blck, 0.1);
-    border-radius: 999px;
 
-    @media(any-hover: hover) {
-
-      &:hover {
-
-        svg {
-          color: var(--color-primary);
-        }
-
-        .purchase__document-name {
-          color: var(--color-primary);
-        
-          span {
-            color: var(--color-primary);
-          }
-        }
-      }
-    }
-
-    svg {
-      transition: .25s;
-    }
-
-    @media (max-width: $sm)  {
-      font-size: 14px;
-      padding: 14px 15px 14px 22px;
-      gap: 8px;
-
-      svg {
-        display: block;
-        width: 14px;
-        height: 14px;
-        color: cl(blck, .4);
-
-      }
-    }
-
-    &-name {
-      transition: .25s;
-
-      span {
-        color: cl(blck, .4);
-        transition: .25s;
-      }
-    }
   }
 
   &__form {

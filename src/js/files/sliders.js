@@ -836,6 +836,50 @@ if (blogSlider) {
     },
   });
 }
+
+const residentsSlider = document.querySelector(".js-residents-slider");
+if (residentsSlider) {
+  new Swiper(".js-residents-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1.3,
+    spaceBetween: 8,
+    breakpoints: {
+      560: {
+        spaceBetween: 16,
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      }
+    },
+  });
+}
+
+const contactsSlider = document.querySelector(".js-contacts-slider");
+if (contactsSlider) {
+  new Swiper(".js-contacts-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1,
+    spaceBetween: 8,
+    navigation: {
+      prevEl: '.js-contacts-slider-prev',
+      nextEl: '.js-contacts-slider-next',
+    },
+    breakpoints: {
+      767: {
+        spaceBetween: 16,
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      }
+    },
+  });
+}
+
+
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {
   let sliderScrollItems = document.querySelectorAll(".swiper_scroll");
