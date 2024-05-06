@@ -154,6 +154,14 @@
   border-radius: 50%;
   cursor: pointer;
 
+  &--sm {
+    --size: 100px;
+
+    @media(max-width: $md) {
+      --size: 50px;
+    }
+  }
+
   @media(max-width: $md) {
     --size: 50px;
 
@@ -737,4 +745,8 @@
       }
     }
   }
+}
+
+.air-datepicker-global-container {
+  z-index: 999;
 }

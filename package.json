@@ -93,6 +93,7 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "air-datepicker": "^3.5.0",
     "fslightbox": "^3.4.1",
     "gsap": "^3.12.5",
     "gulp-cheerio": "^1.0.0",

@@ -73,6 +73,10 @@
       margin-bottom: 16px;
       width: 207px;
 
+      img {
+        max-width: 100%;
+      }
+
       @media(max-width: $sm) {
         width: 95px;
         margin-bottom: 8px;
@@ -100,6 +104,10 @@
     &-bottom {
       margin-top: 12px;
       width: 140px;
+
+      img {
+        max-width: 100%;
+      }
 
       @media(max-width: $sm) {
         margin-top: 6px;

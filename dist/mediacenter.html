@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="format-detection" content="telephone=no">
-	<title>Контакты</title>
+	<title>Лоадер</title>
 	<link rel="manifest" href="/site.webmanifest">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -180,27 +180,195 @@
 							<a href="#" class="breadcrumbs__link">Главная</a>
 						</li>
 						<li class="breadcrumbs__item">
-							<a href="#" class="breadcrumbs__link">О компании</a>
-						</li>
-						<li class="breadcrumbs__item">
-							<a href="#" class="breadcrumbs__link">Кейсы</a>
+							<a href="#" class="breadcrumbs__link">Медиацентр</a>
 						</li>
 					</ul>
 				</div>
 			</section>
-
 			<section class="cases section">
 				<div class="cases__container">
-					<h1 class="cases__title h2">Кейсы</h1>
+					<h1 class="cases__title h2">Медиацентр</h1>
+					<div class="cases__panel">
+						<div class="cases__panel-top">
+							<button type="button" class="cases__filters-toggle" data-filter="open">Все фильтры</button>
+							<div class="cases__filters-sorting js-filter-sorting">
+								<button type="button" class="cases__filters-sorting-toggle js-filter-sorting-toggle">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#arrows"></use>
+									</svg>
+								</button>
+								<div class="cases__filters-sorting-content">
+									<div class="cases__filters-sorting-current js-filter-sorting-value">
+										Сначала новые
+									</div>
+									<div class="cases__filters-sorting-types">
+										<label class="cases__filters-sorting-type" for="cases-sorting-new">
+											<input type="radio" name="cases-sorting" id="cases-sorting-new" checked class="js-filter-sorting-type" data-type="Сначала новые">
+											<span> Сначала новые</span>
+										</label>
+										<label class="cases__filters-sorting-type" for="cases-sorting-old">
+											<input type="radio" name="cases-sorting" id="cases-sorting-old" class="js-filter-sorting-type" data-type="Сначала старые">
+											<span> Сначала старые</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="cases__search js-filter-search">
+								<input type="text" class="cases__search-input">
+								<button type="button" class="cases__search-btn js-filter-search-btn">
+									Скрыть
+								</button>
+							</div>
+							<div class="cases__filters">
+								<div class="filter-item">
+									<div class="filter-item__label">
+										Категория
+									</div>
+									<div class="filter-item__select">
+										<select name="filter-variant" id="filter-variant" class="filter-select">
+											<option value="">Выбрать</option>
+											<option value="1">Вариант 1</option>
+											<option value="2">Вариант 2</option>
+											<option value="3">Вариант 3</option>
+											<option value="4">Вариант 4</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter-item">
+									<div class="filter-item__label">
+										Город
+									</div>
+									<div class="filter-item__select">
+										<select name="filter-city" id="filter-city" class="filter-select">
+											<option value="">Выбрать</option>
+											<option value="1">Вариант 1</option>
+											<option value="2">Вариант 2</option>
+											<option value="3">Вариант 3</option>
+											<option value="4">Вариант 4</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter-item">
+									<div class="filter-item__label">
+										Жилой комплекс
+									</div>
+									<div class="filter-item__select">
+										<select name="filter-city" id="filter-city" class="filter-select">
+											<option value="">Выбрать</option>
+											<option value="1">Вариант 1</option>
+											<option value="2">Вариант 2</option>
+											<option value="3">Вариант 3</option>
+											<option value="4">Вариант 4</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter-item">
+									<div class="filter-item__label">
+										Дата
+									</div>
+									<div class="filter-item__inputs">
+										<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от">
+										<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до">
+									</div>
+								</div>
+								<div class="filter-item">
+									<div class="filter-item__label">
+									</div>
+									<div class="filter-item__select">
+										<select name="filter-variant" id="filter-variant" class="filter-select">
+											<option value="1">Сначала новые</option>
+											<option value="2">Сначала старые</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cases__filters-tags">
+							<div class="cases__filters-tag filter-tag">
+								<span>Новости</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>Новости</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>Спецпроекты</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>Ипотека</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>г. Казань</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>ЖК Центр Парк</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cases__filters-tag filter-tag">
+								<span>2023</span>
+								<button type="button">
+									<svg width="16" height="16">
+										<use xlink:href="./img/icons/icons.svg#cross"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
 					<div class="cases__list">
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<div class="cases-item__img">
-									<picture>
-										<source srcset="./img/cases/case-sm-03.webp" media="(max-width: 992px)">
-										<img src="./img/cases/case-03.webp" alt="">
-									</picture>
+								<div class="cases-item__tags is-open">
+									<div class="cases-item__tags-top cases-item__tags-line">
+										<div class="cases-item__tag">Видео</div>
+										<div class="cases-item__tag">Спецпроекты</div>
+										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn">
+											+2
+										</button>
+									</div>
+									<div class="cases-item__tags-bottom cases-item__tags-line">
+										<div class="cases-item__tag cases-item__tag--dark">Ипотека</div>
+										<div class="cases-item__tag cases-item__tag--dark">События</div>
+									</div>
 								</div>
+								<a href="./img/cases/case-01.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<button type="button" class="cases-item__play common-play-btn common-play-btn--sm">
+										<svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16 12L-1.04907e-06 24L0 -6.99382e-07L16 12Z" fill="white"></path>
+										</svg>
+									</button>
+									<picture>
+										<source srcset="./img/cases/case-sm-01.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-01.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -228,10 +396,25 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-02.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-02.webp" alt="">
-								</picture>
+								<div class="cases-item__tags">
+									<div class="cases-item__tags-top cases-item__tags-line">
+										<div class="cases-item__tag">Новости</div>
+										<div class="cases-item__tag">Спецпроекты</div>
+										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn">
+											+2
+										</button>
+									</div>
+									<div class="cases-item__tags-bottom cases-item__tags-line">
+										<div class="cases-item__tag cases-item__tag--dark">Ипотека</div>
+										<div class="cases-item__tag cases-item__tag--dark">События</div>
+									</div>
+								</div>
+								<a href="./img/cases/case-02.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-02.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-02.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -261,10 +444,18 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-03.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-03.webp" alt="">
-								</picture>
+								<div class="cases-item__tags">
+									<div class="cases-item__tags-top cases-item__tags-line">
+										<div class="cases-item__tag">Фото</div>
+										<div class="cases-item__tag">Спецпроекты</div>
+									</div>
+								</div>
+								<a href="./img/cases/case-03.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-03.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-03.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -293,10 +484,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-04.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-04.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-04.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-04.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-04.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -324,10 +517,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-05.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-05.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-05.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-05.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-05.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -355,10 +550,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-06.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -386,10 +583,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-07.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-07.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-07.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-07.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-07.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -418,10 +617,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-08.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-08.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -450,10 +651,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-09.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-09.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -482,10 +685,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-10.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-10.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -515,10 +720,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-11.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-11.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -546,10 +753,12 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<picture class="cases-item__img">
-									<source srcset="./img/cases/case-sm-12.webp" media="(max-width: 992px)">
-									<img src="./img/cases/case-12.webp" alt="">
-								</picture>
+								<a href="./img/cases/case-06.webp" data-fslightbox="mediacenter" class="cases-item__img">
+									<picture>
+										<source srcset="./img/cases/case-sm-06.webp" media="(max-width: 992px)">
+										<img src="./img/cases/case-06.webp" alt="">
+									</picture>
+								</a>
 							</div>
 							<div class="cases-item__right">
 								<div class="cases-item__title">
@@ -752,13 +961,158 @@
 				</div>
 			</div>
 		</footer>
-		<div id="status-template" aria-hidden="true" class="popup">
-			<div class="popup__wrapper">
-				<div class="popup__content">
-					<button data-close type="button" class="popup__close"></button>
-					<div class="popup__text">Произошла ошибка</div>
+		<div class="filters" data-filter="filters">
+			<div class="filters__overlay" data-filter="overlay"></div>
+			<div class="filters__wrapper">
+				<div class="filters__content">
+					<button type="button" class="filters__close btn btn--circle btn--greylight" aria-label="Закрыть" data-filter="close">
+						<svg width="22" height="22">
+							<use xlink:href="../img/icons/icons.svg#cross"></use>
+						</svg>
+					</button>
+					<div class="filters__headline">Все фильтры</div>
+					<form class="filters__form">
+						<div class="filters__col">
+							<div class="filter-tags">
+								<div class=" filter-tag">
+									<span>Новости</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>Новости</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>Спецпроекты</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>Ипотека</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>г. Казань</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>ЖК Центр Парк</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+								<div class=" filter-tag">
+									<span>2023</span>
+									<button type="button">
+										<svg width="16" height="16">
+											<use xlink:href="./img/icons/icons.svg#cross"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+							<div class="filter-item">
+								<div class="filter-item__label">
+									Категория
+								</div>
+								<div class="filter-item__select">
+									<select name="filter-variant" id="filter-variant" class="filter-select">
+										<option value="">Выбрать</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+										<option value="4">Вариант 4</option>
+									</select>
+								</div>
+							</div>
+							<div class="filter-item">
+								<div class="filter-item__label">
+									Город
+								</div>
+								<div class="filter-item__select">
+									<select name="filter-city" id="filter-city" class="filter-select">
+										<option value="">Выбрать</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+										<option value="4">Вариант 4</option>
+									</select>
+								</div>
+							</div>
+							<div class="filter-item">
+								<div class="filter-item__label">
+									Жилой комплекс
+								</div>
+								<div class="filter-item__select">
+									<select name="filter-city" id="filter-city" class="filter-select">
+										<option value="">Выбрать</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+										<option value="4">Вариант 4</option>
+									</select>
+								</div>
+							</div>
+							<div class="filter-item">
+								<div class="filter-item__label">
+									Жилой комплекс
+								</div>
+								<div class="filter-item__select">
+									<select name="filter-city" id="filter-city" class="filter-select">
+										<option value="">Выбрать</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+										<option value="4">Вариант 4</option>
+									</select>
+								</div>
+							</div>
+							<div class="filter-item">
+								<div class="filter-item__label">
+									Дата
+								</div>
+								<div class="filter-item__inputs">
+									<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от">
+									<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до">
+								</div>
+							</div>
+						</div>
+						<div class="filters__controls">
+							<button type="submit" class="btn filters__submit">
+								Показать 36 объектов
+							</button>
+							<button type="reset" class="btn btn--icon btn--greylight filters__submit">
+								<span class="sm-hide">Сбросить фильтры</span>
+								<span class="sm-block">Сбросить</span>
+								<svg width="24" height="24">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<script src="js/app.min.js?_v=20240503194432"></script>

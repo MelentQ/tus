@@ -1,6 +1,15 @@
 .purchase {
   overflow: hidden;
 
+  &.purchase-agency {
+
+    @media(max-width: $md) {
+      .purchase__container {
+        gap: 0;
+      }
+    }
+  }
+
   &__container {
     display: flex;
     align-items: flex-start;
@@ -41,10 +50,6 @@
       margin-bottom: 40px;
       font-size: 14px;
     }
-  }
-
-  &__document {
-
   }
 
   &__form {

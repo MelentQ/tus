@@ -659,3 +659,35 @@ if(videoSection) {
     }  
   })
 }
+
+
+const filterSearch = document.querySelector('.js-filter-search');
+
+if(filterSearch) {
+  const filterSearchBtn = document.querySelector('.js-filter-search-btn');
+  filterSearchBtn.addEventListener('click', function() {
+    filterSearch.classList.toggle('is-open');
+  })
+}
+
+const filterSorting = document.querySelector('.js-filter-sorting');
+
+if(filterSorting) {
+  const filterSortingBtn = filterSorting.querySelector('.js-filter-sorting-toggle');
+  filterSortingBtn.addEventListener('click', function() {
+    filterSorting.classList.toggle('is-open');
+  })
+
+  const filterSortingValue = filterSorting.querySelector('.js-filter-sorting-value');
+  const filterSortingTypes = filterSorting.querySelectorAll('.js-filter-sorting-type');
+
+  filterSortingTypes.forEach((item) => {
+    
+    item.addEventListener('click', function() {
+      item.setAttribute('checked', true);
+      let itemType = item.dataset.type;
+      filterSortingValue.textContent = itemType;
+      filterSorting.classList.remove('is-open');
+    })
+  })
+}

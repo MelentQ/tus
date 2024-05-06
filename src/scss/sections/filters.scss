@@ -4,7 +4,7 @@
   height: 100dvh;
   overflow: hidden;
   inset: 0;
-  z-index: 99;
+  z-index: 101;
   display: none;
   
   &.is-open {
@@ -74,7 +74,9 @@
     padding: 50px 60px 60px;
     border-radius: 20px;
     overflow: visible;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     @media(max-width: $lg) {
       padding: 32px;
