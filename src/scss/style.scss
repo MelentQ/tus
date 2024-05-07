@@ -177,6 +177,8 @@ body {
 @import "sections/apartments";
 @import "sections/similar";
 @import "sections/similar-item";
+@import "sections/facts";
+@import "sections/genplan";
 
 //Бюро
 
@@ -186,7 +188,7 @@ body {
 @import "sections/bureau/principles";
 @import "sections/bureau/principles";
 @import "sections/bureau/vacancy";
-@import "sections/bureau/career";
+@import "sections/bureau/presentation";
 
 // Выборк квартиры
 
@@ -242,3 +244,9 @@ body {
 // Жителям
 
 @import "sections/residents";
+
+// Избранное
+
+@import "sections/favorites";
+
+

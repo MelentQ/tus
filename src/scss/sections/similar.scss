@@ -17,4 +17,12 @@
       }
     }
   }
+
+  &__all {
+    margin-top: 16px;
+
+    @media(max-width: $md) {
+      margin-top: 8px;
+    }
+  }
 }

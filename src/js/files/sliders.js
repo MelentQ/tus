@@ -879,6 +879,24 @@ if (contactsSlider) {
   });
 }
 
+const presentationSlider = document.querySelector(".js-presentation-slider");
+if (presentationSlider) {
+  new Swiper(".js-presentation-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1,
+    spaceBetween: 8,
+    navigation: {
+      prevEl: '.js-presentation-slider-prev',
+      nextEl: '.js-presentation-slider-next',
+    },
+    breakpoints: {
+       992: {
+        spaceBetween: 16,
+       }
+    }
+  });
+}
+
 
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {

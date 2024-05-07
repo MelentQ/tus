@@ -22,6 +22,20 @@
     border-radius: 10px;
   }
 
+  &__overlay {
+
+    .back-to-favorites__content {
+      top: 150px;
+      left: 50%;
+      transform: translateY(0);
+      transform: translateX(-50%);
+
+      @media(max-width: $md) {
+        top: 52px;
+      }
+    }
+  }
+
   &__head {
     display: flex;
     align-items: flex-start;

@@ -1,0 +1,392 @@
+<section class="breadcrumbs">
+  <div class="breadcrumbs__container">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Главная</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Избранное</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="favorites section" data-role="tabs">
+  <div class="favorites__container">
+    <div class="favorites__title h2">Избранное</div>
+    <div class="favorites__filter">
+      <div class="favorites__tabs-controls tabs-controls">
+        <button type="button" class="tabs-controls__item is-active" data-tabs-control="projects">Проекты</button>
+        <button type="button" class="tabs-controls__item" data-tabs-control="apartments">Квартиры</button>
+        <button type="button" class="tabs-controls__item" data-tabs-control="commercial">Коммерческая недвижимость</button>
+        <button type="button" class="tabs-controls__item" data-tabs-control="parkings">Паркинг</button>
+        <button type="button" class="tabs-controls__item" data-tabs-control="storages">Кладовые</button>
+      </div>
+      <form action="#" class="favorites__sorting">
+        <div class="filter-item">
+          <div class="filter-item__select">
+            <select name="filter-variant" id="filter-price-sort" class="filter-select">
+              <option value="1">Сначала дешевле</option>
+              <option value="2">Сначала дороже</option>
+              <option value="3">Сначала с меньшей площадью</option>
+              <option value="4">Сначала с большей площадью</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="favorites__content is-open" data-tabs-panel="projects">
+      <div class="projects">
+        <div class="projects__list">
+          <div class="projects-item">
+            <div class="projects-item__overlay back-to-favorites">
+              <div class="back-to-favorites__content">
+                <div class="back-to-favorites__text">
+                  Вы недавно удалили эту квартиру из Избранного
+                </div>
+                <button type="button" class="back-to-favorites__btn js-back-to-favorites">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#refresh"></use>
+                  </svg>
+                  Восстановить
+                </button>
+              </div>
+            </div>
+            <div class="projects-item__preview">
+              <div class="projects-item__img">
+                <img src="../img/projects/project-01.webp" alt="">
+              </div>
+              <div class="projects-item__developer">
+                <img src="../img/projects/project-developer-01.svg" alt="">
+              </div>
+            </div>
+            <div class="projects-item__info">
+              <div class="projects-item__main">
+                <div class="projects-item__top">
+                  <address class="projects-item__address">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#pin"></use>
+                    </svg>
+                    г. Белгород, ул. Щорса, д. 37в
+                  </address>
+                  <div class="projects-item__status">
+                    <div class="common-status" style="--color-status: #FFC61A;"></div>
+                    Старт продаж
+                  </div>
+                </div>
+                <a href="#" class="projects-item__name h4">ЖК Привилегия</a>
+                <div class="projects-item__details">
+                  <div class="projects-item__detail">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#bus"></use>
+                    </svg>
+                    м. Аметьево
+                  </div>
+                  <div class="projects-item__detail">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#people"></use>
+                    </svg>
+                    3 мин.
+                  </div>
+                </div>
+                <div class="projects-item__desc">
+                  «Привилегия» - это новый строящийся жилой комплекс на улице
+                  Щорса, в двух шагах от «Белгород Арены», в шаговой
+                  доступности от школ и детских садов, поликлиник и больницы,
+                  парков и скверов. В 5 минутах езды до самого центра.
+                  Уникальная архитектура фасадов подчеркивает стиль и динамику
+                  современного дома, входы в подъезд, холлы и коридоры
+                  оформлены как в лучших резиденциях.
+                </div>
+              </div>
+              <div class="projects-item__panel">
+                <div class="projects-item__panel-info">от 10,4 млн. ₽</div>
+                <div class="projects-item__panel-info">180 квартир</div>
+                <div class="projects-item__panel-info">3 кв. 2024 г.</div>
+                <button type="button" class="projects-item__panel-fav is-favorite">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#fav"></use>
+                  </svg>
+                </button>
+                <a href="#" class="projects-item__panel-add">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#plus"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="projects-item">
+            <div class="projects-item__preview">
+              <div class="projects-item__img">
+                <img src="../img/projects/project-02.webp" alt="">
+              </div>
+              <div class="projects-item__developer">
+                <img src="../img/projects/project-developer-02.svg" alt="">
+              </div>
+            </div>
+            <div class="projects-item__info">
+              <div class="projects-item__main">
+                <div class="projects-item__top">
+                  <address class="projects-item__address">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#pin"></use>
+                    </svg>
+                    г. Белгород, ул. Попова, д. 14
+                  </address>
+                  <div class="projects-item__status">
+                    <div class="common-status" style="--color-status: #32CE18;"></div>
+                    Идут продажи
+                  </div>
+                </div>
+                <a href="#" class="projects-item__name h4">ЖК Центр Парк</a>
+                <div class="projects-item__details">
+                  <div class="projects-item__detail">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#bus"></use>
+                    </svg>
+                    м. Горки
+                  </div>
+                  <div class="projects-item__detail">
+                    <svg width="16" height="16">
+                      <use xlink:href="../img/icons/icons.svg#people"></use>
+                    </svg>
+                    11 мин.
+                  </div>
+                </div>
+                <div class="projects-item__desc">
+                  Дом является частью ЖК «Центр Парк». ЖК возводится в центре Белгорода
+                  в границах Белгородского пр-та, улиц Попова и Островского, Центрального
+                  парка им. Ленина. В распоряжении жителей детские и спортивные площадки,
+                  новый детский сад на территории, наземные и подземные паркинги, прекрасная
+                  транспортная доступность.
+                </div>
+              </div>
+              <div class="projects-item__panel">
+                <div class="projects-item__panel-info">от 10,4 млн. ₽</div>
+                <div class="projects-item__panel-info">180 квартир</div>
+                <div class="projects-item__panel-info">3 кв. 2024 г.</div>
+                <button type="button" class="projects-item__panel-fav">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#fav"></use>
+                  </svg>
+                </button>
+                <a href="#" class="projects-item__panel-add">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#plus"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="favorites__content" data-tabs-panel="apartments">
+      <div class="apartments">
+        <div class="apartments__list">
+          <div class="apartment-item">
+            <div class="apartment-item__overlay back-to-favorites">
+              <div class="back-to-favorites__content">
+                <div class="back-to-favorites__text">
+                  Вы недавно удалили эту квартиру из Избранного
+                </div>
+                <button type="button" class="back-to-favorites__btn js-back-to-favorites">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#refresh"></use>
+                  </svg>
+                  Восстановить
+                </button>
+              </div>
+            </div>
+            <div class="apartment-item__head">
+              <div class="apartment-item__info">
+                <div class="apartment-item__address">
+                  <svg width="16" height="16">
+                    <use xlink:href="../img/icons/icons.svg#pin"></use>
+                  </svg>
+                  г. Белгород, ул. Щорса, д. 37в
+                </div>
+                <div class="apartment-item__title">
+                  1 комнатная 62.22 м<sup>2</sup>
+                </div>
+              </div>
+              <div class="apartment-item__statuses">
+                <div class="apartment-item__status status status--border">В ипотеку</div>
+                <div class="apartment-item__status status status--dark">
+                  <div class="status__circle" style="--status-color: #32CE18;"></div>
+                  <div class="status__text">Идут продажи</div>
+                </div>
+              </div>
+            </div>
+            <div class="apartment-item__floor">
+              16 этаж
+            </div>
+            <div class="apartment-item__main">
+              <div class="apartment-item__logo">
+                <img src="./img/apartments/a-logo-01.webp" alt="">
+              </div>
+              <div class="apartment-item__img">
+                <img src="./img/apartments/a-scheme-01.webp" alt="">
+              </div>
+            </div>
+            <div class="apartment-item__details">
+              <div class="apartment-item__details-item">10 871 600 ₽</div>
+              <div class="apartment-item__details-item apartment-item__details-item--light">261 212 руб/м<sup>2</sup></div>
+              <button type="button" class="apartment-item__fav">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#fav"></use>
+                </svg>
+              </button>
+              <a href="#" class="apartment-item__add">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#plus"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="apartment-item">
+            <div class="apartment-item__head">
+              <div class="apartment-item__info">
+                <div class="apartment-item__address">
+                  <svg width="16" height="16">
+                    <use xlink:href="../img/icons/icons.svg#pin"></use>
+                  </svg>
+                  г. Белгород, ул. Щорса, д. 37в
+                </div>
+                <div class="apartment-item__title">
+                  2 комнатная 66.9 м<sup>2</sup>
+                </div>
+              </div>
+              <div class="apartment-item__statuses">
+                <div class="apartment-item__status status status--border">В ипотеку</div>
+                <div class="apartment-item__status status status--dark">
+                  <div class="status__circle" style="--status-color: #32CE18;"></div>
+                  <div class="status__text">Идут продажи</div>
+                </div>
+              </div>
+            </div>
+            <div class="apartment-item__floor">
+              16 этаж
+            </div>
+            <div class="apartment-item__main">
+              <div class="apartment-item__logo">
+                <img src="./img/apartments/a-logo-02.webp" alt="">
+              </div>
+              <div class="apartment-item__img">
+                <img src="./img/apartments/a-scheme-02.webp" alt="">
+              </div>
+            </div>
+            <div class="apartment-item__details">
+              <div class="apartment-item__details-item">27 909 698 ₽</div>
+              <div class="apartment-item__details-item apartment-item__details-item--light">261 212 руб/м<sup>2</sup></div>
+              <button type="button" class="apartment-item__fav">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#fav"></use>
+                </svg>
+              </button>
+              <a href="#" class="apartment-item__add">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#plus"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="apartment-item">
+            <div class="apartment-item__head">
+              <div class="apartment-item__info">
+                <div class="apartment-item__address">
+                  <svg width="16" height="16">
+                    <use xlink:href="../img/icons/icons.svg#pin"></use>
+                  </svg>
+                  г. Белгород, ул. Щорса, д. 37в
+                </div>
+                <div class="apartment-item__title">
+                  2 комнатная 77.1 м<sup>2</sup>
+                </div>
+              </div>
+              <div class="apartment-item__statuses">
+                <div class="apartment-item__status status status--border">В ипотеку</div>
+                <div class="apartment-item__status status status--dark">
+                  <div class="status__circle" style="--status-color: #32CE18;"></div>
+                  <div class="status__text">Идут продажи</div>
+                </div>
+              </div>
+            </div>
+            <div class="apartment-item__floor">
+              16 этаж
+            </div>
+            <div class="apartment-item__main">
+              <div class="apartment-item__logo">
+                <img src="./img/apartments/a-logo-03.webp" alt="">
+              </div>
+              <div class="apartment-item__img">
+                <img src="./img/apartments/a-scheme-03.webp" alt="">
+              </div>
+            </div>
+            <div class="apartment-item__details">
+              <div class="apartment-item__details-item">27 909 698 ₽</div>
+              <div class="apartment-item__details-item apartment-item__details-item--light">261 212 руб/м<sup>2</sup></div>
+              <button type="button" class="apartment-item__fav">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#fav"></use>
+                </svg>
+              </button>
+              <a href="#" class="apartment-item__add">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#plus"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="apartment-item">
+            <div class="apartment-item__head">
+              <div class="apartment-item__info">
+                <div class="apartment-item__address">
+                  <svg width="16" height="16">
+                    <use xlink:href="../img/icons/icons.svg#pin"></use>
+                  </svg>
+                  г. Белгород, ул. Щорса, д. 37в
+                </div>
+                <div class="apartment-item__title">
+                  2 комнатная 77.1 м<sup>2</sup>
+                </div>
+              </div>
+              <div class="apartment-item__statuses">
+                <div class="apartment-item__status status status--border">В ипотеку</div>
+                <div class="apartment-item__status status status--dark">
+                  <div class="status__circle" style="--status-color: #32CE18;"></div>
+                  <div class="status__text">Идут продажи</div>
+                </div>
+              </div>
+            </div>
+            <div class="apartment-item__floor">
+              16 этаж
+            </div>
+            <div class="apartment-item__main">
+              <div class="apartment-item__logo">
+                <img src="./img/apartments/a-logo-04.webp" alt="">
+              </div>
+              <div class="apartment-item__img">
+                <img src="./img/apartments/a-scheme-04.webp" alt="">
+              </div>
+            </div>
+            <div class="apartment-item__details">
+              <div class="apartment-item__details-item">27 909 698 ₽</div>
+              <div class="apartment-item__details-item apartment-item__details-item--light">261 212 руб/м<sup>2</sup></div>
+              <button type="button" class="apartment-item__fav">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#fav"></use>
+                </svg>
+              </button>
+              <a href="#" class="apartment-item__add">
+                <svg width="20" height="20">
+                  <use xlink:href="../img/icons/icons.svg#plus"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

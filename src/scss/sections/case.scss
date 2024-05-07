@@ -199,6 +199,38 @@
     align-items: center;
     gap: 4px;
     flex-wrap: wrap;
+
+    &.is-show {
+      .case__types-line--bottom {
+        position: static;
+        opacity: 1;
+        transform: translateY(0);
+        transition: .25s ease;
+      }
+    }
+
+    &-line {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+
+      &--bottom {
+
+        @media(max-width: $md) {
+          width: 100%;
+          opacity: 0;
+          transform: translateY(20px);
+          position: absolute;
+
+          .case__type {
+            background-color: cl(blck, .4);
+            color: cl(whte);
+            backdrop-filter: blur(10px);
+          }
+        }
+      }
+    }
   }
 
   &__type {
@@ -210,11 +242,22 @@
       display: none;
     }
 
+    &--btn {
+      display: none;
+      background-color: cl(blck, .4);
+      color: cl(whte);
+      backdrop-filter: blur(10px);
+    }
+
     @media (max-width: $md) {
       font-size: 14px;
       padding: 8px 20px;
 
       &--date {
+        display: block;
+      }
+
+      &--btn {
         display: block;
       }
     }
@@ -238,6 +281,27 @@
     @media (max-width: $sm) {
       font-size: 14px;
       margin-bottom: 28px;
+    }
+  }
+
+  &__video {
+    position: relative;
+    margin-bottom: 80px;
+    margin-top: 80px;
+
+    @media(max-width: $md)  {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    video {
+      display: block;
+      max-width: 100%;
+      border-radius: 20px;
+
+      @media(max-width: $md) {
+        border-radius: 10px;
+      }
     }
   }
 
@@ -517,6 +581,7 @@
       z-index: 1;
       overflow: hidden;
       max-height: 580px;
+      border-radius: 20px;
 
       &.swiper-slide {
         width: auto;
@@ -524,13 +589,14 @@
 
       @media (max-width: $md) {
         max-height: 400px;
+        border-radius: 10px;
       }
 
       @media (max-width: $sm) {
         max-height: 320px;
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: $xs) {
         max-height: 220px;
       }
 

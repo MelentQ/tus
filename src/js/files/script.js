@@ -691,3 +691,19 @@ if(filterSorting) {
     })
   })
 }
+
+const tags = document.querySelectorAll('.js-tags');
+
+if(tags) {
+  const customEvent = window.matchMedia("(max-width: 992px)").matches ? 'click' : 'mousemove';
+
+  tags.forEach((item) => {
+    const tagsBtn = item.querySelector('.js-tags-btn');
+    const tagsHidden = item.querySelector('.js-tags-hidden');
+
+    tagsBtn.addEventListener(customEvent, function() {
+      item.classList.toggle('is-show')
+    })
+  })
+}
+

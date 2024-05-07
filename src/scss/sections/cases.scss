@@ -311,10 +311,13 @@
       padding: 12px;
     }
 
-    &.is-open {
+    &.is-show {
 
       .cases-item__tags-bottom {
-        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        transition: .25s ease;
       }
     }
 
@@ -325,7 +328,9 @@
 
     &-bottom {
       margin-top: 4px;
-      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
     }
   }
 

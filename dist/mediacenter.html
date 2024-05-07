@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="format-detection" content="telephone=no">
-	<title>Лоадер</title>
+	<title>Медиацентр</title>
 	<link rel="manifest" href="/site.webmanifest">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240503194432">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240507003448">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -225,7 +225,7 @@
 										Категория
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-variant" id="filter-variant" class="filter-select">
+										<select name="filter-categories-02" id="filter-categories-02" class="filter-select">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -239,7 +239,7 @@
 										Город
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-city" id="filter-city" class="filter-select">
+										<select name="filter-jk-04" id="filter-jk-04" class="filter-select">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -253,7 +253,7 @@
 										Жилой комплекс
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-city" id="filter-city" class="filter-select">
+										<select name="filter-js-03" id="filter-js-03" class="filter-select">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -275,7 +275,7 @@
 									<div class="filter-item__label">
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-variant" id="filter-variant" class="filter-select">
+										<select name="filter-types" id="filter-types" class="filter-select">
 											<option value="1">Сначала новые</option>
 											<option value="2">Сначала старые</option>
 										</select>
@@ -345,11 +345,11 @@
 					<div class="cases__list">
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<div class="cases-item__tags is-open">
+								<div class="cases-item__tags js-tags">
 									<div class="cases-item__tags-top cases-item__tags-line">
 										<div class="cases-item__tag">Видео</div>
 										<div class="cases-item__tag">Спецпроекты</div>
-										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn">
+										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn js-tags-btn">
 											+2
 										</button>
 									</div>
@@ -359,11 +359,11 @@
 									</div>
 								</div>
 								<a href="./img/cases/case-01.webp" data-fslightbox="mediacenter" class="cases-item__img">
-									<button type="button" class="cases-item__play common-play-btn common-play-btn--sm">
+									<span class="cases-item__play common-play-btn common-play-btn--sm">
 										<svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M16 12L-1.04907e-06 24L0 -6.99382e-07L16 12Z" fill="white"></path>
 										</svg>
-									</button>
+									</span>
 									<picture>
 										<source srcset="./img/cases/case-sm-01.webp" media="(max-width: 992px)">
 										<img src="./img/cases/case-01.webp" alt="">
@@ -396,17 +396,16 @@
 						</div>
 						<div class="cases-item">
 							<div class="cases-item__left">
-								<div class="cases-item__tags">
+								<div class="cases-item__tags js-tags">
 									<div class="cases-item__tags-top cases-item__tags-line">
 										<div class="cases-item__tag">Новости</div>
 										<div class="cases-item__tag">Спецпроекты</div>
-										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn">
-											+2
+										<button type="button" class="cases-item__tag cases-item__tag--dark cases-item__tag-btn js-tags-btn">
+											+1
 										</button>
 									</div>
 									<div class="cases-item__tags-bottom cases-item__tags-line">
 										<div class="cases-item__tag cases-item__tag--dark">Ипотека</div>
-										<div class="cases-item__tag cases-item__tag--dark">События</div>
 									</div>
 								</div>
 								<a href="./img/cases/case-02.webp" data-fslightbox="mediacenter" class="cases-item__img">
@@ -1036,7 +1035,7 @@
 									Категория
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-variant" id="filter-variant" class="filter-select">
+									<select name="filter-categories" id="filter-categories" class="filter-select">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1050,7 +1049,7 @@
 									Город
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-city" id="filter-city" class="filter-select">
+									<select name="filter-city-02" id="filter-city-02" class="filter-select">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1064,7 +1063,7 @@
 									Жилой комплекс
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-city" id="filter-city" class="filter-select">
+									<select name="filter-jk-01" id="filter-jk-01" class="filter-select">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1078,7 +1077,7 @@
 									Жилой комплекс
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-city" id="filter-city" class="filter-select">
+									<select name="filter-jk-02" id="filter-jk-02" class="filter-select">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1115,7 +1114,7 @@
 
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240503194432"></script>
+	<script src="js/app.min.js?_v=20240507003448"></script>
 </body>
 
 </html>

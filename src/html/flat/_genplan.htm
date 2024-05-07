@@ -1,0 +1,80 @@
+<section class="genplan section" data-role="tabs">
+
+  <div class="genplan__wrapper">
+    <div class="genplan__head">
+      <div class="genplan__container">
+        <div class="genplan__title h3 is-open" data-tabs-panel="building-selection">Генплан</div>
+        <div class="genplan__title genplan__title--invert h3" data-tabs-panel="plan">Генплан</div>
+        <div class="genplan__switcher">
+          <button type="button" class="genplan__switcher-control is-active" data-tabs-control="building-selection">3D</button>
+          <button type="button" class="genplan__switcher-control" data-tabs-control="plan">2D</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="genplan__tab-content building-selection is-open" data-tabs-panel="building-selection">
+      <div class="house-info house-info--complex house-info--white js-house-info" data-floor-info="1" style="left: 30%; top: 55%;">
+        <div class="house-info__overlay js-house-info-overlay"></div>
+        <div class="house-info__card">
+          <div class="house-info__top">
+            <div class="house-info__floor">
+              <div class="house-info__floor-num">2</div>
+              <div class="house-info__floor-desc">
+                корпус
+                <span>доступно 21 помещение</span>
+              </div>
+            </div>
+            <a href="#" class="house-info__add">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+            <button type="button" class="house-info__close js-house-info-close">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#cross"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="house-info__apartments">
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">Помещение</div>
+              <div class="house-info__apartment-num">21</div>
+              <div class="house-info__apartment-price">от 10 909 698 ₽</div>
+            </div>
+          </div>
+          <div class="house-info__final">
+            <span>План сдачи квартир:</span>
+            3 квартал 2024 года
+          </div>
+          <a href="#" class="house-info__btn btn btn--white btn--wide">Выбрать квартиру</a>
+        </div>
+      </div>
+      <div class="building-selection__body">
+        <div class="building-selection__wrap">
+          <svg class="building-selection__svg" width="1680" height="920" viewBox="0 0 1680 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="vissual-polygon js-house-floor" data-floor="1">
+              <path d="M707.493 516.37L708 516.083V515.5V511.08L714.094 507.598L719.158 509.44L719.613 509.605L720.025 509.351L737.025 498.851L737.699 498.435L737.449 497.684L736.667 495.338L741.177 491.648L745.629 493.428L746.077 493.608L746.496 493.368L763.996 483.368L764.5 483.08V482.5V479.118L770.409 476.164L773.419 478.314L774.008 478.734L774.591 478.306L789.591 467.306L790 467.007V466.5V463.618L795 461.118L800.553 463.894L801.113 464.175L801.61 463.793L807.585 459.197L818.079 465.128L825.916 520.477L715.544 585.314L703.403 576.909L693.12 524.515L707.493 516.37Z" fill="#FF6100" fill-opacity="0.2" stroke="#FF6100" stroke-width="2"/>
+            </g>
+          </svg>
+          <picture class="building-selection__img">
+            <source srcset="./img/genplan/plan-sm.png" media="(max-width: 767px)">
+            <img src="./img/genplan/plan.png" alt="">
+          </picture>
+        </div>
+        <div class="building-selection__items">
+          <div class="building-selection__item" style="top: 61%; left: 37%;">1</div>
+          <div class="building-selection__item" style="top: 52%; left: 31%;">2</div>
+          <div class="building-selection__item" style="top: 42%; left: 40.5%;">3</div>
+          <div class="building-selection__item" style="top: 55%; left: 40%;">4</div>
+        </div>
+      </div>
+    </div>
+    <div class="genplan__tab-content plan" data-tabs-panel="plan">
+      <div class="plan__body">
+        <picture class="plan__img">
+          <img src="./img/genplan/plan-scheme.png" alt="">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
