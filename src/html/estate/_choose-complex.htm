@@ -1,0 +1,132 @@
+<section class="breadcrumbs">
+  <div class="breadcrumbs__container">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Главная</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Жилые комплексы</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a href="#" class="breadcrumbs__link">Квартиры</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="apartments section projects projects--estate">
+  <div class="apartments__container">
+    @@include('_filter-panel-city.htm',{"title": "Выбор ком. помещения"})
+    <div class="choose-building">
+      <div class="house-info house-info--complex house-info--white js-house-info" data-floor-info="1">
+        <div class="house-info__overlay js-house-info-overlay"></div>
+        <div class="house-info__card">
+          <div class="house-info__top">
+            <div class="house-info__floor">
+              <div class="house-info__floor-num">2</div>
+              <div class="house-info__floor-desc">
+                корпус
+                <span>доступно 42 помещения</span>
+              </div>
+            </div>
+            <a href="#" class="house-info__add">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#plus"></use>
+              </svg>
+            </a>
+            <button type="button" class="house-info__close js-house-info-close">
+              <svg width="14" height="14">
+                <use xlink:href="../img/icons/icons.svg#cross"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="house-info__apartments">
+            <div class="house-info__apartment">
+              <div class="house-info__apartment-rooms">Помещение</div>
+              <div class="house-info__apartment-num">42</div>
+              <div class="house-info__apartment-price">от 18 824 559 ₽</div>
+            </div>
+          </div>
+          <div class="house-info__final">
+            <span>План сдачи квартир:</span>
+            3 квартал 2024 года
+          </div>
+          <a href="#" class="house-info__btn btn btn--white btn--wide">Выбрать квартиру</a>
+        </div>
+      </div>
+      <div class="choose-building__buildings">
+        <div class="choose-building__bg">
+          <img src="./img/apartments/complex-commercial.webp" alt="">
+        </div>
+        <svg class="choose-building__scheme choose-building__scheme--commercial" width="1560" height="800" viewBox="0 0 1560 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M367 164L583 198L595 579H367V164Z" fill="white" fill-opacity="0.05"/>
+          <g class="house-complex js-house-floor" data-floor="1" data-position="right">
+            <path d="M372 635V580H593V630.963L372 635Z" fill="#FF6100" fill-opacity="0.2" stroke="#FF6100" stroke-width="2"/>
+          </g>
+          <rect x="67" y="254" width="62" height="62" rx="31" transform="rotate(-90 67 254)" fill="#FF6100"/>
+          <path d="M99.612 230H98.028C97.848 230 97.758 229.91 97.758 229.73V219.65L95.85 220.964C95.718 221.06 95.598 221.03 95.49 220.874L94.752 219.686C94.656 219.554 94.68 219.428 94.824 219.308L97.902 217.22C97.974 217.16 98.082 217.13 98.226 217.13H99.612C99.78 217.13 99.864 217.22 99.864 217.4V229.73C99.864 229.91 99.78 230 99.612 230Z" fill="white"/>
+          <rect x="444" y="462" width="62" height="62" rx="31" transform="rotate(-90 444 462)" fill="#FF6100"/>
+          <path d="M478.5 438H470.418C470.25 438 470.166 437.91 470.166 437.73V436.65C470.166 436.518 470.208 436.41 470.292 436.326L473.946 432.528C474.786 431.652 475.41 430.926 475.818 430.35C476.226 429.762 476.43 429.18 476.43 428.604C476.43 428.124 476.274 427.722 475.962 427.398C475.65 427.062 475.176 426.894 474.54 426.894C473.556 426.894 472.596 427.374 471.66 428.334C471.54 428.478 471.42 428.472 471.3 428.316L470.454 427.164C470.358 427.044 470.364 426.924 470.472 426.804C471.636 425.544 472.992 424.914 474.54 424.914C475.728 424.914 476.694 425.232 477.438 425.868C478.194 426.504 478.572 427.404 478.572 428.568C478.572 429.348 478.368 430.086 477.96 430.782C477.564 431.478 476.934 432.318 476.07 433.302C475.338 434.142 474.444 435.06 473.388 436.056H478.5C478.68 436.056 478.77 436.146 478.77 436.326V437.73C478.77 437.91 478.68 438 478.5 438Z" fill="white"/>
+          <rect x="696" y="438" width="62" height="62" rx="31" transform="rotate(-90 696 438)" fill="#FF6100"/>
+          <path d="M730.95 409.896C730.95 411.216 730.53 412.266 729.69 413.046C728.85 413.826 727.776 414.216 726.468 414.216C724.836 414.216 723.372 413.652 722.076 412.524C721.968 412.404 721.968 412.278 722.076 412.146L722.958 411.12C723.078 411 723.204 411 723.336 411.12C723.864 411.504 724.35 411.786 724.794 411.966C725.25 412.146 725.808 412.236 726.468 412.236C727.176 412.236 727.74 412.032 728.16 411.624C728.592 411.204 728.808 410.61 728.808 409.842C728.808 408.39 727.962 407.664 726.27 407.664C725.898 407.664 725.52 407.706 725.136 407.79C725.004 407.826 724.896 407.772 724.812 407.628L724.47 406.89C724.41 406.758 724.434 406.632 724.542 406.512L726.306 404.586C727.074 403.77 727.584 403.266 727.836 403.074H722.958C722.79 403.074 722.706 402.984 722.706 402.804V401.4C722.706 401.22 722.79 401.13 722.958 401.13H730.302C730.47 401.13 730.554 401.22 730.554 401.4V402.444C730.554 402.552 730.512 402.66 730.428 402.768L727.17 406.224L727.188 406.26C728.196 406.236 729.072 406.554 729.816 407.214C730.572 407.862 730.95 408.756 730.95 409.896Z" fill="white"/>
+          <rect x="850" y="350" width="62" height="62" rx="31" transform="rotate(-90 850 350)" fill="#FF6100"/>
+          <path d="M883.744 326H882.178C881.998 326 881.908 325.91 881.908 325.73V323.354H876.238C876.058 323.354 875.968 323.264 875.968 323.084V321.914C875.968 321.794 875.998 321.686 876.058 321.59L880.468 313.328C880.54 313.196 880.642 313.13 880.774 313.13H882.592C882.7 313.13 882.772 313.166 882.808 313.238C882.844 313.298 882.838 313.37 882.79 313.454L878.542 321.428H881.908L881.944 318.926C881.968 318.758 882.058 318.674 882.214 318.674H883.744C883.924 318.674 884.014 318.758 884.014 318.926V321.428H885.112C885.292 321.428 885.382 321.512 885.382 321.68V323.084C885.382 323.264 885.292 323.354 885.112 323.354H884.014V325.73C884.014 325.91 883.924 326 883.744 326Z" fill="white"/>
+          <rect x="1010" y="372" width="62" height="62" rx="31" transform="rotate(-90 1010 372)" fill="#FF6100"/>
+          <path d="M1045.24 343.734C1045.24 345.09 1044.84 346.176 1044.03 346.992C1043.23 347.808 1042.14 348.216 1040.76 348.216C1039.11 348.216 1037.68 347.658 1036.47 346.542C1036.38 346.422 1036.38 346.296 1036.47 346.164L1037.46 345.084C1037.57 344.964 1037.7 344.97 1037.84 345.102C1038.78 345.834 1039.75 346.2 1040.77 346.2C1041.53 346.2 1042.11 345.984 1042.5 345.552C1042.91 345.108 1043.11 344.502 1043.11 343.734C1043.11 342.222 1042.34 341.466 1040.79 341.466C1039.84 341.466 1039.08 341.724 1038.49 342.24C1038.37 342.348 1038.25 342.378 1038.13 342.33L1036.9 341.916C1036.75 341.88 1036.67 341.778 1036.67 341.61L1036.9 335.4C1036.9 335.22 1036.99 335.13 1037.17 335.13H1044.27C1044.45 335.13 1044.54 335.22 1044.54 335.4V336.84C1044.54 337.02 1044.45 337.11 1044.27 337.11H1038.94L1038.85 340.098C1039.46 339.726 1040.19 339.54 1041.04 339.54C1042.34 339.54 1043.36 339.912 1044.1 340.656C1044.86 341.388 1045.24 342.414 1045.24 343.734Z" fill="white"/>
+          <rect x="1188" y="457" width="62" height="62" rx="31" transform="rotate(-90 1188 457)" fill="#FF6100"/>
+          <path d="M1216.72 425.548C1217.44 424.996 1218.3 424.72 1219.3 424.72C1220.6 424.72 1221.64 425.08 1222.39 425.8C1223.15 426.508 1223.53 427.516 1223.53 428.824C1223.53 430.12 1223.11 431.176 1222.27 431.992C1221.44 432.808 1220.37 433.216 1219.06 433.216C1217.74 433.216 1216.67 432.82 1215.84 432.028C1215.01 431.236 1214.6 430.21 1214.6 428.95V424.252C1214.6 422.872 1215.02 421.804 1215.86 421.048C1216.7 420.292 1217.75 419.914 1219.03 419.914C1220.48 419.914 1221.76 420.34 1222.88 421.192C1223.01 421.3 1223.02 421.426 1222.91 421.57L1222.1 422.722C1222 422.866 1221.88 422.884 1221.74 422.776C1220.95 422.188 1220.05 421.894 1219.04 421.894C1218.37 421.894 1217.81 422.092 1217.37 422.488C1216.94 422.872 1216.72 423.43 1216.72 424.162V425.548ZM1216.72 428.95C1216.72 429.634 1216.93 430.18 1217.35 430.588C1217.78 430.996 1218.36 431.2 1219.08 431.2C1219.8 431.2 1220.36 430.99 1220.77 430.57C1221.18 430.15 1221.38 429.568 1221.38 428.824C1221.38 427.36 1220.64 426.628 1219.15 426.628C1218.43 426.628 1217.84 426.808 1217.39 427.168C1216.94 427.516 1216.72 428.056 1216.72 428.788V428.95Z" fill="white"/>
+          <rect x="1375" y="375" width="62" height="62" rx="31" transform="rotate(-90 1375 375)" fill="#FF6100"/>
+          <path d="M1404.58 351H1402.75C1402.65 351 1402.58 350.97 1402.55 350.91C1402.51 350.85 1402.52 350.772 1402.57 350.676L1407.55 340.164H1401.74C1401.56 340.164 1401.47 340.074 1401.47 339.894V338.4C1401.47 338.22 1401.56 338.13 1401.74 338.13H1409.98C1410.16 338.13 1410.25 338.22 1410.25 338.4V339.354C1410.25 339.45 1410.22 339.558 1410.16 339.678L1404.89 350.802C1404.84 350.934 1404.74 351 1404.58 351Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="choose-building__content">
+        <div class="complex-select js-dropdown">
+          <div class="complex-select__head js-dropdown-toggle">
+            <div class="complex-select__choosen">
+              <div class="complex-select__choosen-img">
+                <img src="./img/apartments/a-preview-01.webp" alt="">
+              </div>
+              <div class="complex-select__choosen-name">ЖК Привилегия</div>
+            </div>
+            <svg width="14" height="14">
+              <use xlink:href="../img/icons/icons.svg#arrow"></use>
+            </svg>
+          </div>
+          <div class="complex-select__list js-dropdown-content">
+            <div class="complex-select__inner">
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-01.webp" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Привилегия</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-02.webp" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Центр Парк</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-03.webp" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК Яковлева Роща</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-04.webp" alt="">
+                </div>
+                <div class="complex-select__item-name">мкр. Восточный</div>
+              </div>
+              <div class="complex-select__item">
+                <div class="complex-select__item-img">
+                  <img src="./img/apartments/a-preview-05.webp" alt="">
+                </div>
+                <div class="complex-select__item-name">ЖК «Париж»</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

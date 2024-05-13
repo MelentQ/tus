@@ -84,6 +84,11 @@
 
   &__wrap {
     position: relative;
+
+    @media(max-width: $sm) {
+      width: 1482px;
+
+    }
   }
 
   &__body {
@@ -108,6 +113,7 @@
 
     @media (max-width: $sm) {
       width: 1482px;
+
     }
   }
 
@@ -117,6 +123,7 @@
     @media (max-width: $sm) {
       height: 100%;
       width: 1482px;
+      transform: translateX(-50%);
     }
 
     img {

@@ -2,6 +2,37 @@
   position: relative;
   z-index: 2;
 
+
+  &--estate {
+    .projects__filters-top {
+
+      grid-template-columns: 2.46fr 2.46fr 2.46fr 3.4fr 2.22fr 166px;
+
+      @media(max-width: 1359px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media(max-width: $md)  {
+        display: none;
+      }
+    }
+  }
+
+  &--storage {
+    .projects__filters-top {
+
+      grid-template-columns: 3.57fr 3.57fr 3.4fr 2.22fr 166px;
+
+      @media(max-width: 1359px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media(max-width: $md)  {
+        display: none;
+      }
+    }
+  }
+
   &__head {
     position: relative;
 
@@ -191,6 +222,15 @@
 
   @media (max-width: $md) {
     flex-direction: column;
+  }
+
+
+  &.is-removed {
+    .back-to-favorites {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
   }
 
   &__info {

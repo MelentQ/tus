@@ -1,5 +1,7 @@
 .about-hero {
   position: relative;
+  margin-top: -100vh;
+  background: linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%);
 
   &__intro {
     position: relative;
@@ -9,7 +11,7 @@
     color: var(--color-whte);
     padding-top: 148px;
 
-    @media(max-width: $md)  {
+    @media (max-width: $md) {
       padding-top: 108px;
     }
   }
@@ -18,17 +20,17 @@
     padding: 0;
     margin-bottom: 60px;
 
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       margin-bottom: 80px;
     }
 
     .breadcrumbs__item {
       &:first-of-type {
-        color: cl(whte, .4);
+        color: cl(whte, 0.4);
       }
 
       &::after {
-        background-color: cl(whte, .4);
+        background-color: cl(whte, 0.4);
       }
     }
   }
@@ -43,7 +45,7 @@
     position: absolute;
     width: 100%;
     inset: auto 0 0 0;
-    background-color: cl(whte, .04);
+    background-color: cl(whte, 0.04);
     backdrop-filter: blur(10px);
 
     .container {
@@ -57,25 +59,24 @@
   }
 
   &__detail {
-
     &.swiper-slide {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 26px 16px;
       width: 20%;
-  
-      @media(max-width: $md) {
+
+      @media (max-width: $md) {
         width: 33.3333%;
       }
-  
-      @media(max-width: $sm) {
+
+      @media (max-width: $sm) {
         width: 180px;
         padding: 17px 15px;
       }
-  
+
       &:not(:last-of-type) {
-        border-right: 1px solid cl(whte, .3);
+        border-right: 1px solid cl(whte, 0.3);
       }
     }
 
@@ -83,11 +84,11 @@
       .about-hero__detail-content {
         margin-left: -25px;
 
-        @media(max-width: $pc) {
+        @media (max-width: $pc) {
           margin-left: -20px;
         }
 
-        @media(max-width: $lg) {
+        @media (max-width: $lg) {
           margin-left: 0;
         }
       }
@@ -101,7 +102,7 @@
       font-weight: 500;
       color: var(--color-whte);
 
-      @media(max-width: $sm) {
+      @media (max-width: $sm) {
         gap: 8px;
         font-size: 14px;
       }
@@ -114,7 +115,7 @@
         display: block;
         flex-shrink: 0;
 
-        @media(max-width: $sm) {
+        @media (max-width: $sm) {
           width: 14px;
           height: 17px;
         }
@@ -123,16 +124,108 @@
   }
 
   &__preview {
-    position: absolute;
+    position: sticky;
+    top: 0;
     z-index: 1;
     width: 100%;
     height: 100vh;
     max-height: 940px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    img, video {
+    &.is-rounded {
+      img,
+      video {
+        border-radius: 16px;
+
+        @media (max-width: $sm) {
+          border-radius: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    img,
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+}
+
+.about-hero-info {
+  padding: 240px 0 123px;
+
+  color: cl(whte);
+
+  @media (max-width: $md) {
+    padding: 188px 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 358px;
+    z-index: 2;
+    position: relative;
+
+    @media (max-width: $md) {
+      gap: 197px;
+    }
+  }
+
+  &__period {
+    align-self: flex-end;
+    display: flex;
+    align-items: flex-end;
+    max-width: 346px;
+    @media (max-width: $md) {
+      max-width: 176px;
+    }
+  }
+
+  &__size {
+    .about-hero-info__block-num {
+      font-size: 180px;
+
+      @media(max-width: $md) {
+        font-size: 80px;
+      }
+    }
+
+    .about-hero-info__block-text {
+      padding-left: 12px;
+      margin-top: 16px;
+
+      @media(max-width: $md) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__block {
+    &-num {
+      font-size: 224px;
+      font-weight: 500;
+      line-height: 0.8;
+
+      @media(max-width: $md) {
+        font-size: 80px;
+      }
+    }
+
+    &-text {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+
+      @media(max-width: $md) {
+        font-size: 14px;
+      }
     }
   }
 }

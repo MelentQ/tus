@@ -62,7 +62,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const setMinHeight = (el) => {
   const height = el.getBoundingClientRect().height;
-  console.log(el);
   document.body.setAttribute("style", `--height:${height}px`);
 };
 
@@ -378,7 +377,6 @@ if (historySection) {
 
 let bureauSection = document.querySelector(".bureau");
 if (bureauSection) {
-  let bureauImgMain = bureauSection.querySelector(".bureau__img-main");
   let bureauImgSmall = bureauSection.querySelector(".bureau__img-small");
   let bureauText = bureauSection.querySelector(".bureau__desc");
 
@@ -408,56 +406,72 @@ if (bureauSection) {
   });
 }
 
-gsap.to('.team__list-title', {
+if (window.matchMedia("(min-width: 1023px)").matches) {
+  let estateSection = document.querySelector(".hero-estate");
+  if (estateSection) {
+    let estateImgSmall = estateSection.querySelector(
+      ".hero-estate__img--small"
+    );
 
-  y: () => document.querySelector('.team__list').offsetHeight / 1.7,
-  ease: 'none',
+    gsap.from(estateImgSmall, {
+      scrollTrigger: {
+        scrub: 0.2,
+        trigger: estateSection,
+        pin: false,
+        start: "center center",
+        end: "bottom bottom",
+        invalidateOnRefresh: true,
+      },
+      opacity: 0,
+      ease: "none",
+    });
+  }
+}
+
+gsap.to(".team__list-title", {
+  y: () => document.querySelector(".team__list").offsetHeight / 1.7,
+  ease: "none",
   scrollTrigger: {
-      trigger: '.team__list',
-      start: 'top top', 
-      end: 'bottom center',
-      scrub: true, 
+    trigger: ".team__list",
+    start: "top top",
+    end: "bottom center",
+    scrub: true,
   },
 });
 
-if(matchMedia('(min-width: 992px)').matches) {
-  gsap.to('.residents-info__img', {
-    ease: 'none',
+if (matchMedia("(min-width: 992px)").matches) {
+  gsap.to(".residents-info__img", {
+    ease: "none",
     scale: 1.5,
     scrollTrigger: {
-        trigger: '.residents-info',
-        start: 'top top', 
-        end: 'center center',
-        scrub: true, 
+      trigger: ".residents-info",
+      start: "top top",
+      end: "center center",
+      scrub: true,
     },
-  })
+  });
 }
 
 const revealLinesTitle = gsap.utils.toArray(".about__title");
 
-if(revealLinesTitle) {
-  revealLinesTitle.forEach((line, i) => {    
-    const anim = gsap.to(
-      line,
-      {
-        x: () => -document.querySelector('.about__wrapper').offsetWidth,
-      }
-    );
-    ScrollTrigger.create({
-        trigger: '.about__wrapper',
-        animation: anim,
-        start: 'top bottom', 
-        end: 'bottom center',
-        scrub: true, 
+if (revealLinesTitle) {
+  revealLinesTitle.forEach((line, i) => {
+    const anim = gsap.to(line, {
+      x: () => -document.querySelector(".about__wrapper").offsetWidth,
     });
-  })
+    ScrollTrigger.create({
+      trigger: ".about__wrapper",
+      animation: anim,
+      start: "top bottom",
+      end: "bottom center",
+      scrub: true,
+    });
+  });
 }
-
-
 
 const revealBoxes = gsap.utils.toArray("[data-reveal-box]");
 
-if(revealBoxes) {
+if (revealBoxes) {
   revealBoxes.forEach((box, i) => {
     const anim = gsap.fromTo(
       box,
@@ -490,11 +504,40 @@ gsap.utils.toArray("[data-image-parallax]").forEach(function (container) {
     scrollTrigger: {
       trigger: container,
       scrub: true,
+      start: "top center",
+      pin: false,
+      invalidateOnRefresh: true,
+    },
+  });
+});
+
+gsap.utils.toArray("[data-bg-parallax]").forEach(function (container) {
+  let image = container.querySelector("img");
+
+  gsap.to(image, {
+    y: () => image.offsetHeight - container.offsetHeight,
+    ease: "none",
+    scrollTrigger: {
+      trigger: container,
+      scrub: true,
       start: 'top center',
       pin: false,
       invalidateOnRefresh: true,
     },
   });
+});
+
+gsap.to('.about-hero__preview video', {
+  scale: .5, 
+  ease: "none",
+  scrollTrigger: {
+    trigger: '.about-hero__preview',
+    scrub: true,
+    start: 'top bottom',
+    pin: false,
+    invalidateOnRefresh: true,
+    toggleClass: "is-rounded"
+  },
 });
 
 // Get the header
@@ -533,10 +576,8 @@ if (complexesDropdown) {
   _slideUp(complexesDropdownList);
 
   complexesDropdownHead.addEventListener("click", function () {
-
     complexesDropdownHead.classList.toggle("is-active");
     _slideToggle(complexesDropdownList, 200);
-
   });
 }
 
@@ -544,7 +585,7 @@ let houseFloors = document.querySelectorAll(".js-house-floor");
 let mediaEvent;
 
 if (window.matchMedia) {
-  mediaEvent = 'click';
+  mediaEvent = "click";
 }
 
 if (houseFloors) {
@@ -584,7 +625,7 @@ if (houseFloors) {
       addClasses([houseFloorInfo], "is-open");
     });
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener("click", function (event) {
       if (!item.contains(event.target)) {
         item.classList.remove("is-active");
         let houseFloorInfo = document.querySelector(
@@ -592,7 +633,7 @@ if (houseFloors) {
         );
         removeClasses([houseFloorInfo], "is-open");
       }
-    })
+    });
     // item.addEventListener("mouseleave", function () {
     //   let houseFloorInfo = document.querySelector(
     //     `.js-house-info[data-floor-info="${dataFloor}"]`
@@ -625,85 +666,93 @@ if (dragHint) {
   });
 }
 
+const videoSection = document.querySelector(".js-video");
 
+if (videoSection) {
+  const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
+  const videoPlayer = videoSection.querySelector("video");
 
-const videoSection = document.querySelector('.js-video');
+  if (videoPlayCoursor) {
+    videoSection.addEventListener("mousemove", (e) => {
+      const gap = 70;
+      videoPlayCoursor.style.display = "flex";
+      videoPlayCoursor.style.left = e.clientX - gap + "px";
+      videoPlayCoursor.style.top = e.clientY - gap + "px";
+    });
 
+    videoSection.addEventListener("mouseleave", () => {
+      videoPlayCoursor.style.display = "none";
+    });
+  }
 
-if(videoSection) {
-  const videoPlayCoursor = document.querySelector('.js-videoplay-mouse');
-  const videoPlayer = videoSection.querySelector('video');
-
-  videoSection.addEventListener('mousemove', (e) => {
-    const gap = 70
-    videoPlayCoursor.style.display = 'flex';
-    videoPlayCoursor.style.left = (e.clientX -gap ) + 'px';
-    videoPlayCoursor.style.top = (e.clientY - gap) + 'px';
-  });
-
-  videoSection.addEventListener('mouseleave', () => {
-      videoPlayCoursor.style.display = 'none';
-  });
-
-  videoSection.addEventListener('click', function() {
-    if(videoPlayCoursor.classList.contains('is-active')) {
-      videoPlayCoursor.classList.remove('is-active');
+  videoSection.addEventListener("click", function () {
+    if (videoSection.classList.contains("is-playing")) {
+      if (videoPlayCoursor) {
+        videoPlayCoursor.classList.remove("is-active");
+      }
       videoPlayer.pause();
-      this.classList.remove('is-playing')
-      this.classList.add('is-paused');
+      this.classList.remove("is-playing");
+      this.classList.add("is-paused");
     } else {
-      videoPlayCoursor.classList.add('is-active');
+      if (videoPlayCoursor) {
+        videoPlayCoursor.classList.add("is-active");
+      }
       videoPlayer.play();
-      this.classList.add('is-playing');
-      this.classList.remove('is-paused');
-    }  
-  })
+      this.classList.add("is-playing");
+      this.classList.remove("is-paused");
+    }
+  });
 }
 
+const filterSearch = document.querySelector(".js-filter-search");
 
-const filterSearch = document.querySelector('.js-filter-search');
-
-if(filterSearch) {
-  const filterSearchBtn = document.querySelector('.js-filter-search-btn');
-  filterSearchBtn.addEventListener('click', function() {
-    filterSearch.classList.toggle('is-open');
-  })
+if (filterSearch) {
+  const filterSearchBtn = document.querySelector(".js-filter-search-btn");
+  filterSearchBtn.addEventListener("click", function () {
+    filterSearch.classList.toggle("is-open");
+  });
 }
 
-const filterSorting = document.querySelector('.js-filter-sorting');
+const filterSorting = document.querySelector(".js-filter-sorting");
 
-if(filterSorting) {
-  const filterSortingBtn = filterSorting.querySelector('.js-filter-sorting-toggle');
-  filterSortingBtn.addEventListener('click', function() {
-    filterSorting.classList.toggle('is-open');
-  })
+if (filterSorting) {
+  const filterSortingBtn = filterSorting.querySelector(
+    ".js-filter-sorting-toggle"
+  );
+  filterSortingBtn.addEventListener("click", function () {
+    filterSorting.classList.toggle("is-open");
+  });
 
-  const filterSortingValue = filterSorting.querySelector('.js-filter-sorting-value');
-  const filterSortingTypes = filterSorting.querySelectorAll('.js-filter-sorting-type');
+  const filterSortingValue = filterSorting.querySelector(
+    ".js-filter-sorting-value"
+  );
+  const filterSortingTypes = filterSorting.querySelectorAll(
+    ".js-filter-sorting-type"
+  );
 
   filterSortingTypes.forEach((item) => {
-    
-    item.addEventListener('click', function() {
-      item.setAttribute('checked', true);
+    item.addEventListener("click", function () {
+      item.setAttribute("checked", true);
       let itemType = item.dataset.type;
       filterSortingValue.textContent = itemType;
-      filterSorting.classList.remove('is-open');
-    })
-  })
+      filterSorting.classList.remove("is-open");
+    });
+  });
 }
 
-const tags = document.querySelectorAll('.js-tags');
+const tags = document.querySelectorAll(".js-tags");
 
-if(tags) {
-  const customEvent = window.matchMedia("(max-width: 992px)").matches ? 'click' : 'mousemove';
+if (tags) {
+  const customEvent = window.matchMedia("(max-width: 992px)").matches
+    ? "click"
+    : "mousemove";
 
   tags.forEach((item) => {
-    const tagsBtn = item.querySelector('.js-tags-btn');
-    const tagsHidden = item.querySelector('.js-tags-hidden');
+    const tagsBtn = item.querySelector(".js-tags-btn");
+    const tagsHidden = item.querySelector(".js-tags-hidden");
 
-    tagsBtn.addEventListener(customEvent, function() {
-      item.classList.toggle('is-show')
-    })
-  })
+    tagsBtn.addEventListener(customEvent, function () {
+      item.classList.toggle("is-show");
+    });
+  });
 }
-

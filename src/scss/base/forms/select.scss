@@ -25,9 +25,7 @@
     height: rem(30);
     padding: 0 rem(15);
     gap: rem(10);
-    > * {
-      flex: 1 1 auto;
-    }
+
     &:after {
       content: "";
       align-self: stretch;
@@ -93,6 +91,18 @@
         //opacity: 1;
       }
     }
+    
+    &::-webkit-scrollbar {
+      width: 2px;
+
+      &-track {
+        width: 2px;
+      }
+
+      &-thumb {
+        background-color: cl(blck, 0.1);
+      }
+    }
   }
   // .select__option
   &__option {
@@ -142,6 +152,58 @@
   &._select-focus {
   }
   &._select-multiple {
+
+    .select__options {
+      padding-right: 6px !important;
+    }
+
+    .select__option {
+      padding-left: 30px !important;
+      position: relative;
+
+      &:not(:last-of-type) {
+        margin-bottom: 16px !important;
+      }
+
+      &._select-selected {
+        background-color: transparent;
+
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &::before {
+          background-color: cl(primary);
+          border-color: cl(primary);
+        }
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 18px;
+        height: 18px;
+        border: 1px solid cl(blck, .1);
+        border-radius: 4px;
+        display: block;
+        top: 2px;
+        left: 0;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 4px;
+        top: 7px;
+        width: 10px;
+        height: 10px;
+        display: block;
+        opacity: 1;
+        visibility: hidden;
+        background: url('../img/select-choose.svg') center center / 10px no-repeat;
+      }
+    }
   }
   &._select-checkbox {
   }

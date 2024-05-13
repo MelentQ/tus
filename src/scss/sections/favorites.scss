@@ -21,14 +21,17 @@
   }
 
   &__tabs-controls {
-    width: 100%;
-    overflow-x: auto;
-    width: calc(100% + 32px);
-    padding: 0 16px;
-    margin: 0 -16px;
 
-    &::-webkit-scrollbar {
-      display: none;
+    @media(max-width: $sm) {
+      width: 100%;
+      overflow-x: auto;
+      width: calc(100% + 32px);
+      padding: 0 16px;
+      margin: 0 -16px;
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 

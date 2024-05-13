@@ -198,6 +198,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    position: relative;
     flex-wrap: wrap;
 
     &.is-show {
@@ -218,6 +219,7 @@
       &--bottom {
 
         @media(max-width: $md) {
+          max-width: 100%;
           width: 100%;
           opacity: 0;
           transform: translateY(20px);
@@ -288,6 +290,18 @@
     position: relative;
     margin-bottom: 80px;
     margin-top: 80px;
+
+    &.is-playing {
+      .case__video-play-btn {
+        display: none;
+      }
+    }
+
+    &.is-paused {
+      .case__video-play-btn {
+        display: flex;
+      }
+    }
 
     @media(max-width: $md)  {
       margin-top: 40px;

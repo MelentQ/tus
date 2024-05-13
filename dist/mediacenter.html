@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240507003448">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240512124122">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -225,12 +225,15 @@
 										Категория
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-categories-02" id="filter-categories-02" class="filter-select">
+										<select name="filter-categories-02" id="filter-categories-02" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
 											<option value="3">Вариант 3</option>
 											<option value="4">Вариант 4</option>
+											<option value="5">Вариант 5</option>
+											<option value="6">Вариант 6</option>
+											<option value="7">Вариант 7</option>
 										</select>
 									</div>
 								</div>
@@ -239,7 +242,7 @@
 										Город
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-jk-04" id="filter-jk-04" class="filter-select">
+										<select name="filter-jk-04" id="filter-jk-04" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -253,7 +256,7 @@
 										Жилой комплекс
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-js-03" id="filter-js-03" class="filter-select">
+										<select name="filter-js-03" id="filter-js-03" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -267,8 +270,8 @@
 										Дата
 									</div>
 									<div class="filter-item__inputs">
-										<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от">
-										<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до">
+										<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от" readonly>
+										<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до" readonly>
 									</div>
 								</div>
 								<div class="filter-item">
@@ -360,7 +363,7 @@
 								</div>
 								<a href="./img/cases/case-01.webp" data-fslightbox="mediacenter" class="cases-item__img">
 									<span class="cases-item__play common-play-btn common-play-btn--sm">
-										<svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg width="16" height="12" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M16 12L-1.04907e-06 24L0 -6.99382e-07L16 12Z" fill="white"></path>
 										</svg>
 									</span>
@@ -1035,7 +1038,7 @@
 									Категория
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-categories" id="filter-categories" class="filter-select">
+									<select name="filter-categories" id="filter-categories" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1049,7 +1052,7 @@
 									Город
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-city-02" id="filter-city-02" class="filter-select">
+									<select name="filter-city-02" id="filter-city-02" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1063,7 +1066,7 @@
 									Жилой комплекс
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-jk-01" id="filter-jk-01" class="filter-select">
+									<select name="filter-jk-01" id="filter-jk-01" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1077,7 +1080,7 @@
 									Жилой комплекс
 								</div>
 								<div class="filter-item__select">
-									<select name="filter-jk-02" id="filter-jk-02" class="filter-select">
+									<select name="filter-jk-02" id="filter-jk-02" class="filter-select" multiple data-checkbox data-class-modif="multiple">
 										<option value="">Выбрать</option>
 										<option value="1">Вариант 1</option>
 										<option value="2">Вариант 2</option>
@@ -1091,8 +1094,8 @@
 									Дата
 								</div>
 								<div class="filter-item__inputs">
-									<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от">
-									<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до">
+									<input type="text" class="filter-item__input filter-item__input--left filter-item__input--calendar" data-datepicker placeholder="от" readonly>
+									<input type="text" class="filter-item__input filter-item__input--right filter-item__input--calendar" data-datepicker placeholder="до" readonly>
 								</div>
 							</div>
 						</div>
@@ -1114,7 +1117,7 @@
 
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240507003448"></script>
+	<script src="js/app.min.js?_v=20240512124122"></script>
 </body>
 
 </html>

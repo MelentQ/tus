@@ -22,6 +22,14 @@
     border-radius: 10px;
   }
 
+  &.is-removed {
+    .back-to-favorites {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+
   &__overlay {
 
     .back-to-favorites__content {

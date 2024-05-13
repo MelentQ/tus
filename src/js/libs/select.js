@@ -282,6 +282,7 @@ class SelectConstructor {
             this.optionAction(selectItem, originalSelect, optionItem);
           }
         }
+        this.selectsСlose();
       } else if (targetType === "focusin" || targetType === "focusout") {
         if (
           targetElement.closest(

@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240507003448">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240512124122">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -188,7 +188,7 @@
 					</ul>
 				</div>
 			</section>
-			<div class="apartments section projects">
+			<div class="apartments section projects projects--estate">
 				<div class="apartments__container">
 					<h1 class="projects__title section__title h2">Выбор парковочного места</h1>
 					<div class="projects__head">
@@ -213,7 +213,7 @@
 										Готовый вариант
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-variant" id="filter-variant" class="filter-select">
+										<select name="filter-variant-02" id="filter-variant-02" class="filter-select">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -224,10 +224,10 @@
 								</div>
 								<div class="filter-item">
 									<div class="filter-item__label">
-										Город
+										Выбор ЖК
 									</div>
 									<div class="filter-item__select">
-										<select name="filter-city" id="filter-city" class="filter-select">
+										<select name="filter-city" id="filter-complex" class="filter-select">
 											<option value="">Выбрать</option>
 											<option value="1">Вариант 1</option>
 											<option value="2">Вариант 2</option>
@@ -238,41 +238,29 @@
 								</div>
 								<div class="filter-item">
 									<div class="filter-item__label">
-										Количество комнат
+										Срок сдачи
 									</div>
-									<div class="filter-item__radio">
-										<label for="filter-rooms-studio" class="filter-item__radio-btn">
-											<input type="checkbox" name="filter-rooms" id="filter-rooms-studio">
-											<span>Студия</span>
-										</label>
-										<label for="filter-rooms-1" class="filter-item__radio-btn">
-											<input type="checkbox" name="filter-rooms" id="filter-rooms-1">
-											<span>1</span>
-										</label>
-										<label for="filter-rooms-2" class="filter-item__radio-btn">
-											<input type="checkbox" name="filter-rooms" id="filter-rooms-2">
-											<span>2</span>
-										</label>
-										<label for="filter-rooms-3" class="filter-item__radio-btn">
-											<input type="checkbox" name="filter-rooms" id="filter-rooms-3">
-											<span>3</span>
-										</label>
-										<label for="filter-rooms-4" class="filter-item__radio-btn">
-											<input type="checkbox" name="filter-rooms" id="filter-rooms-4">
-											<span>4</span>
-										</label>
+									<div class="filter-item__select">
+										<select name="filter-city" id="filter-year" class="filter-select">
+											<option value="">Выбрать</option>
+											<option value="1">Вариант 1</option>
+											<option value="2">Вариант 2</option>
+											<option value="3">Вариант 3</option>
+											<option value="4">Вариант 4</option>
+										</select>
 									</div>
 								</div>
+
 								<div class="filter-item">
 									<div class="filter-item__label">
 										Стоимость
 									</div>
 									<div class="filter-item__range">
 										<div class="filter-item__inputs">
-											<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от 0">
-											<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до 20 000 000 ">
+											<input type="text" class="filter-item__input filter-item__input--left js-range-input-min" placeholder="от">
+											<input type="text" class="filter-item__input filter-item__input--right js-range-input-max" placeholder="до">
 										</div>
-										<div class="range-slider" data-min="0" data-min-current="0" data-max-current="50" data-max="100"></div>
+										<div class="range-slider" data-min="0" data-min-current="0" data-max-current="100" data-max="100"></div>
 									</div>
 								</div>
 								<div class="filter-item">
@@ -936,7 +924,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240507003448"></script>
+	<script src="js/app.min.js?_v=20240512124122"></script>
 </body>
 
 </html>

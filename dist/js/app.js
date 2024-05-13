@@ -1,6 +1,6 @@
 (() => {
     var __webpack_modules__ = {
-        796: function(module) {
+        545: function(module) {
             !function(e, t) {
                 true ? module.exports = t() : 0;
             }(0, (function() {
@@ -5625,18 +5625,15 @@
         };
         function formSubmit() {
             const forms = document.forms;
-            if (forms.length) {
-                console.log("12312");
-                for (const form of forms) {
-                    document.addEventListener("submit", (function(e) {
-                        const form = e.target;
-                        formSubmitAction(form, e);
-                    }));
-                    form.addEventListener("reset", (function(e) {
-                        const form = e.target;
-                        formValidate.formClean(form);
-                    }));
-                }
+            if (forms.length) for (const form of forms) {
+                document.addEventListener("submit", (function(e) {
+                    const form = e.target;
+                    formSubmitAction(form, e);
+                }));
+                form.addEventListener("reset", (function(e) {
+                    const form = e.target;
+                    formValidate.formClean(form);
+                }));
             }
             async function formSubmitAction(form, e) {
                 const error = !form.hasAttribute("data-no-validate") ? formValidate.getErrors(form) : 0;
@@ -6084,6 +6081,7 @@
                             const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
                             this.optionAction(selectItem, originalSelect, optionItem);
                         }
+                        this.selectsСlose();
                     } else if (targetType === "focusin" || targetType === "focusout") {
                         if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) targetType === "focusin" ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
                     } else if (targetType === "keydown" && e.code === "Escape") this.selectsСlose();
@@ -6328,7 +6326,7 @@
         }
         flsModules.select = new SelectConstructor({});
         window.select = flsModules.select;
-        var air_datepicker = __webpack_require__(796);
+        var air_datepicker = __webpack_require__(545);
         var air_datepicker_default = __webpack_require__.n(air_datepicker);
         const index_es = air_datepicker_default();
         function initDatepickers() {
@@ -18558,7 +18556,6 @@
         gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         const setMinHeight = el => {
             const height = el.getBoundingClientRect().height;
-            console.log(el);
             document.body.setAttribute("style", `--height:${height}px`);
         };
         const hero = document.querySelector(".hero");
@@ -18795,7 +18792,6 @@
         }
         let bureauSection = document.querySelector(".bureau");
         if (bureauSection) {
-            bureauSection.querySelector(".bureau__img-main");
             let bureauImgSmall = bureauSection.querySelector(".bureau__img-small");
             let bureauText = bureauSection.querySelector(".bureau__desc");
             gsapWithCSS.from(bureauImgSmall, {
@@ -18822,6 +18818,24 @@
                 y: 0,
                 ease: "none"
             });
+        }
+        if (window.matchMedia("(min-width: 1023px)").matches) {
+            let estateSection = document.querySelector(".hero-estate");
+            if (estateSection) {
+                let estateImgSmall = estateSection.querySelector(".hero-estate__img--small");
+                gsapWithCSS.from(estateImgSmall, {
+                    scrollTrigger: {
+                        scrub: .2,
+                        trigger: estateSection,
+                        pin: false,
+                        start: "center center",
+                        end: "bottom bottom",
+                        invalidateOnRefresh: true
+                    },
+                    opacity: 0,
+                    ease: "none"
+                });
+            }
         }
         gsapWithCSS.to(".team__list-title", {
             y: () => document.querySelector(".team__list").offsetHeight / 1.7,
@@ -18888,6 +18902,32 @@
                 }
             });
         }));
+        gsapWithCSS.utils.toArray("[data-bg-parallax]").forEach((function(container) {
+            let image = container.querySelector("img");
+            gsapWithCSS.to(image, {
+                y: () => image.offsetHeight - container.offsetHeight,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: container,
+                    scrub: true,
+                    start: "top center",
+                    pin: false,
+                    invalidateOnRefresh: true
+                }
+            });
+        }));
+        gsapWithCSS.to(".about-hero__preview video", {
+            scale: .5,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".about-hero__preview",
+                scrub: true,
+                start: "top bottom",
+                pin: false,
+                invalidateOnRefresh: true,
+                toggleClass: "is-rounded"
+            }
+        });
         const header = document.querySelector(".header");
         const sticky = header.offsetTop;
         function initStickyHeader() {
@@ -18964,23 +19004,25 @@
         if (videoSection) {
             const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
             const videoPlayer = videoSection.querySelector("video");
-            videoSection.addEventListener("mousemove", (e => {
-                const gap = 70;
-                videoPlayCoursor.style.display = "flex";
-                videoPlayCoursor.style.left = e.clientX - gap + "px";
-                videoPlayCoursor.style.top = e.clientY - gap + "px";
-            }));
-            videoSection.addEventListener("mouseleave", (() => {
-                videoPlayCoursor.style.display = "none";
-            }));
+            if (videoPlayCoursor) {
+                videoSection.addEventListener("mousemove", (e => {
+                    const gap = 70;
+                    videoPlayCoursor.style.display = "flex";
+                    videoPlayCoursor.style.left = e.clientX - gap + "px";
+                    videoPlayCoursor.style.top = e.clientY - gap + "px";
+                }));
+                videoSection.addEventListener("mouseleave", (() => {
+                    videoPlayCoursor.style.display = "none";
+                }));
+            }
             videoSection.addEventListener("click", (function() {
-                if (videoPlayCoursor.classList.contains("is-active")) {
-                    videoPlayCoursor.classList.remove("is-active");
+                if (videoSection.classList.contains("is-playing")) {
+                    if (videoPlayCoursor) videoPlayCoursor.classList.remove("is-active");
                     videoPlayer.pause();
                     this.classList.remove("is-playing");
                     this.classList.add("is-paused");
                 } else {
-                    videoPlayCoursor.classList.add("is-active");
+                    if (videoPlayCoursor) videoPlayCoursor.classList.add("is-active");
                     videoPlayer.play();
                     this.classList.add("is-playing");
                     this.classList.remove("is-paused");
@@ -19020,6 +19062,88 @@
                 tagsBtn.addEventListener(customEvent, (function() {
                     item.classList.toggle("is-show");
                 }));
+            }));
+        }
+        const officesMap = document.querySelector("[data-offices-map]") || false;
+        console.log("123");
+        if (officesMap) {
+            const mapScript = document.createElement("script");
+            mapScript.src = `https://api-maps.yandex.ru/2.1/?apikey=Ваш-Api-ключ&lang=ru_RU`;
+            document.body.append(mapScript);
+            mapScript.addEventListener("load", (() => {
+                ymaps.ready(init);
+                function init() {
+                    var map = new ymaps.Map("office-map", {
+                        center: [ 55.76, 37.64 ],
+                        zoom: 7,
+                        behaviors: [ "default", "scrollZoom" ]
+                    });
+                    var clusterer1 = new ymaps.Clusterer({
+                        preset: "islands#invertedOrangeClusterIcons",
+                        gridSize: 110
+                    });
+                    var placemark1 = new ymaps.Placemark([ 55.755831, 37.617673 ], {
+                        hintContent: "Balloon 1"
+                    }, {
+                        iconLayout: "default#image",
+                        iconImageHref: "./img/offices/map-placemark-img.webp",
+                        iconImageSize: [ 160, 60 ],
+                        iconImageOffset: [ -5, -38 ]
+                    });
+                    var placemark2 = new ymaps.Placemark([ 55.751935, 37.599787 ], {
+                        hintContent: "Balloon 2"
+                    }, {
+                        iconLayout: "default#image",
+                        iconImageHref: "./img/offices/map-placemark-img.webp",
+                        iconImageSize: [ 160, 60 ],
+                        iconImageOffset: [ -5, -38 ]
+                    });
+                    clusterer1.add([ placemark1, placemark2 ]);
+                    map.geoObjects.add(clusterer1);
+                    const officesItems = document.querySelectorAll(".js-offices-item");
+                    const officesList = document.querySelector(".js-offices-list");
+                    const mapCard = document.querySelector(".js-map-card");
+                    const mapCardClose = mapCard.querySelector(".js-map-card-close");
+                    const officesMap = document.querySelector(".js-offices-map");
+                    const officesMapClose = officesMap.querySelector(".js-offices-map-close");
+                    const officesItemBtns = document.querySelectorAll(".js-offices-item-on-map");
+                    const officesItemToggles = document.querySelectorAll(".js-offices-item-toggle");
+                    function showOnMap(el) {
+                        officesMap.classList.add("is-open");
+                        let lat = parseFloat(el.getAttribute("data-lat"));
+                        let lon = parseFloat(el.getAttribute("data-lon"));
+                        map.setCenter([ lat, lon ], 15);
+                    }
+                    if (window.matchMedia("(min-width: 992px)").matches) {
+                        officesItems.forEach((function(item) {
+                            item.addEventListener("click", (function() {
+                                showOnMap(item);
+                                officesList.classList.add("is-hidden");
+                                mapCard.classList.add("is-open");
+                            }));
+                        }));
+                        mapCardClose.addEventListener("click", (function() {
+                            officesList.classList.remove("is-hidden");
+                            mapCard.classList.remove("is-open");
+                        }));
+                    } else {
+                        officesItemBtns.forEach((item => {
+                            item.addEventListener("click", (function() {
+                                showOnMap(item);
+                            }));
+                        }));
+                        officesMapClose.addEventListener("click", (function() {
+                            officesMap.classList.remove("is-open");
+                        }));
+                        officesItemToggles.forEach((item => {
+                            item.addEventListener("click", (function() {
+                                const parent = this.closest(".offices__list-item");
+                                const parentInfo = parent.querySelector(".offices__list-item-info");
+                                parentInfo.classList.toggle("is-open");
+                            }));
+                        }));
+                    }
+                }
             }));
         }
         window["FLS"] = false;

@@ -208,7 +208,6 @@ export let formValidate = {
 export function formSubmit() {
   const forms = document.forms;
   if (forms.length) {
-    console.log("12312");
     for (const form of forms) {
       document.addEventListener("submit", function (e) {
         const form = e.target;

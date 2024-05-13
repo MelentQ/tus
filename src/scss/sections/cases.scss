@@ -45,12 +45,21 @@
 
   &__filters {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.49fr 1.3fr;
+    grid-template-columns: 16% 16% 16% 26% calc(26% - 58px);
     align-items: flex-end;
     gap: 16px;
 
+    @media(max-width: $lg) {
+      flex-wrap: wrap;
+      grid-template-columns: calc(50% - 16px) calc(50% - 16px);
+    }
+
     .filter-item:last-child {
       margin-right: 88px;
+
+      @media(max-width: $lg) {
+        margin-right: 0;
+      }
     }
 
     @media(max-width: $md)  {
@@ -189,7 +198,7 @@
       border-radius: 100px;
       z-index: 3;
       background-color: cl(whte);
-      transition: width .25s;
+      transition: width .7s ease;
 
       + .cases__filters {
         opacity: 0;
@@ -216,7 +225,7 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 1.2;
-        transition: .25s;
+        transition: .45s;
         width: auto;
         height: 58px;
         pointer-events: all;

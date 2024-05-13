@@ -98,7 +98,7 @@
       overflow: hidden;
       transform: translate(0, 0) !important;
       transform-origin: 100% 100%;
-      transition: width .5s;
+      transition: width .7s;
 
       @media (max-width: $lg) {
         grid-template-columns: 280px 1fr;
@@ -143,13 +143,13 @@
         .construction__item-desc {
           opacity: 1;
           transform: translateY(0px);
-          transition: 1.5s ease-in-out .5s;
+          transition: 1.5s ease-in-out .1s;
         }
 
         .construction__item-link {
           opacity: 1;
           transform: translateY(0px);
-          transition: 1s ease-in-out 1s;
+          transition: 1.5s ease-in-out .1s;
         }
 
         .construction__item-img {

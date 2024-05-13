@@ -155,7 +155,7 @@
   cursor: pointer;
 
   &--sm {
-    --size: 100px;
+    --size: 80px;
 
     @media(max-width: $md) {
       --size: 50px;
@@ -748,8 +748,22 @@
   }
 }
 
+.air-datepicker.-is-mobile- {
+  border-radius: 10px;
+}
+
 .air-datepicker-global-container {
   z-index: 999;
+}
+
+.air-datepicker-cell.-current- {
+  color: cl(primary) !important;
+}
+
+.air-datepicker-cell.-selected- {
+  background: cl(primary-light) !important;
+  color: cl(primary) !important;
+  border-radius: 50%;
 }
 
 .back-to-favorites {

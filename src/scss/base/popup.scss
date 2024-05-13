@@ -84,6 +84,7 @@ body::after {
   height: var(--size);
   min-height: var(--size);
   z-index: 3;
+  outline: none;
 
   @media (max-width: $sm) {
     --size: 50px;
@@ -233,5 +234,152 @@ body::after {
 
   &__controls {
     flex-shrink: 0;
+  }
+}
+
+.popup-suggestion {
+
+  @media(max-width: $sm) {
+    padding: 0;
+  }
+
+  .popup__wrapper {
+    @media(max-width: $sm) {
+      justify-content: flex-end;
+    }
+  }
+
+  .popup__close {
+
+    @media(max-width: $sm) {
+      --size: 45px;
+      top: 24px;
+      right: 24px;
+    }
+  }
+
+  .popup__content {
+    max-width: 1090px;
+    width: 100%;
+    padding: 0;
+
+    @media(max-width: $sm) {
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    left: 0;
+    max-width: 50%;
+    display: block;
+    
+    @media(max-width: $md) {
+      display: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 50%;
+    position: relative;
+
+    @media(max-width: $md) {
+      padding-left: 0;
+    }
+  }
+
+  &__info {
+    max-width: 604px;
+    width: 100%;
+    padding: 52px 52px 40px 52px;
+
+    @media(max-width: $md) {
+      max-width: 100%;
+      padding: 24px;
+    }
+  }
+
+  &__headline {
+    font-size: 38px;
+    line-height: 0.9;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 28px;
+
+    @media(max-width: $md) {
+      max-width: 205px;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__desc {
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+
+    @media(max-width: $md) {
+      max-width: 320px;
+      margin-bottom: 40px;
+      letter-spacing: 0;
+    }
+  }
+
+  &__form {
+    &-groups {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+
+      @media(max-width: $sm) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-group:last-of-type {
+        grid-column: span 2;
+      }
+
+      textarea.form-control {
+        height: 114px;
+        display: block;
+
+        @media(max-width: $sm) {
+          height: 81px;
+        }
+      }
+    }
+
+    &-agreement {
+      margin-top: 21px;
+      letter-spacing: -0.5px;
+
+      @media(max-width: $sm) {
+        margin-top: 20px;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+    }
+
+    &-submit {
+      margin-top: 21px;
+
+      @media(max-width: $sm) {
+        margin-top: 40px;
+      }
+
+      @media(max-width: $xs) {
+        width: 100%;
+      }
+    }
   }
 }
