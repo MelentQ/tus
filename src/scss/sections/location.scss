@@ -1,0 +1,246 @@
+.location {
+  &.section {
+    padding-top: 34px;
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 50px;
+
+    @media (max-width: $md) {
+      display: block;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    @media (max-width: $md) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__desc {
+    line-height: 1.32;
+
+    p {
+      max-width: 509px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    @media (max-width: $md) {
+      height: 520px;
+      overflow-x: auto;
+      border-radius: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__objects-list {
+    position: absolute;
+    inset: 16px auto 16px 16px;
+    max-width: 378px;
+    width: 100%;
+    background-color: cl(whte);
+    padding: 32px;
+    border-radius: 16px;
+    z-index: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      background-color: cl(blck, .1);
+      border-radius: 100px;
+    }
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &__objects-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-bottom: 19px;
+    }
+
+    &-name {
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    &-icon {
+      --size: 54px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background-color: cl(whte);
+      border: 1px solid cl(blck, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        display: block;
+        color: cl(primary);
+      }
+
+      &.is-active {
+        background-color: cl(primary);
+        border: cl(primary);
+
+        svg {
+          color: cl(whte);
+        }
+      }
+    }
+  }
+
+  &__map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: $md) {
+      height: 100%;
+      width: auto;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: translateY(0);
+    }
+
+    img,
+    picture {
+      display: block;
+      width: 100%;
+      pointer-events: none;
+
+      @media (max-width: $md) {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+
+  &__objects {
+
+    @media(max-width: $md) {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 3;
+    }
+  }
+
+  &__object {
+
+    &-point {
+      position: absolute;
+      z-index: 2;
+      --size: 44px;
+      width: var(--size);
+      height: var(--size);
+      background-color: cl(primary);
+      border: 4px solid cl(whte);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: cl(whte);
+
+      &:hover {
+        border-color: transparent;
+      }
+
+      svg {
+        display: block;
+      }
+    }
+
+    &-info {
+      position: absolute;
+      max-width: 297px;
+      width: 100%;
+      padding: 20px;
+      background-color: cl(whte);
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      z-index: 2;
+
+      @media(max-width: $md) {
+        max-width: 100%;
+        top: auto;
+        left: 16px;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      @media(max-width: $sm) {
+        z-index: 4;
+      }
+
+      &.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
+      &-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      &-title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      &-desc {
+        font-size: 14px;
+        line-height: 1.32;
+      }
+
+      &-close {
+        display: none;
+
+        @media(max-width: $sm) {
+          display: flex;
+          --size: 45px;
+          width: var(--size);
+          height: var(--size);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--color-grey-light);
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}

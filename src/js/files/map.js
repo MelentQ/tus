@@ -5,6 +5,7 @@ console.log('123')
 if (officesMap) {
   const mapScript = document.createElement("script");
   mapScript.src = `https://api-maps.yandex.ru/2.1/?apikey=Ваш-Api-ключ&lang=ru_RU`;
+  console.log('Проверка выполнена')
 
   document.body.append(mapScript);
 

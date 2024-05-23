@@ -15,6 +15,7 @@ import {
   EffectCards,
   EffectCreative,
   EffectCoverflow,
+  Grid,
 } from "swiper/modules";
 /*
 Navigation, Pagination, Autoplay, 
@@ -802,14 +803,14 @@ if (rentGallery) {
     initialSlide: 1,
     loop: true,
     navigation: {
-      prevEl: '.js-rent-gallery-prev',
-      nextEl: '.js-rent-gallery-next',
+      prevEl: ".js-rent-gallery-prev",
+      nextEl: ".js-rent-gallery-next",
     },
     breakpoints: {
       767: {
         spaceBetween: 16,
         slidesPerView: 2,
-        centeredSlides: false
+        centeredSlides: false,
       },
     },
   });
@@ -822,8 +823,8 @@ if (blogSlider) {
     slidesPerView: 1,
     spaceBetween: 8,
     navigation: {
-      prevEl: '.js-blog-slider-prev',
-      nextEl: '.js-blog-slider-next',
+      prevEl: ".js-blog-slider-prev",
+      nextEl: ".js-blog-slider-next",
     },
     breakpoints: {
       767: {
@@ -832,7 +833,7 @@ if (blogSlider) {
       },
       992: {
         slidesPerView: 3,
-      }
+      },
     },
   });
 }
@@ -851,7 +852,7 @@ if (residentsSlider) {
       992: {
         slidesPerView: 3,
         spaceBetween: 16,
-      }
+      },
     },
   });
 }
@@ -863,8 +864,8 @@ if (contactsSlider) {
     slidesPerView: 1,
     spaceBetween: 8,
     navigation: {
-      prevEl: '.js-contacts-slider-prev',
-      nextEl: '.js-contacts-slider-next',
+      prevEl: ".js-contacts-slider-prev",
+      nextEl: ".js-contacts-slider-next",
     },
     breakpoints: {
       767: {
@@ -874,7 +875,7 @@ if (contactsSlider) {
       1200: {
         slidesPerView: 3,
         spaceBetween: 16,
-      }
+      },
     },
   });
 }
@@ -886,17 +887,230 @@ if (presentationSlider) {
     slidesPerView: 1,
     spaceBetween: 8,
     navigation: {
-      prevEl: '.js-presentation-slider-prev',
-      nextEl: '.js-presentation-slider-next',
+      prevEl: ".js-presentation-slider-prev",
+      nextEl: ".js-presentation-slider-next",
     },
     breakpoints: {
-       992: {
+      992: {
         spaceBetween: 16,
-       }
-    }
+      },
+    },
+  });
+}
+const videoSlider = document.querySelector(".js-video-slider");
+if (videoSlider) {
+  new Swiper(".js-video-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    speed: 700,
+    navigation: {
+      prevEl: '.js-video-slider-prev',
+      nextEl: '.js-video-slider-next'
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+      },
+    },
+  });
+}
+const archSlider = document.querySelector(".js-arch-slider");
+if (archSlider) {
+  new Swiper(".js-arch-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1,
+    navigation: {
+      prevEl: ".js-arch-slider-prev",
+      nextEl: ".js-arch-slider-next",
+    },
+  });
+}
+const docsSlider = document.querySelector(".js-docs-slider");
+if (docsSlider) {
+  new Swiper(".js-docs-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1.3,
+    spaceBetween: 8,
+    breakpoints: {
+      560: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      }
+    },
   });
 }
 
+const methodsSlider = document.querySelector(".js-methods-slider");
+if (methodsSlider) {
+  new Swiper(".js-methods-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1,
+    spaceBetween: 8,
+    breakpoints: {
+      560: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      }
+    },
+  });
+}
+const windowMarqueSlider = document.querySelector(".js-window-marque-slider");
+if (windowMarqueSlider) {
+  new Swiper(".js-window-marque-slider", {
+    modules: [A11y, Autoplay], // A11y - обязательный модуль
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    speed: 7000,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: true,
+    },
+  });
+}
+const stepsSlider = document.querySelector(".js-steps-slider");
+if (stepsSlider) {
+  new Swiper(".js-steps-slider", {
+    modules: [A11y, Navigation], // A11y - обязательный модуль
+    slidesPerView: 1.3,
+    spaceBetween: 8,
+    breakpoints: {
+      560: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 16,
+      }
+    },
+    navigation: {
+      prevEl: ".js-steps-slider-prev",
+      nextEl: ".js-steps-slider-next",
+    },
+  });
+}
+
+const detailsInfoSliderWrapper = document.querySelector(
+  ".js-details-info-slider"
+);
+if (detailsInfoSliderWrapper) {
+  const detailsInfoSlider = new Swiper(".js-details-info-slider", {
+    modules: [A11y, Navigation, EffectFade, Controller], // A11y - обязательный модуль
+    slidesPerView: 1,
+    effect: "fade",
+    autoHeight: true,
+    speed: 600,
+  });
+
+  const detailsImagesSlider = new Swiper(".js-details-img-slider", {
+    modules: [A11y, Navigation, EffectCreative, Thumbs, Controller], // A11y - обязательный модуль
+    slidesPerView: 1,
+    spaceBetween: 8,
+    effect: "creative",
+    speed: 600,
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ["calc(-100% - 8px)", 0, -1],
+      },
+      next: {
+        translate: ["calc(100% + 8px)", 0, 0],
+      },
+    },
+    breakpoints: {
+      768: {
+        spaceBetween: 0,
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: ["0%", 0, -1],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        },
+      }
+    },
+    navigation: {
+      prevEl: ".js-details-img-slider-prev",
+      nextEl: ".js-details-img-slider-next",
+    },
+    thumbs: {
+      swiper: ".js-details-thumbs-slider",
+    },
+  });
+
+  const detilsThumbsSlider = new Swiper(".js-details-thumbs-slider", {
+    modules: [A11y, Thumbs], // A11y - обязательный модуль
+    slidesPerView: "auto",
+
+  });
+
+  detailsImagesSlider.controller.control = detailsInfoSlider;
+  detailsInfoSlider.controller.control = detailsImagesSlider;
+}
+
+const neighborsSlider = document.querySelector(".js-neighbors-slider");
+if (neighborsSlider) {
+  if (window.matchMedia("(max-width: 992px)").matches) {
+    const emtpySliderElement = document.querySelectorAll(
+      ".neighbors__item--empty"
+    );
+    emtpySliderElement.forEach((el) => el.remove());
+  }
+
+  new Swiper(".js-neighbors-slider", {
+    modules: [A11y, Navigation, Grid], // A11y - обязательный модуль
+    slidesPerView: 4,
+    spaceBetween: 8,
+    loop: true,
+    navigation: {
+      prevEl: '.js-neighbors-slider-prev',
+      nextEl: '.js-neighbors-slider-next'
+    },
+
+    breakpoints: {
+      992: {
+        slidesPerView: 5,
+        spaceBetween: 16,
+        loop: false,
+        grid: {
+          rows: 2,
+        },
+      },
+
+      1200: {
+        slidesPerView: 6,
+        spaceBetween: 16,
+        loop: false,
+        grid: {
+          rows: 2,
+        },
+      },
+
+      1440: {
+        slidesPerView: 8,
+        spaceBetween: 16,
+        loop: false,
+        grid: {
+          rows: 2,
+        },
+      },
+    },
+  });
+}
 
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {

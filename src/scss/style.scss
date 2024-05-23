@@ -124,6 +124,8 @@ body {
   }
 }
 
+
+
 // Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
@@ -252,3 +254,18 @@ body {
 // Коммерческая недвижимость
 
 @import 'sections/estate';
+
+// Посадочная ЖК
+@import 'sections/about-project';
+@import 'sections/location';
+@import 'sections/docs';
+@import 'sections/video';
+@import 'sections/neighbors';
+@import 'sections/arch';
+@import 'sections/details';
+@import 'sections/steps';
+@import 'sections/methods';
+@import 'sections/window';
+@import 'sections/intro-zhk';
+@import "sections/leaflet";
+@import 'sections/section-location';

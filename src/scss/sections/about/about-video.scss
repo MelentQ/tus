@@ -58,9 +58,6 @@
     position: fixed;
     pointer-events: none;
     display: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     --size: 140px;
     width: var(--size);
     height: var(--size);

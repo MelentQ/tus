@@ -1,0 +1,41 @@
+.docs {
+  overflow: hidden;
+
+  &__list {
+    
+  }
+
+  &__item {
+    padding: 32px;
+    border: 1px solid cl(blck, .1);
+    border-radius: 16px;
+
+    @media(max-width: $lg) {
+      padding: 24px 20px;
+    }
+
+    &-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+      font-size: 24px;
+      font-weight: 700;
+
+      @media(max-width: $lg) {
+        margin-bottom: 40px;
+        font-size: 18px;
+      }
+
+      svg {
+        display: block;
+        opacity: .3;
+
+        @media(max-width: $lg) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

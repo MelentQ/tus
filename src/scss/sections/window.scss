@@ -1,0 +1,143 @@
+.window {
+  overflow: hidden;
+
+  @media(max-width: $md) {
+    position: relative;
+  }
+  
+  &.section {
+    padding-top: 30px;
+    padding-bottom: 110px;
+
+    @media(max-width: $md) {
+      padding-top: 0;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__marquee {
+    margin-bottom: 92px;
+    z-index: 1;
+
+    @media(max-width: $md) {
+      margin-bottom: 40px;
+    }
+
+    .swiper-wrapper {
+      -webkit-transition-timing-function: linear !important;
+    }
+
+    &-slide {
+
+      &.swiper-slide {
+        display: inline-flex;
+        width: auto;
+        font-size: 298px;
+        line-height: 1;
+        font-weight: 500;
+        text-transform: lowercase;
+        color: var(--color-grey-light);
+        white-space: nowrap;
+
+        @media(max-width: $xl) {
+          font-size: 180px;
+        }
+
+        @media(max-width: $md) {
+          font-size: 100px;
+        }
+
+        @media(max-width: $sm) {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+
+  &__desc {
+    max-width: 580px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.32;
+    letter-spacing: -0.5px;
+
+    @media(max-width: $md) {
+      margin-bottom: 44px;
+    }
+
+    @media(max-width: $sm) {
+      max-width: 216px;
+      font-size: 14px;
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: -34px;
+    position: relative;
+    z-index: 2;
+
+    @media(max-width: $md) {
+      margin-top: 0;
+      gap: 8px;
+    }
+    
+    @media(max-width: $xs) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &-btn {
+      --size: 140px;
+      position: fixed;
+      pointer-events: none;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      z-index: 5;
+      transform: scale(1) !important;
+      opacity: 0;
+      transition: opacity .35s;
+
+      @media(max-width: $md) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        opacity: 0;
+      }
+    }
+
+    &-img {
+      cursor: none;
+
+      @media(max-width: $xs) {
+        width: 260px;
+        flex-shrink: 0;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      &--centered {
+        margin-top: 72px;
+        z-index: 3;
+
+        img {
+          pointer-events: none;
+        }
+
+        @media(max-width: $md) {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}

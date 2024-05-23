@@ -262,6 +262,80 @@ if (containerGallery) {
   });
 }
 
+let state = true;
+let startAnim = "top top";
+let scaleSize = 4;
+
+if (window.matchMedia("(max-width: 992px)").matches) {
+  state = false;
+  startAnim = "center center";
+  scaleSize = 6;
+}
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".js-window",
+    scrub: true,
+    start: startAnim,
+    pin: state,
+  },
+});
+
+tl.fromTo(
+  ".window__gallery",
+  {
+    yPercent: 100,
+    opacity: 0,
+  },
+  {
+    yPercent: 0,
+    opacity: 1,
+  }
+);
+
+tl.fromTo(
+  ".js-window-img",
+  {
+    yPercent: 0,
+  },
+  {
+    yPercent: -50,
+  }
+);
+
+tl.to(".js-window-img", {
+  scale: scaleSize,
+});
+
+tl.fromTo(
+  ".js-window-btn",
+  {
+    opacity: 0,
+  },
+  {
+    opacity: 1,
+  }
+);
+
+if (window.matchMedia("(min-width: 992px)").matches) {
+  const windowImgBtn = document.querySelector(".js-window-btn");
+  const windowImgSection = document.querySelector(".js-window-img");
+
+  if (windowImgBtn) {
+    windowImgSection.addEventListener("click", () => {});
+    windowImgSection.addEventListener("mousemove", (e) => {
+      const gap = 40;
+      // windowImgBtn.style.opacity = "1";
+      windowImgBtn.style.left = e.clientX - gap + "px";
+      windowImgBtn.style.top = e.clientY - gap + "px";
+    });
+
+    windowImgSection.addEventListener("mouseleave", () => {
+      // windowImgBtn.style.opacity = "0";
+    });
+  }
+}
+
 let cardsWrapper = document.querySelectorAll(".cards");
 
 if (cardsWrapper) {
@@ -452,18 +526,19 @@ if (matchMedia("(min-width: 992px)").matches) {
   });
 }
 
-const revealLinesTitle = gsap.utils.toArray(".about__title");
+const revealLinesTitle = gsap.utils.toArray("[data-line-text]");
 
 if (revealLinesTitle) {
   revealLinesTitle.forEach((line, i) => {
+    const parent = line.closest("[data-line-text-block]");
     const anim = gsap.to(line, {
-      x: () => -document.querySelector(".about__wrapper").offsetWidth,
+      x: () => -parent.offsetWidth * 2,
     });
     ScrollTrigger.create({
-      trigger: ".about__wrapper",
+      trigger: parent,
       animation: anim,
-      start: "top bottom",
-      end: "bottom center",
+      start: "top 10%",
+      // end: "bottom bottom",
       scrub: true,
     });
   });
@@ -520,25 +595,27 @@ gsap.utils.toArray("[data-bg-parallax]").forEach(function (container) {
     scrollTrigger: {
       trigger: container,
       scrub: true,
-      start: 'top center',
+      start: "top center",
       pin: false,
       invalidateOnRefresh: true,
     },
   });
 });
 
-gsap.to('.about-hero__preview video', {
-  scale: .5, 
+gsap.to(".about-hero__preview video", {
+  scale: 0.5,
   ease: "none",
   scrollTrigger: {
-    trigger: '.about-hero__preview',
+    trigger: ".about-hero__preview",
     scrub: true,
-    start: 'top bottom',
+    start: "top bottom",
     pin: false,
     invalidateOnRefresh: true,
-    toggleClass: "is-rounded"
+    toggleClass: "is-rounded",
   },
 });
+
+
 
 // Get the header
 const header = document.querySelector(".header");
@@ -756,3 +833,615 @@ if (tags) {
     });
   });
 }
+
+const locationCenteredScheme = document.querySelector(".js-centered-scheme");
+
+if (locationCenteredScheme) {
+  if (window.matchMedia("(max-width: 992px)").matches) {
+    locationCenteredScheme.scrollLeft =
+      locationCenteredScheme.scrollWidth / 2 -
+      locationCenteredScheme.clientWidth / 2;
+  }
+}
+
+const loactionWrapper = document.querySelector(".location__wrapper");
+
+if (loactionWrapper) {
+  if (window.matchMedia("(max-width: 992px)").matches) {
+    loactionWrapper.scrollLeft =
+      loactionWrapper.scrollWidth / 2 - loactionWrapper.clientWidth / 2;
+  }
+}
+
+const locationObjectsPin = document.querySelectorAll(".location__object-point");
+const locationObjectInfos = document.querySelectorAll(".location__object-info");
+
+locationObjectsPin.forEach((item) => {
+  const locationObjectId = item.dataset.id;
+  const locationObjectInfo = document.querySelector(
+    `.location__object-info[data-id="${locationObjectId}"]`
+  );
+  const locationPointWidht = item.clientWidth;
+  const locationPointTop = item.offsetTop;
+  const locationPointLeft = item.offsetLeft;
+  const locationObjectInfoWidht = locationObjectInfo.clientWidth;
+  const locationObjectInfoHeight = locationObjectInfo.clientHeight;
+
+  if (window.matchMedia("(min-width: 992px)").matches) {
+    item.addEventListener("mouseenter", () => {
+      const coords = item.getBoundingClientRect();
+      locationObjectInfos.forEach((item) => item.classList.remove("is-open"));
+      locationObjectInfo.classList.add("is-open");
+      locationObjectInfo.style = `left: ${locationPointLeft - locationObjectInfoWidht - locationPointWidht / 2}px; top: ${locationPointTop - locationObjectInfoHeight / 3}px;`;
+    });
+
+    item.addEventListener("mouseleave", () => {
+      locationObjectInfo.classList.remove("is-open");
+    });
+  } else {
+    item.addEventListener("click", () => {
+      const coords = item.getBoundingClientRect();
+      const loactionWrapperWidth = loactionWrapper.clientWidth;
+      locationObjectInfo.classList.add("is-open");
+      locationObjectInfo.style = `width: ${loactionWrapperWidth - 32}px; left: ${locationPointLeft - coords.left + locationPointWidht}px;`;
+      loactionWrapper.style = "overflow: hidden";
+    });
+  }
+});
+
+const locationObjectInfoClose = document.querySelectorAll(
+  ".location__object-info-close"
+);
+
+locationObjectInfoClose.forEach((item) => {
+  item.addEventListener("click", () => {
+    const locationObjectInfo = item.closest(".location__object-info");
+    locationObjectInfo.classList.remove("is-open");
+    loactionWrapper.style = `overflow: scroll;`;
+  });
+});
+
+import $ from "jquery";
+
+let $section = $();
+let $image = $();
+let $panels = $();
+let $btnDown = $();
+let $title = $();
+let $info = $();
+
+let initialScale;
+let fullScale;
+
+function transformScrollTopToStyles() {
+  const fullScaleAtScrollTop = $image.offset().top;
+  const scrollTop = $(window).scrollTop();
+
+  const restScale = fullScale - initialScale;
+  const scrollProgress =
+    scrollTop < fullScaleAtScrollTop ? scrollTop / fullScaleAtScrollTop : 1;
+
+  const initialBorderRadius = 16;
+
+  return {
+    newScale: initialScale + restScale * scrollProgress,
+    newBorderRadius: initialBorderRadius * (1 - scrollProgress),
+    newTitleOpacity: 1 - scrollProgress * 3,
+  };
+}
+
+function updateScrollDeps() {
+  const { newScale, newBorderRadius, newTitleOpacity } =
+    transformScrollTopToStyles();
+
+  $image.css({
+    transform: `scale(${newScale})`,
+  });
+
+  $image[0].style.setProperty("--border-radius", newBorderRadius + "px");
+
+  $section.toggleClass("intro-zhk--full-scale", fullScale - newScale < 0.1);
+
+  $btnDown.toggleClass("active", newScale < 0.8 * fullScale);
+
+  $title.css({
+    opacity: newTitleOpacity,
+  });
+}
+
+function toggleInactive() {
+  const scrollTop = $(window).scrollTop();
+
+  const isInactive = $section.outerHeight() < scrollTop + 700;
+
+  $section.toggleClass("intro-zhk--inactive", isInactive);
+}
+
+function updateScaleVariables() {
+  initialScale = parseFloat(
+    getComputedStyle($image.get(0)).getPropertyValue("--initial-scale")
+  );
+
+  const windowHeight = $(window).height();
+
+  if ($(window).width() >= 1000) {
+    fullScale = 1;
+
+    $section.get(0).style = "";
+  } else {
+    const imageRatio = 0.9339;
+    const imageHeight = $(window).width() * imageRatio;
+
+    fullScale = windowHeight / imageHeight;
+
+    $section.outerHeight($image.offset().top + windowHeight);
+  }
+}
+
+function handleWindowScroll() {
+  console.log("handleWindowScroll");
+
+  requestAnimationFrame(() => {
+    updateScrollDeps();
+    toggleInactive();
+  });
+}
+
+function handleFloorClick(e) {
+  closeActivePanels();
+  const target = $(e.target).data("target");
+  $(this).addClass("active");
+  $(target).addClass("active");
+}
+
+function closeActivePanels() {
+  $panels.filter(".active").removeClass("active");
+  $(".intro-zhk__floors__item.active").removeClass("active");
+}
+
+function handleWindowLoad() {
+  console.log("handleWindowLoad");
+
+  updateScaleVariables();
+
+  $section.addClass("intro-zhk--loaded");
+
+  setTimeout(() => {
+    $image.addClass("intro-zhk__image--no-transition");
+    $(".page__locker").removeClass("active");
+  }, 1200);
+}
+
+function handleWindowResize() {
+  updateScaleVariables();
+}
+
+function handleScrollDown() {
+  window.scroll({
+    top: $image.offset().top,
+    behavior: "smooth",
+  });
+}
+
+function handleOutsideClick(e) {
+  if ($(e.target).closest(".intro-zhk__floors, .intro-zhk__panel").length)
+    return;
+  closeActivePanels();
+}
+
+function handlePanelClose(e) {
+  e.preventDefault();
+
+  closeActivePanels();
+}
+
+$(function () {
+  $section = $("#intro-zhk");
+  $image = $section.find(".intro-zhk__image");
+  $btnDown = $section.find(".intro-zhk__btn-down");
+  $panels = $section.find(".intro-zhk__panel");
+  $title = $section.find(".intro-zhk__h1");
+  $info = $section.find(".intro-zhk__info");
+
+  if ($section.length === 0) return;
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        $(window).on("scroll", handleWindowScroll);
+      } else {
+        $(window).off("scroll", handleWindowScroll);
+      }
+    });
+  };
+
+  const options = {
+    // root: по умолчанию window, но можно задать любой элемент-контейнер
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 0,
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  observer.observe($section[0]);
+
+  $(document).on("click", ".intro-zhk__floors__item", handleFloorClick);
+  $(document).on("click", ".intro-zhk__btn-close", handlePanelClose);
+  $(document).on("click", ".intro-zhk__btn-down", handleScrollDown);
+  $(document).on("click", ".intro-zhk", handleOutsideClick);
+
+  window.addEventListener("load", handleWindowLoad);
+
+  window.addEventListener("resize", handleWindowResize);
+  screen.orientation.addEventListener("change", handleWindowResize);
+});
+
+function detailsCircleAnimation() {
+  let trackingTimer = null;
+  let isTrackingAllowed = false;
+  let circlePosition;
+
+  let $section = $();
+  let $center = $();
+  let $circle = $();
+
+  function handleMouseMove(e) {
+    if (!isTrackingAllowed) return;
+
+    const { pageX, pageY } = e;
+
+    animateCircleTo({
+      top: pageY - $section.offset().top,
+      left: pageX - $center.offset().left,
+    });
+  }
+
+  function animateCircleTo(position) {
+    gsap.to($circle.get(0), position);
+  }
+
+  function saveCirclePosition() {
+    const { top, left } = getComputedStyle($circle.get(0));
+
+    circlePosition = { top, left };
+  }
+
+  $(function () {
+    if ($(".details").length === 0) return;
+
+    $section = $(".details");
+    $center = $section.find(".details__wrapper");
+    $circle = $section.find(".details__circle");
+
+    saveCirclePosition();
+
+    $(document).on("mousemove", ".details", handleMouseMove);
+
+    window.addEventListener("load", () => {
+      gsap.timeline({
+        defaults: {
+          ease: "none",
+        },
+
+        scrollTrigger: {
+          trigger: ".details",
+          start: "top center",
+          end: "bottom top",
+          onEnter: () => {
+            // setTimeout cares about visibility of initial rotation
+            trackingTimer = setTimeout(() => {
+              isTrackingAllowed = true;
+            }, 1000);
+          },
+          onLeaveBack: () => {
+            clearTimeout(trackingTimer);
+
+            isTrackingAllowed = false;
+
+            // setTimeout required, because reset available
+            // only when gsap completed tracking
+            setTimeout(() => {
+              animateCircleTo(circlePosition);
+            }, 600);
+          },
+        },
+      });
+
+      gsap
+        .timeline({
+          defaults: {
+            ease: "none",
+          },
+          scrollTrigger: {
+            trigger: ".details__circle-text",
+            start: "top bottom",
+            end: "bottom+=200 top",
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .addLabel("rotate")
+        .from(
+          ".details__circle-text",
+          {
+            scale: 0.8,
+            duration: 1,
+            delay: 1,
+          },
+          "rotate"
+        )
+        .to(
+          ".details__circle-text",
+          {
+            rotate: 360,
+            duration: 5,
+          },
+          "rotate"
+        );
+    });
+  });
+}
+
+if (window.matchMedia("(min-width: 1023px)").matches) {
+  detailsCircleAnimation();
+}
+
+
+import { debounce } from "throttle-debounce";
+
+function loadScript(src, callback) {
+  let script = document.createElement("script");
+  script.src = src;
+
+  script.onload = () => callback(null, script);
+  script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+  document.head.append(script);
+}
+
+
+class ImageMap {
+  constructor(options) {
+    this._options = options;
+
+    this._rootEl = options.el;
+    this._mapEl = options.el.querySelector(".map-location__box");
+    this._data = $(options.el).data();
+
+    this._scale;
+    this._bounds;
+    this._map;
+
+    this._initialize();
+
+    const debounced = debounce(500, this._handleWindowResize.bind(this));
+    window.addEventListener("resize", debounced);
+    screen.orientation.addEventListener("change", debounced);
+  }
+
+  _initialize() {
+    this._scale = this._calculateImageScale();
+    this._bounds = this._calculateImageBounds();
+
+    this._map = L.map(this._mapEl, {
+      zoomControl: false,
+      scrollWheelZoom: false,
+      zoom: 0,
+      center: this._originalCoordsToScaled(this._data.center),
+      maxBoundsViscosity: 1, // do not allow drag outside bounds
+      crs: L.CRS.Simple,
+    });
+
+    this._map.setMaxBounds(new L.LatLngBounds(this._bounds));
+
+    this._addCustomZoom();
+    this._addImage();
+    this._addMarkers();
+    this._addLogo();
+
+    this._map.on("click", this._showClickCoords.bind(this));
+  }
+
+  _handleWindowResize() {
+    this._map.remove();
+
+    this._initialize();
+  }
+
+  _originalCoordsToScaled(coords) {
+    return [coords[0] * this._scale, coords[1] * this._scale];
+  }
+
+  _scaledCoordsToOriginal(coords) {
+    return [coords[0] / this._scale, coords[1] / this._scale];
+  }
+
+  _calculateImageBounds() {
+    const scaledImageSize = this._data.imageSize.map(
+      (value) => value * this._scale
+    );
+
+    return [[0, 0], scaledImageSize.reverse()];
+  }
+
+  _calculateImageScale() {
+    const containerSize = [this._rootEl.offsetWidth, this._rootEl.offsetHeight];
+
+    return Math.max(
+      containerSize[0] / this._data.imageSize[0],
+      containerSize[1] / this._data.imageSize[1]
+    );
+  }
+
+  _showClickCoords(e) {
+    const { lat, lng } = e.latlng;
+
+    const coords = this._scaledCoordsToOriginal([lat, lng]);
+    const message = `You clicked at [${coords}]. Use this coords to bind points.`;
+    console.log(message);
+  }
+
+  _addLogo() {
+    const divIcon = L.divIcon({
+      className: "map-location__logo",
+      iconAnchor: [60, 60],
+    });
+
+    L.marker(this._originalCoordsToScaled(this._data.logoPosition), {
+      icon: divIcon,
+    }).addTo(this._map);
+  }
+
+  _addCustomZoom() {
+    L.control
+      .zoom({
+        zoomInTitle: "",
+        zoomOutTitle: "",
+      })
+      .addTo(this._map);
+  }
+
+  _addImage() {
+    L.imageOverlay(this._data.imageUrl, [[0, 0], this._bounds]).addTo(
+      this._map
+    );
+  }
+
+  _addMarkers() {
+    $.getJSON(this._data.pointsUrl)
+      .done((points) => {
+        const types = Object.keys(
+          points.reduce((obj, point) => {
+            obj[point.type] = true;
+            return obj;
+          }, {})
+        );
+
+        types.forEach((type) => {
+          this._map.createPane(type + "Markers");
+        });
+
+        points.forEach((point) => {
+          const divIcon = L.divIcon({
+            className: "map-location__icon",
+            html: `<svg class="icon">
+                          <use
+                              xlink:href="./img/icons/icons.svg#${point.type}"
+                          ></use>
+                      </svg>`,
+            iconAnchor: [24, 48],
+            popupAnchor: [0, -48],
+          });
+
+          L.marker(this._originalCoordsToScaled(point.coords), {
+            icon: divIcon,
+            pane: point.type + "Markers",
+          })
+            .bindPopup(
+              `<aside class="panel-location">
+                      <div class="panel-location__header">
+                          <h2 class="panel-location__h1">
+                              ${point.title}
+                          </h2>
+                      </div>
+                      <div class="panel-location__desc">
+                          ${point.description}
+                      </div>
+                  </aside>`
+            )
+            .addTo(this._map);
+        });
+      })
+      .fail(function () {
+        `Failed loading ${this._data.pointsUrl}`;
+      });
+  }
+
+  filterPoints(filterBy) {
+    const panes = this._map.getPanes();
+
+    for (const [key, pane] of Object.entries(panes)) {
+      if (!key.match(/Markers$/)) continue;
+
+      pane.style.display =
+        filterBy === "all" || key === filterBy + "Markers" ? "block" : "none";
+    }
+
+    this._map.closePopup();
+  }
+}
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        loadScript(
+          "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js",
+          function (error, script) {
+            if (error) {
+              console.error(error);
+            } else {
+              $(".map-location").each(function () {
+                const instance = new ImageMap({
+                  el: this,
+                });
+
+                $(this).data("image-map", instance);
+              });
+            }
+          }
+        );
+
+        observer.disconnect();
+      }
+    });
+  },
+  {
+    rootMargin: "0px 0px 1000px 0px",
+    threshold: 0,
+  }
+);
+
+$(function () {
+  document.querySelectorAll(".map-location").forEach((element) => {
+    observer.observe(element);
+  });
+});
+
+function filterPointsOnMap(filterBy) {
+  const mapInstance = $("#section-location .map-location").data("image-map");
+
+  mapInstance.filterPoints(filterBy);
+}
+
+function handleFilterClick(e) {
+  e.preventDefault();
+
+  $(this).closest("li").addClass("active").siblings().removeClass("active");
+
+  const filterBy = $(this).data("filter");
+
+  filterPointsOnMap(filterBy);
+}
+
+function handleSelectItem(e) {
+  const filterBy = $(this).data("value");
+
+  filterPointsOnMap(filterBy);
+}
+
+$(function () {
+  if ($("#section-location").length === 0) return;
+
+  $(document).on(
+      "click",
+      "#section-location .nav-category a",
+      handleFilterClick
+  );
+
+  $(document).on(
+      "click",
+      "#section-location .select__option",
+      handleSelectItem
+  );
+});

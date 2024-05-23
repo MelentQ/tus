@@ -97,6 +97,8 @@
     "fslightbox": "^3.4.1",
     "gsap": "^3.12.5",
     "gulp-cheerio": "^1.0.0",
-    "isotope-layout": "^3.0.6"
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.7.1",
+    "throttle-debounce": "^5.0.0"
   }
 }

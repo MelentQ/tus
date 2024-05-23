@@ -1,5 +1,9 @@
 .genplan {
-  position: relative;
+  position: static;
+
+  &__wrapper {
+    position: relative;
+  }
 
   &__head {
     position: absolute;
