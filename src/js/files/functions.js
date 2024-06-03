@@ -103,6 +103,7 @@ export let _slideUp = (target, duration = 500, showmore = 0) => {
     target.style.paddingBottom = 0;
     target.style.marginTop = 0;
     target.style.marginBottom = 0;
+    target.parentElement.classList.remove("is-active");
     window.setTimeout(() => {
       target.hidden = !showmore ? true : false;
       !showmore ? target.style.removeProperty("height") : null;
@@ -152,6 +153,7 @@ export let _slideDown = (target, duration = 500, showmore = 0) => {
     target.style.removeProperty("padding-bottom");
     target.style.removeProperty("margin-top");
     target.style.removeProperty("margin-bottom");
+    target.parentElement.classList.add("is-active");
     window.setTimeout(() => {
       target.style.removeProperty("height");
       target.style.removeProperty("overflow");

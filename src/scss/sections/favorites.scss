@@ -65,21 +65,27 @@
 
   &__img {
     position: absolute;
-    right: 0;
+    right: -120px;
     bottom: 0;
-    margin-bottom: -50px;
+    max-width: 1200px;
+    margin-bottom: -100px;
+    width: 100%;
     z-index: -1;
 
-    @media (max-width: $xl) {
-      max-width: 50%;
+    @media (max-width: $pc) {
+      max-width: 70%;
     }
+    
 
     @media (max-width: $sm) {
-      max-width: 100%;
+      max-width: 260px;
+      margin-bottom: -80px;
+      right: 0;
     }
 
     img {
       max-width: 100%;
+      width: 100%;
     }
   }
 

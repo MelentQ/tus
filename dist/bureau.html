@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240523162714">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240601122427">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -1318,11 +1318,18 @@
 										</div>
 									</div>
 								</div>
-								<div class="vacancy__form-file">
-									<svg width="20" height="20">
-										<use xlink:href="../img/icons/icons.svg#pin"></use>
-									</svg>
-									Прикрепить резюме
+								<div class="form-file">
+									<label for="feedback-file" class="form-file__main">
+										<input type="file" class="form-file__input" data-max-length="5" id="feedback-file">
+										<span class="form-file__label">
+											<svg width="20" height="20">
+												<use xlink:href="../img/icons/icons.svg#pin"></use>
+											</svg>
+											Прикрепить резюме
+										</span>
+									</label>
+									<div class="form-file__list">
+									</div>
 								</div>
 								<button type="submit" class="vacancy__form-submit btn btn--wide">
 									Оставить заявку
@@ -1522,7 +1529,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240523162714"></script>
+	<script src="js/app.min.js?_v=20240601122427"></script>
 </body>
 
 </html>

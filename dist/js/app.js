@@ -9477,6 +9477,7 @@
                 target.style.paddingBottom = 0;
                 target.style.marginTop = 0;
                 target.style.marginBottom = 0;
+                target.parentElement.classList.remove("is-active");
                 window.setTimeout((() => {
                     target.hidden = !showmore ? true : false;
                     !showmore ? target.style.removeProperty("height") : null;
@@ -9516,6 +9517,7 @@
                 target.style.removeProperty("padding-bottom");
                 target.style.removeProperty("margin-top");
                 target.style.removeProperty("margin-bottom");
+                target.parentElement.classList.add("is-active");
                 window.setTimeout((() => {
                     target.style.removeProperty("height");
                     target.style.removeProperty("overflow");
@@ -10138,8 +10140,6 @@
                 }).mask(input);
             }));
         };
-        const numInputs = document.querySelectorAll(".js-input-num");
-        if (numInputs.length) numInputs();
         class Popup {
             constructor(options) {
                 let config = {
@@ -23774,7 +23774,6 @@
             let complexesDropdownList = document.querySelector(".js-dropdown-content");
             _slideUp(complexesDropdownList);
             complexesDropdownHead.addEventListener("click", (function() {
-                complexesDropdownHead.classList.toggle("is-active");
                 _slideToggle(complexesDropdownList, 200);
             }));
         }
@@ -24284,6 +24283,62 @@
             jquery(document).on("click", "#section-location .nav-category a", handleFilterClick);
             jquery(document).on("click", "#section-location .select__option", handleSelectItem);
         }));
+        const numInputs = document.querySelectorAll(".js-input-num");
+        numInputs.forEach((input => {
+            input.addEventListener("input", (function() {
+                var value = input.value.replace(/\D/g, "");
+                value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+                input.value = value;
+            }));
+        }));
+        function ImgUpload() {
+            var imgWrap = "";
+            var imgArray = [];
+            jquery(".form-file__input").each((function() {
+                jquery(this).on("change", (function(e) {
+                    imgWrap = jquery(this).closest(".form-file").find(".form-file__list");
+                    var maxLength = jquery(this).attr("data-max-length");
+                    var files = e.target.files;
+                    var filesArr = Array.prototype.slice.call(files);
+                    var iterator = 0;
+                    filesArr.forEach((function(f, index) {
+                        if (imgArray.length > maxLength) return false; else {
+                            var len = 0;
+                            for (var i = 0; i < imgArray.length; i++) if (imgArray[i] !== void 0) len++;
+                            if (len > maxLength) return false; else {
+                                imgArray.push(f);
+                                Math.round(f.size / 1024);
+                                let name = f.name;
+                                name.match(/\.([^.]+)$|$/)[1];
+                                let preview;
+                                var reader = new FileReader;
+                                reader.onload = function(e) {
+                                    if (!f.type.match("image.*")) preview = "/local/media/images/cabinet/pdf.png"; else preview = e.target.result;
+                                    var html = `<div class='form-file__item'><div class='form-file__item-info' data-file='${name}'><div class='form-file__item-remove'></div><div class='form-file__item-name'><span class='form-file__item-name-string'>${name}</span></div></div></div>`;
+                                    jquery(".form-file__line span").html(imgArray.length);
+                                    imgWrap.append(html);
+                                    iterator++;
+                                };
+                                reader.readAsDataURL(f);
+                            }
+                        }
+                    }));
+                }));
+            }));
+            console.log(imgArray);
+            jquery("body").on("click", ".form-file__item-remove", (function(e) {
+                var file = jquery(this).parent().data("file");
+                for (var i = 0; i < imgArray.length; i++) {
+                    console.log(imgArray[i].name);
+                    if (imgArray[i].name === file) {
+                        imgArray.splice(i, 1);
+                        break;
+                    }
+                }
+                jquery(this).parent().parent().remove();
+            }));
+        }
+        ImgUpload();
         const officesMap = document.querySelector("[data-offices-map]") || false;
         console.log("123");
         if (officesMap) {

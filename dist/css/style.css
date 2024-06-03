@@ -1602,6 +1602,27 @@ img {
   width: 348px;
 }
 
+.complex-select.is-active {
+  background-color: var(--color-whte);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.complex-select.is-active .complex-select__head {
+  background-color: var(--color-whte);
+  color: var(--color-blck);
+}
+
+.complex-select.is-active .complex-select__head svg {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.complex-select.is-active .complex-select__list {
+  background-color: var(--color-whte);
+}
+
 .complex-select__head {
   background-color: rgba(var(--color-whte--rgb), 0.2);
   display: -webkit-box;
@@ -1633,21 +1654,6 @@ img {
   transition: 0.25s;
 }
 
-.complex-select__head.is-active {
-  background-color: var(--color-whte);
-  color: var(--color-blck);
-}
-
-.complex-select__head.is-active svg {
-  -webkit-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-}
-
-.complex-select__head.is-active + .complex-select__list {
-  background-color: var(--color-whte);
-}
-
 .complex-select__choosen {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1668,6 +1674,7 @@ img {
   padding: 0 8px 8px 28px;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  background-color: var(--color-whte);
 }
 
 .complex-select__inner {
@@ -1815,7 +1822,7 @@ img {
   position: absolute;
   z-index: 4;
   top: 50%;
-  left: 10%;
+  left: 15%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -7974,22 +7981,6 @@ img {
   gap: 16px;
 }
 
-.vacancy__form-file {
-  margin-top: 24px;
-  opacity: 0.5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-}
-
-.vacancy__form-file svg {
-  display: block;
-}
-
 .vacancy__form-submit {
   margin-top: 32px;
 }
@@ -8003,6 +7994,64 @@ img {
   text-align: center;
   -ms-grid-column-span: 2;
   grid-column: span 2;
+}
+
+.form-file {
+  margin-top: 24px;
+  opacity: 0.5;
+}
+
+.form-file svg {
+  display: block;
+}
+
+.form-file__main {
+  position: relative;
+}
+
+.form-file__input {
+  position: fixed;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+
+.form-file__label {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.form-file__item {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.form-file__item-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.form-file__item-remove {
+  width: 16px;
+  height: 16px;
+  background: url("../img/icons/close.svg") center center/16px no-repeat;
 }
 
 .presentation__inner {
@@ -13178,14 +13227,17 @@ img {
 
 .favorites-empty__img {
   position: absolute;
-  right: 0;
+  right: -120px;
   bottom: 0;
-  margin-bottom: -50px;
+  max-width: 1200px;
+  margin-bottom: -100px;
+  width: 100%;
   z-index: -1;
 }
 
 .favorites-empty__img img {
   max-width: 100%;
+  width: 100%;
 }
 
 .favorites-empty__title {
@@ -14153,11 +14205,37 @@ img {
   width: 100%;
   height: 100%;
   background: url("../img/details/circle-text.svg") no-repeat 50% 50%/contain;
+  -webkit-animation: rotate 5s linear infinite;
+          animation: rotate 5s linear infinite;
 }
 
 .details__circle-btn {
   position: relative;
   z-index: 10;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .steps__head {
@@ -19155,6 +19233,10 @@ button.swiper-pagination-bullet {
     font-size: 82px;
   }
 
+  .favorites-empty__img {
+    max-width: 70%;
+  }
+
   .video__title {
     font-size: 100px;
   }
@@ -19168,6 +19250,10 @@ button.swiper-pagination-bullet {
 @media (max-width: 89.99875em) {
   .h1 {
     font-size: 80px;
+  }
+
+  .back-to-favorites__content {
+    left: 10%;
   }
 
   .header .container {
@@ -19496,10 +19582,6 @@ button.swiper-pagination-bullet {
   .hero-residents .hero-page__img {
     max-width: 65%;
     bottom: 0;
-  }
-
-  .favorites-empty__img {
-    max-width: 50%;
   }
 
   .arch__wrapper {
@@ -20268,7 +20350,7 @@ button.swiper-pagination-bullet {
   .back-to-favorites__content {
     max-width: 250px;
     padding: 20px;
-    top: 52px;
+    top: 102px;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
         -ms-transform: translate(-50%, 0);
@@ -23561,6 +23643,10 @@ button.swiper-pagination-bullet {
     font-size: 14px;
   }
 
+  .back-to-favorites__content {
+    top: 52px;
+  }
+
   .header {
     padding: 12px 0;
   }
@@ -24515,17 +24601,6 @@ button.swiper-pagination-bullet {
     gap: 8px;
   }
 
-  .vacancy__form-file {
-    margin-top: 20px;
-    font-size: 12px;
-    gap: 8px;
-  }
-
-  .vacancy__form-file svg {
-    width: 14px;
-    height: 14px;
-  }
-
   .vacancy__form-submit {
     -webkit-box-ordinal-group: 11;
         -ms-flex-order: 10;
@@ -24535,6 +24610,17 @@ button.swiper-pagination-bullet {
 
   .vacancy__form-agreement {
     margin-top: 20px;
+  }
+
+  .form-file {
+    margin-top: 20px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .form-file svg {
+    width: 14px;
+    height: 14px;
   }
 
   .presentation__inner {
@@ -25449,7 +25535,9 @@ button.swiper-pagination-bullet {
   }
 
   .favorites-empty__img {
-    max-width: 100%;
+    max-width: 260px;
+    margin-bottom: -80px;
+    right: 0;
   }
 
   .hero-estate {

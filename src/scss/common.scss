@@ -560,6 +560,24 @@ img {
   overflow: hidden;
   width: 348px;
 
+  &.is-active {
+    background-color: var(--color-whte);
+    transition: .5s;
+
+    .complex-select__head {
+      background-color: cl(whte);
+      color: var(--color-blck);
+  
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .complex-select__list {
+      background-color: var(--color-whte);
+    }
+  }
+
   @media (max-width: $sm) {
     border-radius: 10px;
     width: 100%;
@@ -590,16 +608,7 @@ img {
     }
 
     &.is-active {
-      background-color: cl(whte);
-      color: var(--color-blck);
 
-      svg {
-        transform: rotate(-90deg);
-      }
-
-      + .complex-select__list {
-        background-color: var(--color-whte);
-      }
     }
   }
 
@@ -622,6 +631,7 @@ img {
   &__list {
     padding: 0 8px 8px 28px;
     transition: 0.25s;
+    background-color: var(--color-whte);
 
     @media (max-width: $sm) {
       padding: 8px 5px 8px 12px;
@@ -791,7 +801,7 @@ img {
     position: absolute;
     z-index: 4;
     top: 50%;
-    left: 10%;
+    left: 15%;
     transform: translateY(-50%);
     background-color: cl(whte);
     max-width: 300px;
@@ -800,12 +810,20 @@ img {
     border-radius: 16px;
     box-shadow: 0px 0px 15px 0px #00000026;
 
+    @media(max-width: $xl) {
+      left: 10%;
+    }
+
     @media(max-width: $md) {
       max-width: 250px;
       padding: 20px;
-      top: 52px;
+      top: 102px;
       left: 50%;
       transform: translate(-50%, 0);
+    }
+
+    @media(max-width: $sm) {
+      top: 52px;
     }
   }
 

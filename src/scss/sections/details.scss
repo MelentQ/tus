@@ -241,11 +241,20 @@
       height: 100%;
       background: url("../img/details/circle-text.svg") no-repeat 50% 50% /
         contain;
+      animation: rotate 5s linear infinite;
     }
 
     &-btn {
       position: relative;
       z-index: 10;
     }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(360deg);
   }
 }

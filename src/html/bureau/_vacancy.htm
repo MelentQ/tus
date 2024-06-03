@@ -147,12 +147,19 @@
               </div>
             </div>
           </div>
-          <div class="vacancy__form-file">
-            <svg width="20" height="20">
-              <use xlink:href="../img/icons/icons.svg#pin"></use>
-            </svg>
-            Прикрепить резюме
-          </div>
+          <div class="form-file">
+            <label for="feedback-file" class="form-file__main">
+                <input type="file" class="form-file__input" data-max-length="5" id="feedback-file">
+                <span class="form-file__label">
+                  <svg width="20" height="20">
+                    <use xlink:href="../img/icons/icons.svg#pin"></use>
+                  </svg>
+                  Прикрепить резюме
+                </span>
+            </label>
+            <div class="form-file__list">
+            </div>
+        </div>
           <button type="submit" class="vacancy__form-submit btn btn--wide">
             Оставить заявку
             <svg width="18" height="18">

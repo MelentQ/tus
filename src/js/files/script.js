@@ -653,8 +653,10 @@ if (complexesDropdown) {
   _slideUp(complexesDropdownList);
 
   complexesDropdownHead.addEventListener("click", function () {
-    complexesDropdownHead.classList.toggle("is-active");
+
     _slideToggle(complexesDropdownList, 200);
+
+
   });
 }
 
@@ -1445,3 +1447,91 @@ $(function () {
       handleSelectItem
   );
 });
+
+
+const numInputs = document.querySelectorAll('.js-input-num');
+numInputs.forEach((input) => {
+  input.addEventListener('input', function() {
+    var value = input.value.replace(/\D/g, ''); // Удалить все ненумерые символы
+    value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '); // Добавить пробел после каждого третьего символа
+    input.value = value;
+  });
+})
+
+function addSpaceAfterEveryThreeDigits(input) {
+  input.addEventListener('input', function() {
+    var value = input.value.replace(/\D/g, ''); // Удалить все ненумерые символы
+    value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '); // Добавить пробел после каждого третьего символа
+    input.value = value;
+  });
+}
+
+function ImgUpload() {
+  var imgWrap = "";
+  var imgArray = [];
+
+  $('.form-file__input').each(function () {
+      $(this).on('change', function (e) {
+          imgWrap = $(this).closest('.form-file').find('.form-file__list');
+          var maxLength = $(this).attr('data-max-length');
+
+          var files = e.target.files;
+          var filesArr = Array.prototype.slice.call(files);
+          var iterator = 0;
+          filesArr.forEach(function (f, index) {
+
+              if (imgArray.length > maxLength) {
+                  return false
+              } else {
+                  var len = 0;
+                  for (var i = 0; i < imgArray.length; i++) {
+                      if (imgArray[i] !== undefined) {
+                          len++;
+                      }
+                  }
+                  if (len > maxLength) {
+                      return false;
+                  } else {
+                      imgArray.push(f);
+
+                      let size = Math.round(f.size / 1024)
+                      let name = f.name;
+                      let format = name.match(/\.([^.]+)$|$/)[1]
+                      let preview;
+
+                      var reader = new FileReader();
+                      reader.onload = function (e) {
+                          if (!f.type.match('image.*')) {
+                              preview = '/local/media/images/cabinet/pdf.png';
+                          } else {
+                              preview = e.target.result;
+                          }
+
+                          var html = `<div class='form-file__item'><div class='form-file__item-info' data-file='${name}'><div class='form-file__item-remove'></div><div class='form-file__item-name'><span class='form-file__item-name-string'>${name}</span></div></div></div>`
+
+                          $('.form-file__line span').html(imgArray.length)
+
+                          imgWrap.append(html);
+                          iterator++;
+                      }
+                      reader.readAsDataURL(f);
+                  }
+              }
+          });
+      });
+  });
+  console.log(imgArray);
+
+  $('body').on('click', ".form-file__item-remove", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+          console.log(imgArray[i].name)
+          if (imgArray[i].name === file) {
+              imgArray.splice(i, 1);
+              break;
+          }
+      }
+      $(this).parent().parent().remove();
+  });
+}
+ImgUpload();

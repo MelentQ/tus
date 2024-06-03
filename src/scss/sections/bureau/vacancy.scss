@@ -192,26 +192,7 @@
     }
 
     &-file {
-      margin-top: 24px;
-      opacity: .5;
-      display: flex;
-      align-items: center;
-      gap: 10px;
 
-      svg {
-        display: block;
-      }
-
-      @media (max-width: $sm)  {
-        margin-top: 20px;
-        font-size: 12px;
-        gap: 8px;
-
-        svg {
-          width: 14px;
-          height: 14px;
-        }
-      }
     }
 
     &-submit {
@@ -240,6 +221,60 @@
     @media (max-width: $lg) {
       grid-column: initial;
       grid-row: 2 / 3;
+    }
+  }
+}
+
+.form-file {
+  margin-top: 24px;
+  opacity: .5;
+
+  svg {
+    display: block;
+  }
+
+  @media (max-width: $sm)  {
+    margin-top: 20px;
+    font-size: 12px;
+    gap: 8px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__main {
+    position: relative;
+  }
+
+  &__input {
+    position: fixed;
+    transform: scale(0);
+  }
+
+  &__label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__item {
+    margin-top: 12px;
+    width: 100%;
+
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    &-remove {
+      width: 16px;
+      height: 16px;
+      background: url('../img/icons/close.svg') center center / 16px no-repeat;
     }
   }
 }
