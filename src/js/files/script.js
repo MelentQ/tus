@@ -1535,3 +1535,30 @@ function ImgUpload() {
   });
 }
 ImgUpload();
+
+
+if(document.querySelector('.js-slider-root')) {
+  const changeNav = (entries, observer) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting && entry.intersectionRatio >= 0.85) {
+        document.querySelector('.active').classList.remove('active');
+        // get id of the intersecting section
+        const id = entry.target.getAttribute('id');
+        // find matching link & add appropriate class
+        const newLink = document.querySelector(`[href="#${id}"]`).classList.add('active');
+      }
+    });
+  }
+  
+  const options = {
+    threshold: 0.85
+  }
+  
+  const observer = new IntersectionObserver(changeNav, options);
+  
+  // target the elements to be observed
+  const sections = document.querySelectorAll('section');
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+}

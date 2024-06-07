@@ -173,6 +173,7 @@
     display: none;
     align-items: stretch;
     background-color: var(--color-whte);
+    height: 100%;
 
     @media (max-width: 767px) {
       flex-direction: column-reverse;

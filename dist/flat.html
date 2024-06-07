@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240601122427">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240605173713">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -47,6 +47,11 @@
 					</svg>
 				</a>
 				<div class="header__menu">
+					<a href="#" class="header__logo">
+						<svg width="145" height="65">
+							<use xlink:href="../img/icons/icons.svg#logo"></use>
+						</svg>
+					</a>
 					<nav class="header__nav">
 						<ul class="header__nav-list">
 							<li class="header__nav-item header__dropdown">
@@ -435,7 +440,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="rooms section" data-role="tabs">
+			<section class="rooms section" data-role="tabs" id="rooms">
 				<div class="rooms__container">
 					<div class="rooms__head">
 						<h2 class="rooms__title h3">Пример отделки</h2>
@@ -613,7 +618,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="programs section">
+			<section class="programs section" id="programs">
 				<div class="container">
 					<h2 class="programs__title section__title h4">Ипотечные программы</h2>
 					<div class="programs__list cards">
@@ -817,7 +822,7 @@
 					</div>
 				</div>
 			</section>
-			<div class="similar section">
+			<div class="similar section" id="similar">
 				<div class="similar__container">
 					<h2 class="section__title h3">Похожие квартиры</h2>
 					<div class="similar__list js-similar-slider">
@@ -965,7 +970,7 @@
 					<a href="#" class="similar__all btn btn--wide btn--outline">Показать ещё</a>
 				</div>
 			</div>
-			<section class="types section">
+			<section class="types section" id="types">
 				<div class="container">
 					<div class="types__title section__title h3">Другая <br> недвижимость</div>
 					<div class="types__content" data-role="tabs">
@@ -1162,7 +1167,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- <section class="programs section">
+			<!-- <section class="programs section" id="programs">
   <div class="container">
     <h2 class="programs__title section__title h4">Ипотечные программы</h2>
     <div class="programs__list cards">
@@ -1774,7 +1779,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240601122427"></script>
+	<script src="js/app.min.js?_v=20240605173713"></script>
 </body>
 
 </html>

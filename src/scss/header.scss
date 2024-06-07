@@ -128,6 +128,12 @@
     display: flex;
     align-items: center;
 
+    .header__logo {
+      display: none;
+      color: var(--color-blck);
+      order: -2;
+    }
+
     @media (max-width: $xl) {
       --color-inv: var(--color-blck);
       position: fixed;
@@ -136,10 +142,15 @@
       flex-direction: column;
       align-items: flex-start;
       background-color: var(--color-whte);
-      padding: 108px 20px 20px;
+      padding: 20px 20px 20px;
       overflow-y: auto;
       transform: translateX(-100%);
       transition: 0.5s ease-out;
+
+      .header__logo {
+        display: block;
+        margin-bottom: 24px;
+      }
     }
   }
 

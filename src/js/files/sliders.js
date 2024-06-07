@@ -976,6 +976,15 @@ if (windowMarqueSlider) {
     },
   });
 }
+
+const rootSlider = document.querySelector(".js-slider-root");
+if (rootSlider) {
+  new Swiper(".js-slider-root", {
+    modules: [A11y, Autoplay], // A11y - обязательный модуль
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+  });
+}
 const stepsSlider = document.querySelector(".js-steps-slider");
 if (stepsSlider) {
   new Swiper(".js-steps-slider", {

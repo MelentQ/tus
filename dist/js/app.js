@@ -17658,6 +17658,12 @@
                 disableOnInteraction: true
             }
         });
+        const rootSlider = document.querySelector(".js-slider-root");
+        if (rootSlider) new swiper_core_Swiper(".js-slider-root", {
+            modules: [ A11y, Autoplay ],
+            slidesPerView: "auto",
+            spaceBetween: 0
+        });
         const stepsSlider = document.querySelector(".js-steps-slider");
         if (stepsSlider) new swiper_core_Swiper(".js-steps-slider", {
             modules: [ A11y, Navigation ],
@@ -24339,6 +24345,25 @@
             }));
         }
         ImgUpload();
+        if (document.querySelector(".js-slider-root")) {
+            const changeNav = (entries, observer) => {
+                entries.forEach((entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= .85) {
+                        document.querySelector(".active").classList.remove("active");
+                        const id = entry.target.getAttribute("id");
+                        document.querySelector(`[href="#${id}"]`).classList.add("active");
+                    }
+                }));
+            };
+            const options = {
+                threshold: .85
+            };
+            const observer = new IntersectionObserver(changeNav, options);
+            const sections = document.querySelectorAll("section");
+            sections.forEach((section => {
+                observer.observe(section);
+            }));
+        }
         const officesMap = document.querySelector("[data-offices-map]") || false;
         console.log("123");
         if (officesMap) {

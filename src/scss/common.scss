@@ -88,8 +88,7 @@ img {
   gap: 8px;
 
   &--md-none {
-    
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       display: none;
     }
   }
@@ -106,7 +105,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .25s;
+  transition: 0.25s;
 
   &.swiper-button-disabled {
     opacity: 0.5;
@@ -124,7 +123,7 @@ img {
     border-color: var(--color-grey-light);
     color: var(--color-blck);
 
-    @media(any-hover: hover) {
+    @media (any-hover: hover) {
       &:hover {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
@@ -149,24 +148,24 @@ img {
   --size: 150px;
   width: var(--size);
   height: var(--size);
-  background-color: cl(whte, .2);
-  border: 1px solid cl(whte, .1);
+  background-color: cl(whte, 0.2);
+  border: 1px solid cl(whte, 0.1);
   backdrop-filter: blur(10px);
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   cursor: pointer;
 
   &--sm {
     --size: 80px;
 
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       --size: 50px;
     }
   }
 
-  @media(max-width: $md) {
+  @media (max-width: $md) {
     --size: 50px;
 
     svg {
@@ -290,7 +289,7 @@ img {
 .menu-open {
   .header__logo {
     position: relative;
-    z-index: 3;
+    z-index: 1;
 
     svg {
       color: var(--color-blck);
@@ -497,7 +496,7 @@ img {
       padding-right: 16px;
       margin-right: 12px;
       position: relative;
-      opacity: .4;
+      opacity: 0.4;
 
       @media (any-hover: hover) {
         &:hover {
@@ -513,7 +512,7 @@ img {
         width: 4px;
         height: 4px;
         background-color: currentColor;
-        opacity: .4;
+        opacity: 0.4;
         border-radius: 50%;
         right: 0;
         top: 50%;
@@ -562,12 +561,12 @@ img {
 
   &.is-active {
     background-color: var(--color-whte);
-    transition: .5s;
+    transition: 0.5s;
 
     .complex-select__head {
       background-color: cl(whte);
       color: var(--color-blck);
-  
+
       svg {
         transform: rotate(-90deg);
       }
@@ -608,7 +607,6 @@ img {
     }
 
     &.is-active {
-
     }
   }
 
@@ -748,9 +746,9 @@ img {
     flex-shrink: 0;
     border-radius: 50%;
     background-color: var(--color-grey-lighter);
-    transition: .25s;
+    transition: 0.25s;
 
-    @media(any-hover: hover) {
+    @media (any-hover: hover) {
       &:hover {
         background-color: var(--color-primary);
 
@@ -786,7 +784,7 @@ img {
   width: 100%;
   height: 100%;
   inset: 0;
-  background-color: cl(whte, .4);
+  background-color: cl(whte, 0.4);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -810,11 +808,11 @@ img {
     border-radius: 16px;
     box-shadow: 0px 0px 15px 0px #00000026;
 
-    @media(max-width: $xl) {
+    @media (max-width: $xl) {
       left: 10%;
     }
 
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       max-width: 250px;
       padding: 20px;
       top: 102px;
@@ -822,7 +820,7 @@ img {
       transform: translate(-50%, 0);
     }
 
-    @media(max-width: $sm) {
+    @media (max-width: $sm) {
       top: 52px;
     }
   }
@@ -832,7 +830,7 @@ img {
     font-weight: 500;
     margin-bottom: 20px;
 
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       font-size: 14px;
     }
   }
@@ -844,14 +842,14 @@ img {
     font-weight: 500;
     color: cl(primary);
 
-    @media(max-width: $md) {
+    @media (max-width: $md) {
       font-size: 14px;
     }
 
     svg {
       display: block;
 
-      @media(max-width: $md) {
+      @media (max-width: $md) {
         width: 16px;
         height: 16px;
       }
@@ -859,3 +857,40 @@ img {
   }
 }
 
+.slider-menu {
+  transition: all 0.2s;
+  overflow: auto;
+  background: #dedede0d;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 10em;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swiper-slide {
+    &:first-child {
+      margin-left: 0;
+    }
+    width: auto;
+    margin: 0 -14px;
+  }
+
+  a {
+    display: block;
+    padding: 0 32px;
+    height: 60px;
+    border-radius: 10em;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 60px;
+    white-space: nowrap;
+    color: #fff;
+
+    &.active {
+      background-color: var(--color-whte);
+      color: var(--color-blck);
+    }
+  }
+}

@@ -1,7 +1,19 @@
 .intro-zhk {
   padding-top: 89px;
-  background: linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%);
+  background: linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%),
+   url('../img/lines.png') top 203px center / 100% no-repeat;
   position: relative;
+
+  &__lines {
+    position: absolute;
+    width: 100%;
+    top: 203px;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+  }
 
   &__h1 {
       margin-top: 32px;
@@ -70,6 +82,39 @@
 
       &__col-menu {
           min-width: 0;
+      }
+
+      &-fav {
+        width: 60px;
+        height: 60px;
+        background: rgba(222, 222, 222, 0.0509803922);
+        color: var(--color-whte);
+        border-color: rgba(222, 222, 222, 0.0509803922);
+      }
+
+      &-btn {
+        width: 60px;
+        height: 60px;
+        background-color: var(--color-primary);
+        color: var(--color-whte);
+        border-color: var(--color-primary);
+        display: none;
+
+        @media(max-width: $md) {
+            display: flex;
+        }
+      }
+
+      &-select {
+        @media(max-width: $md) {
+            display: none;
+        }
+      }
+
+      &-btn,
+      &-select,
+      &-fav {
+        flex-shrink: 0;
       }
   }
 
