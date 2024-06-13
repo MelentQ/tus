@@ -1,13 +1,17 @@
 .advantages {
   padding: 330px 0 60px;
   position: relative;
-  min-height: 708px;
+  height: 708px;
   display: flex;
   align-items: flex-end;
 
+  &--career {
+    height: 940px;
+  }
+
   @media (max-width: $sm) {
     padding: 362px 0 20px;
-    min-height: 700px;
+    height: 700px;
   }
 
   @media(max-width: 495px) {
@@ -24,6 +28,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        position: relative;
         
   
         img {
@@ -31,10 +36,11 @@
           height: 100%;
           object-fit: cover;
           transform: scale(1);
-       
+          position: absolute;
+          inset: 0;
 
           @media(min-width: $md) {
-            transform: scale(1.1);
+            transform: scale(1);
             transition: .4s;
           }
         }
@@ -53,12 +59,31 @@
   }
 
   &__title {
+    width: 100%;
+    color: var(--color-whte);
+  }
+
+  &__desc {
+    max-width: 450px;
+    width: 100%;
+    font-size: 24px;
+    color: var(--color-whte);
+    margin-top: 40px;
+    letter-spacing: -0.5px;
+    
+    @media (max-width: $lg) {
+      font-size: 16px;
+      margin-top: 24px;
+    }
+  }
+
+  &__info {
     position: absolute;
+    z-index: 3;
     top: 90px;
     right: 66px;
     max-width: 766px;
     width: 100%;
-    color: var(--color-whte);
     z-index: 3;
 
     @media (max-width: $lg) {
@@ -71,6 +96,8 @@
       right: auto;
       max-width: 100%;
       width: calc(100% - 40px);
+      top: 90px;
+      right: 66px;
     }
   }
 
@@ -82,6 +109,11 @@
     
     .swiper-wrapper {
       align-items: flex-end;
+      height: 318px;
+
+      @media (max-width: $sm) {
+        height: 235px;
+      }
     }
 
     @media (max-width: $md) {
@@ -150,12 +182,12 @@
       background-color: var(--color-primary);
       border-color: var(--color-primary);
       height: 318px;
-      transform: scaleY(1.5);
+      transform: scaleY(1.1);
       transition: .7s ease-out;
       transform-origin: bottom;
 
       @media (max-width: $sm) {
-        min-height: 235px;
+        height: 235px;
       }
 
       &::before {

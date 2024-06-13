@@ -1857,11 +1857,19 @@ img {
   display: block;
 }
 
+.darken .slider-menu {
+  background: rgba(var(--color-blck--rgb), 0.4);
+}
+
+.darken .intro-zhk__menu-fav {
+  background: rgba(var(--color-blck--rgb), 0.4);
+}
+
 .slider-menu {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   overflow: auto;
-  background: rgba(222, 222, 222, 0.0509803922);
+  background: rgba(var(--color-whte--rgb), 0.2);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 10em;
@@ -3092,13 +3100,17 @@ img {
 .advantages {
   padding: 330px 0 60px;
   position: relative;
-  min-height: 708px;
+  height: 708px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.advantages--career {
+  height: 940px;
 }
 
 .advantages__gallery {
@@ -3110,6 +3122,7 @@ img {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .advantages__gallery-img.swiper-slide img {
@@ -3120,15 +3133,31 @@ img {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
+  position: absolute;
+  inset: 0;
 }
 
 .advantages__title {
+  width: 100%;
+  color: var(--color-whte);
+}
+
+.advantages__desc {
+  max-width: 450px;
+  width: 100%;
+  font-size: 24px;
+  color: var(--color-whte);
+  margin-top: 40px;
+  letter-spacing: -0.5px;
+}
+
+.advantages__info {
   position: absolute;
+  z-index: 3;
   top: 90px;
   right: 66px;
   max-width: 766px;
   width: 100%;
-  color: var(--color-whte);
   z-index: 3;
 }
 
@@ -3147,6 +3176,7 @@ img {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  height: 318px;
 }
 
 .advantages__item.swiper-slide {
@@ -3192,9 +3222,9 @@ img {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   height: 318px;
-  -webkit-transform: scaleY(1.5);
-      -ms-transform: scaleY(1.5);
-          transform: scaleY(1.5);
+  -webkit-transform: scaleY(1.1);
+      -ms-transform: scaleY(1.1);
+          transform: scaleY(1.1);
   -webkit-transition: 0.7s ease-out;
   transition: 0.7s ease-out;
   -webkit-transform-origin: bottom;
@@ -7037,12 +7067,12 @@ img {
   font-weight: 500;
 }
 
-.similar-item__details-item--light {
-  opacity: 0.5;
+.similar-item__details-item + .similar-item__details-item {
+  border-left: 1px solid rgba(var(--color-blck--rgb), 0.2);
 }
 
-.similar-item__details-item + .apartment-item__details-item {
-  border-left: 1px solid rgba(var(--color-blck--rgb), 0.1);
+.similar-item__details-item--light {
+  opacity: 0.5;
 }
 
 .similar-item__fav {
@@ -10518,6 +10548,10 @@ img {
   height: 100%;
 }
 
+.about-team--history .about-team__title {
+  font-size: 122px;
+}
+
 .about-team__head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10932,6 +10966,8 @@ img {
   -webkit-transition: 0.25s;
   transition: 0.25s;
   z-index: 4;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .awwards__item-logo img {
@@ -11769,7 +11805,6 @@ img {
   z-index: 1;
   width: 100%;
   height: 880px;
-  background-color: red;
 }
 
 .offices__map #office-map {
@@ -12300,7 +12335,6 @@ img {
   z-index: 1;
   width: 100%;
   height: 880px;
-  background-color: red;
 }
 
 .offices__map #office-map {
@@ -14304,6 +14338,10 @@ img {
   overflow: hidden;
 }
 
+.steps__item.swiper-slide {
+  height: 354px;
+}
+
 .steps__item-img {
   position: relative;
   display: block;
@@ -14312,6 +14350,10 @@ img {
 .steps__item-img img {
   display: block;
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
 }
 
 .steps__item-icon {
@@ -14498,6 +14540,7 @@ img {
 
 .window__gallery-img img {
   max-width: 100%;
+  border-radius: 16px;
 }
 
 .window__gallery-img--centered {
@@ -15789,6 +15832,106 @@ svg.leaflet-image-layer.leaflet-interactive path {
   width: 1em;
   height: 1em;
   fill: currentColor;
+}
+
+.hero-career {
+  position: relative;
+  min-height: 940px;
+  height: 100vh;
+  background: linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%);
+  padding: 148px 0 120px;
+}
+
+.hero-career__gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero-career__breadcrumbs {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 50px;
+}
+
+.hero-career__breadcrumbs .breadcrumbs__item {
+  color: var(--color-whte);
+}
+
+.hero-career__container {
+  position: relative;
+  z-index: 3;
+  color: var(--color-whte);
+}
+
+.hero-career__title {
+  color: var(--color-whte);
+  margin-bottom: 42px;
+}
+
+.hero-career__desc {
+  max-width: 509px;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.32;
+}
+
+.hero-career__img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-career__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.hero-career .round-text-btn {
+  z-index: 4;
+  right: 4%;
+  bottom: 10%;
+  top: auto;
+  left: auto;
+}
+
+.round-text-btn {
+  position: absolute;
+  left: 12.5%;
+  top: 40%;
+  width: 1em;
+  height: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 189px;
+}
+
+.round-text-btn__desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/details/circle-text.svg") no-repeat 50% 50%/contain;
+  -webkit-animation: rotate 5s linear infinite;
+          animation: rotate 5s linear infinite;
+}
+
+.round-text-btn__center {
+  position: relative;
+  z-index: 10;
 }
 
 .air-datepicker-cell.-year-.-other-decade-,
@@ -18286,9 +18429,9 @@ button.swiper-pagination-bullet {
 
 @media (min-width: 61.99875em) {
   .advantages__gallery-img.swiper-slide img {
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
@@ -19311,6 +19454,10 @@ button.swiper-pagination-bullet {
     margin-left: -20px;
   }
 
+  .about-team--history .about-team__title {
+    font-size: 100px;
+  }
+
   .about-team__title {
     font-size: 100px;
   }
@@ -19754,7 +19901,12 @@ button.swiper-pagination-bullet {
     padding-top: 286px;
   }
 
-  .advantages__title {
+  .advantages__desc {
+    font-size: 16px;
+    margin-top: 24px;
+  }
+
+  .advantages__info {
     max-width: 500px;
   }
 
@@ -22575,6 +22727,10 @@ button.swiper-pagination-bullet {
     font-size: 18px;
   }
 
+  .about-team--history .about-team__title {
+    font-size: 64px;
+  }
+
   .about-team__title {
     font-size: 64px;
   }
@@ -23411,8 +23567,9 @@ button.swiper-pagination-bullet {
     display: none;
   }
 
-  .steps__item-img img {
-    border-radius: 16px;
+  .steps__item.swiper-slide {
+    width: 256px;
+    height: 240px;
   }
 
   .steps__item-icon {
@@ -23510,6 +23667,26 @@ button.swiper-pagination-bullet {
   }
 
   .intro-zhk__menu-select {
+    display: none;
+  }
+
+  .hero-career {
+    padding: 108px 0 80px;
+  }
+
+  .hero-career__breadcrumbs {
+    margin-bottom: 32px;
+  }
+
+  .hero-career__title {
+    margin-bottom: 24px;
+  }
+
+  .hero-career__desc {
+    font-size: 16px;
+  }
+
+  .hero-career .round-text-btn {
     display: none;
   }
 }
@@ -23956,19 +24133,25 @@ button.swiper-pagination-bullet {
 
   .advantages {
     padding: 362px 0 20px;
-    min-height: 700px;
+    height: 700px;
   }
 
-  .advantages__title {
+  .advantages__info {
     top: 40px;
     left: 20px;
     right: auto;
     max-width: 100%;
     width: calc(100% - 40px);
+    top: 90px;
+    right: 66px;
+  }
+
+  .advantages__list .swiper-wrapper {
+    height: 235px;
   }
 
   .advantages__item.swiper-slide-thumb-active {
-    min-height: 235px;
+    height: 235px;
   }
 
   .advantages__item-title {
@@ -25199,6 +25382,10 @@ button.swiper-pagination-bullet {
 
   .about-honor__card-desc {
     font-size: 12px;
+  }
+
+  .about-team--history .about-team__title {
+    font-size: 50px;
   }
 
   .about-team__head {

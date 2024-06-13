@@ -153,6 +153,10 @@
       justify-content: center;
       font-weight: 500;
 
+      + .similar-item__details-item {
+        border-left: 1px solid cl(blck, 0.2);
+      }
+
       @media (max-width: $md) {
         width: 50%;
         min-height: 56px;
@@ -161,10 +165,6 @@
 
       &--light {
         opacity: 0.5;
-      }
-
-      + .apartment-item__details-item {
-        border-left: 1px solid cl(blck, 0.1);
       }
     }
   }

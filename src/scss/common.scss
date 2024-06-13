@@ -857,10 +857,20 @@ img {
   }
 }
 
+.darken {
+  .slider-menu {
+    background:cl(blck, 0.4);
+  }
+
+  .intro-zhk__menu-fav {
+    background: cl(blck, 0.4);
+  }
+}
+
 .slider-menu {
   transition: all 0.2s;
   overflow: auto;
-  background: #dedede0d;
+  background:cl(whte, 0.2);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 10em;

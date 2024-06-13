@@ -1,0 +1,111 @@
+.hero-career {
+  position: relative;
+  min-height: 940px;
+  height: 100vh;
+  background: linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%);
+  padding: 148px 0 120px;
+
+  @media(max-width: $md)  {
+    padding: 108px 0 80px;
+  }
+
+  &__gallery {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  &__breadcrumbs {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 50px;
+
+    @media(max-width: $md)  {
+      margin-bottom: 32px;
+    }
+    
+    .breadcrumbs__item {
+      color: cl(whte);
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 3;
+    color: cl(whte);
+  }
+
+  &__title {
+    color: cl(whte);
+    margin-bottom: 42px;
+
+    @media(max-width: $md)  {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__desc {
+    max-width: 509px;
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.32;
+
+    @media(max-width: $md) {
+      font-size: 16px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .round-text-btn  {
+    z-index: 4;
+    right: 4%;
+    bottom: 10%;
+    top: auto;
+    left: auto;
+
+    @media(max-width: $md) {
+      display: none;
+    }
+  }
+}
+
+
+.round-text-btn {
+  position: absolute;
+  left: 12.5%;
+  top: 40%;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  font-size: 189px;
+
+  &__desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/details/circle-text.svg") no-repeat 50% 50% /
+      contain;
+    animation: rotate 5s linear infinite;
+  }
+
+  &__center {
+    position: relative;
+    z-index: 10;
+  }
+}

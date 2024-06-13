@@ -58,6 +58,7 @@
       transform: scale(0);
       transition: .25s;
       z-index: 4;
+      flex-shrink: 0;
 
       @media(max-width: $lg) {
         --size: 160px;

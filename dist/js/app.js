@@ -17662,12 +17662,13 @@
         if (rootSlider) new swiper_core_Swiper(".js-slider-root", {
             modules: [ A11y, Autoplay ],
             slidesPerView: "auto",
-            spaceBetween: 0
+            spaceBetween: 0,
+            slideToClickedSlide: true
         });
         const stepsSlider = document.querySelector(".js-steps-slider");
         if (stepsSlider) new swiper_core_Swiper(".js-steps-slider", {
             modules: [ A11y, Navigation ],
-            slidesPerView: 1.3,
+            slidesPerView: "auto",
             spaceBetween: 8,
             breakpoints: {
                 560: {
@@ -24300,7 +24301,7 @@
         function ImgUpload() {
             var imgWrap = "";
             var imgArray = [];
-            jquery(".form-file__input").each((function() {
+            jquery(".form-file__input").each((function(item) {
                 jquery(this).on("change", (function(e) {
                     imgWrap = jquery(this).closest(".form-file").find(".form-file__list");
                     var maxLength = jquery(this).attr("data-max-length");
@@ -24362,6 +24363,11 @@
             const sections = document.querySelectorAll("section");
             sections.forEach((section => {
                 observer.observe(section);
+            }));
+            const windowHeight = document.documentElement.clientHeight;
+            const introHeight = document.querySelector(".intro-zhk").offsetHeight;
+            document.addEventListener("scroll", (() => {
+                if (window.scrollY > introHeight - windowHeight) document.querySelector(".js-slider-root").parentElement.parentElement.classList.add("darken"); else document.querySelector(".js-slider-root").parentElement.parentElement.classList.remove("darken");
             }));
         }
         const officesMap = document.querySelector("[data-offices-map]") || false;

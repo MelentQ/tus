@@ -1,5 +1,23 @@
 .about-team {
 
+  &--history {
+    .about-team__title {
+      font-size: 122px;
+    
+      @media(max-width: $pc) {
+        font-size: 100px;
+      }
+  
+      @media(max-width: $md) {
+        font-size: 64px;
+      }
+  
+      @media(max-width: $sm) {
+        font-size: 50px;
+      }
+    }
+  }
+
   &__head {
     display: flex;
     align-items: flex-end;

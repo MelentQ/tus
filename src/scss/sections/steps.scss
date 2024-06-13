@@ -31,6 +31,16 @@
 
   &__item {
 
+    &.swiper-slide {
+      height: 354px;
+
+      @media(max-width: $md) {
+        width: 256px;
+        height: 240px;
+      }
+    }
+
+
     &-img {
       position: relative;
       display: block;
@@ -38,10 +48,9 @@
       img {
         display: block;
         width: 100%;
-
-        @media(max-width: $md) {
-          border-radius: 16px;
-        }
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
       }
     }
 

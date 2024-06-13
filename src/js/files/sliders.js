@@ -983,13 +983,14 @@ if (rootSlider) {
     modules: [A11y, Autoplay], // A11y - обязательный модуль
     slidesPerView: 'auto',
     spaceBetween: 0,
+    slideToClickedSlide: true,
   });
 }
 const stepsSlider = document.querySelector(".js-steps-slider");
 if (stepsSlider) {
   new Swiper(".js-steps-slider", {
     modules: [A11y, Navigation], // A11y - обязательный модуль
-    slidesPerView: 1.3,
+    slidesPerView: 'auto',
     spaceBetween: 8,
     breakpoints: {
       560: {

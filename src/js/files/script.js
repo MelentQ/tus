@@ -1470,7 +1470,7 @@ function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
 
-  $('.form-file__input').each(function () {
+  $('.form-file__input').each(function (item) {
       $(this).on('change', function (e) {
           imgWrap = $(this).closest('.form-file').find('.form-file__list');
           var maxLength = $(this).attr('data-max-length');
@@ -1561,4 +1561,16 @@ if(document.querySelector('.js-slider-root')) {
   sections.forEach((section) => {
     observer.observe(section);
   });
+
+  const windowHeight = document.documentElement.clientHeight;
+  const introHeight = document.querySelector('.intro-zhk').offsetHeight;
+
+  document.addEventListener('scroll' , () => {
+    if(window.scrollY > (introHeight - windowHeight)) {
+      document.querySelector('.js-slider-root').parentElement.parentElement.classList.add('darken') 
+    } else {
+      document.querySelector('.js-slider-root').parentElement.parentElement.classList.remove('darken')
+    }
+  })
 }
+
