@@ -663,8 +663,10 @@ if (complexesDropdown) {
 let houseFloors = document.querySelectorAll(".js-house-floor");
 let mediaEvent;
 
-if (window.matchMedia) {
+if(window.matchMedia("(max-width: 1023px)").matches) {
   mediaEvent = "click";
+} else {
+  mediaEvent = "mouseenter";
 }
 
 if (houseFloors) {
@@ -713,25 +715,28 @@ if (houseFloors) {
         removeClasses([houseFloorInfo], "is-open");
       }
     });
-    // item.addEventListener("mouseleave", function () {
-    //   let houseFloorInfo = document.querySelector(
-    //     `.js-house-info[data-floor-info="${dataFloor}"]`
-    //   );
-
-    //   removeClasses([houseFloorInfo], "is-open");
-    //   removeClasses([houseFloorInfo], "is-active");
-    // });
-  });
-
-  if (houseInfo) {
+    
     houseInfo.forEach((item) => {
       // let closeBtn = item.querySelector('.js-house-info-close');
       let overlay = item.querySelector(".js-house-info-overlay");
+
+      item.addEventListener("mouseleave", function () {
+        let houseFloorInfo = document.querySelector(
+          `.js-house-info[data-floor-info="${dataFloor}"]`
+        );
+  
+        removeClasses([houseFloorInfo], "is-open");
+        removeClasses([houseFloorInfo], "is-active");
+      });
 
       overlay.addEventListener("click", function () {
         item.classList.remove("is-open");
       });
     });
+  });
+
+  if (houseInfo) {
+
   }
 }
 
@@ -1067,7 +1072,15 @@ $(function () {
 
   observer.observe($section[0]);
 
-  $(document).on("click", ".intro-zhk__floors__item", handleFloorClick);
+  let customFloorEvent;
+
+  if(window.matchMedia("(max-width: 992px)").matches) {
+    customFloorEvent = "click";
+  } else {
+    customFloorEvent = "mouseenter";
+  }
+
+  $(document).on(customFloorEvent, ".intro-zhk__floors__item", handleFloorClick);
   $(document).on("click", ".intro-zhk__btn-close", handlePanelClose);
   $(document).on("click", ".intro-zhk__btn-down", handleScrollDown);
   $(document).on("click", ".intro-zhk", handleOutsideClick);
@@ -1076,6 +1089,12 @@ $(function () {
 
   window.addEventListener("resize", handleWindowResize);
   screen.orientation.addEventListener("change", handleWindowResize);
+
+  if(window.matchMedia("(min-width: 992px)").matches) {
+    $('.intro-zhk__panel').on('mouseleave', () => {
+      closeActivePanels();
+    })
+  }
 });
 
 function detailsCircleAnimation() {

@@ -23786,7 +23786,7 @@
         }
         let houseFloors = document.querySelectorAll(".js-house-floor");
         let mediaEvent;
-        if (window.matchMedia) mediaEvent = "click";
+        if (window.matchMedia("(max-width: 1023px)").matches) mediaEvent = "click"; else mediaEvent = "mouseenter";
         if (houseFloors) {
             const houseInfo = document.querySelectorAll(".js-house-info");
             const hosePanels = document.querySelectorAll(".js-house-info");
@@ -23818,13 +23818,19 @@
                         removeClasses([ houseFloorInfo ], "is-open");
                     }
                 }));
-            }));
-            if (houseInfo) houseInfo.forEach((item => {
-                let overlay = item.querySelector(".js-house-info-overlay");
-                overlay.addEventListener("click", (function() {
-                    item.classList.remove("is-open");
+                houseInfo.forEach((item => {
+                    let overlay = item.querySelector(".js-house-info-overlay");
+                    item.addEventListener("mouseleave", (function() {
+                        let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
+                        removeClasses([ houseFloorInfo ], "is-open");
+                        removeClasses([ houseFloorInfo ], "is-active");
+                    }));
+                    overlay.addEventListener("click", (function() {
+                        item.classList.remove("is-open");
+                    }));
                 }));
             }));
+            if (houseInfo) ;
         }
         let dragHint = document.querySelectorAll(".js-drag-hint");
         if (dragHint) dragHint.forEach((item => {
@@ -24048,13 +24054,18 @@
             };
             const observer = new IntersectionObserver(callback, options);
             observer.observe($section[0]);
-            jquery(document).on("click", ".intro-zhk__floors__item", handleFloorClick);
+            let customFloorEvent;
+            if (window.matchMedia("(max-width: 992px)").matches) customFloorEvent = "click"; else customFloorEvent = "mouseenter";
+            jquery(document).on(customFloorEvent, ".intro-zhk__floors__item", handleFloorClick);
             jquery(document).on("click", ".intro-zhk__btn-close", handlePanelClose);
             jquery(document).on("click", ".intro-zhk__btn-down", handleScrollDown);
             jquery(document).on("click", ".intro-zhk", handleOutsideClick);
             window.addEventListener("load", handleWindowLoad);
             window.addEventListener("resize", handleWindowResize);
             screen.orientation.addEventListener("change", handleWindowResize);
+            if (window.matchMedia("(min-width: 992px)").matches) jquery(".intro-zhk__panel").on("mouseleave", (() => {
+                closeActivePanels();
+            }));
         }));
         function detailsCircleAnimation() {
             let trackingTimer = null;

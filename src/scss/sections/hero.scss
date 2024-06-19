@@ -431,6 +431,19 @@
       margin-bottom: 8px;
       border: 1px solid transparent;
 
+      @media(any-hover: hover) {
+      
+
+        &:hover {
+          border: 1px solid cl(whte);
+                
+          .hero__thumbs-item-name {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
       .circle {
         --degrees: 0deg;
         position: absolute;
@@ -439,7 +452,7 @@
         inset: -1px;
         background: conic-gradient(#FFF 0turn var(--degrees), transparent 0turn);
         border-radius: 50%;
-        z-index: 1;
+        z-index: 2;
       }
 
       @media(max-width: $sm)  {
@@ -457,6 +470,36 @@
       .circle {
         animation: conicAnimation 5s linear 0s 1 forwards;
       }
+    }
+  }
+
+  &__thumbs-item-name {
+    position: absolute;
+    color: var(--color-whte);
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: cl(blck, .25);
+    backdrop-filter: blur(1px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+    cursor: pointer;
+    border-radius: 50%;
+
+
+    span {
+      display: block;
+      position: relative;
+      z-index: 2;
     }
   }
 

@@ -76,7 +76,7 @@
     overflow: visible;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 
     @media(max-width: $lg) {
       padding: 32px;
@@ -84,7 +84,7 @@
 
     @media(max-width: $md) {
       border-radius: 0;
-      padding: 82px 20px 145px;
+      padding: 82px 20px 115px;
     }
   }
 
