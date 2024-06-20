@@ -131,6 +131,11 @@
   position: relative;
   z-index: 3;
   transition: 0.25s;
+  opacity: 0;
+
+  &.is-active {
+    opacity: 1;
+  }
 }
 
 .house-info {
@@ -158,6 +163,10 @@
   &.is-open {
     opacity: 1;
     pointer-events: all;
+  }
+
+  &--fixed {
+    position: fixed;
   }
 
   &--complex {

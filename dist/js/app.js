@@ -23823,6 +23823,9 @@
                 boundingBox.top, svgBox.top;
                 boundingBox.left, svgBox.left;
                 item.addEventListener(mediaEvent, (function() {
+                    houseFloors.forEach((item => {
+                        item.classList.remove("is-active");
+                    }));
                     item.classList.add("is-active");
                     item.getBoundingClientRect();
                     let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
@@ -24073,6 +24076,9 @@
             observer.observe($section[0]);
             let customFloorEvent;
             if (window.matchMedia("(max-width: 992px)").matches) customFloorEvent = "click"; else customFloorEvent = "mouseenter";
+            jquery(document).on("click", (function(e) {
+                console.log(e.target);
+            }));
             jquery(document).on(customFloorEvent, ".intro-zhk__floors__item", handleFloorClick);
             jquery(document).on("click", ".intro-zhk__btn-close", handlePanelClose);
             jquery(document).on("click", ".intro-zhk__btn-down", handleScrollDown);
@@ -24115,7 +24121,7 @@
                 $center = $section.find(".details__wrapper");
                 $circle = $section.find(".details__circle");
                 saveCirclePosition();
-                jquery(document).on("mousemove", ".details", handleMouseMove);
+                if (window.matchMedia("(min-width: 992px)").matches) jquery(document).on("mousemove", ".details", handleMouseMove);
                 window.addEventListener("load", (() => {
                     gsapWithCSS.timeline({
                         defaults: {

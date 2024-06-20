@@ -708,6 +708,9 @@ if (houseFloors) {
     const leftPositionWithinSVG = boundingBox.left - svgBox.left;
 
     item.addEventListener(mediaEvent, function () {
+      houseFloors.forEach((item) => {
+        item.classList.remove("is-active");
+      })
       item.classList.add("is-active");
       item.getBoundingClientRect();
       let houseFloorInfo = document.querySelector(
@@ -1090,6 +1093,10 @@ $(function () {
     customFloorEvent = "mouseenter";
   }
 
+  $(document).on('click', function(e) {
+    console.log(e.target);
+  })
+
   $(document).on(customFloorEvent, ".intro-zhk__floors__item", handleFloorClick);
   $(document).on("click", ".intro-zhk__btn-close", handlePanelClose);
   $(document).on("click", ".intro-zhk__btn-down", handleScrollDown);
@@ -1146,7 +1153,9 @@ function detailsCircleAnimation() {
 
     saveCirclePosition();
 
-    $(document).on("mousemove", ".details", handleMouseMove);
+    if(window.matchMedia("(min-width: 992px)").matches) {
+      $(document).on("mousemove", ".details", handleMouseMove);
+    }
 
     window.addEventListener("load", () => {
       gsap.timeline({
