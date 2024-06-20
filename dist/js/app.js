@@ -23750,12 +23750,12 @@
             });
         }));
         gsapWithCSS.to(".about-hero__preview video", {
-            scale: .5,
+            scale: .3,
             ease: "none",
             scrollTrigger: {
                 trigger: ".about-hero__preview",
                 scrub: true,
-                start: "top bottom",
+                start: "top center",
                 pin: false,
                 invalidateOnRefresh: true,
                 toggleClass: "is-rounded"

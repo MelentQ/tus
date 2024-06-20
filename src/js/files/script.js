@@ -603,12 +603,12 @@ gsap.utils.toArray("[data-bg-parallax]").forEach(function (container) {
 });
 
 gsap.to(".about-hero__preview video", {
-  scale: 0.5,
+  scale: 0.3,
   ease: "none",
   scrollTrigger: {
     trigger: ".about-hero__preview",
     scrub: true,
-    start: "top bottom",
+    start: "top center",
     pin: false,
     invalidateOnRefresh: true,
     toggleClass: "is-rounded",
