@@ -603,15 +603,25 @@ gsap.utils.toArray("[data-bg-parallax]").forEach(function (container) {
 });
 
 gsap.to(".about-hero__preview video", {
-  scale: 0.3,
-  ease: "none",
   scrollTrigger: {
     trigger: ".about-hero__preview",
     scrub: true,
-    start: "top center",
+    start: "center center",
     pin: false,
     invalidateOnRefresh: true,
     toggleClass: "is-rounded",
+  },
+});
+
+gsap.to(".about-hero__preview video", {
+  scale: 0.5,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".about-hero__details",
+    scrub: true,
+    start: "center center",
+    pin: false,
+    invalidateOnRefresh: true,
   },
 });
 

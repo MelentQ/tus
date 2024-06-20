@@ -25686,6 +25686,8 @@ button.swiper-pagination-bullet {
     border-radius: 0;
     width: 100%;
     height: auto;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
   }
 
   .about-social__title {

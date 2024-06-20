@@ -17738,8 +17738,16 @@
                 modules: [ A11y, Thumb ],
                 slidesPerView: "auto"
             });
+            const detailsBgSlider = new swiper_core_Swiper(".js-details-bg-slider", {
+                modules: [ A11y, Navigation, EffectFade, Controller ],
+                slidesPerView: 1,
+                effect: "fade",
+                speed: 600
+            });
             detailsImagesSlider.controller.control = detailsInfoSlider;
             detailsInfoSlider.controller.control = detailsImagesSlider;
+            detailsImagesSlider.controller.control = detailsBgSlider;
+            detailsInfoSlider.controller.control = detailsBgSlider;
         }
         const neighborsSlider = document.querySelector(".js-neighbors-slider");
         if (neighborsSlider) {
@@ -23750,15 +23758,24 @@
             });
         }));
         gsapWithCSS.to(".about-hero__preview video", {
-            scale: .3,
-            ease: "none",
             scrollTrigger: {
                 trigger: ".about-hero__preview",
                 scrub: true,
-                start: "top center",
+                start: "center center",
                 pin: false,
                 invalidateOnRefresh: true,
                 toggleClass: "is-rounded"
+            }
+        });
+        gsapWithCSS.to(".about-hero__preview video", {
+            scale: .5,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".about-hero__details",
+                scrub: true,
+                start: "center center",
+                pin: false,
+                invalidateOnRefresh: true
             }
         });
         const header = document.querySelector(".header");

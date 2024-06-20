@@ -1068,8 +1068,17 @@ if (detailsInfoSliderWrapper) {
 
   });
 
+  const detailsBgSlider = new Swiper(".js-details-bg-slider", {
+    modules: [A11y, Navigation, EffectFade, Controller], // A11y - обязательный модуль
+    slidesPerView: 1,
+    effect: "fade",
+    speed: 600,
+  });
+
   detailsImagesSlider.controller.control = detailsInfoSlider;
   detailsInfoSlider.controller.control = detailsImagesSlider;
+  detailsImagesSlider.controller.control = detailsBgSlider;
+  detailsInfoSlider.controller.control = detailsBgSlider;
 }
 
 const neighborsSlider = document.querySelector(".js-neighbors-slider");
