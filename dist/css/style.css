@@ -14717,6 +14717,7 @@ img {
 .intro-zhk {
   padding-top: 89px;
   position: relative;
+  pointer-events: none;
 }
 
 .intro-zhk__lines {
@@ -14924,6 +14925,10 @@ img {
   -webkit-transform: scale(var(--initial-scale));
       -ms-transform: scale(var(--initial-scale));
           transform: scale(var(--initial-scale));
+}
+
+.intro-zhk--full-scale {
+  pointer-events: all;
 }
 
 .intro-zhk--full-scale .intro-zhk__floors {
