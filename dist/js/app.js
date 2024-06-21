@@ -23826,6 +23826,9 @@
                     houseFloors.forEach((item => {
                         item.classList.remove("is-active");
                     }));
+                    houseInfo.forEach((item => {
+                        item.classList.remove("is-open");
+                    }));
                     item.classList.add("is-active");
                     item.getBoundingClientRect();
                     let houseFloorInfo = document.querySelector(`.js-house-info[data-floor-info="${dataFloor}"]`);
@@ -23850,7 +23853,6 @@
                     }));
                 }));
             }));
-            if (houseInfo) ;
         }
         let dragHint = document.querySelectorAll(".js-drag-hint");
         if (dragHint) dragHint.forEach((item => {

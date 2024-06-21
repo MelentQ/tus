@@ -711,6 +711,9 @@ if (houseFloors) {
       houseFloors.forEach((item) => {
         item.classList.remove("is-active");
       })
+      houseInfo.forEach((item) => {
+        item.classList.remove('is-open')
+      })
       item.classList.add("is-active");
       item.getBoundingClientRect();
       let houseFloorInfo = document.querySelector(
@@ -747,10 +750,6 @@ if (houseFloors) {
       });
     });
   });
-
-  if (houseInfo) {
-
-  }
 }
 
 let dragHint = document.querySelectorAll(".js-drag-hint");
