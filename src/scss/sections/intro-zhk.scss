@@ -4,7 +4,6 @@
     linear-gradient(118.32deg, #342b29 0.67%, #1c1b1a 90.57%),
     url("../img/lines.png") top 203px center / 100% no-repeat;
   position: relative;
-  pointer-events: none;
 
   &__lines {
     position: absolute;
@@ -60,6 +59,7 @@
     transform-origin: 50% 0;
     transform: scale(0.3);
     position: relative;
+    pointer-events: none;
 
     img {
       border-radius: var(--border-radius);
@@ -205,7 +205,11 @@
   }
 
   &--full-scale {
-    pointer-events: all;
+
+
+    .intro-zhk__image {
+      pointer-events: all;
+    }
 
     .intro-zhk__floors {
       display: block;

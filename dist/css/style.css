@@ -14717,7 +14717,6 @@ img {
 .intro-zhk {
   padding-top: 89px;
   position: relative;
-  pointer-events: none;
 }
 
 .intro-zhk__lines {
@@ -14788,6 +14787,7 @@ img {
       -ms-transform: scale(0.3);
           transform: scale(0.3);
   position: relative;
+  pointer-events: none;
 }
 
 .intro-zhk__image img {
@@ -14927,7 +14927,7 @@ img {
           transform: scale(var(--initial-scale));
 }
 
-.intro-zhk--full-scale {
+.intro-zhk--full-scale .intro-zhk__image {
   pointer-events: all;
 }
 
