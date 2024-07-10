@@ -33,10 +33,15 @@
     padding: 16px;
 
     &:hover {
+
       .realized__card-details {
-        max-height: 1000px;
-        transition: max-height 0.1s ease-in;
-        margin: 30px 0;
+        visibility: visible;
+        padding-top: 30px;
+      }
+      
+      .realized__card-details-wrap {
+        // max-height: 1000px;
+        grid-template-rows: 1fr;
       }
     }
 
@@ -132,10 +137,17 @@
     }
   }
 
-  &__card-details {
-    max-height: 0;
+  &__card-details-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
     overflow: hidden;
-    transition: max-height 0.25s ease-in;
+    transition: grid-template-rows .4s;
+  }
+
+  &__card-details {
+    min-height: 0;
+    transition: 0.4s;
+    visibility: hidden;
   }
 
   &__card-detail {

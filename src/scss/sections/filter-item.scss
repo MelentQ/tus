@@ -123,6 +123,10 @@
       border-radius: 6px;
     }
 
+    @media(max-width: $xs) {
+      display: flex;
+    }
+
     &-btn {
       display: block;
       cursor: pointer;
@@ -157,6 +161,10 @@
             color: var(--color-primary);
           }
         }
+      }
+
+      @media(max-width: $xs) {
+        flex-grow: 1;
       }
     }
   }

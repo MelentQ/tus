@@ -104,63 +104,48 @@ function initSliders() {
   if (document.querySelector(".js-hero-slider")) {
     // Указываем класс нужного слайдера
     // Создаем слайдер
-    let heroSlider = new Swiper(".js-hero-slider", {
+    const heroSliderBlock = document.querySelector('.js-hero-slider');
+    const heroSliderDelay = heroSliderBlock.dataset.delay;
+    let heroSlider = new Swiper(heroSliderBlock, {
       modules: [A11y, EffectFade, Autoplay, Thumbs, Controller], // A11y - обязательный модуль
-      observer: true,
-      observeParents: true,
+      observer: false,
+      observeParents: false,
       slidesPerView: 1,
       spaceBetween: 0,
-      lazy: true,
+      loop: true,
       autoplay: {
-        delay: 5000,
+        delay: heroSliderDelay,
         disableOnInteraction: false,
       },
-      loop: true,
       allowTouchMove: false,
       watchSlidesProgress: true,
       speed: 800,
-      effect: "fade",
+      // effect: "fade",
       thumbs: {
         swiper: ".js-hero-thumbs",
       },
     });
 
     let heroThumbs = new Swiper(".js-hero-thumbs", {
-      modules: [A11y, Navigation, Autoplay, Thumbs, Controller], // A11y - обязательный модуль
-      observer: true,
-      observeParents: true,
+      modules: [A11y, Autoplay, Thumbs, Controller], // A11y - обязательный модуль
+      observer: false,
+      observeParents: false,
       direction: "horizontal",
       loop: true,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
       },
-      loop: true,
-
       slidesPerView: "auto",
       spaceBetween: 0,
       speed: 800,
-
-      navigation: {
-        prevEl: ".js-hero-thumbs-prev",
-        nextEl: ".js-hero-thumbs-next",
-      },
 
       breakpoints: {
         1024: {
           direction: "vertical",
         },
       },
-
-      on: {
-        // autoplayTimeLeft(s, time, progress) {
-        //   heroThumbsProgress.style.setProperty("--progress", 1 - progress);
-        // },
-      },
     });
-
-    // heroThumbs.controller.control = heroSlider;
-    // heroSlider.controller.control = heroThumbs;
   }
 
   if (document.querySelector(".js-hero-bottom-slider")) {
@@ -274,7 +259,7 @@ function initSliders() {
       },
       breakpoints: {
         495: {
-          slidesPerView: "auto",
+          slidesPerView: 'auto',
           spaceBetween: 16,
           loop: true,
         },

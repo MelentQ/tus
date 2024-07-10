@@ -874,6 +874,8 @@ img {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 10em;
+  padding: 4px;
+  border: 1px solid cl(whte, .5);
 
   &::-webkit-scrollbar {
     display: none;

@@ -16981,50 +16981,44 @@
         }
         function sliders_initSliders() {
             if (document.querySelector(".js-hero-slider")) {
-                new swiper_core_Swiper(".js-hero-slider", {
+                const heroSliderBlock = document.querySelector(".js-hero-slider");
+                const heroSliderDelay = heroSliderBlock.dataset.delay;
+                new swiper_core_Swiper(heroSliderBlock, {
                     modules: [ A11y, EffectFade, Autoplay, Thumb, Controller ],
-                    observer: true,
-                    observeParents: true,
+                    observer: false,
+                    observeParents: false,
                     slidesPerView: 1,
                     spaceBetween: 0,
-                    lazy: true,
+                    loop: true,
                     autoplay: {
-                        delay: 5e3,
+                        delay: heroSliderDelay,
                         disableOnInteraction: false
                     },
-                    loop: true,
                     allowTouchMove: false,
                     watchSlidesProgress: true,
                     speed: 800,
-                    effect: "fade",
                     thumbs: {
                         swiper: ".js-hero-thumbs"
                     }
                 });
                 new swiper_core_Swiper(".js-hero-thumbs", {
-                    modules: [ A11y, Navigation, Autoplay, Thumb, Controller ],
-                    observer: true,
-                    observeParents: true,
+                    modules: [ A11y, Autoplay, Thumb, Controller ],
+                    observer: false,
+                    observeParents: false,
                     direction: "horizontal",
                     loop: true,
                     autoplay: {
                         delay: 5e3,
                         disableOnInteraction: false
                     },
-                    loop: true,
                     slidesPerView: "auto",
                     spaceBetween: 0,
                     speed: 800,
-                    navigation: {
-                        prevEl: ".js-hero-thumbs-prev",
-                        nextEl: ".js-hero-thumbs-next"
-                    },
                     breakpoints: {
                         1024: {
                             direction: "vertical"
                         }
-                    },
-                    on: {}
+                    }
                 });
             }
             if (document.querySelector(".js-hero-bottom-slider")) new swiper_core_Swiper(".js-hero-bottom-slider", {
