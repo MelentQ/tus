@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240709234812">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240717232725">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -39,6 +39,27 @@
 
 <body data-gsap>
 	<div class="wrapper">
+		<div class="loader">
+			<div class="loader__logo">
+				<div class="loader__logo-top">
+					<img src="./img/loader-top.svg" alt="">
+				</div>
+				<div class="loader__logo-line"></div>
+				<div class="loader__logo-bottom">
+					<img src="./img/loader-bottom.svg" alt="">
+				</div>
+			</div>
+			<div class="loader__progress">
+				<div class="loader__progress-num">
+					<div class="loader__progress-num-item">10</div>
+					<div class="loader__progress-num-item">43</div>
+					<div class="loader__progress-num-item">79</div>
+				</div>
+				<div class="loader__progress-percent">
+					%
+				</div>
+			</div>
+		</div>
 		<header class="header">
 			<div class="container">
 				<a href="#" class="header__logo">
@@ -569,7 +590,7 @@
 											</label>
 											<label for="filter-rooms-4" class="filter-item__radio-btn">
 												<input type="checkbox" name="filter-rooms" id="filter-rooms-4">
-												<span>4</span>
+												<span>4+</span>
 											</label>
 										</div>
 									</div>
@@ -602,7 +623,7 @@
 								</div>
 								<div class="projects__filters-controls">
 									<button type="button" class="projects__filters-all" data-filter="open">Все фильтры</button>
-									<button type="reset" class="projects__filters-reset">
+									<button type="reset" class="projects__filters-reset js-reset-form">
 										Сбросить фильтры
 										<svg width="24" height="24">
 											<use xlink:href="../img/icons/icons.svg#cross"></use>
@@ -829,7 +850,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="stocks section js-marque">
+				<section class="stocks section">
 					<div class="container">
 						<button type="button" class="common-slider-prev common-slider-prev--white js-stocks-slider-prev">
 							<svg width="20" height="20">
@@ -844,7 +865,7 @@
 						<div class="stocks__wrapper">
 							<div class="stocks__slider js-stocks-slider">
 								<div class="swiper-wrapper">
-									<div class="swiper-slide">
+									<div class="swiper-slide js-marque">
 										<div class="stocks__item">
 											<div class="stocks__item-info">
 												<div class="stocks__item-details">
@@ -872,41 +893,41 @@
 													</svg>
 												</a>
 											</div>
-											<div class="stocks__item-gallery">
-												<div class="stocks__item-gallery-row stocks__item-gallery-up">
-													<div class="stocks__item-gallery-inner js-up-gallery">
-														<div class="stocks__item-img">
+											<div class="stocks__item-gallery marque-lines">
+												<div class="marque marque--up">
+													<div class="marque__inner js-up-gallery">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-05.webp" type="image/webp"><img src="../img/stocks/stock-img-05.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
 													</div>
 												</div>
-												<div class="stocks__item-gallery-row stocks__item-gallery-down">
-													<div class="stocks__item-gallery-inner js-down-gallery">
-														<div class="stocks__item-img">
+												<div class="marque marque--down">
+													<div class="marque__inner js-down-gallery">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-05.webp" type="image/webp"><img src="../img/stocks/stock-img-05.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-02.webp" type="image/webp"><img src="../img/stocks/stock-img-02.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-04.webp" type="image/webp"><img src="../img/stocks/stock-img-04.webp" alt=""></picture>
 														</div>
 													</div>
@@ -914,7 +935,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="swiper-slide">
+									<div class="swiper-slide js-marque">
 										<div class="stocks__item">
 											<div class="stocks__item-info">
 												<div class="stocks__item-details">
@@ -942,42 +963,42 @@
 													</svg>
 												</a>
 											</div>
-											<div class="stocks__item-gallery">
-												<div class="stocks__item-gallery-row stocks__item-gallery-up">
-													<div class="stocks__item-gallery-inner js-up-gallery">
-														<div class="stocks__item-img">
+											<div class="stocks__item-gallery marque-lines">
+												<div class="marque marque--up">
+													<div class="marque__inner js-up-gallery">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-05.webp" type="image/webp"><img src="../img/stocks/stock-img-05.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
-															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
+														<div class="marque__img">
+															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
 													</div>
 												</div>
-												<div class="stocks__item-gallery-row stocks__item-gallery-down">
-													<div class="stocks__item-gallery-inner js-down-gallery">
-														<div class="stocks__item-img">
+												<div class="marque marque--down">
+													<div class="marque__inner js-down-gallery">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
+														<div class="marque__img">
 															<picture><source srcset="../img/stocks/stock-img-05.webp" type="image/webp"><img src="../img/stocks/stock-img-05.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
-															<picture><source srcset="../img/stocks/stock-img-03.webp" type="image/webp"><img src="../img/stocks/stock-img-03.webp" alt=""></picture>
+														<div class="marque__img">
+															<picture><source srcset="../img/stocks/stock-img-02.webp" type="image/webp"><img src="../img/stocks/stock-img-02.webp" alt=""></picture>
 														</div>
-														<div class="stocks__item-img">
-															<picture><source srcset="../img/stocks/stock-img-01.webp" type="image/webp"><img src="../img/stocks/stock-img-01.webp" alt=""></picture>
+														<div class="marque__img">
+															<picture><source srcset="../img/stocks/stock-img-04.webp" type="image/webp"><img src="../img/stocks/stock-img-04.webp" alt=""></picture>
 														</div>
 													</div>
 												</div>
@@ -1943,6 +1964,40 @@
 						</svg>
 					</button>
 					<div class="filters__headline">Все фильтры</div>
+					<div class="filters__selected">
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">г. Казань</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">Жк Центр Парк</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">ЖК Привилегия</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">1 комната</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
 					<form class="filters__form">
 						<div class="filters__col">
 							<div class="filter-item">
@@ -2146,7 +2201,7 @@
 							<button type="submit" class="btn filters__submit">
 								Показать 36 объектов
 							</button>
-							<button type="reset" class="btn btn--icon btn--greylight filters__submit">
+							<button type="reset" class="btn btn--icon btn--greylight filters__submit js-reset-form">
 								<span class="sm-hide">Сбросить фильтры</span>
 								<span class="sm-block">Сбросить</span>
 								<svg width="24" height="24">
@@ -2168,7 +2223,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240709234812"></script>
+	<script src="js/app.min.js?_v=20240717232725"></script>
 </body>
 
 </html>

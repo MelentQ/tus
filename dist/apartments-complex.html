@@ -31,7 +31,7 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#FFFFFF">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240709234812">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240717232725">
 	<script>
 		var baseUrl = "./js/";
 	</script>
@@ -630,8 +630,9 @@
 								</div>
 								<div class="about-project__images-right">
 									<picture>
-										<source srcset="./img/apartments/about-right-sm.png" media="(max-width: 768px)">
-										<img src="./img/apartments/about-right.png" alt="">
+										<source srcset="./img/apartments/arch.png" media="(max-width: 768px)">
+										<img src="./img/apartments/arch.png" alt="">
+
 									</picture>
 									<div class="about-project__marquee about-project__marquee--outline" data-line-text>
 										Центр Парк
@@ -3092,6 +3093,40 @@
 						</svg>
 					</button>
 					<div class="filters__headline">Все фильтры</div>
+					<div class="filters__selected">
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">г. Казань</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">Жк Центр Парк</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">ЖК Привилегия</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="filters__selected-item js-selected-item">
+							<div class="filters__selected-item-name">1 комната</div>
+							<button type="button" class="filters__selected-item-remove js-selected-remove">
+								<svg width="16" height="16">
+									<use xlink:href="../img/icons/icons.svg#cross"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
 					<form class="filters__form">
 						<div class="filters__col">
 							<div class="filter-item">
@@ -3295,7 +3330,7 @@
 							<button type="submit" class="btn filters__submit">
 								Показать 36 объектов
 							</button>
-							<button type="reset" class="btn btn--icon btn--greylight filters__submit">
+							<button type="reset" class="btn btn--icon btn--greylight filters__submit js-reset-form">
 								<span class="sm-hide">Сбросить фильтры</span>
 								<span class="sm-block">Сбросить</span>
 								<svg width="24" height="24">
@@ -3317,7 +3352,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240709234812"></script>
+	<script src="js/app.min.js?_v=20240717232725"></script>
 </body>
 
 </html>

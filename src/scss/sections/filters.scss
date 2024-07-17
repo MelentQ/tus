@@ -64,6 +64,43 @@
     }
   }
 
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+
+    @media(max-width: $md)  {
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+
+    &-item {
+      padding: 10px 16px 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      border-radius: 999px;
+      background-color: #F4F4F4;
+
+      @media(max-width: $md) {
+        padding: 7px 20px;
+        font-size: 12px;
+        font-weight: 500;
+        gap: 8px;
+      }
+
+      &-remove {
+        display: block;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
   &__content {
     position: relative;
     z-index: 2;

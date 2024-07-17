@@ -12308,6 +12308,25 @@
             }));
         }
         rangeInit();
+        const formResetBtn = document.querySelectorAll(".js-reset-form");
+        if (formResetBtn.length) formResetBtn.forEach((btn => {
+            btn.addEventListener("click", (function() {
+                const rangeSlider = document.querySelectorAll(".range-slider");
+                rangeSlider.forEach((slider => {
+                    slider.noUiSlider.reset();
+                }));
+                selectedFilters.forEach((filter => {
+                    filter.remove();
+                }));
+            }));
+        }));
+        const selectedFilters = document.querySelectorAll(".js-selected-item");
+        if (selectedFilters.length) selectedFilters.forEach((filter => {
+            const filterRemoveBtn = filter.querySelector(".js-selected-remove");
+            filterRemoveBtn.addEventListener("click", (function() {
+                filter.remove();
+            }));
+        }));
         function isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
