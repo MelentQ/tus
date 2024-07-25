@@ -3393,6 +3393,9 @@ img {
   top: 50%;
   left: 30px;
   z-index: 3;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .stocks .common-slider-next {

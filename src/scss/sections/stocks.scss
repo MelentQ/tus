@@ -5,6 +5,7 @@
     top: 50%;
     left: 30px;
     z-index: 3;
+    transform: translateY(-50%);
 
     @media (max-width: $sm) {
       display: none;
