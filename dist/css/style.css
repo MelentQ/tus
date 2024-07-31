@@ -1979,11 +1979,11 @@ img {
 .slider-menu a {
   display: block;
   padding: 0 32px;
-  height: 60px;
+  height: 50px;
   border-radius: 10em;
   font-size: 16px;
   font-weight: 500;
-  line-height: 60px;
+  line-height: 50px;
   white-space: nowrap;
   color: #fff;
 }
@@ -6906,6 +6906,13 @@ img {
   overflow: hidden;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .apartment-item.is-removed .back-to-favorites {
@@ -13622,6 +13629,10 @@ img {
   display: none;
 }
 
+.about-project {
+  overflow: hidden;
+}
+
 .about-project__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13630,7 +13641,6 @@ img {
       -ms-flex-align: start;
           align-items: flex-start;
   gap: 16px;
-  overflow: hidden;
   padding-bottom: 20px;
 }
 
