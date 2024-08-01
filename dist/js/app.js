@@ -24458,8 +24458,8 @@
                     map.geoObjects.add(clusterer1);
                     const officesItems = document.querySelectorAll(".js-offices-item");
                     const officesList = document.querySelector(".js-offices-list");
-                    const mapCard = document.querySelector(".js-map-card");
-                    const mapCardClose = mapCard.querySelector(".js-map-card-close");
+                    document.querySelectorAll(".js-map-card");
+                    const mapCardsClose = document.querySelectorAll(".js-map-card-close");
                     const officesMap = document.querySelector(".js-offices-map");
                     const officesMapClose = officesMap.querySelector(".js-offices-map-close");
                     const officesItemBtns = document.querySelectorAll(".js-offices-item-on-map");
@@ -24470,19 +24470,13 @@
                         let lon = parseFloat(el.getAttribute("data-lon"));
                         map.setCenter([ lat, lon ], 15);
                     }
-                    if (window.matchMedia("(min-width: 992px)").matches) {
-                        officesItems.forEach((function(item) {
-                            item.addEventListener("click", (function() {
-                                showOnMap(item);
-                                officesList.classList.add("is-hidden");
-                                mapCard.classList.add("is-open");
-                            }));
+                    if (window.matchMedia("(min-width: 992px)").matches) officesItems.forEach((function(item) {
+                        item.addEventListener("click", (function() {
+                            showOnMap(item);
+                            officesList.classList.add("is-hidden");
+                            document.querySelector(`.js-map-card[data-id="${item.dataset.id}"]`).classList.add("is-open");
                         }));
-                        mapCardClose.addEventListener("click", (function() {
-                            officesList.classList.remove("is-hidden");
-                            mapCard.classList.remove("is-open");
-                        }));
-                    } else {
+                    })); else {
                         officesItemBtns.forEach((item => {
                             item.addEventListener("click", (function() {
                                 showOnMap(item);
@@ -24499,6 +24493,12 @@
                             }));
                         }));
                     }
+                    mapCardsClose.forEach((item => {
+                        item.addEventListener("click", (function() {
+                            officesList.classList.remove("is-hidden");
+                            item.closest(".js-map-card").classList.remove("is-open");
+                        }));
+                    }));
                 }
             }));
         }

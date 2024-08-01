@@ -67,8 +67,8 @@ if (officesMap) {
 
       const officesItems = document.querySelectorAll(".js-offices-item");
       const officesList = document.querySelector(".js-offices-list");
-      const mapCard = document.querySelector(".js-map-card");
-      const mapCardClose = mapCard.querySelector(".js-map-card-close");
+      const mapCards = document.querySelectorAll(".js-map-card");
+      const mapCardsClose = document.querySelectorAll(".js-map-card-close");
       const officesMap = document.querySelector(".js-offices-map");
       const officesMapClose = officesMap.querySelector(".js-offices-map-close");
       const officesItemBtns = document.querySelectorAll(
@@ -90,14 +90,10 @@ if (officesMap) {
           item.addEventListener("click", function () {
             showOnMap(item);
             officesList.classList.add("is-hidden");
-            mapCard.classList.add("is-open");
+            document.querySelector(`.js-map-card[data-id="${item.dataset.id}"]`).classList.add("is-open");
           });
         });
 
-        mapCardClose.addEventListener("click", function () {
-          officesList.classList.remove("is-hidden");
-          mapCard.classList.remove("is-open");
-        });
       } else {
         officesItemBtns.forEach((item) => {
           item.addEventListener("click", function () {
@@ -118,6 +114,13 @@ if (officesMap) {
           });
         });
       }
+
+      mapCardsClose.forEach((item) => {
+        item.addEventListener("click", function () {
+          officesList.classList.remove("is-hidden");
+          item.closest('.js-map-card').classList.remove("is-open");
+        });
+      })
     }
   });
 }
