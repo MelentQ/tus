@@ -17700,10 +17700,16 @@
                 nextEl: ".js-steps-slider-next"
             }
         });
-        const detailsInfoSliderWrapper = document.querySelector(".js-details-info-slider");
-        if (detailsInfoSliderWrapper) {
-            const detailsInfoSlider = new swiper_core_Swiper(".js-details-info-slider", {
+        document.querySelector(".js-details-info-slider");
+        if (document.querySelector(".js-details-section")) {
+            const detailsBgSlider = new swiper_core_Swiper(".js-details-bg-slider", {
                 modules: [ A11y, Navigation, EffectFade, Controller ],
+                slidesPerView: 1,
+                effect: "fade",
+                speed: 600
+            });
+            const detailsInfoSlider = new swiper_core_Swiper(".js-details-info-slider", {
+                modules: [ A11y, EffectFade, Controller ],
                 slidesPerView: 1,
                 effect: "fade",
                 autoHeight: true,
@@ -17748,19 +17754,15 @@
                 }
             });
             new swiper_core_Swiper(".js-details-thumbs-slider", {
-                modules: [ A11y, Thumb ],
+                modules: [ A11y, Thumb, Controller ],
                 slidesPerView: "auto"
             });
-            const detailsBgSlider = new swiper_core_Swiper(".js-details-bg-slider", {
-                modules: [ A11y, Navigation, EffectFade, Controller ],
-                slidesPerView: 1,
-                effect: "fade",
-                speed: 600
-            });
+            detailsImagesSlider.on("slideChange", (() => {
+                detailsInfoSlider.slideTo(detailsImagesSlider.realIndex);
+            }));
             detailsImagesSlider.controller.control = detailsInfoSlider;
             detailsInfoSlider.controller.control = detailsImagesSlider;
             detailsImagesSlider.controller.control = detailsBgSlider;
-            detailsInfoSlider.controller.control = detailsBgSlider;
         }
         const neighborsSlider = document.querySelector(".js-neighbors-slider");
         if (neighborsSlider) {
@@ -23902,6 +23904,23 @@
                 }
             }));
         }
+        document.addEventListener("click", (function(e) {
+            let target = e.target;
+            console.log(target);
+            if (target == document.querySelector(".js-video")) {
+                const videoSection = document.querySelector(".js-video");
+                const videoPlayer = videoSection.querySelector("video");
+                if (videoSection.classList.contains("is-playing")) {
+                    videoPlayer.pause();
+                    videoSection.classList.remove("is-playing");
+                    videoSection.classList.add("is-paused");
+                } else {
+                    videoPlayer.play();
+                    videoSection.classList.add("is-playing");
+                    videoSection.classList.remove("is-paused");
+                }
+            }
+        }));
         const filterSearch = document.querySelector(".js-filter-search");
         if (filterSearch) {
             const filterSearchBtn = document.querySelector(".js-filter-search-btn");

@@ -764,6 +764,8 @@ if (dragHint) {
 
 const videoSection = document.querySelector(".js-video");
 
+
+
 if (videoSection) {
   const videoPlayCoursor = document.querySelector(".js-videoplay-mouse");
   const videoPlayer = videoSection.querySelector("video");
@@ -799,6 +801,28 @@ if (videoSection) {
     }
   });
 }
+
+document.addEventListener('click', function(e) {
+  let target = e.target;
+  console.log(target);
+
+  if(target == document.querySelector('.js-video')) {
+    const videoSection = document.querySelector('.js-video');
+    const videoPlayer = videoSection.querySelector('video');
+
+    if (videoSection.classList.contains("is-playing")) {
+
+      videoPlayer.pause();
+      videoSection.classList.remove("is-playing");
+      videoSection.classList.add("is-paused");
+    } else {
+
+      videoPlayer.play();
+      videoSection.classList.add("is-playing");
+      videoSection.classList.remove("is-paused");
+    }
+  }
+})
 
 const filterSearch = document.querySelector(".js-filter-search");
 

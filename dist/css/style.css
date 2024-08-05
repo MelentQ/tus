@@ -1019,6 +1019,32 @@ body::after {
   margin-bottom: 10px;
 }
 
+.popup-video {
+  max-width: 1496px;
+  width: 100%;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.popup-video__media {
+  width: 100%;
+}
+
+.popup-video__media.is-playing button {
+  display: none;
+}
+
+.popup-video__media button {
+  pointer-events: none;
+}
+
+.popup-video__media video {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
 .popup-gallery {
   max-width: 100%;
   width: 100%;
@@ -13982,7 +14008,7 @@ img {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 178px;
+  font-size: 240px;
   line-height: 1;
   letter-spacing: -0.5px;
   color: var(--color-grey-light);
